@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,8 +48,8 @@ namespace capapresentacion
             {
                 con.Open();
                SqlCommand query = new SqlCommand("SELECT* FROM Tareas where id_tecnico=@id order by fecha_creacion desc", con);
-                query.Parameters.Add("@id", SqlDbType.VarChar).Value = DLogin.id;
-
+                query.Parameters.Add("@id", SqlDbType.VarChar).Value = DLoginStatico.id;
+                Console.WriteLine(DLoginStatico.id+" este es el id");
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();

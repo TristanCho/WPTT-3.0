@@ -19,6 +19,7 @@ namespace capapresentacion
     {
 
         SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+        
         //SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=ilernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
         
         //TODO ENCAPSULACIÓN EN CAPA DE DATOS Y NO DDUPLICAR LA CONEXIÓN
@@ -30,49 +31,19 @@ namespace capapresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             NLogin login = new NLogin();
+            //Console.WriteLine(login.logueo(usuario.Text, Dns.GetHostName()).Usuario);
+            // Console.WriteLine(login.logueo(usuario.Text, Dns.GetHostName()).Hostname);
+            if (login.logueo(usuario.Text, Dns.GetHostName()))
+            {
+                DLoginStatico.sacaTecnico(usuario.Text);
+                FrmPrincipal principal = new FrmPrincipal();
+                principal.Show();
+                this.Hide();
+            };
             //sacamos el hostname
-            //String hostName = Dns.GetHostName();
+            //String hostName = ;
             //Console.WriteLine(hostName);
-            try
-            {
-                con.Open();
-                SqlCommand query = new SqlCommand("select count(*) as existe from tecnicos where usuario=@usuario and password=@password", con);
-                query.Parameters.AddWithValue("@usuario", usuario.Text);
-                query.Parameters.AddWithValue("@password", password.Text);
-                //para el comando
-
-                String existe = "";
-
-                using (SqlDataReader oReader = query.ExecuteReader())
-                {
-                    while (oReader.Read())
-                    {                       
-                        existe = oReader["existe"].ToString();
-                        Console.WriteLine(usuario.Text+" existe");
-                    }
-                }
-                if (existe.Equals("1"))
-                {
-                    //Console.WriteLine(usuario.Text);
-                    FrmPrincipal principal = new FrmPrincipal();
-
-                    NLogin nl = new NLogin();
-                    nl.informacionLogin(usuario.Text, "aqui ira la base de datos");
-
-                    this.Hide();
-                    principal.Show();
-
-                }
-                else
-                {
-                    this.mensajeerror("El usuario o contraseña no coinciden");
-                }
-                con.Close();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("ecxcep");
-            }            
+          
         }
 
         private void mensajeerror(string mensaje)

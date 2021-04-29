@@ -12,9 +12,17 @@ namespace capanegocio
     {        
         public void informacionLogin(String usuario,String conexionBD)
         {
-            DLogin.usuario = usuario;
-            DLogin.conexionBD = conexionBD;
-            DLogin.sacaTecnico(usuario);            
+            DLoginStatico.usuario = usuario;
+            DLoginStatico.conexionBD = conexionBD;
+            DLoginStatico.sacaTecnico(usuario);            
+        }
+
+        public bool logueo(string usuario, string hostname)
+        {
+            DLogin login = new DLogin(usuario,hostname);
+           // login.Hostname = hostname;
+           // login.Usuario = usuario;
+            return login.login();
         }
     }
 }

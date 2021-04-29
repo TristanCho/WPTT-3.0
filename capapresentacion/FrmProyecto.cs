@@ -55,7 +55,7 @@ namespace capapresentacion
         public void mostrarproyectos()
         {
             this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
-            this.ocultarcolumnas();
+            //this.ocultarcolumnas();
             this.btnEliminarProyecto.Visible = true;
             this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListProyectos.Rows.Count);
         }

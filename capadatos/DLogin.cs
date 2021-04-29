@@ -8,50 +8,75 @@ using System.Threading.Tasks;
 
 namespace capadatos
 {
-   public static class DLogin
+    public class DLogin
     {
-        public static string usuario;
-        public static string conexionBD;
-        public static string tecnico;
-        public static string id;
+        private string hostname;
+        private string usuario;
 
-        public static void sacaTecnico(String user)
+        public string Hostname { get => hostname; set => hostname = value; }
+        public string Usuario { get => usuario; set => usuario = value; }
+
+        public DLogin(string usuario, string hostname)
         {
+            this.Hostname = hostname;
+            this.Usuario = usuario;
+        }
 
-            DataTable dtresultado = new DataTable("tecnicos");
+        public bool login()
+        {
             SqlConnection SqlCon = new SqlConnection();
             try
             {
+                //con.Open();
                 SqlCon.ConnectionString = Conexion.cn;
                 SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_tecnico";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand query = new SqlCommand("select count(*) as existe from Empleados where usuario=@usuario and maquina=@maquina", SqlCon);
+                query.Parameters.AddWithValue("@usuario", usuario);
+                query.Parameters.AddWithValue("@maquina", hostname);
+                //para el comando
 
-                //consulta del usuario
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@usuario";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = user;
-                SqlCmd.Parameters.Add(ParTextobuscar);
+                String existe = "";
 
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                using (SqlDataReader oReader = query.ExecuteReader())
+                {
+                    while (oReader.Read())
+                    {
+                        existe = oReader["existe"].ToString();
+                        Console.WriteLine(existe+" existe");
+                    }
+                }
+                if (existe.Equals("1"))
+                {
+                    Console.WriteLine("es igual a 1, devuelve true");
 
-                tecnico = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
-                id = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
+                    return true;
+
+
+                }
+                else
+                {
+                    // this.mensajeerror("El usuario o contraseña no coinciden");
+                }
+
             }
             catch (Exception)
             {
-                dtresultado = null;
+                Console.WriteLine("excepcion");
             }
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
             }
+            Console.WriteLine("devuelve false");
+            Console.WriteLine(hostname);
+            Console.WriteLine(usuario);
+            return false;
+        }
+
+
+        public DLogin()
+        {
         }
     }
 }
