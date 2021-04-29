@@ -63,7 +63,7 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             this.dataListProyectos.Columns[0].Visible = false;
-            this.dataListProyectos.Columns[1].Visible = false;
+            //this.dataListProyectos.Columns[1].Visible = false;
             this.btnEliminarProyecto.Enabled = false;
             this.cbEliminar.Checked = false;
         }

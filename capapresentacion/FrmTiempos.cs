@@ -62,7 +62,7 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             this.dataListTiempos.Columns[0].Visible = false;
-            this.dataListTiempos.Columns[1].Visible = false;
+            //this.dataListTiempos.Columns[1].Visible = false;
             this.btnEliminarTiempo.Enabled = false;
             this.cbEliminar.Checked = false;
         }
