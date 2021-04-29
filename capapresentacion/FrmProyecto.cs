@@ -66,7 +66,6 @@ namespace capapresentacion
             //this.dataListProyectos.Columns[1].Visible = false;
             this.btnEliminarProyecto.Enabled = false;
             this.cbEliminar.Checked = false;
-
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
