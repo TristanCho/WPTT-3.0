@@ -31,6 +31,7 @@ namespace capapresentacion
         {
             comboboxProyecto.Items.AddRange(NTarea.mostrarProyectoCombobox().ToArray());
             comboboxProyecto.SelectedIndex = 0;
+
         }
 
         public void mostrarEstadoCombobox()
