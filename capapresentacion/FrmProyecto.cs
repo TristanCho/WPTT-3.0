@@ -133,8 +133,8 @@ namespace capapresentacion
 
                 detalleProyecto.visualizaDatos(
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),                    
+                    Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),                    
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
-                    Convert.ToString(this.dataListProyectos.CurrentRow.Cells["descripcion"].Value),
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
                     );

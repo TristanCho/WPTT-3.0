@@ -22,24 +22,24 @@ namespace capanegocio
             objeto.Textobuscar = textobuscar;
             return objeto.buscarproyecto(objeto);
         }
-        public static string insertarproyecto(string titulo, string descripcion,string observaciones, DateTime fecha)
+        public static string insertarproyecto(string titulo, string codigo_proyecto, string observaciones, DateTime fecha)
         {
             DProyecto objeto = new DProyecto();
             objeto.Titulo = titulo;
             objeto.Observaciones = observaciones;
             objeto.Fecha = fecha;
-            objeto.Descripcion = descripcion;
+            objeto.Codigo_proyecto = codigo_proyecto;
 
             return objeto.insertarproyecto(objeto);
         }
 
-        public static string editarproyecto(int id, string titulo,string descripcion ,string observaciones, DateTime fecha)
+        public static string editarproyecto(int id, string titulo,string codigo_proyecto ,string observaciones, DateTime fecha)
         {
             DProyecto objeto = new DProyecto();
             objeto.Id = id;
             objeto.Titulo = titulo;
             objeto.Observaciones = observaciones;
-            objeto.Descripcion = descripcion;
+            objeto.Codigo_proyecto = codigo_proyecto;
             objeto.Fecha = fecha;
 
             return objeto.editarproyecto(objeto);

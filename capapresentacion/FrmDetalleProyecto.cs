@@ -40,7 +40,7 @@ namespace capapresentacion
             this.txtIdProyecto.Text = string.Empty;
             this.txtTituloProyecto.Text = string.Empty;
             this.txtObservacionesProyecto.Text = string.Empty;
-            this.txtDescripcionProyecto.Text = string.Empty;
+            //this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
         }
         private void habilitar(bool valor)
@@ -48,7 +48,7 @@ namespace capapresentacion
             this.txtIdProyecto.ReadOnly = true;
             this.txtTituloProyecto.ReadOnly = !valor;
             this.txtObservacionesProyecto.ReadOnly = !valor;
-            this.txtDescripcionProyecto.ReadOnly = !valor;
+            //this.txtDescripcionProyecto.ReadOnly = !valor;
             this.dtFechaProyecto.Enabled = valor;            
         }
         
@@ -59,7 +59,7 @@ namespace capapresentacion
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
             txtObservacionesProyecto.Enabled = estado;
-            txtDescripcionProyecto.Enabled = estado;
+            //txtDescripcionProyecto.Enabled = estado;
         }
 
         private void botones()
@@ -114,7 +114,7 @@ namespace capapresentacion
         public void crearProyecto() {
             esnuevo = true;
             txtObservacionesProyecto.Enabled = true;
-            txtDescripcionProyecto.Enabled = true;
+           // txtDescripcionProyecto.Enabled = true;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
@@ -137,7 +137,7 @@ namespace capapresentacion
                     {
                         rpta = NProyecto.insertarproyecto(
                             this.txtTituloProyecto.Text.Trim().ToUpper(),
-                            this.txtDescripcionProyecto.Text.Trim(),
+                           this.txtcodigoProyecto.Text.Trim(),
                             this.txtObservacionesProyecto.Text.Trim(),
                             Convert.ToDateTime(this.dtFechaProyecto.Value));
                     }
@@ -147,7 +147,7 @@ namespace capapresentacion
                         rpta = NProyecto.editarproyecto(
                             Convert.ToInt32(this.txtIdProyecto.Text),
                             this.txtTituloProyecto.Text.Trim().ToUpper(), 
-                            this.txtDescripcionProyecto.Text.Trim(), 
+                           this.txtcodigoProyecto.Text.Trim(), 
                             this.txtObservacionesProyecto.Text.Trim(), 
                             Convert.ToDateTime(this.dtFechaProyecto.Value));
                     }
@@ -252,12 +252,13 @@ namespace capapresentacion
 
         }
 
-        public void visualizaDatos(string id, string proyecto, string descripcion, string observaciones, string fecha_creacion)
+        public void visualizaDatos(string id, string proyecto, string codigo_proyecto, string observaciones, string fecha_creacion)
         {
             this.txtIdProyecto.Text = id;
             this.txtTituloProyecto.Text = proyecto;
             this.txtObservacionesProyecto.Text = observaciones;
-            this.txtDescripcionProyecto.Text = descripcion;
+            this.txtcodigoProyecto.Text = codigo_proyecto;
+            //this.txtDescripcionProyecto.Text = descripcion;
             this.dtFechaProyecto.Text = fecha_creacion;
         }
 
