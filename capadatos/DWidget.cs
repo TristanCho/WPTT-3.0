@@ -38,8 +38,6 @@ namespace capadatos
                 SqlCmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
-
-
             }
             catch (Exception)
             {
@@ -48,7 +46,6 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
 
             return dtresultado;
@@ -61,7 +58,6 @@ namespace capadatos
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-
                 SqlCon.ConnectionString = Conexion.cn;
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
@@ -81,8 +77,6 @@ namespace capadatos
                 sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
 
                 idTarea = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
-
-
             }
             catch (Exception)
             {
@@ -90,10 +84,8 @@ namespace capadatos
             }
             finally
             {
-
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
-
             return idTarea;
         }
 
@@ -121,8 +113,6 @@ namespace capadatos
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
             }
             catch (Exception)
             {
@@ -131,7 +121,6 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
 
             return dtresultado;
@@ -151,17 +140,7 @@ namespace capadatos
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Definición de atributos
-                //TODO pendiente por comprobar si es necesario pasar el id 
-                //id
-                /*
-                SqlParameter ParId = new SqlParameter();
-                ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.NText;
-                ParId.Direction = ParameterDirection.Output;
-                ParId.Value = id;
-                SqlCmd.Parameters.Add(ParId);
-                */
-
+              
                 //id_tarea
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@tarea";
@@ -180,8 +159,7 @@ namespace capadatos
                 //ParFecha.Size = 1024;
                 ParFechaInicio.Value = fechaInicio;
                 SqlCmd.Parameters.Add(ParFechaInicio);
-                
-                
+                                
                 //fecha_fin
                 SqlParameter ParFechaFin = new SqlParameter();
                 ParFechaFin.ParameterName = "@fecha_fin";
@@ -189,8 +167,7 @@ namespace capadatos
                 //ParFecha.Size = 1024;
                 ParFechaFin.Value = fechaFin;
                 SqlCmd.Parameters.Add(ParFechaFin);
-                
-                
+                                
                 rpta = SqlCmd.ExecuteNonQuery() == 2 ? "OK" : "No es posible insertar el tiempo";
 
                 return rpta;
@@ -202,7 +179,6 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
             return rpta;
         }
@@ -230,7 +206,6 @@ namespace capadatos
                 ParId.Direction = ParameterDirection.Output;//TODO pendiente verificar si es necesario especificar el parámetro de salida
                 SqlCmd.Parameters.Add(ParId);
 
-
                 //id_tarea
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@id_tarea";
@@ -239,7 +214,6 @@ namespace capadatos
                 //TODO Posiblemente tenga que cambiar el tipo de datos a string por que desde el combobox me llegará un string
                 SqlCmd.Parameters.Add(ParIdTarea);
 
-
                 //fecha_inicio
                 SqlParameter ParFechaInicio = new SqlParameter();
                 ParFechaInicio.ParameterName = "@fecha_inicio";
@@ -247,7 +221,6 @@ namespace capadatos
                 //ParFecha.Size = 1024;
                 ParFechaInicio.Value = tiempo.Fecha_inicio;
                 SqlCmd.Parameters.Add(ParFechaInicio);
-
 
                 //fecha_fin
                 SqlParameter ParFechaFin = new SqlParameter();
@@ -265,7 +238,6 @@ namespace capadatos
                 ParObservaciones.Value = tiempo.Observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
 
-
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el Registro de tiempo";
 
                 return rpta;
@@ -277,7 +249,6 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
             return rpta;
         }
@@ -316,7 +287,6 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
             return rpta;
         }

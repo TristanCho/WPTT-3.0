@@ -19,7 +19,6 @@ namespace capanegocio
         {
             DWidget dw = new DWidget();
             dw.insertartiempo(titulo,fechaInicio,fechaFin);
-
         }
     }
 }
