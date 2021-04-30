@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace capadatos
 {
@@ -11,5 +12,11 @@ namespace capadatos
         //public static string cn = "data source=MSI\\SQLMSI; initial catalog=IlernaV2;user id=winplus;password=Pbjjajlp5h4m1";//Casa
         public static string cn = "data source=PCCRISTHIAN\\SQLEXPRESS; initial catalog=DesarrollosTime;user id=winplus;password=Pbjjajlp5h4m1";//iest
     //comentario
+    //Hola
+
+
+
+
+
     }
 }
