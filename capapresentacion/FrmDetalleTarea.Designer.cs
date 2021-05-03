@@ -51,7 +51,7 @@ namespace capapresentacion
             this.lEdicion = new System.Windows.Forms.Label();
             this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Tec = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -62,19 +62,19 @@ namespace capapresentacion
             this.label9 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboboxAplicacion = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboboxModulo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDeteccion = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtReferencia = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtEstimado = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtSolucion = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.comboboxPrioridad = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -290,7 +290,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
             this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(338, 5);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(120, 165);
             this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
@@ -303,22 +303,22 @@ namespace capapresentacion
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(103, 381);
+            this.comboBox1.Location = new System.Drawing.Point(126, 381);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(112, 21);
             this.comboBox1.TabIndex = 60;
             // 
-            // label4
+            // Tec
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 384);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 18);
-            this.label4.TabIndex = 59;
-            this.label4.Text = "Proyecto:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Tec.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Tec.AutoSize = true;
+            this.Tec.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tec.Location = new System.Drawing.Point(12, 384);
+            this.Tec.Name = "Tec";
+            this.Tec.Size = new System.Drawing.Size(115, 18);
+            this.Tec.TabIndex = 59;
+            this.Tec.Text = "T. Detección:";
+            this.Tec.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox2
             // 
@@ -335,11 +335,11 @@ namespace capapresentacion
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(285, 384);
+            this.label6.Location = new System.Drawing.Point(267, 384);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 18);
+            this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 61;
-            this.label6.Text = "Proyecto:";
+            this.label6.Text = "T. Solución:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox3
@@ -357,17 +357,17 @@ namespace capapresentacion
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(551, 384);
+            this.label7.Location = new System.Drawing.Point(510, 384);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 18);
+            this.label7.Size = new System.Drawing.Size(133, 18);
             this.label7.TabIndex = 63;
-            this.label7.Text = "Proyecto:";
+            this.label7.Text = "T. Verificiación:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.Location = new System.Drawing.Point(103, 426);
+            this.textBox1.Location = new System.Drawing.Point(126, 424);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(112, 20);
@@ -378,11 +378,11 @@ namespace capapresentacion
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(38, 425);
+            this.label8.Location = new System.Drawing.Point(18, 423);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 18);
+            this.label8.Size = new System.Drawing.Size(110, 18);
             this.label8.TabIndex = 65;
-            this.label8.Text = "Tarea:";
+            this.label8.Text = "F Detección:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBox2
@@ -399,11 +399,11 @@ namespace capapresentacion
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(311, 425);
+            this.label9.Location = new System.Drawing.Point(268, 426);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 18);
+            this.label9.Size = new System.Drawing.Size(102, 18);
             this.label9.TabIndex = 67;
-            this.label9.Text = "Tarea:";
+            this.label9.Text = "F. Solución:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBox3
@@ -420,23 +420,23 @@ namespace capapresentacion
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(577, 425);
+            this.label10.Location = new System.Drawing.Point(516, 426);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 18);
+            this.label10.Size = new System.Drawing.Size(127, 18);
             this.label10.TabIndex = 69;
-            this.label10.Text = "Tarea:";
+            this.label10.Text = "F. Verificación:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox4
+            // comboboxAplicacion
             // 
-            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.comboboxAplicacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(343, 96);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(145, 21);
-            this.comboBox4.TabIndex = 72;
+            this.comboboxAplicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxAplicacion.FormattingEnabled = true;
+            this.comboboxAplicacion.Location = new System.Drawing.Point(343, 96);
+            this.comboboxAplicacion.Name = "comboboxAplicacion";
+            this.comboboxAplicacion.Size = new System.Drawing.Size(145, 21);
+            this.comboboxAplicacion.TabIndex = 72;
             // 
             // label11
             // 
@@ -451,14 +451,14 @@ namespace capapresentacion
             this.label11.Text = "Aplicacion:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox5
+            // comboboxModulo
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(103, 123);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(122, 21);
-            this.comboBox5.TabIndex = 74;
+            this.comboboxModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxModulo.FormattingEnabled = true;
+            this.comboboxModulo.Location = new System.Drawing.Point(103, 123);
+            this.comboboxModulo.Name = "comboboxModulo";
+            this.comboboxModulo.Size = new System.Drawing.Size(122, 21);
+            this.comboboxModulo.TabIndex = 74;
             // 
             // label12
             // 
@@ -471,36 +471,36 @@ namespace capapresentacion
             this.label12.Text = "Modulo:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox4
+            // txtDeteccion
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(612, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(142, 20);
-            this.textBox4.TabIndex = 76;
+            this.txtDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDeteccion.Location = new System.Drawing.Point(612, 97);
+            this.txtDeteccion.Name = "txtDeteccion";
+            this.txtDeteccion.ReadOnly = true;
+            this.txtDeteccion.Size = new System.Drawing.Size(142, 20);
+            this.txtDeteccion.TabIndex = 76;
             // 
             // label13
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(500, 97);
+            this.label13.Location = new System.Drawing.Point(494, 97);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(116, 18);
             this.label13.TabIndex = 75;
             this.label13.Text = "V. Detección:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox5
+            // txtReferencia
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtReferencia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(343, 127);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(145, 20);
-            this.textBox5.TabIndex = 78;
+            this.txtReferencia.Location = new System.Drawing.Point(343, 127);
+            this.txtReferencia.Name = "txtReferencia";
+            this.txtReferencia.ReadOnly = true;
+            this.txtReferencia.Size = new System.Drawing.Size(145, 20);
+            this.txtReferencia.TabIndex = 78;
             // 
             // label14
             // 
@@ -515,68 +515,68 @@ namespace capapresentacion
             this.label14.Text = "Referencias:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox6
+            // txtEstimado
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(612, 43);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(142, 20);
-            this.textBox6.TabIndex = 80;
+            this.txtEstimado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEstimado.Location = new System.Drawing.Point(612, 43);
+            this.txtEstimado.Name = "txtEstimado";
+            this.txtEstimado.ReadOnly = true;
+            this.txtEstimado.Size = new System.Drawing.Size(142, 20);
+            this.txtEstimado.TabIndex = 80;
             // 
             // label15
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(494, 45);
+            this.label15.Location = new System.Drawing.Point(497, 45);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(113, 18);
             this.label15.TabIndex = 79;
             this.label15.Text = " T Estimado:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox7
+            // txtSolucion
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(612, 126);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(142, 20);
-            this.textBox7.TabIndex = 82;
+            this.txtSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSolucion.Location = new System.Drawing.Point(612, 126);
+            this.txtSolucion.Name = "txtSolucion";
+            this.txtSolucion.ReadOnly = true;
+            this.txtSolucion.Size = new System.Drawing.Size(142, 20);
+            this.txtSolucion.TabIndex = 82;
             // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(503, 126);
+            this.label16.Location = new System.Drawing.Point(506, 126);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 18);
             this.label16.TabIndex = 81;
             this.label16.Text = "V. Solución:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox6
+            // comboboxPrioridad
             // 
-            this.comboBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(612, 69);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(142, 21);
-            this.comboBox6.TabIndex = 84;
+            this.comboboxPrioridad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboboxPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxPrioridad.FormattingEnabled = true;
+            this.comboboxPrioridad.Location = new System.Drawing.Point(612, 69);
+            this.comboboxPrioridad.Name = "comboboxPrioridad";
+            this.comboboxPrioridad.Size = new System.Drawing.Size(142, 21);
+            this.comboboxPrioridad.TabIndex = 84;
             // 
             // label17
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(535, 72);
+            this.label17.Location = new System.Drawing.Point(523, 72);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(73, 18);
+            this.label17.Size = new System.Drawing.Size(87, 18);
             this.label17.TabIndex = 83;
-            this.label17.Text = "Modulo:";
+            this.label17.Text = "Prioridad:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmDetalleTarea
@@ -585,19 +585,19 @@ namespace capapresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(766, 498);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.comboboxPrioridad);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtSolucion);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtEstimado);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtReferencia);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtDeteccion);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.comboboxModulo);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboboxAplicacion);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label10);
@@ -610,7 +610,7 @@ namespace capapresentacion
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Tec);
             this.Controls.Add(this.btnEliminarProyecto);
             this.Controls.Add(this.lEdicion);
             this.Controls.Add(this.comboboxEstado);
@@ -662,7 +662,7 @@ namespace capapresentacion
         private System.Windows.Forms.Label lEdicion;
         private System.Windows.Forms.Button btnEliminarProyecto;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Tec;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -673,19 +673,19 @@ namespace capapresentacion
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboboxAplicacion;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboboxModulo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtDeteccion;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtEstimado;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtSolucion;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox comboboxPrioridad;
         private System.Windows.Forms.Label label17;
     }
 }
