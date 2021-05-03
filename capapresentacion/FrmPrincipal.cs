@@ -346,7 +346,7 @@ private void quitarBordes()
 
         private void miminizar_Click(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Normal)
+            if (WindowState == FormWindowState.Normal || WindowState == FormWindowState.Maximized)
             {
                 this.WindowState = FormWindowState.Minimized;
             }
@@ -357,6 +357,18 @@ private void quitarBordes()
             Widget widget = new Widget();
             widget.Show();
             this.cierraForm();
+        }
+
+        private void maximizar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
     }
 }

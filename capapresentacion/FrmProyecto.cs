@@ -22,6 +22,7 @@ namespace capapresentacion
         {
             InitializeComponent();
             btnEliminarProyecto.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            activaCheckBox();
             mostrarproyectos();
             quitarBordes();
         }
@@ -56,7 +57,7 @@ namespace capapresentacion
         {
             this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
             //this.ocultarcolumnas();
-            this.btnEliminarProyecto.Visible = true;
+            //this.btnEliminarProyecto.Visible = true;
             this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListProyectos.Rows.Count);
         }
 
@@ -100,15 +101,20 @@ namespace capapresentacion
 
         private void cbEliminar_CheckedChanged_1(object sender, EventArgs e)
         {
+            activaCheckBox();
+        }
+
+        private void activaCheckBox()
+        {
             if (this.cbEliminar.Checked)
             {
                 this.dataListProyectos.Columns[0].Visible = true;
-                this.btnEliminarProyecto.Enabled = true;
+                this.btnEliminarProyecto.Visible = true;
             }
             else
             {
                 this.dataListProyectos.Columns[0].Visible = false;
-                this.btnEliminarProyecto.Enabled = false;
+                this.btnEliminarProyecto.Visible = false;
             }
         }
 

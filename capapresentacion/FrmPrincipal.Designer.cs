@@ -45,6 +45,7 @@ namespace capapresentacion
             this.iconoFormularioActual = new FontAwesome.Sharp.IconPictureBox();
             this.textoInicio = new System.Windows.Forms.Label();
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.maximizar = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reloj_image)).BeginInit();
@@ -72,14 +73,15 @@ namespace capapresentacion
             this.widgetBoton.BackgroundImage = global::capapresentacion.Properties.Resources.flechas;
             this.widgetBoton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.widgetBoton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.widgetBoton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.widgetBoton.FlatAppearance.BorderSize = 0;
             this.widgetBoton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.widgetBoton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.widgetBoton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.widgetBoton.ForeColor = System.Drawing.Color.Transparent;
-            this.widgetBoton.Location = new System.Drawing.Point(72, 477);
+            this.widgetBoton.Location = new System.Drawing.Point(0, 524);
             this.widgetBoton.Name = "widgetBoton";
-            this.widgetBoton.Size = new System.Drawing.Size(49, 43);
+            this.widgetBoton.Size = new System.Drawing.Size(200, 43);
             this.widgetBoton.TabIndex = 6;
             this.widgetBoton.UseVisualStyleBackColor = false;
             this.widgetBoton.Click += new System.EventHandler(this.widgetBoton_Click);
@@ -178,6 +180,7 @@ namespace capapresentacion
             // panelTitulo
             // 
             this.panelTitulo.BackColor = System.Drawing.Color.Chocolate;
+            this.panelTitulo.Controls.Add(this.maximizar);
             this.panelTitulo.Controls.Add(this.txtnombreusuario);
             this.panelTitulo.Controls.Add(this.miminizar);
             this.panelTitulo.Controls.Add(this.cerrar);
@@ -186,7 +189,7 @@ namespace capapresentacion
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(200, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(729, 50);
+            this.panelTitulo.Size = new System.Drawing.Size(784, 50);
             this.panelTitulo.TabIndex = 1;
             this.panelTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitulo_Paint);
             this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmPrincipal_MouseDown);
@@ -202,27 +205,29 @@ namespace capapresentacion
             // 
             // miminizar
             // 
+            this.miminizar.Dock = System.Windows.Forms.DockStyle.Right;
             this.miminizar.FlatAppearance.BorderSize = 0;
             this.miminizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.miminizar.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miminizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.miminizar.Location = new System.Drawing.Point(672, 3);
+            this.miminizar.Location = new System.Drawing.Point(736, 0);
             this.miminizar.Name = "miminizar";
-            this.miminizar.Size = new System.Drawing.Size(24, 27);
-            this.miminizar.TabIndex = 26;
+            this.miminizar.Size = new System.Drawing.Size(24, 50);
+            this.miminizar.TabIndex = 29;
             this.miminizar.Text = "-";
             this.miminizar.UseVisualStyleBackColor = true;
             this.miminizar.Click += new System.EventHandler(this.miminizar_Click);
             // 
             // cerrar
             // 
+            this.cerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.cerrar.FlatAppearance.BorderSize = 0;
             this.cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cerrar.Font = new System.Drawing.Font("Arial Black", 9F);
             this.cerrar.ForeColor = System.Drawing.SystemColors.Control;
-            this.cerrar.Location = new System.Drawing.Point(702, 3);
+            this.cerrar.Location = new System.Drawing.Point(760, 0);
             this.cerrar.Name = "cerrar";
-            this.cerrar.Size = new System.Drawing.Size(24, 27);
+            this.cerrar.Size = new System.Drawing.Size(24, 50);
             this.cerrar.TabIndex = 25;
             this.cerrar.Text = "x";
             this.cerrar.UseVisualStyleBackColor = true;
@@ -256,15 +261,30 @@ namespace capapresentacion
             this.panelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormulario.Location = new System.Drawing.Point(200, 50);
             this.panelFormulario.Name = "panelFormulario";
-            this.panelFormulario.Size = new System.Drawing.Size(729, 517);
+            this.panelFormulario.Size = new System.Drawing.Size(784, 517);
             this.panelFormulario.TabIndex = 2;
             this.panelFormulario.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // maximizar
+            // 
+            this.maximizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.maximizar.FlatAppearance.BorderSize = 0;
+            this.maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maximizar.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maximizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.maximizar.Location = new System.Drawing.Point(712, 0);
+            this.maximizar.Name = "maximizar";
+            this.maximizar.Size = new System.Drawing.Size(24, 50);
+            this.maximizar.TabIndex = 26;
+            this.maximizar.Text = "□";
+            this.maximizar.UseVisualStyleBackColor = true;
+            this.maximizar.Click += new System.EventHandler(this.maximizar_Click);
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 567);
+            this.ClientSize = new System.Drawing.Size(984, 567);
             this.ControlBox = false;
             this.Controls.Add(this.panelFormulario);
             this.Controls.Add(this.panelTitulo);
@@ -303,5 +323,6 @@ namespace capapresentacion
         private System.Windows.Forms.Button miminizar;
         private System.Windows.Forms.Button widgetBoton;
         private System.Windows.Forms.Label txtnombreusuario;
+        private System.Windows.Forms.Button maximizar;
     }
 }

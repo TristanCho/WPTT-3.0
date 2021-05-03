@@ -46,6 +46,7 @@ namespace capapresentacion
         private void habilitar(bool valor)
         {
             this.txtIdProyecto.ReadOnly = true;
+            this.txtcodigoProyecto.ReadOnly = true;
             this.txtTituloProyecto.ReadOnly = !valor;
             this.txtObservacionesProyecto.ReadOnly = !valor;
             //this.txtDescripcionProyecto.ReadOnly = !valor;
@@ -58,6 +59,7 @@ namespace capapresentacion
             btnCancelar.Visible = estado;
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
+            
             txtObservacionesProyecto.Enabled = estado;
             //txtDescripcionProyecto.Enabled = estado;
         }
@@ -252,7 +254,7 @@ namespace capapresentacion
 
         }
 
-        public void visualizaDatos(string id, string proyecto, string codigo_proyecto, string observaciones, string fecha_creacion)
+        public void visualizaDatos(string id, string codigo_proyecto, string proyecto, string observaciones, string fecha_creacion)
         {
             this.txtIdProyecto.Text = id;
             this.txtTituloProyecto.Text = proyecto;
