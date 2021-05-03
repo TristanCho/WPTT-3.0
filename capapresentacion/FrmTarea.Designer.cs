@@ -98,7 +98,6 @@ namespace capapresentacion
             this.dataListTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListTareas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.dataListTareas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataListTareas.EnableHeadersVisualStyles = false;
             this.dataListTareas.GridColor = System.Drawing.Color.DimGray;
             this.dataListTareas.Location = new System.Drawing.Point(0, 0);
