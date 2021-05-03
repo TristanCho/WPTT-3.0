@@ -87,7 +87,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_proyectos";
+                SqlCmd.CommandText = "spbuscar_proyecto";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Buscar proyecto por codigo

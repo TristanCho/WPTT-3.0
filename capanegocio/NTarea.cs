@@ -17,12 +17,7 @@ namespace capanegocio
             return objeto.buscartareaTitulo(objeto);
         }
 
-        public static DataTable buscartareaTecnico(String textobuscar)
-        {
-            DTarea objeto = new DTarea();
-            objeto.Textobuscar = textobuscar;
-            return objeto.buscartareaTecnico(objeto);
-        }
+
         public static DataTable buscartareaProyecto(String textobuscar)
         {
             DTarea objeto = new DTarea();
@@ -31,17 +26,17 @@ namespace capanegocio
         }
 
 
-        public static DataTable buscartareaObservaciones(String textobuscar)
+        public static DataTable buscartareaPrioridad(String textobuscar)
         {
             DTarea objeto = new DTarea();
             objeto.Textobuscar = textobuscar;
-            return objeto.buscartareaObservaciones(objeto);
+            return objeto.buscartareaPrioridad(objeto);
         }
-        public static DataTable buscartareaFechaCreacion(String textobuscar)
+        public static DataTable buscartareaAplicacion(String textobuscar)
         {
             DTarea objeto = new DTarea();
             objeto.Textobuscar = textobuscar;
-            return objeto.buscartareaFechaCreacion(objeto);
+            return objeto.buscartareaAplicacion(objeto);
         }
         public static DataTable buscartareaEstados(String textobuscar)
         {

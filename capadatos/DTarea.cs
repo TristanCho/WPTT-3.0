@@ -419,7 +419,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareasXdescripcion";
+                SqlCmd.CommandText = "spbuscar_tareas_descripcion";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Buscar proyecto por descripcion
@@ -458,7 +458,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareasXestados";
+                SqlCmd.CommandText = "spbuscar_tareas_estado";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Buscar proyecto por estados
@@ -575,7 +575,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareasXproyecto";
+                SqlCmd.CommandText = "spbuscar_tareas_proyecto";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Buscar proyecto por proyecto
@@ -604,7 +604,7 @@ namespace capadatos
             return dtresultado;
         }
 
-        public DataTable buscartareaTecnico(DTarea tarea)
+        public DataTable buscartareaPrioridad(DTarea tarea)
         {
             DataTable dtresultado = new DataTable("tareas");
             SqlConnection SqlCon = new SqlConnection();
@@ -614,7 +614,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareasXtecnico";
+                SqlCmd.CommandText = "spbuscar_tareas_prioridad";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Buscar proyecto por tecnico
@@ -653,7 +653,45 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareasXtitulo";
+                SqlCmd.CommandText = "spbuscar_tareas_titulo";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //Buscar proyecto por titulo
+                SqlParameter ParTextobuscar = new SqlParameter();
+                ParTextobuscar.ParameterName = "@textobuscar";
+                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextobuscar.Size = 10;
+                ParTextobuscar.Value = tarea.Textobuscar;
+                SqlCmd.Parameters.Add(ParTextobuscar);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return dtresultado;
+        }        
+        public DataTable buscartareaAplicacion(DTarea tarea)
+        {
+            DataTable dtresultado = new DataTable("tareas");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spbuscar_tareas_aplicacion";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Buscar proyecto por titulo

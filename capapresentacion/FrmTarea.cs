@@ -22,8 +22,14 @@ namespace capapresentacion
             mostrartareas();
             ocultarcolumnas();
             quitabordes();
+            tamañoColumnas();
         }
-
+        private void tamañoColumnas()
+        {
+            this.dataListTareas.Columns[4].Width = 200;
+            this.dataListTareas.Columns[6].Width = 150;
+            this.dataListTareas.Columns[7].Width = 50;
+        }
         private void quitabordes()
         {
             this.dataListTareas.AdvancedCellBorderStyle.Left = DataGridViewAdvancedCellBorderStyle.None;
@@ -56,6 +62,7 @@ namespace capapresentacion
 
         private void ocultarcolumnas()
         {
+            btnEliminarTarea.Visible = false;
             this.dataListTareas.Columns[0].Visible = false;
             this.dataListTareas.Columns[1].Visible = false;
             this.dataListTareas.Columns[2].Visible = false;
@@ -75,24 +82,22 @@ namespace capapresentacion
                     case "Tarea":
                         this.dataListTareas.DataSource = NTarea.buscartareaTitulo(texto);
                         break;
+                    case "Descripción":
+                        this.dataListTareas.DataSource = NTarea.buscartareaDescripcion(texto);
+                        break;
+                    case "Aplicación":
+                        this.dataListTareas.DataSource = NTarea.buscartareaAplicacion(texto);
+                        break;
                     case "Proyecto":
                         this.dataListTareas.DataSource = NTarea.buscartareaProyecto(texto);
                         break;
-                    case "Descripción":
-                        this.dataListTareas.DataSource = NTarea.buscartareaDescripcion(texto);
+                    case "Prioridad":
+                        this.dataListTareas.DataSource = NTarea.buscartareaPrioridad(texto);
                         break;
                     case "Estados":
                         this.dataListTareas.DataSource = NTarea.buscartareaEstados(texto);
                         break;
-                    case "Fecha creación":
-                        this.dataListTareas.DataSource = NTarea.buscartareaFechaCreacion(texto);
-                        break;
-                    case "Observación":
-                        this.dataListTareas.DataSource = NTarea.buscartareaObservaciones(texto);
-                        break;
-                    case "Tecnico":
-                        this.dataListTareas.DataSource = NTarea.buscartareaTecnico(texto);
-                        break;
+
                 }
             }
            // this.ocultarcolumnas();
@@ -110,12 +115,12 @@ namespace capapresentacion
             if (this.cbEliminar.Checked)
             {
                 this.dataListTareas.Columns[0].Visible = true;
-                this.btnEliminarProyecto.Enabled = true;
+                this.btnEliminarTarea.Visible = true;
             }
             else
             {
                 this.dataListTareas.Columns[0].Visible = false;
-                this.btnEliminarProyecto.Enabled = false;
+                this.btnEliminarTarea.Visible = false;
             }
         }
 
@@ -156,7 +161,7 @@ namespace capapresentacion
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListTareas.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
-            Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
+            //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
             mostrarDetalleTareaClicada(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
         }
         private void mostrarDetalleTareaClicada(string codigo_tarea)
@@ -203,7 +208,7 @@ namespace capapresentacion
                 }
                 else
                 {
-                    this.btnEliminarProyecto.Enabled = false;
+                    this.btnEliminarTarea.Enabled = false;
                     this.cbEliminar.Checked = false;
                 }
             }

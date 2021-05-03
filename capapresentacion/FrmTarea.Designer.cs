@@ -29,19 +29,19 @@ namespace capapresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
             this.dataListTareas = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtBuscarTarea = new System.Windows.Forms.TextBox();
             this.cbEliminar = new System.Windows.Forms.CheckBox();
-            this.btnEliminarProyecto = new System.Windows.Forms.Button();
+            this.btnEliminarTarea = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.cboBuscarTareas = new System.Windows.Forms.ComboBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -86,38 +86,39 @@ namespace capapresentacion
             this.dataListTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataListTareas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataListTareas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataListTareas.ColumnHeadersHeight = 34;
             this.dataListTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListTareas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
+            this.dataListTareas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataListTareas.EnableHeadersVisualStyles = false;
             this.dataListTareas.GridColor = System.Drawing.Color.DimGray;
             this.dataListTareas.Location = new System.Drawing.Point(0, 0);
             this.dataListTareas.Name = "dataListTareas";
             this.dataListTareas.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dataListTareas.RowHeadersVisible = false;
             this.dataListTareas.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListTareas.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListTareas.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataListTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListTareas.Size = new System.Drawing.Size(776, 200);
             this.dataListTareas.TabIndex = 4;
@@ -155,21 +156,21 @@ namespace capapresentacion
             this.cbEliminar.UseVisualStyleBackColor = true;
             this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
             // 
-            // btnEliminarProyecto
+            // btnEliminarTarea
             // 
-            this.btnEliminarProyecto.BackColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarProyecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
-            this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(77, 34);
-            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarProyecto.Name = "btnEliminarProyecto";
-            this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
-            this.btnEliminarProyecto.TabIndex = 23;
-            this.btnEliminarProyecto.UseVisualStyleBackColor = false;
-            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarTarea_Click);
+            this.btnEliminarTarea.BackColor = System.Drawing.Color.White;
+            this.btnEliminarTarea.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
+            this.btnEliminarTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEliminarTarea.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarTarea.FlatAppearance.BorderSize = 0;
+            this.btnEliminarTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarTarea.Location = new System.Drawing.Point(77, 34);
+            this.btnEliminarTarea.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEliminarTarea.Name = "btnEliminarTarea";
+            this.btnEliminarTarea.Size = new System.Drawing.Size(32, 28);
+            this.btnEliminarTarea.TabIndex = 23;
+            this.btnEliminarTarea.UseVisualStyleBackColor = false;
+            this.btnEliminarTarea.Click += new System.EventHandler(this.btnEliminarTarea_Click);
             // 
             // btnNuevo
             // 
@@ -193,11 +194,10 @@ namespace capapresentacion
             this.cboBuscarTareas.Items.AddRange(new object[] {
             "Tarea",
             "Descripción",
-            "Estados",
-            "Fecha creación",
-            "Observación",
+            "Aplicación",
             "Proyecto",
-            "Tecnico"});
+            "Prioridad",
+            "Estados"});
             this.cboBuscarTareas.Location = new System.Drawing.Point(12, 11);
             this.cboBuscarTareas.Name = "cboBuscarTareas";
             this.cboBuscarTareas.Size = new System.Drawing.Size(195, 21);
@@ -236,14 +236,14 @@ namespace capapresentacion
             this.dataListDetalleTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataListDetalleTareas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataListDetalleTareas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListDetalleTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListDetalleTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dataListDetalleTareas.ColumnHeadersHeight = 34;
             this.dataListDetalleTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListDetalleTareas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -254,21 +254,21 @@ namespace capapresentacion
             this.dataListDetalleTareas.Location = new System.Drawing.Point(0, 0);
             this.dataListDetalleTareas.Name = "dataListDetalleTareas";
             this.dataListDetalleTareas.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListDetalleTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListDetalleTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dataListDetalleTareas.RowHeadersVisible = false;
             this.dataListDetalleTareas.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListDetalleTareas.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListDetalleTareas.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dataListDetalleTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListDetalleTareas.Size = new System.Drawing.Size(776, 200);
             this.dataListDetalleTareas.TabIndex = 4;
@@ -288,7 +288,7 @@ namespace capapresentacion
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.btnEliminarProyecto);
+            this.Controls.Add(this.btnEliminarTarea);
             this.Controls.Add(this.cbEliminar);
             this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
@@ -315,7 +315,7 @@ namespace capapresentacion
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtBuscarTarea;
-        private System.Windows.Forms.Button btnEliminarProyecto;
+        private System.Windows.Forms.Button btnEliminarTarea;
         private System.Windows.Forms.CheckBox cbEliminar;
         private System.Windows.Forms.ComboBox cboBuscarTareas;
         private System.Windows.Forms.Label lblTotal;

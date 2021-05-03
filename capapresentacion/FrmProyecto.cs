@@ -24,7 +24,13 @@ namespace capapresentacion
             btnEliminarProyecto.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             activaCheckBox();
             mostrarproyectos();
+            tamañoColumnas();
             quitarBordes();
+        }
+
+        private void tamañoColumnas()
+        {
+            this.dataListProyectos.Columns[1].Width = 30;
         }
 
         private void mensajeok(string mensaje)
@@ -56,7 +62,7 @@ namespace capapresentacion
         public void mostrarproyectos()
         {
             this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
-            //this.ocultarcolumnas();
+            ocultarcolumnas();
             //this.btnEliminarProyecto.Visible = true;
             this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListProyectos.Rows.Count);
         }
@@ -64,8 +70,10 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             this.dataListProyectos.Columns[0].Visible = false;
-            //this.dataListProyectos.Columns[1].Visible = false;
-            this.btnEliminarProyecto.Enabled = false;
+
+            this.dataListProyectos.Columns[2].Visible = false;
+            //this.dataListProyectos.Columns[3].Visible = false;
+            //this.btnEliminarProyecto.Enabled = false;
             this.cbEliminar.Checked = false;
         }
 
