@@ -20,6 +20,7 @@ namespace capadatos
         private string _observaciones;
         private DateTime _fecha;
         private string _tecnico;
+        private string _codigo_proyecto;
 
         public int Id { get => _id; set => _id = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
@@ -30,13 +31,14 @@ namespace capadatos
         public string Proyecto { get => _proyecto; set => _proyecto = value; }
         public DateTime Fecha { get => _fecha; set => _fecha = value; }
         public string Tecnico { get => _tecnico; set => _tecnico = value; }
+        public string Codigo_proyecto { get => _codigo_proyecto; set => _codigo_proyecto = value; }
 
         public DTarea()
         {
 
         }
 
-        public DTarea(int id, string titulo, string descripcion, string proyecto, string prioridad, string estado, string textobuscar)
+        public DTarea(int id, string titulo, string descripcion, string proyecto, string prioridad, string estado, string textobuscar,string codigo_proyecto)
         {
             Id = id;
             Titulo = titulo;
@@ -44,6 +46,7 @@ namespace capadatos
             Proyecto = proyecto;
             Estado = estado;
             Textobuscar = textobuscar;
+            Codigo_proyecto = codigo_proyecto;
         }
 
         public DataTable mostrartarea(DTarea objeto)
@@ -61,6 +64,45 @@ namespace capadatos
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return dtresultado;
+        }
+
+        public DataTable mostrarDetalleTiempos(String codigo_tarea)//DTarea tarea)
+        {
+            DataTable dtresultado = new DataTable("Tiempos_tarea");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_tiemposTareas";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParCodProyect = new SqlParameter();
+                ParCodProyect.ParameterName = "@codigo_proyecto";
+                ParCodProyect.SqlDbType = SqlDbType.VarChar;
+                ParCodProyect.Value = codigo_tarea;//tarea.Codigo_proyecto;
+                SqlCmd.Parameters.Add(ParCodProyect);
+
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
 
 
             }
@@ -130,14 +172,7 @@ namespace capadatos
 
                 //Definición de atributos
 
-                //id
-                /*
-                SqlParameter ParId = new SqlParameter();
-                ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.Int;
-                ParId.Direction = ParameterDirection.Output;
-                SqlCmd.Parameters.Add(ParId);
-                */
+
 
                 //titulo
                 SqlParameter ParTitulo = new SqlParameter();
@@ -272,54 +307,7 @@ namespace capadatos
             return array;
         }
 
-        //public  DTareasDatos siguienteInforme(DTarea tarea)
-        //{
-
-        //        DTareasDatos datos = new DTareasDatos();
-        //        DataTable dtresultado = new DataTable("proyectos");
-        //        SqlConnection SqlCon = new SqlConnection();
-        //        try
-        //        {
-        //            SqlCon.ConnectionString = Conexion.cn;
-        //            SqlCon.Open();
-        //            SqlCommand SqlCmd = new SqlCommand();
-        //            SqlCmd.Connection = SqlCon;
-        //            SqlCmd.CommandText = "spcambiarTareasSiguiente";
-        //            SqlCmd.CommandType = CommandType.StoredProcedure;
-
-        //            //Buscar proyecto por codigo
-        //            SqlParameter ParTextobuscar = new SqlParameter();
-        //            ParTextobuscar.ParameterName = "@idbuscar";
-        //            ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-        //            ParTextobuscar.Size = 10;
-        //            ParTextobuscar.Value = tarea.Textobuscar;
-        //            SqlCmd.Parameters.Add(ParTextobuscar);
-
-        //            SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-        //            sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-
-
-        //            datos.Id = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First();
-        //            datos.Proyecto = dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First();
-        //            datos.Titulo = dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First();
-        //            datos.Descripcion = dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First();
-        //            datos.Observaciones = dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First();
-        //            datos.Fecha = dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).First();
-        //            datos.Estado = dtresultado.Rows.OfType<DataRow>().Select(k => k[6].ToString()).First();
-        //         }   
-        //        catch (Exception)
-        //        {
-        //            dtresultado = null;
-        //        }
-        //        finally
-        //        {
-        //            if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-        //        }
-
-        //        return datos;
-        //}
+ 
 
         public string editarTarea(DTarea tarea)
         {

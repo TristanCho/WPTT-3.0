@@ -62,7 +62,11 @@ namespace capanegocio
             return objeto.mostrartarea(objeto);
         }
 
-
+        public static DataTable mostrarDetalleTiempos(String codigo_tarea)
+        {
+            DTarea objeto = new DTarea();
+            return objeto.mostrarDetalleTiempos(codigo_tarea);
+        }
 
         public static string eliminarTarea(int id)
         {
@@ -114,6 +118,7 @@ namespace capanegocio
             DTarea objeto = new DTarea();
             return objeto.mostrarEstadoCombobox(objeto);
         }
+
 
     }
 }

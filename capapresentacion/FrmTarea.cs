@@ -58,6 +58,7 @@ namespace capapresentacion
         {
             this.dataListTareas.Columns[0].Visible = false;
             this.dataListTareas.Columns[1].Visible = false;
+            this.dataListTareas.Columns[2].Visible = false;
         }
 
         private void txtBuscarTarea_TextChanged(object sender, EventArgs e)
@@ -97,22 +98,7 @@ namespace capapresentacion
            // this.ocultarcolumnas();
         }
 
-        private void dataListTareas_CellDoubleClick(object sender, EventArgs e)
-        {
-            detalleTareas.visualizaDatos(
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["Proyecto"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["tarea"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["descripcion"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value),
-                Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
-                );
 
-            FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
-            detalleTareas.lectura();
-        }
 
         private void cboBuscarTareas_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -170,8 +156,14 @@ namespace capapresentacion
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListTareas.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
+            Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
+            mostrarDetalleTareaClicada(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
         }
-
+        private void mostrarDetalleTareaClicada(string codigo_tarea)
+        {
+            this.dataListDetalleTareas.Columns[0].Visible = false;
+            dataListDetalleTareas.DataSource= NTarea.mostrarDetalleTiempos(codigo_tarea);
+        }
         private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
             try
