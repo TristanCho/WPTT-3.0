@@ -144,8 +144,7 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["descripcion"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["tecnico"].Value)
+                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
                     );
             }
             catch (Exception)
@@ -187,7 +186,7 @@ namespace capapresentacion
                             aux = 1;
 
                             id = Convert.ToInt32(row.Cells[1].Value);
-                            rpta = NTarea.eliminarTarea(id);
+                            rpta = NTarea.eliminarTarea(Convert.ToInt32(id));
 
                             if (rpta.Equals("OK"))
                             {

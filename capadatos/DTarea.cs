@@ -119,7 +119,7 @@ namespace capadatos
             return dtresultado;
         }
 
-        public string eliminarTarea(DTarea tarea)
+        public string eliminarTarea(int id)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -132,13 +132,12 @@ namespace capadatos
                 SqlCmd.CommandText = "speliminar_tarea";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                //Definición de atributos
 
                 //id
                 SqlParameter ParId = new SqlParameter();
                 ParId.ParameterName = "@id";
                 ParId.SqlDbType = SqlDbType.Int;
-                ParId.Value = tarea.Id;
+                ParId.Value = id;
                 SqlCmd.Parameters.Add(ParId);
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible eliminar el Proyecto";

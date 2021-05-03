@@ -38,8 +38,8 @@ namespace capapresentacion
             this.dtFechaTarea = new System.Windows.Forms.DateTimePicker();
             this.txtTituloTarea = new System.Windows.Forms.TextBox();
             this.txtIdTarea = new System.Windows.Forms.TextBox();
-            this.txtObservacionesTarea = new System.Windows.Forms.RichTextBox();
-            this.lblObservaciones = new System.Windows.Forms.Label();
+            this.txtResolucion = new System.Windows.Forms.RichTextBox();
+            this.lblResolucion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTituloProyecto = new System.Windows.Forms.Label();
             this.lbl_idproyecto = new System.Windows.Forms.Label();
@@ -50,15 +50,39 @@ namespace capapresentacion
             this.comboboxEstado = new System.Windows.Forms.ComboBox();
             this.lEdicion = new System.Windows.Forms.Label();
             this.btnEliminarProyecto = new System.Windows.Forms.Button();
-            this.ltec = new System.Windows.Forms.Label();
-            this.lTecnico = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(497, 84);
+            this.label3.Location = new System.Drawing.Point(26, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 18);
             this.label3.TabIndex = 43;
@@ -116,7 +140,7 @@ namespace capapresentacion
             // dtFechaTarea
             // 
             this.dtFechaTarea.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaTarea.Location = new System.Drawing.Point(376, 81);
+            this.dtFechaTarea.Location = new System.Drawing.Point(209, 5);
             this.dtFechaTarea.Name = "dtFechaTarea";
             this.dtFechaTarea.Size = new System.Drawing.Size(99, 20);
             this.dtFechaTarea.TabIndex = 38;
@@ -125,47 +149,48 @@ namespace capapresentacion
             // 
             this.txtTituloTarea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTituloTarea.Location = new System.Drawing.Point(376, 41);
+            this.txtTituloTarea.Location = new System.Drawing.Point(103, 40);
             this.txtTituloTarea.Name = "txtTituloTarea";
             this.txtTituloTarea.ReadOnly = true;
-            this.txtTituloTarea.Size = new System.Drawing.Size(378, 20);
+            this.txtTituloTarea.Size = new System.Drawing.Size(385, 20);
             this.txtTituloTarea.TabIndex = 36;
             // 
             // txtIdTarea
             // 
-            this.txtIdTarea.Location = new System.Drawing.Point(123, 41);
+            this.txtIdTarea.Location = new System.Drawing.Point(103, 65);
             this.txtIdTarea.Name = "txtIdTarea";
             this.txtIdTarea.ReadOnly = true;
-            this.txtIdTarea.Size = new System.Drawing.Size(162, 20);
+            this.txtIdTarea.Size = new System.Drawing.Size(122, 20);
             this.txtIdTarea.TabIndex = 35;
             // 
-            // txtObservacionesTarea
+            // txtResolucion
             // 
-            this.txtObservacionesTarea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtResolucion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservacionesTarea.Location = new System.Drawing.Point(12, 267);
-            this.txtObservacionesTarea.Name = "txtObservacionesTarea";
-            this.txtObservacionesTarea.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtObservacionesTarea.Size = new System.Drawing.Size(742, 170);
-            this.txtObservacionesTarea.TabIndex = 34;
-            this.txtObservacionesTarea.Text = "";
+            this.txtResolucion.Location = new System.Drawing.Point(12, 308);
+            this.txtResolucion.Name = "txtResolucion";
+            this.txtResolucion.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.txtResolucion.Size = new System.Drawing.Size(742, 60);
+            this.txtResolucion.TabIndex = 34;
+            this.txtResolucion.Text = "";
             // 
-            // lblObservaciones
+            // lblResolucion
             // 
-            this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObservaciones.Location = new System.Drawing.Point(12, 246);
-            this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(134, 18);
-            this.lblObservaciones.TabIndex = 32;
-            this.lblObservaciones.Text = "Observaciones:";
+            this.lblResolucion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblResolucion.AutoSize = true;
+            this.lblResolucion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResolucion.Location = new System.Drawing.Point(12, 287);
+            this.lblResolucion.Name = "lblResolucion";
+            this.lblResolucion.Size = new System.Drawing.Size(103, 18);
+            this.lblResolucion.TabIndex = 32;
+            this.lblResolucion.Text = "Resolución:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(308, 80);
+            this.label1.Location = new System.Drawing.Point(141, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 18);
             this.label1.TabIndex = 31;
@@ -175,7 +200,7 @@ namespace capapresentacion
             // 
             this.lblTituloProyecto.AutoSize = true;
             this.lblTituloProyecto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProyecto.Location = new System.Drawing.Point(308, 40);
+            this.lblTituloProyecto.Location = new System.Drawing.Point(35, 39);
             this.lblTituloProyecto.Name = "lblTituloProyecto";
             this.lblTituloProyecto.Size = new System.Drawing.Size(62, 18);
             this.lblTituloProyecto.TabIndex = 30;
@@ -186,18 +211,20 @@ namespace capapresentacion
             // 
             this.lbl_idproyecto.AutoSize = true;
             this.lbl_idproyecto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_idproyecto.Location = new System.Drawing.Point(58, 40);
+            this.lbl_idproyecto.Location = new System.Drawing.Point(26, 66);
             this.lbl_idproyecto.Name = "lbl_idproyecto";
-            this.lbl_idproyecto.Size = new System.Drawing.Size(59, 18);
+            this.lbl_idproyecto.Size = new System.Drawing.Size(71, 18);
             this.lbl_idproyecto.TabIndex = 29;
-            this.lbl_idproyecto.Text = "Tarea:";
+            this.lbl_idproyecto.Text = "Codigo:";
             this.lbl_idproyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 81);
+            this.label5.Location = new System.Drawing.Point(252, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 18);
             this.label5.TabIndex = 47;
@@ -208,7 +235,7 @@ namespace capapresentacion
             // 
             this.txtDescripcionTarea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDescripcionTarea.Location = new System.Drawing.Point(12, 159);
+            this.txtDescripcionTarea.Location = new System.Drawing.Point(12, 200);
             this.txtDescripcionTarea.Name = "txtDescripcionTarea";
             this.txtDescripcionTarea.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.txtDescripcionTarea.Size = new System.Drawing.Size(742, 72);
@@ -219,7 +246,7 @@ namespace capapresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 128);
+            this.label2.Location = new System.Drawing.Point(9, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 18);
             this.label2.TabIndex = 49;
@@ -227,22 +254,22 @@ namespace capapresentacion
             // 
             // comboboxProyecto
             // 
+            this.comboboxProyecto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxProyecto.FormattingEnabled = true;
-            this.comboboxProyecto.Location = new System.Drawing.Point(123, 78);
+            this.comboboxProyecto.Location = new System.Drawing.Point(343, 66);
             this.comboboxProyecto.Name = "comboboxProyecto";
-            this.comboboxProyecto.Size = new System.Drawing.Size(162, 21);
+            this.comboboxProyecto.Size = new System.Drawing.Size(145, 21);
             this.comboboxProyecto.TabIndex = 51;
             // 
             // comboboxEstado
             // 
-            this.comboboxEstado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxEstado.FormattingEnabled = true;
-            this.comboboxEstado.Location = new System.Drawing.Point(585, 84);
+            this.comboboxEstado.Location = new System.Drawing.Point(103, 93);
             this.comboboxEstado.Name = "comboboxEstado";
-            this.comboboxEstado.Size = new System.Drawing.Size(169, 21);
+            this.comboboxEstado.Size = new System.Drawing.Size(122, 21);
             this.comboboxEstado.TabIndex = 52;
             // 
             // lEdicion
@@ -263,7 +290,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
             this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(722, 118);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(338, 5);
             this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
@@ -271,23 +298,286 @@ namespace capapresentacion
             this.btnEliminarProyecto.UseVisualStyleBackColor = false;
             this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
             // 
-            // ltec
+            // comboBox1
             // 
-            this.ltec.AutoSize = true;
-            this.ltec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ltec.Location = new System.Drawing.Point(609, 22);
-            this.ltec.Name = "ltec";
-            this.ltec.Size = new System.Drawing.Size(57, 13);
-            this.ltec.TabIndex = 57;
-            this.ltec.Text = "Tecnico:";
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(103, 381);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(112, 21);
+            this.comboBox1.TabIndex = 60;
             // 
-            // lTecnico
+            // label4
             // 
-            this.lTecnico.AutoSize = true;
-            this.lTecnico.Location = new System.Drawing.Point(672, 22);
-            this.lTecnico.Name = "lTecnico";
-            this.lTecnico.Size = new System.Drawing.Size(0, 13);
-            this.lTecnico.TabIndex = 58;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 384);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 18);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "Proyecto:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(376, 381);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(112, 21);
+            this.comboBox2.TabIndex = 62;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(285, 384);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 18);
+            this.label6.TabIndex = 61;
+            this.label6.Text = "Proyecto:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(642, 381);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(112, 21);
+            this.comboBox3.TabIndex = 64;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(551, 384);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 18);
+            this.label7.TabIndex = 63;
+            this.label7.Text = "Proyecto:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.Location = new System.Drawing.Point(103, 426);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(112, 20);
+            this.textBox1.TabIndex = 66;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(38, 425);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 18);
+            this.label8.TabIndex = 65;
+            this.label8.Text = "Tarea:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox2.Location = new System.Drawing.Point(376, 426);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(112, 20);
+            this.textBox2.TabIndex = 68;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(311, 425);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 18);
+            this.label9.TabIndex = 67;
+            this.label9.Text = "Tarea:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBox3.Location = new System.Drawing.Point(642, 426);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(112, 20);
+            this.textBox3.TabIndex = 70;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(577, 425);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 18);
+            this.label10.TabIndex = 69;
+            this.label10.Text = "Tarea:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(343, 96);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(145, 21);
+            this.comboBox4.TabIndex = 72;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(242, 99);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 18);
+            this.label11.TabIndex = 71;
+            this.label11.Text = "Aplicacion:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(103, 123);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(122, 21);
+            this.comboBox5.TabIndex = 74;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(26, 126);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 18);
+            this.label12.TabIndex = 73;
+            this.label12.Text = "Modulo:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(612, 97);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(142, 20);
+            this.textBox4.TabIndex = 76;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(500, 97);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 18);
+            this.label13.TabIndex = 75;
+            this.label13.Text = "V. Detección:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.Location = new System.Drawing.Point(343, 127);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(145, 20);
+            this.textBox5.TabIndex = 78;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(229, 127);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(110, 18);
+            this.label14.TabIndex = 77;
+            this.label14.Text = "Referencias:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.Location = new System.Drawing.Point(612, 43);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(142, 20);
+            this.textBox6.TabIndex = 80;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(494, 45);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(113, 18);
+            this.label15.TabIndex = 79;
+            this.label15.Text = " T Estimado:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox7.Location = new System.Drawing.Point(612, 126);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(142, 20);
+            this.textBox7.TabIndex = 82;
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(503, 126);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(104, 18);
+            this.label16.TabIndex = 81;
+            this.label16.Text = "V. Solución:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(612, 69);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(142, 21);
+            this.comboBox6.TabIndex = 84;
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(535, 72);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(73, 18);
+            this.label17.TabIndex = 83;
+            this.label17.Text = "Modulo:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmDetalleTarea
             // 
@@ -295,8 +585,32 @@ namespace capapresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(766, 498);
-            this.Controls.Add(this.lTecnico);
-            this.Controls.Add(this.ltec);
+            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnEliminarProyecto);
             this.Controls.Add(this.lEdicion);
             this.Controls.Add(this.comboboxEstado);
@@ -312,8 +626,8 @@ namespace capapresentacion
             this.Controls.Add(this.dtFechaTarea);
             this.Controls.Add(this.txtTituloTarea);
             this.Controls.Add(this.txtIdTarea);
-            this.Controls.Add(this.txtObservacionesTarea);
-            this.Controls.Add(this.lblObservaciones);
+            this.Controls.Add(this.txtResolucion);
+            this.Controls.Add(this.lblResolucion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTituloProyecto);
             this.Controls.Add(this.lbl_idproyecto);
@@ -335,8 +649,8 @@ namespace capapresentacion
         private System.Windows.Forms.DateTimePicker dtFechaTarea;
         private System.Windows.Forms.TextBox txtTituloTarea;
         private System.Windows.Forms.TextBox txtIdTarea;
-        private System.Windows.Forms.RichTextBox txtObservacionesTarea;
-        private System.Windows.Forms.Label lblObservaciones;
+        private System.Windows.Forms.RichTextBox txtResolucion;
+        private System.Windows.Forms.Label lblResolucion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTituloProyecto;
         private System.Windows.Forms.Label lbl_idproyecto;
@@ -347,7 +661,31 @@ namespace capapresentacion
         private System.Windows.Forms.ComboBox comboboxEstado;
         private System.Windows.Forms.Label lEdicion;
         private System.Windows.Forms.Button btnEliminarProyecto;
-        private System.Windows.Forms.Label ltec;
-        private System.Windows.Forms.Label lTecnico;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label17;
     }
 }

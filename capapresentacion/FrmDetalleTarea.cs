@@ -43,7 +43,7 @@ namespace capapresentacion
 
         public void setTecnico()
         {
-            lTecnico.Text = DLoginStatico.tecnico;
+            //lTecnico.Text = DLoginStatico.tecnico;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace capapresentacion
             btnGuardar.Visible = estado;
             btnCancelar.Visible = estado;
             txtDescripcionTarea.Enabled = estado;
-            txtObservacionesTarea.Enabled = estado;
+            txtResolucion.Enabled = estado;
             
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
@@ -76,16 +76,17 @@ namespace capapresentacion
             btnEliminarProyecto.Visible = value;
         }
 
-        public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, string observaciones, string fecha_creacion, string estado,string tecnico)
+        public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, 
+            string observaciones, string fecha_creacion, string estado)
         {
             txtIdTarea.Text = id;
             txtTituloTarea.Text = tarea;
             comboboxProyecto.SelectedIndex = comboboxProyecto.FindStringExact(proyecto);
             txtDescripcionTarea.Text = descripcion;
-            txtObservacionesTarea.Text = observaciones;
+            txtResolucion.Text = observaciones;
             dtFechaTarea.Text = fecha_creacion;
             comboboxEstado.SelectedIndex = comboboxEstado.FindStringExact(estado);
-            lTecnico.Text = tecnico;
+           
         }
 
         private void habilitar(bool valor)
@@ -146,7 +147,7 @@ namespace capapresentacion
             this.comboboxEstado.Items.Clear();
             dtFechaTarea.Text = string.Empty;
             this.txtDescripcionTarea.Text = string.Empty;
-            this.txtObservacionesTarea.Text = string.Empty;
+            this.txtResolucion.Text = string.Empty;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -197,10 +198,9 @@ namespace capapresentacion
                         rpta = NTarea.insertartarea(
                             this.txtTituloTarea.Text.Trim().ToUpper(),
                             this.txtDescripcionTarea.Text.Trim(),  
-                            this.txtObservacionesTarea.Text.Trim(),
+                            this.txtResolucion.Text.Trim(),
                             Convert.ToDateTime(this.dtFechaTarea.Value),
                             this.comboboxEstado.SelectedItem.ToString() ,
-                            this.lTecnico.Text,
                             this.comboboxProyecto.SelectedItem.ToString()
                             );
                     }
@@ -211,10 +211,9 @@ namespace capapresentacion
                             Convert.ToInt32(this.txtIdTarea.Text),
                             this.txtTituloTarea.Text.Trim().ToUpper(),
                             this.txtDescripcionTarea.Text.Trim(),
-                            this.txtObservacionesTarea.Text.Trim(),
+                            this.txtResolucion.Text.Trim(),
                             Convert.ToDateTime(this.dtFechaTarea.Value),
                             this.comboboxEstado.SelectedItem.ToString(),
-                            this.lTecnico.Text,
                             this.comboboxProyecto.SelectedItem.ToString()
                             );
                     }
