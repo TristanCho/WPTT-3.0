@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="DetalleTareas.cs" />
     <Compile Include="DLogin.cs" />
     <Compile Include="DLoginStatico.cs" />
     <Compile Include="DProyecto.cs" />

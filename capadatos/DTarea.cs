@@ -119,6 +119,66 @@ namespace capadatos
             return dtresultado;
         }
 
+        public DetalleTareas getDetalleTareas(string codigo_tarea)
+        {
+            DataTable dtresultado = new DataTable("Tareas");
+            SqlConnection SqlCon = new SqlConnection();
+            DetalleTareas dTarea;
+            string[] array = new string[] { };
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spVisualizarDetalleTareas";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParCodTarea = new SqlParameter();
+                ParCodTarea.ParameterName = "@codigo_tarea";
+                ParCodTarea.SqlDbType = SqlDbType.VarChar;
+                ParCodTarea.Value = codigo_tarea;//tarea.Codigo_proyecto;
+                SqlCmd.Parameters.Add(ParCodTarea);
+
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+            dTarea = new DetalleTareas(dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[6].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[7].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[8].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[9].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[10].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[11].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[12].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[13].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[14].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[15].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[16].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[17].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[18].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[19].ToString()).First());
+            return dTarea;
+        }
+
         public string eliminarTarea(int id)
         {
             string rpta = "";

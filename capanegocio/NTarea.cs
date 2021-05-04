@@ -71,7 +71,7 @@ namespace capanegocio
             return objeto.eliminarTarea(id);
         }
 
-        public static string editarTarea(int id, string titulo, string descripcion, string observaciones, DateTime fecha, string estado, string proyecto)
+        public static string editarTarea(int id, string titulo, string descripcion, string observaciones, /*DateTime fecha,*/ string estado, string proyecto)
         {
             DTarea objeto = new DTarea();
             objeto.Id = id;
@@ -80,13 +80,13 @@ namespace capanegocio
             objeto.Descripcion = descripcion;
             objeto.Observaciones = observaciones;
             objeto.Estado = estado;
-            objeto.Fecha = fecha;
+           // objeto.Fecha = fecha;
            //objeto.Tecnico = tecnico;
 
             return objeto.editarTarea(objeto);
         }
 
-        public static string insertartarea(/*int id,*/ string titulo, string descripcion, string observaciones, DateTime fecha, string estado,  string proyecto)
+        public static string insertartarea(/*int id,*/ string titulo, string descripcion, string observaciones, /*DateTime fecha,*/ string estado,  string proyecto)
         {
             DTarea objeto = new DTarea();
             //objeto.Id = id;
@@ -95,7 +95,7 @@ namespace capanegocio
             objeto.Descripcion = descripcion;
             objeto.Observaciones = observaciones;
             objeto.Estado = estado;
-            objeto.Fecha = fecha;
+            //objeto.Fecha = fecha;
             //objeto.Tecnico = tecnico;
 
             return objeto.insertartarea(objeto);
@@ -114,6 +114,10 @@ namespace capanegocio
             return objeto.mostrarEstadoCombobox(objeto);
         }
 
-
+        public static DetalleTareas getDetalleTareas(String codigo_tarea)
+        {
+            DTarea objeto = new DTarea();
+             return objeto.getDetalleTareas(codigo_tarea);
+        }
     }
 }

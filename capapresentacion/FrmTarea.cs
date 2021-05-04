@@ -136,8 +136,11 @@ namespace capapresentacion
 
 
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
+                 detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
 
-                detalleTarea.visualizaDatos(
+
+
+               /* detalleTarea.visualizaDatos(
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["proyecto"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["tarea"].Value),
@@ -145,7 +148,7 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
-                    );
+                    );*/
             }
             catch (Exception)
             {
@@ -161,6 +164,7 @@ namespace capapresentacion
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
             //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
+
             mostrarDetalleTareaClicada(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
         }
         private void mostrarDetalleTareaClicada(string codigo_tarea)

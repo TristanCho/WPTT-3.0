@@ -84,7 +84,7 @@ namespace capapresentacion
             comboboxProyecto.SelectedIndex = comboboxProyecto.FindStringExact(proyecto);
             txtDescripcionTarea.Text = descripcion;
             txtResolucion.Text = observaciones;
-            dtFechaTarea.Text = fecha_creacion;
+            //dtFechaTarea.Text = fecha_creacion;
             comboboxEstado.SelectedIndex = comboboxEstado.FindStringExact(estado);
            
         }
@@ -96,7 +96,7 @@ namespace capapresentacion
             this.txtTituloTarea.ReadOnly = !valor;
             this.comboboxEstado.Enabled = valor;
             this.comboboxProyecto.Enabled = valor;
-            this.dtFechaTarea.Enabled = valor;
+            //this.dtFechaTarea.Enabled = valor;
         }
 
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
@@ -145,7 +145,7 @@ namespace capapresentacion
             this.txtTituloTarea.Text = string.Empty;
             this.comboboxProyecto.Items.Clear();
             this.comboboxEstado.Items.Clear();
-            dtFechaTarea.Text = string.Empty;
+            //dtFechaTarea.Text = string.Empty;
             this.txtDescripcionTarea.Text = string.Empty;
             this.txtResolucion.Text = string.Empty;
         }
@@ -165,6 +165,71 @@ namespace capapresentacion
             this.Hide();
             setModo("LECTURA");
             //llamaVisualizaDatos();
+        }
+
+        internal void mostrarDetalleTareas(DetalleTareas tarea)
+        {
+            txtTituloTarea.Text = tarea.Titulo;
+            txtReferencia.Text = tarea.Referencias;
+            txtIdTarea.Text = tarea.Codigo;
+
+            comboboxProyecto.Items.Clear();
+            comboboxProyecto.Items.Add(tarea.Proyecto);
+            comboboxProyecto.SelectedIndex = 0;
+
+            txtEstimado.Text = tarea.Tiempo_estimado;
+
+            comboboxPrioridad.Items.Clear();
+            comboboxPrioridad.Items.Add(tarea.Prioridad);
+            comboboxPrioridad.SelectedIndex = 0;
+
+            comboboxEstado.Items.Clear();
+            comboboxEstado.Items.Add(tarea.Estado);
+            comboboxEstado.SelectedIndex = 0;
+
+
+            comboboxAplicacion.Items.Clear();
+            comboboxAplicacion.Items.Add(tarea.Aplicacion);
+            comboboxAplicacion.SelectedIndex = 0;
+
+            txtDeteccion.Text = tarea.TDeteccion;
+
+            comboboxModulo.Items.Clear();
+            comboboxModulo.Items.Add(tarea.Modulo);
+            comboboxModulo.SelectedIndex = 0;
+
+            txtDeteccion.Text = tarea.VDeteccion;
+
+            txtReferencia.Text = tarea.Referencias;
+            txtSolucion.Text = tarea.Solucion;
+            txtHistoria.Text = tarea.Historia;
+
+            txtDescripcionTarea.Text = tarea.Descripcion;
+            txtResolucion.Text = tarea.Solucion;
+
+            comboboxTDeteccion.Items.Clear();
+            comboboxTDeteccion.Items.Add(tarea.TDeteccion);
+            comboboxTDeteccion.SelectedIndex = 0;
+
+            comboboxSolucion.Items.Clear();
+            comboboxSolucion.Items.Add(tarea.TSolucion);
+            comboboxSolucion.SelectedIndex = 0;
+
+            comboboxTVerificacion.Items.Clear();
+            comboboxTVerificacion.Items.Add(tarea.TVerificacion);
+            comboboxTVerificacion.SelectedIndex = 0;
+
+            txtFDeteccion.Text = tarea.FDeteccion;
+            txtFSolucion.Text = tarea.FSolucion;
+            txtFSolucion.Text = tarea.FVerificacion;
+
+
+
+        }
+
+        public DetalleTareas getDetalleTareas(string codigo_tarea)
+        {
+           return NTarea.getDetalleTareas(codigo_tarea);
         }
 
         private void mensajeok(string mensaje)
@@ -199,7 +264,7 @@ namespace capapresentacion
                             this.txtTituloTarea.Text.Trim().ToUpper(),
                             this.txtDescripcionTarea.Text.Trim(),  
                             this.txtResolucion.Text.Trim(),
-                            Convert.ToDateTime(this.dtFechaTarea.Value),
+                           // Convert.ToDateTime(this.dtFechaTarea.Value),
                             this.comboboxEstado.SelectedItem.ToString() ,
                             this.comboboxProyecto.SelectedItem.ToString()
                             );
@@ -212,7 +277,7 @@ namespace capapresentacion
                             this.txtTituloTarea.Text.Trim().ToUpper(),
                             this.txtDescripcionTarea.Text.Trim(),
                             this.txtResolucion.Text.Trim(),
-                            Convert.ToDateTime(this.dtFechaTarea.Value),
+                           // Convert.ToDateTime(this.dtFechaTarea.Value),
                             this.comboboxEstado.SelectedItem.ToString(),
                             this.comboboxProyecto.SelectedItem.ToString()
                             );
