@@ -54,6 +54,7 @@ namespace capapresentacion
                 this.botones();
                 setModo("EDICION");
                 botonesVisible(true);
+                rellenarComboboxes();
             }
             else
             {
@@ -132,9 +133,7 @@ namespace capapresentacion
             mostrarModuloCombobox();
             mostrarAplicacionCombobox();
             mostrarPrioridadCombobox();
-            mostrarTecnicos();/*
-            mostrarTecnicoSolucionCombobox();
-            mostrarTecnicoVerificacionCombobox();*/
+            mostrarTecnicos();
         }
 
         private void mostrarTecnicos()
@@ -172,7 +171,7 @@ namespace capapresentacion
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
-            //limpiar();
+            limpiar();
         }
         public void setModo(String modo)
         {
@@ -200,6 +199,36 @@ namespace capapresentacion
 
         private void limpiar()
         {
+            txtTituloTarea.Text = string.Empty;
+            txtReferencia.Text = string.Empty;
+            txtIdTarea.Text = string.Empty;
+            comboboxProyecto.Items.Clear();
+            txtEstimado.Text = string.Empty;
+            comboboxPrioridad.Items.Clear();
+            comboboxEstado.Items.Clear();
+            comboboxAplicacion.Items.Clear();
+            txtDeteccion.Text = string.Empty;
+            comboboxModulo.Items.Clear();
+            txtDeteccion.Text = string.Empty;
+            txtReferencia.Text = string.Empty;
+            txtSolucion.Text = string.Empty;
+            txtHistoria.Text = string.Empty;
+            txtDescripcionTarea.Text = string.Empty;
+            txtResolucion.Text = string.Empty;
+            comboboxTDeteccion.Items.Clear();
+            comboboxSolucion.Items.Clear();
+            comboboxTVerificacion.Items.Clear();
+            txtFDeteccion.Text = string.Empty;
+            txtFSolucion.Text = string.Empty;
+            txtFSolucion.Text = string.Empty;
+
+
+
+
+
+
+
+
             this.txtIdTarea.Text = string.Empty;
             this.txtTituloTarea.Text = string.Empty;
             this.comboboxProyecto.Items.Clear();
