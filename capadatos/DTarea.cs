@@ -119,6 +119,144 @@ namespace capadatos
             return dtresultado;
         }
 
+        public string[] mostrarEstadoModulo(DTarea objeto)
+        {
+                string[] array = new string[] { };
+
+                DataTable dtresultado = new DataTable("Tareas");
+                SqlConnection SqlCon = new SqlConnection();
+                try
+                {
+                    SqlCon.ConnectionString = Conexion.cn;
+                    SqlCon.Open();
+                    SqlCommand SqlCmd = new SqlCommand();
+                    SqlCmd.Connection = SqlCon;
+                    SqlCmd.CommandText = "spmostrar_combo_modulo";
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                    sqladap.Fill(dtresultado);
+
+                    array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
+                }
+                catch (Exception)
+                {
+                    dtresultado = null;
+                }
+                finally
+                {
+                    if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+                }
+
+                return array;
+            
+        }
+
+        public string[] mostrarPrioridad(DTarea objeto)
+        {
+            string[] array = new string[] { };
+
+            DataTable dtresultado = new DataTable("Tareas");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_prioridad";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return array;
+        }
+
+        public string[] mostrarTenicos(DTarea objeto)
+        {
+            string[] array = new string[] { };
+
+            DataTable dtresultado = new DataTable("Empleados");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_tecnicos";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return array;
+        }
+
+        public string[] mostrarAplicaciones(DTarea objeto)
+        {
+            string[] array = new string[] { };
+
+            DataTable dtresultado = new DataTable("Aplicaciones");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_aplicaciones";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+
+            return array;
+
+        }
+
         public DetalleTareas getDetalleTareas(string codigo_tarea)
         {
             DataTable dtresultado = new DataTable("Tareas");
@@ -304,7 +442,7 @@ namespace capadatos
         {
             string[] array = new string[] { };
 
-            DataTable dtresultado = new DataTable("tareas");
+            DataTable dtresultado = new DataTable("TEstadosTareasPersonales");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -338,7 +476,7 @@ namespace capadatos
         {
             string[] array = new string[] { };
 
-            DataTable dtresultado = new DataTable("tareas");
+            DataTable dtresultado = new DataTable("Proyectos");
             SqlConnection SqlCon = new SqlConnection();
             try
             {

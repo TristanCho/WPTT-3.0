@@ -64,9 +64,7 @@ namespace capapresentacion
         {
             btnGuardar.Visible = estado;
             btnCancelar.Visible = estado;
-            txtDescripcionTarea.Enabled = estado;
-            txtResolucion.Enabled = estado;
-            
+
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
         }
@@ -91,23 +89,84 @@ namespace capapresentacion
 
         private void habilitar(bool valor)
         {
-            this.txtIdTarea.ReadOnly = true;
+            this.txtIdTarea.ReadOnly = valor;
             this.txtDescripcionTarea.ReadOnly = !valor;
             this.txtTituloTarea.ReadOnly = !valor;
             this.comboboxEstado.Enabled = valor;
             this.comboboxProyecto.Enabled = valor;
+            txtResolucion.ReadOnly = !valor;
+            txtReferencia.ReadOnly = !valor;
+            txtEstimado.ReadOnly = !valor;
+            comboboxPrioridad.Enabled = valor;
+            comboboxPrioridad.Enabled = valor;
+            comboboxAplicacion.Enabled = valor;
+            txtDeteccion.ReadOnly = !valor;
+            comboboxModulo.Enabled = valor;
+            txtDeteccion.ReadOnly = !valor;
+            txtReferencia.ReadOnly = !valor;
+            txtSolucion.ReadOnly = !valor;
+            txtFVerificacion.ReadOnly = !valor;
+            txtFSolucion.ReadOnly = !valor;
+            comboboxTDeteccion.Enabled = valor;
+            comboboxSolucion.Enabled = valor;
+            comboboxTVerificacion.Enabled = valor;
+            txtFDeteccion.ReadOnly = !valor;
             //this.dtFechaTarea.Enabled = valor;
         }
 
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
         {
-            mostrarProyectoCombobox();
-            mostrarEstadoCombobox();
+
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             crearNuevo();
+            rellenarComboboxes();
+ 
         }
+
+        private void rellenarComboboxes()
+        {
+            mostrarProyectoCombobox();
+            mostrarEstadoCombobox();
+            mostrarModuloCombobox();
+            mostrarAplicacionCombobox();
+            mostrarPrioridadCombobox();
+            mostrarTecnicos();/*
+            mostrarTecnicoSolucionCombobox();
+            mostrarTecnicoVerificacionCombobox();*/
+        }
+
+        private void mostrarTecnicos()
+        {
+            comboboxTDeteccion.Items.AddRange(NTarea.mostrarTenicos().ToArray());
+            comboboxTDeteccion.SelectedIndex = 0;
+
+            comboboxSolucion.Items.AddRange(NTarea.mostrarTenicos().ToArray());
+            comboboxSolucion.SelectedIndex = 0;
+
+            comboboxTVerificacion.Items.AddRange(NTarea.mostrarTenicos().ToArray());
+            comboboxTVerificacion.SelectedIndex = 0;
+        }
+
+        private void mostrarPrioridadCombobox()
+        {
+            comboboxPrioridad.Items.AddRange(NTarea.mostrarPrioridad().ToArray());
+            comboboxPrioridad.SelectedIndex = 0;
+        }
+
+        private void mostrarAplicacionCombobox()
+        {
+            comboboxAplicacion.Items.AddRange(NTarea.mostrarPrioridad().ToArray());
+            comboboxAplicacion.SelectedIndex = 0;
+        }
+
+        private void mostrarModuloCombobox()
+        {
+            comboboxModulo.Items.AddRange(NTarea.mostrarEstadoModulo().ToArray());
+            comboboxModulo.SelectedIndex = 0;
+        }
+
         public void crearNuevo() {
             esnuevo = true;
             botonesVisible(true);

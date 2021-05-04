@@ -402,6 +402,8 @@ namespace capapresentacion
             // 
             // comboboxModulo
             // 
+            this.comboboxModulo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxModulo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxModulo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxModulo.FormattingEnabled = true;
             this.comboboxModulo.Location = new System.Drawing.Point(103, 123);

@@ -119,5 +119,22 @@ namespace capanegocio
             DTarea objeto = new DTarea();
              return objeto.getDetalleTareas(codigo_tarea);
         }
+
+        public static string[] mostrarEstadoModulo()
+        {
+            DTarea objeto = new DTarea();
+            return objeto.mostrarEstadoModulo(objeto);
+        }        
+        public static string[] mostrarPrioridad()
+        {
+            DTarea objeto = new DTarea();
+            return objeto.mostrarPrioridad(objeto);
+        }
+
+        public static string[] mostrarTenicos()
+        {
+            DTarea objeto = new DTarea();
+            return objeto.mostrarTenicos(objeto);
+        }
     }
 }
