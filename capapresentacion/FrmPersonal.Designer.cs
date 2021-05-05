@@ -1,7 +1,7 @@
 ﻿
 namespace capapresentacion
 {
-    partial class Personal
+    partial class FrmPersonal
     {
         /// <summary>
         /// Required designer variable.

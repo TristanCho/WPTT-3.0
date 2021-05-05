@@ -80,11 +80,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal.cs">
+    <Compile Include="FrmPersonal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal.Designer.cs">
-      <DependentUpon>Personal.cs</DependentUpon>
+    <Compile Include="FrmPersonal.Designer.cs">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
     </Compile>
     <Compile Include="TiempoStatic.cs" />
     <Compile Include="Widget.cs">
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personal.resx">
-      <DependentUpon>Personal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPersonal.resx">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Widget.resx">
       <DependentUpon>Widget.cs</DependentUpon>
