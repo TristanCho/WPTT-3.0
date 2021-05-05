@@ -58,6 +58,7 @@ namespace capapresentacion
             detalleTareas.crearNuevo();
             detalleTareas.setTecnico();
             detalleTareas.setBotonEliminar(false);
+            detalleTareas.rellenarComboboxes();
         }
 
         private void ocultarcolumnas()
@@ -139,16 +140,6 @@ namespace capapresentacion
                  detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
 
 
-
-               /* detalleTarea.visualizaDatos(
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["proyecto"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["tarea"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["descripcion"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
-                    );*/
             }
             catch (Exception)
             {
@@ -163,7 +154,7 @@ namespace capapresentacion
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListTareas.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
-            //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
+
 
             mostrarDetalleTareaClicada(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
         }
@@ -181,16 +172,14 @@ namespace capapresentacion
                 if (opcion == DialogResult.OK)
                 {
                     int aux = 0;
-                    int id;
+
                     string rpta = "";
                     foreach (DataGridViewRow row in dataListTareas.Rows)
                     {
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             aux = 1;
-
-                            id = Convert.ToInt32(row.Cells[1].Value);
-                            rpta = NTarea.eliminarTarea(Convert.ToInt32(id));
+                            rpta = NTarea.eliminarTarea(row.Cells[2].Value.ToString());
 
                             if (rpta.Equals("OK"))
                             {

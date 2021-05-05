@@ -64,7 +64,7 @@ namespace capapresentacion
             this.label14 = new System.Windows.Forms.Label();
             this.txtEstimado = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtSolucion = new System.Windows.Forms.TextBox();
+            this.txtVSolucion = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.comboboxPrioridad = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -244,6 +244,8 @@ namespace capapresentacion
             // 
             this.comboboxProyecto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboboxProyecto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxProyecto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxProyecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxProyecto.FormattingEnabled = true;
             this.comboboxProyecto.Location = new System.Drawing.Point(343, 66);
@@ -253,6 +255,8 @@ namespace capapresentacion
             // 
             // comboboxEstado
             // 
+            this.comboboxEstado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxEstado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxEstado.FormattingEnabled = true;
             this.comboboxEstado.Location = new System.Drawing.Point(103, 93);
@@ -290,6 +294,8 @@ namespace capapresentacion
             // 
             this.comboboxSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboboxSolucion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxSolucion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxSolucion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxSolucion.FormattingEnabled = true;
             this.comboboxSolucion.Location = new System.Drawing.Point(376, 381);
@@ -313,6 +319,8 @@ namespace capapresentacion
             // comboboxTVerificacion
             // 
             this.comboboxTVerificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboboxTVerificacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxTVerificacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxTVerificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTVerificacion.FormattingEnabled = true;
             this.comboboxTVerificacion.Location = new System.Drawing.Point(639, 381);
@@ -361,6 +369,8 @@ namespace capapresentacion
             // 
             this.comboboxAplicacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboboxAplicacion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxAplicacion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxAplicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxAplicacion.FormattingEnabled = true;
             this.comboboxAplicacion.Location = new System.Drawing.Point(343, 96);
@@ -455,6 +465,7 @@ namespace capapresentacion
             this.txtEstimado.ReadOnly = true;
             this.txtEstimado.Size = new System.Drawing.Size(142, 20);
             this.txtEstimado.TabIndex = 80;
+            this.txtEstimado.Text = "0";
             // 
             // label15
             // 
@@ -468,14 +479,14 @@ namespace capapresentacion
             this.label15.Text = " T Estimado:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtSolucion
+            // txtVSolucion
             // 
-            this.txtSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSolucion.Location = new System.Drawing.Point(612, 126);
-            this.txtSolucion.Name = "txtSolucion";
-            this.txtSolucion.ReadOnly = true;
-            this.txtSolucion.Size = new System.Drawing.Size(142, 20);
-            this.txtSolucion.TabIndex = 82;
+            this.txtVSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtVSolucion.Location = new System.Drawing.Point(612, 126);
+            this.txtVSolucion.Name = "txtVSolucion";
+            this.txtVSolucion.ReadOnly = true;
+            this.txtVSolucion.Size = new System.Drawing.Size(142, 20);
+            this.txtVSolucion.TabIndex = 82;
             // 
             // label16
             // 
@@ -492,6 +503,8 @@ namespace capapresentacion
             // comboboxPrioridad
             // 
             this.comboboxPrioridad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboboxPrioridad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxPrioridad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxPrioridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxPrioridad.FormattingEnabled = true;
             this.comboboxPrioridad.Location = new System.Drawing.Point(612, 69);
@@ -568,6 +581,8 @@ namespace capapresentacion
             // comboboxTDeteccion
             // 
             this.comboboxTDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboboxTDeteccion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboboxTDeteccion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboboxTDeteccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTDeteccion.FormattingEnabled = true;
             this.comboboxTDeteccion.Location = new System.Drawing.Point(144, 385);
@@ -590,9 +605,10 @@ namespace capapresentacion
             // 
             // dtFDeteccion
             // 
-            this.dtFDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtFDeteccion.CustomFormat = " ";
             this.dtFDeteccion.Enabled = false;
+            this.dtFDeteccion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFDeteccion.Location = new System.Drawing.Point(144, 417);
             this.dtFDeteccion.Name = "dtFDeteccion";
             this.dtFDeteccion.Size = new System.Drawing.Size(112, 20);
@@ -602,16 +618,21 @@ namespace capapresentacion
             // 
             this.dtFSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFSolucion.CustomFormat = " ";
             this.dtFSolucion.Enabled = false;
+            this.dtFSolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFSolucion.Location = new System.Drawing.Point(376, 417);
             this.dtFSolucion.Name = "dtFSolucion";
             this.dtFSolucion.Size = new System.Drawing.Size(112, 20);
             this.dtFSolucion.TabIndex = 90;
+            this.dtFSolucion.Value = new System.DateTime(2021, 5, 5, 17, 28, 20, 0);
             // 
             // dtFVerificacion
             // 
             this.dtFVerificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFVerificacion.CustomFormat = " ";
             this.dtFVerificacion.Enabled = false;
+            this.dtFVerificacion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFVerificacion.Location = new System.Drawing.Point(639, 417);
             this.dtFVerificacion.Name = "dtFVerificacion";
             this.dtFVerificacion.Size = new System.Drawing.Size(112, 20);
@@ -641,7 +662,7 @@ namespace capapresentacion
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboboxPrioridad);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.txtSolucion);
+            this.Controls.Add(this.txtVSolucion);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtEstimado);
             this.Controls.Add(this.label15);
@@ -715,7 +736,7 @@ namespace capapresentacion
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtEstimado;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtSolucion;
+        private System.Windows.Forms.TextBox txtVSolucion;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox comboboxPrioridad;
         private System.Windows.Forms.Label label17;

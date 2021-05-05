@@ -90,30 +90,26 @@ namespace capapresentacion
 
         private void habilitar(bool valor)
         {
-            this.txtIdTarea.ReadOnly = valor;
+           // this.txtIdTarea.ReadOnly = false;
             this.txtDescripcionTarea.ReadOnly = !valor;
             this.txtTituloTarea.ReadOnly = !valor;
             this.comboboxEstado.Enabled = valor;
             this.comboboxProyecto.Enabled = valor;
             txtResolucion.ReadOnly = !valor;
-            txtReferencia.ReadOnly = !valor;
+            txtHistoria.ReadOnly = !valor;
             txtEstimado.ReadOnly = !valor;
             comboboxPrioridad.Enabled = valor;
-            comboboxPrioridad.Enabled = valor;
             comboboxAplicacion.Enabled = valor;
-            txtDeteccion.ReadOnly = !valor;
             comboboxModulo.Enabled = valor;
             txtDeteccion.ReadOnly = !valor;
             txtReferencia.ReadOnly = !valor;
-            txtSolucion.ReadOnly = !valor;
-            dtFDeteccion.Enabled = !valor;
-            dtFSolucion.Enabled = !valor;
-            dtFVerificacion.Enabled = !valor;
+            txtVSolucion.ReadOnly = !valor;
+            dtFDeteccion.Enabled = valor;
+            dtFSolucion.Enabled = valor;
+            dtFVerificacion.Enabled = valor;
             comboboxTDeteccion.Enabled = valor;
             comboboxSolucion.Enabled = valor;
             comboboxTVerificacion.Enabled = valor;
-            //txtFDeteccion.ReadOnly = !valor;
-            //this.dtFechaTarea.Enabled = valor;
         }
 
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
@@ -127,7 +123,7 @@ namespace capapresentacion
  
         }
 
-        private void rellenarComboboxes()
+        public void rellenarComboboxes()
         {
             mostrarProyectoCombobox();
             mostrarEstadoCombobox();
@@ -204,7 +200,7 @@ namespace capapresentacion
             txtReferencia.Text = string.Empty;
             txtIdTarea.Text = string.Empty;
             comboboxProyecto.Items.Clear();
-            txtEstimado.Text = string.Empty;
+            //txtEstimado.Text = string.Empty;
             comboboxPrioridad.Items.Clear();
             comboboxEstado.Items.Clear();
             comboboxAplicacion.Items.Clear();
@@ -212,29 +208,13 @@ namespace capapresentacion
             comboboxModulo.Items.Clear();
             txtDeteccion.Text = string.Empty;
             txtReferencia.Text = string.Empty;
-            txtSolucion.Text = string.Empty;
+            txtVSolucion.Text = string.Empty;
             txtHistoria.Text = string.Empty;
             txtDescripcionTarea.Text = string.Empty;
             txtResolucion.Text = string.Empty;
             comboboxTDeteccion.Items.Clear();
             comboboxSolucion.Items.Clear();
             comboboxTVerificacion.Items.Clear();
- 
-
-
-
-
-
-
-
-
-            this.txtIdTarea.Text = string.Empty;
-            this.txtTituloTarea.Text = string.Empty;
-            this.comboboxProyecto.Items.Clear();
-            this.comboboxEstado.Items.Clear();
-            //dtFechaTarea.Text = string.Empty;
-            this.txtDescripcionTarea.Text = string.Empty;
-            this.txtResolucion.Text = string.Empty;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -288,7 +268,7 @@ namespace capapresentacion
             txtDeteccion.Text = tarea.VDeteccion;
 
             txtReferencia.Text = tarea.Referencias;
-            txtSolucion.Text = tarea.Solucion;
+            txtVSolucion.Text = tarea.VSolucion;
             txtHistoria.Text = tarea.Historia;
 
             txtDescripcionTarea.Text = tarea.Descripcion;
@@ -357,7 +337,7 @@ namespace capapresentacion
                             txtDeteccion.Text,
                             comboboxModulo.SelectedItem.ToString(),
                             txtReferencia.Text,
-                            txtSolucion.Text,
+                            txtVSolucion.Text,
                             txtHistoria.Text,
                             txtDescripcionTarea.Text,
                             txtResolucion.Text,
@@ -373,14 +353,26 @@ namespace capapresentacion
                     {
                         //TODO falta por acabar, salta error
                         rpta = NTarea.editarTarea(
-                            Convert.ToInt32(this.txtIdTarea.Text),
-                            this.txtTituloTarea.Text.Trim().ToUpper(),
-                            this.txtDescripcionTarea.Text.Trim(),
-                            this.txtResolucion.Text.Trim(),
-                           // Convert.ToDateTime(this.dtFechaTarea.Value),
-                            this.comboboxEstado.SelectedItem.ToString(),
-                            this.comboboxProyecto.SelectedItem.ToString()
-                            );
+                            this.txtIdTarea.Text,
+                            txtTituloTarea.Text,
+                            Convert.ToInt32(txtEstimado.Text),
+                            this.comboboxProyecto.SelectedItem.ToString(),
+                            comboboxPrioridad.SelectedItem.ToString(),
+                            comboboxEstado.SelectedItem.ToString(),
+                            comboboxAplicacion.SelectedItem.ToString(),
+                            txtDeteccion.Text,
+                            comboboxModulo.SelectedItem.ToString(),
+                            txtReferencia.Text,
+                            txtVSolucion.Text,
+                            txtHistoria.Text,
+                            txtDescripcionTarea.Text,
+                            txtResolucion.Text,
+                            comboboxTDeteccion.SelectedItem.ToString(),
+                            comboboxSolucion.SelectedItem.ToString(),
+                            comboboxTVerificacion.SelectedItem.ToString(),
+                             Convert.ToDateTime(dtFDeteccion.Value),
+                             Convert.ToDateTime(dtFSolucion.Value),
+                             Convert.ToDateTime(dtFVerificacion.Value));
                     }
 
                     if (rpta.Equals("OK"))
@@ -426,7 +418,7 @@ namespace capapresentacion
                     {
                         string rpta = "";
 
-                        rpta = NTarea.eliminarTarea(Convert.ToInt32(txtIdTarea.Text));
+                        rpta = NTarea.eliminarTarea(txtIdTarea.Text);
 
                         if (rpta.Equals("OK"))
                         {
@@ -444,29 +436,10 @@ namespace capapresentacion
                     MessageBox.Show(ex.Message + ex.StackTrace);
                 }
 
-                /*if (aux < 1)
-                {
-                    MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                }
-                this.mostrarproyectos();*/
+
             }
 
         }
-        /*
-        public void llamaVisualizaDatos()
-        {
 
-            visualizaDatos(
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["id"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["proyecto"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tarea"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["descripcion"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["observaciones"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["fecha_creacion"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["estado"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tecnico"].Value)
-                );
-        }
-     */
     }
 }
