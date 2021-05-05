@@ -58,7 +58,8 @@ namespace capadatos
                 SqlCmd.Connection = SqlCon;
                 SqlCmd.CommandText = "spmostrar_proyectos";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);
 
             }
@@ -71,7 +72,6 @@ namespace capadatos
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
             }
-
             return dtresultado;
         }
           

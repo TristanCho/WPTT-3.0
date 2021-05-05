@@ -48,7 +48,7 @@ namespace capapresentacion
         public void mostrartareas()
         {
             this.dataListPersonales.DataSource = NPersonal.mostrarpersonales();
-            this.ocultarcolumnas();
+            //this.ocultarcolumnas();
             // this.btnEliminarProyecto.Visible = true;
             this.lblTotal.Text = "Número de TPersonales: " + Convert.ToString(dataListPersonales.Rows.Count);
             this.cbEliminar.Checked = false;

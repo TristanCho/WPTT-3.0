@@ -50,10 +50,14 @@ namespace capadatos
                 SqlCon.ConnectionString = Conexion.cn;
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
+                SqlCmd.Connection = SqlCon;          
                 SqlCmd.CommandText = "spmostrar_personales";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
+                //TODO INSERTAR EL EMPLEADO PARA EL PROCEDIMIENTO
+
+
+                /*
                 //id
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@idTarea";
@@ -104,7 +108,7 @@ namespace capadatos
                 ParProyecto.Size = 1024;
                 ParProyecto.Value = objeto.Proyecto;
                 SqlCmd.Parameters.Add(ParProyecto);
-
+                */
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);
