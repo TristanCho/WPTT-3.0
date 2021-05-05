@@ -52,9 +52,7 @@ namespace capapresentacion
             this.label6 = new System.Windows.Forms.Label();
             this.comboboxTVerificacion = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtFSolucion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtFVerificacion = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.comboboxAplicacion = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -74,10 +72,12 @@ namespace capapresentacion
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtFDeteccion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboboxTDeteccion = new System.Windows.Forms.ComboBox();
             this.Tec = new System.Windows.Forms.Label();
+            this.dtFDeteccion = new System.Windows.Forms.DateTimePicker();
+            this.dtFSolucion = new System.Windows.Forms.DateTimePicker();
+            this.dtFVerificacion = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -332,16 +332,6 @@ namespace capapresentacion
             this.label7.Text = "T. Verificación:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtFSolucion
-            // 
-            this.txtFSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFSolucion.Location = new System.Drawing.Point(376, 417);
-            this.txtFSolucion.Name = "txtFSolucion";
-            this.txtFSolucion.ReadOnly = true;
-            this.txtFSolucion.Size = new System.Drawing.Size(112, 20);
-            this.txtFSolucion.TabIndex = 68;
-            // 
             // label9
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -355,21 +345,12 @@ namespace capapresentacion
             this.label9.Text = "F. Solución:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtFVerificacion
-            // 
-            this.txtFVerificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFVerificacion.Location = new System.Drawing.Point(639, 417);
-            this.txtFVerificacion.Name = "txtFVerificacion";
-            this.txtFVerificacion.ReadOnly = true;
-            this.txtFVerificacion.Size = new System.Drawing.Size(112, 20);
-            this.txtFVerificacion.TabIndex = 70;
-            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(513, 417);
+            this.label10.Location = new System.Drawing.Point(508, 417);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(127, 18);
             this.label10.TabIndex = 69;
@@ -535,7 +516,6 @@ namespace capapresentacion
             this.txtHistoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHistoria.Location = new System.Drawing.Point(612, 154);
             this.txtHistoria.Name = "txtHistoria";
-            this.txtHistoria.ReadOnly = true;
             this.txtHistoria.Size = new System.Drawing.Size(142, 20);
             this.txtHistoria.TabIndex = 86;
             // 
@@ -572,22 +552,13 @@ namespace capapresentacion
             this.panel2.Size = new System.Drawing.Size(739, 51);
             this.panel2.TabIndex = 88;
             // 
-            // txtFDeteccion
-            // 
-            this.txtFDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtFDeteccion.Location = new System.Drawing.Point(145, 421);
-            this.txtFDeteccion.Name = "txtFDeteccion";
-            this.txtFDeteccion.ReadOnly = true;
-            this.txtFDeteccion.Size = new System.Drawing.Size(112, 20);
-            this.txtFDeteccion.TabIndex = 66;
-            // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(31, 423);
+            this.label8.Location = new System.Drawing.Point(30, 417);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 18);
             this.label8.TabIndex = 65;
@@ -617,24 +588,53 @@ namespace capapresentacion
             this.Tec.Text = "T. Detección:";
             this.Tec.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // dtFDeteccion
+            // 
+            this.dtFDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFDeteccion.Enabled = false;
+            this.dtFDeteccion.Location = new System.Drawing.Point(144, 417);
+            this.dtFDeteccion.Name = "dtFDeteccion";
+            this.dtFDeteccion.Size = new System.Drawing.Size(112, 20);
+            this.dtFDeteccion.TabIndex = 89;
+            // 
+            // dtFSolucion
+            // 
+            this.dtFSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFSolucion.Enabled = false;
+            this.dtFSolucion.Location = new System.Drawing.Point(376, 417);
+            this.dtFSolucion.Name = "dtFSolucion";
+            this.dtFSolucion.Size = new System.Drawing.Size(112, 20);
+            this.dtFSolucion.TabIndex = 90;
+            // 
+            // dtFVerificacion
+            // 
+            this.dtFVerificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFVerificacion.Enabled = false;
+            this.dtFVerificacion.Location = new System.Drawing.Point(639, 417);
+            this.dtFVerificacion.Name = "dtFVerificacion";
+            this.dtFVerificacion.Size = new System.Drawing.Size(112, 20);
+            this.dtFVerificacion.TabIndex = 91;
+            // 
             // FrmDetalleTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(766, 498);
+            this.Controls.Add(this.dtFVerificacion);
+            this.Controls.Add(this.dtFSolucion);
+            this.Controls.Add(this.dtFDeteccion);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboboxTVerificacion);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Tec);
-            this.Controls.Add(this.txtFVerificacion);
             this.Controls.Add(this.comboboxSolucion);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtFSolucion);
             this.Controls.Add(this.comboboxTDeteccion);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtFDeteccion);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtHistoria);
@@ -703,9 +703,7 @@ namespace capapresentacion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboboxTVerificacion;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtFSolucion;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtFVerificacion;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboboxAplicacion;
         private System.Windows.Forms.Label label11;
@@ -725,9 +723,11 @@ namespace capapresentacion
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtFDeteccion;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboboxTDeteccion;
         private System.Windows.Forms.Label Tec;
+        private System.Windows.Forms.DateTimePicker dtFDeteccion;
+        private System.Windows.Forms.DateTimePicker dtFSolucion;
+        private System.Windows.Forms.DateTimePicker dtFVerificacion;
     }
 }

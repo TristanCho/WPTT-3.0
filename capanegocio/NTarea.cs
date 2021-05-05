@@ -86,17 +86,38 @@ namespace capanegocio
             return objeto.editarTarea(objeto);
         }
 
-        public static string insertartarea(/*int id,*/ string titulo, string descripcion, string observaciones, /*DateTime fecha,*/ string estado,  string proyecto)
+        public static string insertartarea(string titulo,int tiempo_estimado,
+            string proyecto, string prioridad,
+            string estado,string aplicacion,string vdeteccion,
+            string modulo,string referencias,string vsolucion,
+            string historia,
+            string descripcion,
+            string solucion,
+            string tdeteccion, string tsolucion, string tverificacion,
+            DateTime fdeteccion, DateTime fsolucion, DateTime fverificacion)
         {
             DTarea objeto = new DTarea();
-            //objeto.Id = id;
+
             objeto.Titulo = titulo;
+            objeto.TiempoEstimado = tiempo_estimado;
             objeto.Proyecto = proyecto;
-            objeto.Descripcion = descripcion;
-            objeto.Observaciones = observaciones;
+            objeto.Prioridad = prioridad;
             objeto.Estado = estado;
-            //objeto.Fecha = fecha;
-            //objeto.Tecnico = tecnico;
+            objeto.Aplicacion = aplicacion;
+            objeto.Vdeteccion = vdeteccion;
+            objeto.Modulo = modulo;
+            objeto.Referencias = referencias;
+            objeto.Vsolucion = vsolucion;
+            objeto.Historia = historia;
+            objeto.Descripcion = descripcion;
+            objeto.Solucion = solucion;
+            objeto.Tdeteccion = tdeteccion;
+            objeto.Tsolucion = tsolucion;
+            objeto.Tverificacion = tverificacion;
+            objeto.Fechadeteccion = fdeteccion;
+            objeto.Fechasolucion = fsolucion;
+            objeto.Fechaverificacion = fverificacion;
+
 
             return objeto.insertartarea(objeto);
         }
@@ -129,6 +150,11 @@ namespace capanegocio
         {
             DTarea objeto = new DTarea();
             return objeto.mostrarPrioridad(objeto);
+        }
+        public static string[] mostrarAplicacion()
+        {
+            DTarea objeto = new DTarea();
+            return objeto.mostrarAplicaciones(objeto);
         }
 
         public static string[] mostrarTenicos()

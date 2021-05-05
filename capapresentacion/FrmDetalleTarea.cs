@@ -106,12 +106,13 @@ namespace capapresentacion
             txtDeteccion.ReadOnly = !valor;
             txtReferencia.ReadOnly = !valor;
             txtSolucion.ReadOnly = !valor;
-            txtFVerificacion.ReadOnly = !valor;
-            txtFSolucion.ReadOnly = !valor;
+            dtFDeteccion.Enabled = !valor;
+            dtFSolucion.Enabled = !valor;
+            dtFVerificacion.Enabled = !valor;
             comboboxTDeteccion.Enabled = valor;
             comboboxSolucion.Enabled = valor;
             comboboxTVerificacion.Enabled = valor;
-            txtFDeteccion.ReadOnly = !valor;
+            //txtFDeteccion.ReadOnly = !valor;
             //this.dtFechaTarea.Enabled = valor;
         }
 
@@ -156,7 +157,7 @@ namespace capapresentacion
 
         private void mostrarAplicacionCombobox()
         {
-            comboboxAplicacion.Items.AddRange(NTarea.mostrarPrioridad().ToArray());
+            comboboxAplicacion.Items.AddRange(NTarea.mostrarAplicacion().ToArray());
             comboboxAplicacion.SelectedIndex = 0;
         }
 
@@ -218,9 +219,7 @@ namespace capapresentacion
             comboboxTDeteccion.Items.Clear();
             comboboxSolucion.Items.Clear();
             comboboxTVerificacion.Items.Clear();
-            txtFDeteccion.Text = string.Empty;
-            txtFSolucion.Text = string.Empty;
-            txtFSolucion.Text = string.Empty;
+ 
 
 
 
@@ -307,9 +306,9 @@ namespace capapresentacion
             comboboxTVerificacion.Items.Add(tarea.TVerificacion);
             comboboxTVerificacion.SelectedIndex = 0;
 
-            txtFDeteccion.Text = tarea.FDeteccion;
-            txtFSolucion.Text = tarea.FSolucion;
-            txtFSolucion.Text = tarea.FVerificacion;
+            dtFDeteccion.Text = tarea.FDeteccion;
+            dtFSolucion.Text = tarea.FSolucion;
+            dtFVerificacion.Text = tarea.FVerificacion;
 
 
 
@@ -349,12 +348,25 @@ namespace capapresentacion
                     if (esnuevo)
                     {
                         rpta = NTarea.insertartarea(
-                            this.txtTituloTarea.Text.Trim().ToUpper(),
-                            this.txtDescripcionTarea.Text.Trim(),  
-                            this.txtResolucion.Text.Trim(),
-                           // Convert.ToDateTime(this.dtFechaTarea.Value),
-                            this.comboboxEstado.SelectedItem.ToString() ,
-                            this.comboboxProyecto.SelectedItem.ToString()
+                            txtTituloTarea.Text,
+                            Convert.ToInt32(txtEstimado.Text),
+                            this.comboboxProyecto.SelectedItem.ToString(),
+                            comboboxPrioridad.SelectedItem.ToString(),
+                            comboboxEstado.SelectedItem.ToString(),
+                            comboboxAplicacion.SelectedItem.ToString(),
+                            txtDeteccion.Text,
+                            comboboxModulo.SelectedItem.ToString(),
+                            txtReferencia.Text,
+                            txtSolucion.Text,
+                            txtHistoria.Text,
+                            txtDescripcionTarea.Text,
+                            txtSolucion.Text,
+                            comboboxTDeteccion.SelectedItem.ToString(),
+                            comboboxSolucion.SelectedItem.ToString(),
+                            comboboxTVerificacion.SelectedItem.ToString(),
+                             Convert.ToDateTime(dtFDeteccion.Value),
+                             Convert.ToDateTime(dtFSolucion.Value),
+                             Convert.ToDateTime(dtFVerificacion.Value)
                             );
                     }
                     else
