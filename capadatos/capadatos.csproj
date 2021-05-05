@@ -46,6 +46,7 @@
     <Compile Include="DetalleTareas.cs" />
     <Compile Include="DLogin.cs" />
     <Compile Include="DLoginStatico.cs" />
+    <Compile Include="DPersonal.cs" />
     <Compile Include="DProyecto.cs" />
     <Compile Include="DTarea.cs" />
     <Compile Include="DProyectoDatos.cs" />

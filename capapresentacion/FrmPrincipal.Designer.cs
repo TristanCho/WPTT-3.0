@@ -31,6 +31,7 @@ namespace capapresentacion
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnTareasPersonales = new FontAwesome.Sharp.IconButton();
             this.widgetBoton = new System.Windows.Forms.Button();
             this.Tiempos = new FontAwesome.Sharp.IconButton();
             this.Tareas = new FontAwesome.Sharp.IconButton();
@@ -46,7 +47,6 @@ namespace capapresentacion
             this.iconoFormularioActual = new FontAwesome.Sharp.IconPictureBox();
             this.textoInicio = new System.Windows.Forms.Label();
             this.panelFormulario = new System.Windows.Forms.Panel();
-            this.btnTareasPersonales = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reloj_image)).BeginInit();
@@ -68,6 +68,29 @@ namespace capapresentacion
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(200, 567);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnTareasPersonales
+            // 
+            this.btnTareasPersonales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTareasPersonales.FlatAppearance.BorderSize = 0;
+            this.btnTareasPersonales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTareasPersonales.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTareasPersonales.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnTareasPersonales.IconChar = FontAwesome.Sharp.IconChar.FistRaised;
+            this.btnTareasPersonales.IconColor = System.Drawing.Color.White;
+            this.btnTareasPersonales.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTareasPersonales.IconSize = 32;
+            this.btnTareasPersonales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTareasPersonales.Location = new System.Drawing.Point(0, 320);
+            this.btnTareasPersonales.Name = "btnTareasPersonales";
+            this.btnTareasPersonales.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnTareasPersonales.Size = new System.Drawing.Size(200, 60);
+            this.btnTareasPersonales.TabIndex = 7;
+            this.btnTareasPersonales.Text = "Tareas Personales";
+            this.btnTareasPersonales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTareasPersonales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTareasPersonales.UseVisualStyleBackColor = true;
+            this.btnTareasPersonales.Click += new System.EventHandler(this.btnTareasPersonales_Click);
             // 
             // widgetBoton
             // 
@@ -281,28 +304,6 @@ namespace capapresentacion
             this.panelFormulario.Size = new System.Drawing.Size(784, 517);
             this.panelFormulario.TabIndex = 2;
             this.panelFormulario.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // btnTareasPersonales
-            // 
-            this.btnTareasPersonales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTareasPersonales.FlatAppearance.BorderSize = 0;
-            this.btnTareasPersonales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTareasPersonales.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTareasPersonales.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnTareasPersonales.IconChar = FontAwesome.Sharp.IconChar.FistRaised;
-            this.btnTareasPersonales.IconColor = System.Drawing.Color.White;
-            this.btnTareasPersonales.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTareasPersonales.IconSize = 32;
-            this.btnTareasPersonales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTareasPersonales.Location = new System.Drawing.Point(0, 320);
-            this.btnTareasPersonales.Name = "btnTareasPersonales";
-            this.btnTareasPersonales.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnTareasPersonales.Size = new System.Drawing.Size(200, 60);
-            this.btnTareasPersonales.TabIndex = 7;
-            this.btnTareasPersonales.Text = "Tareas Personales";
-            this.btnTareasPersonales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTareasPersonales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTareasPersonales.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 

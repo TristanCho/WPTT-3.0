@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NLogin.cs" />
+    <Compile Include="NPersonal.cs" />
     <Compile Include="NProyecto.cs" />
     <Compile Include="NTarea.cs" />
     <Compile Include="NTiempo.cs" />

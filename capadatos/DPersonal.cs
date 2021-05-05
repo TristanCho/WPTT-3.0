@@ -9,83 +9,41 @@ using System.Windows.Forms;
 
 namespace capadatos
 {
-    public class DTarea
+    public class DPersonal
     {
-        private int _id;
-        private string _titulo;
-        private string _descripcion;
+        private int _idtarea;
+        private string _descripcion;        
+        private string _idempleado;
         private string _estado;
-
-
-        private int _tiempoEstimado;
-        private string _prioridad;
-        private string _aplicacion;
-        private string _vdeteccion;
-        private string _modulo;
-        private string _referencias;
-        private string _vsolucion;
-        private string _historia;
-        private string _solucion;
-        private string _tdeteccion;
-        private string _tsolucion;
-        private string _tverificacion;
-        private DateTime _fechadeteccion;
-        private DateTime _fechasolucion;
-        private DateTime _fechaverificacion;
-
-
-        private string _textobuscar;
+        private string _tareaproyecto;
         private string _proyecto;
-        private string _observaciones;
-        private DateTime _fecha;
-        private string _tecnico;
-        private string _codigo_proyecto;
 
-        public int Id { get => _id; set => _id = value; }
-        public string Titulo { get => _titulo; set => _titulo = value; }
+    
+        public int Idtarea { get => _idtarea; set => _idtarea = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        public string Idempleado { get => _idempleado; set => _idempleado = value; }
         public string Estado { get => _estado; set => _estado = value; }
-        public string Observaciones { get => _observaciones; set => _observaciones = value; }
-        public string Textobuscar { get => _textobuscar; set => _textobuscar = value; }
+        public string Tareaproyecto { get => _tareaproyecto; set => _tareaproyecto = value; }
         public string Proyecto { get => _proyecto; set => _proyecto = value; }
-        public DateTime Fecha { get => _fecha; set => _fecha = value; }
-        public string Tecnico { get => _tecnico; set => _tecnico = value; }
-        public string Codigo_proyecto { get => _codigo_proyecto; set => _codigo_proyecto = value; }
-        public int TiempoEstimado { get => _tiempoEstimado; set => _tiempoEstimado = value; }
-        public string Prioridad { get => _prioridad; set => _prioridad = value; }
-        public string Aplicacion { get => _aplicacion; set => _aplicacion = value; }
-        public string Vdeteccion { get => _vdeteccion; set => _vdeteccion = value; }
-        public string Modulo { get => _modulo; set => _modulo = value; }
-        public string Referencias { get => _referencias; set => _referencias = value; }
-        public string Vsolucion { get => _vsolucion; set => _vsolucion = value; }
-        public string Historia { get => _historia; set => _historia = value; }
-        public string Solucion { get => _solucion; set => _solucion = value; }
-        public string Tdeteccion { get => _tdeteccion; set => _tdeteccion = value; }
-        public string Tsolucion { get => _tsolucion; set => _tsolucion = value; }
-        public string Tverificacion { get => _tverificacion; set => _tverificacion = value; }
-        public DateTime Fechadeteccion { get => _fechadeteccion; set => _fechadeteccion = value; }
-        public DateTime Fechasolucion { get => _fechasolucion; set => _fechasolucion = value; }
-        public DateTime Fechaverificacion { get => _fechaverificacion; set => _fechaverificacion = value; }
 
-        public DTarea()
+        public DPersonal()
         {
 
         }
-
-        public DTarea(int id, string titulo, string descripcion, string proyecto, string prioridad, string estado, string textobuscar,string codigo_proyecto)
+        public DPersonal(int idtarea, string descripcion, string idempleado, string estado, string tareaproyecto, string proyecto)
         {
-            Id = id;
-            Titulo = titulo;
-            Descripcion = descripcion;
-            Proyecto = proyecto;
-            Estado = estado;
-            Textobuscar = textobuscar;
-            Codigo_proyecto = codigo_proyecto;
+            _idtarea = idtarea;
+            _descripcion = descripcion;
+            _idempleado = idempleado;
+            _estado = estado;
+            _tareaproyecto = tareaproyecto;
+            _proyecto = proyecto;
         }
 
-        public DataTable mostrartarea(DTarea objeto)
+
+        public DataTable mostrarpersonales(DPersonal objeto)
         {
-            DataTable dtresultado = new DataTable("tareas");
+            DataTable dtresultado = new DataTable("personales");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -93,13 +51,63 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_tareas";
+                SqlCmd.CommandText = "spmostrar_personales";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                //id
+                SqlParameter ParIdTarea = new SqlParameter();
+                ParIdTarea.ParameterName = "@idTarea";
+                ParIdTarea.SqlDbType = SqlDbType.Int;
+                ParIdTarea.Direction = ParameterDirection.Output;
+                SqlCmd.Parameters.Add(ParIdTarea);
+
+
+                //descripcion               
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParDescripcion.Value = objeto.Descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
+            
+
+                //nombre
+                SqlParameter ParEmpleado = new SqlParameter();
+                ParEmpleado.ParameterName = "@Nombre";
+                ParEmpleado.SqlDbType = SqlDbType.NVarChar;
+                ParEmpleado.Size = 1024;
+                ParEmpleado.Value = objeto.Idempleado;                
+                SqlCmd.Parameters.Add(ParEmpleado);
+
+
+                //DesEstado
+                SqlParameter ParEstado = new SqlParameter();
+                ParEstado.ParameterName = "@DesEstado";
+                ParEstado.SqlDbType = SqlDbType.NVarChar;
+                ParEstado.Size = 1024;
+                ParEstado.Value = objeto.Estado;
+                SqlCmd.Parameters.Add(ParEstado);
+
+
+                //TareaProyecto
+                SqlParameter ParTareaProyecto = new SqlParameter();
+                ParTareaProyecto.ParameterName = "@TareaProyecto";
+                ParTareaProyecto.SqlDbType = SqlDbType.NText;
+                ParTareaProyecto.Size = 1024;
+                ParTareaProyecto.Value = objeto.Tareaproyecto;
+                SqlCmd.Parameters.Add(ParTareaProyecto);
+
+                //Proyecto
+                SqlParameter ParProyecto = new SqlParameter();
+                ParProyecto.ParameterName = "@Proyecto";
+                ParProyecto.SqlDbType = SqlDbType.NText;
+                ParProyecto.Size = 1024;
+                ParProyecto.Value = objeto.Proyecto;
+                SqlCmd.Parameters.Add(ParProyecto);
+
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);
-
-
             }
             catch (Exception)
             {
@@ -108,9 +116,7 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
-
             return dtresultado;
         }
 
@@ -155,40 +161,38 @@ namespace capadatos
 
         public string[] mostrarEstadoModulo(DTarea objeto)
         {
-                string[] array = new string[] { };
+            string[] array = new string[] { };
 
-                DataTable dtresultado = new DataTable("Tareas");
-                SqlConnection SqlCon = new SqlConnection();
-                try
-                {
-                    SqlCon.ConnectionString = Conexion.cn;
-                    SqlCon.Open();
-                    SqlCommand SqlCmd = new SqlCommand();
-                    SqlCmd.Connection = SqlCon;
-                    SqlCmd.CommandText = "spmostrar_combo_modulo";
-                    SqlCmd.CommandType = CommandType.StoredProcedure;
+            DataTable dtresultado = new DataTable("Tareas");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_modulo";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                    sqladap.Fill(dtresultado);
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
 
-                    array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
 
-                }
-                catch (Exception)
-                {
-                    dtresultado = null;
-                }
-                finally
-                {
-                    if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
-                }
+            }
 
-                return array;
-            
+            return array;
+
         }
-
-
 
         public string[] mostrarPrioridad(DTarea objeto)
         {
@@ -317,6 +321,9 @@ namespace capadatos
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
+
+
+
             }
             catch (Exception)
             {
@@ -423,7 +430,7 @@ namespace capadatos
                 SqlParameter ParProyecto = new SqlParameter();
                 ParProyecto.ParameterName = "@proyecto";
                 ParProyecto.SqlDbType = SqlDbType.NText;
-                ParProyecto.Value = tarea.Proyecto; 
+                ParProyecto.Value = tarea.Proyecto;
                 SqlCmd.Parameters.Add(ParProyecto);
 
                 //proyecto
@@ -621,8 +628,6 @@ namespace capadatos
             return array;
         }
 
- 
-
         public string editarTarea(DTarea tarea)
         {
             string rpta = "";
@@ -746,8 +751,6 @@ namespace capadatos
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
             }
             catch (Exception)
             {
@@ -758,7 +761,6 @@ namespace capadatos
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
             }
-
             return dtresultado;
         }
 
@@ -994,7 +996,8 @@ namespace capadatos
             }
 
             return dtresultado;
-        }        
+        }
+
         public DataTable buscartareaAplicacion(DTarea tarea)
         {
             DataTable dtresultado = new DataTable("tareas");
