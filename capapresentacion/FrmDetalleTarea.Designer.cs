@@ -226,7 +226,7 @@ namespace capapresentacion
             this.txtDescripcionTarea.Location = new System.Drawing.Point(0, 0);
             this.txtDescripcionTarea.Name = "txtDescripcionTarea";
             this.txtDescripcionTarea.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtDescripcionTarea.Size = new System.Drawing.Size(739, 71);
+            this.txtDescripcionTarea.Size = new System.Drawing.Size(742, 71);
             this.txtDescripcionTarea.TabIndex = 50;
             this.txtDescripcionTarea.Text = "";
             // 

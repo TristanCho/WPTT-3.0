@@ -360,7 +360,7 @@ namespace capapresentacion
                             txtSolucion.Text,
                             txtHistoria.Text,
                             txtDescripcionTarea.Text,
-                            txtSolucion.Text,
+                            txtResolucion.Text,
                             comboboxTDeteccion.SelectedItem.ToString(),
                             comboboxSolucion.SelectedItem.ToString(),
                             comboboxTVerificacion.SelectedItem.ToString(),
