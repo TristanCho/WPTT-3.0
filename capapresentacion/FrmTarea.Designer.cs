@@ -29,29 +29,21 @@ namespace capapresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
             this.dataListTareas = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtBuscarTarea = new System.Windows.Forms.TextBox();
             this.cbEliminar = new System.Windows.Forms.CheckBox();
-            this.btnEliminarTarea = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.cboBuscarTareas = new System.Windows.Forms.ComboBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataListDetalleTareas = new System.Windows.Forms.DataGridView();
-            this.Detalles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEliminarTarea = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.panelRecuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListTareas)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListDetalleTareas)).BeginInit();
             this.SuspendLayout();
             // 
             // label_añadir
@@ -86,14 +78,14 @@ namespace capapresentacion
             this.dataListTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataListTareas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataListTareas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataListTareas.ColumnHeadersHeight = 34;
             this.dataListTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataListTareas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -104,21 +96,21 @@ namespace capapresentacion
             this.dataListTareas.Location = new System.Drawing.Point(0, 0);
             this.dataListTareas.Name = "dataListTareas";
             this.dataListTareas.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataListTareas.RowHeadersVisible = false;
             this.dataListTareas.RowHeadersWidth = 51;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListTareas.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListTareas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataListTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataListTareas.Size = new System.Drawing.Size(776, 200);
             this.dataListTareas.TabIndex = 4;
@@ -156,6 +148,33 @@ namespace capapresentacion
             this.cbEliminar.UseVisualStyleBackColor = true;
             this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
             // 
+            // cboBuscarTareas
+            // 
+            this.cboBuscarTareas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBuscarTareas.FormattingEnabled = true;
+            this.cboBuscarTareas.Items.AddRange(new object[] {
+            "Tarea",
+            "Descripción",
+            "Aplicación",
+            "Proyecto",
+            "Prioridad",
+            "Estados"});
+            this.cboBuscarTareas.Location = new System.Drawing.Point(12, 11);
+            this.cboBuscarTareas.Name = "cboBuscarTareas";
+            this.cboBuscarTareas.Size = new System.Drawing.Size(195, 21);
+            this.cboBuscarTareas.TabIndex = 13;
+            this.cboBuscarTareas.SelectedIndexChanged += new System.EventHandler(this.cboBuscarTareas_SelectedIndexChanged);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(641, 43);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(98, 13);
+            this.lblTotal.TabIndex = 24;
+            this.lblTotal.Text = "Número de Tareas:";
+            // 
             // btnEliminarTarea
             // 
             this.btnEliminarTarea.BackColor = System.Drawing.Color.White;
@@ -187,98 +206,6 @@ namespace capapresentacion
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // cboBuscarTareas
-            // 
-            this.cboBuscarTareas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBuscarTareas.FormattingEnabled = true;
-            this.cboBuscarTareas.Items.AddRange(new object[] {
-            "Tarea",
-            "Descripción",
-            "Aplicación",
-            "Proyecto",
-            "Prioridad",
-            "Estados"});
-            this.cboBuscarTareas.Location = new System.Drawing.Point(12, 11);
-            this.cboBuscarTareas.Name = "cboBuscarTareas";
-            this.cboBuscarTareas.Size = new System.Drawing.Size(195, 21);
-            this.cboBuscarTareas.TabIndex = 13;
-            this.cboBuscarTareas.SelectedIndexChanged += new System.EventHandler(this.cboBuscarTareas_SelectedIndexChanged);
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(641, 43);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(94, 13);
-            this.lblTotal.TabIndex = 24;
-            this.lblTotal.Text = "Número de tareas:";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Gold;
-            this.panel1.Controls.Add(this.dataListDetalleTareas);
-            this.panel1.Location = new System.Drawing.Point(12, 271);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 200);
-            this.panel1.TabIndex = 21;
-            // 
-            // dataListDetalleTareas
-            // 
-            this.dataListDetalleTareas.AllowUserToAddRows = false;
-            this.dataListDetalleTareas.AllowUserToDeleteRows = false;
-            this.dataListDetalleTareas.AllowUserToOrderColumns = true;
-            this.dataListDetalleTareas.AllowUserToResizeRows = false;
-            this.dataListDetalleTareas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataListDetalleTareas.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dataListDetalleTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataListDetalleTareas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataListDetalleTareas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListDetalleTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            this.dataListDetalleTareas.ColumnHeadersHeight = 34;
-            this.dataListDetalleTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataListDetalleTareas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Detalles});
-            this.dataListDetalleTareas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataListDetalleTareas.EnableHeadersVisualStyles = false;
-            this.dataListDetalleTareas.GridColor = System.Drawing.Color.DimGray;
-            this.dataListDetalleTareas.Location = new System.Drawing.Point(0, 0);
-            this.dataListDetalleTareas.Name = "dataListDetalleTareas";
-            this.dataListDetalleTareas.ReadOnly = true;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListDetalleTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            this.dataListDetalleTareas.RowHeadersVisible = false;
-            this.dataListDetalleTareas.RowHeadersWidth = 51;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListDetalleTareas.RowsDefaultCellStyle = dataGridViewCellStyle24;
-            this.dataListDetalleTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListDetalleTareas.Size = new System.Drawing.Size(776, 200);
-            this.dataListDetalleTareas.TabIndex = 4;
-            // 
-            // Detalles
-            // 
-            this.Detalles.HeaderText = "Detalle tiempos";
-            this.Detalles.Name = "Detalles";
-            this.Detalles.ReadOnly = true;
-            // 
             // FrmTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,7 +213,6 @@ namespace capapresentacion
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 489);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnEliminarTarea);
             this.Controls.Add(this.cbEliminar);
@@ -300,8 +226,6 @@ namespace capapresentacion
             this.Load += new System.EventHandler(this.FrmTarea_Load);
             this.panelRecuadro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataListTareas)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataListDetalleTareas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,8 +243,5 @@ namespace capapresentacion
         private System.Windows.Forms.CheckBox cbEliminar;
         private System.Windows.Forms.ComboBox cboBuscarTareas;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataListDetalleTareas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Detalles;
     }
 }
