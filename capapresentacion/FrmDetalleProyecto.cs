@@ -138,7 +138,7 @@ namespace capapresentacion
                     if (esnuevo)
                     {
                         rpta = NProyecto.insertarproyecto(
-                            this.txtTituloProyecto.Text.Trim().ToUpper(),
+                            this.txtTituloProyecto.Text.Trim(),
                            this.txtcodigoProyecto.Text.Trim(),
                             this.txtObservacionesProyecto.Text.Trim(),
                             Convert.ToDateTime(this.dtFechaProyecto.Value));
@@ -148,7 +148,7 @@ namespace capapresentacion
 
                         rpta = NProyecto.editarproyecto(
                             Convert.ToInt32(this.txtIdProyecto.Text),
-                            this.txtTituloProyecto.Text.Trim().ToUpper(), 
+                            this.txtTituloProyecto.Text.Trim(), 
                            this.txtcodigoProyecto.Text.Trim(), 
                             this.txtObservacionesProyecto.Text.Trim(), 
                             Convert.ToDateTime(this.dtFechaProyecto.Value));

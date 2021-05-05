@@ -58,6 +58,7 @@ namespace capapresentacion
             detalleTareas.crearNuevo();
             detalleTareas.setTecnico();
             detalleTareas.setBotonEliminar(false);
+            detalleTareas.rellenarComboboxes();
         }
 
         private void ocultarcolumnas()
