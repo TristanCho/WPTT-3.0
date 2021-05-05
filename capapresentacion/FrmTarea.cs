@@ -165,13 +165,13 @@ namespace capapresentacion
             }
             //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
 
-            mostrarDetalleTareaClicada(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
+           // mostrarDetalleTareaClicada(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
         }
-        private void mostrarDetalleTareaClicada(string codigo_tarea)
-        {
-            this.dataListDetalleTareas.Columns[0].Visible = false;
-            dataListDetalleTareas.DataSource= NTarea.mostrarDetalleTiempos(codigo_tarea);
-        }
+        //private void mostrarDetalleTareaClicada(string codigo_tarea)
+        //{
+        //    this.dataListDetalleTareas.Columns[0].Visible = false;
+        //    dataListDetalleTareas.DataSource= NTarea.mostrarDetalleTiempos(codigo_tarea);
+        //}
         private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
             try

@@ -39,13 +39,14 @@ namespace capapresentacion
             this.reloj_image = new System.Windows.Forms.PictureBox();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.maximizar = new System.Windows.Forms.Button();
             this.txtnombreusuario = new System.Windows.Forms.Label();
             this.miminizar = new System.Windows.Forms.Button();
             this.cerrar = new System.Windows.Forms.Button();
             this.iconoFormularioActual = new FontAwesome.Sharp.IconPictureBox();
             this.textoInicio = new System.Windows.Forms.Label();
             this.panelFormulario = new System.Windows.Forms.Panel();
-            this.maximizar = new System.Windows.Forms.Button();
+            this.btnTareasPersonales = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reloj_image)).BeginInit();
@@ -56,6 +57,7 @@ namespace capapresentacion
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.DarkOrange;
+            this.panelMenu.Controls.Add(this.btnTareasPersonales);
             this.panelMenu.Controls.Add(this.widgetBoton);
             this.panelMenu.Controls.Add(this.Tiempos);
             this.panelMenu.Controls.Add(this.Tareas);
@@ -194,6 +196,21 @@ namespace capapresentacion
             this.panelTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitulo_Paint);
             this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmPrincipal_MouseDown);
             // 
+            // maximizar
+            // 
+            this.maximizar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.maximizar.FlatAppearance.BorderSize = 0;
+            this.maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maximizar.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maximizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.maximizar.Location = new System.Drawing.Point(712, 0);
+            this.maximizar.Name = "maximizar";
+            this.maximizar.Size = new System.Drawing.Size(24, 50);
+            this.maximizar.TabIndex = 26;
+            this.maximizar.Text = "□";
+            this.maximizar.UseVisualStyleBackColor = true;
+            this.maximizar.Click += new System.EventHandler(this.maximizar_Click);
+            // 
             // txtnombreusuario
             // 
             this.txtnombreusuario.AutoSize = true;
@@ -265,20 +282,27 @@ namespace capapresentacion
             this.panelFormulario.TabIndex = 2;
             this.panelFormulario.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // maximizar
+            // btnTareasPersonales
             // 
-            this.maximizar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.maximizar.FlatAppearance.BorderSize = 0;
-            this.maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maximizar.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maximizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.maximizar.Location = new System.Drawing.Point(712, 0);
-            this.maximizar.Name = "maximizar";
-            this.maximizar.Size = new System.Drawing.Size(24, 50);
-            this.maximizar.TabIndex = 26;
-            this.maximizar.Text = "□";
-            this.maximizar.UseVisualStyleBackColor = true;
-            this.maximizar.Click += new System.EventHandler(this.maximizar_Click);
+            this.btnTareasPersonales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTareasPersonales.FlatAppearance.BorderSize = 0;
+            this.btnTareasPersonales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTareasPersonales.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTareasPersonales.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnTareasPersonales.IconChar = FontAwesome.Sharp.IconChar.FistRaised;
+            this.btnTareasPersonales.IconColor = System.Drawing.Color.White;
+            this.btnTareasPersonales.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTareasPersonales.IconSize = 32;
+            this.btnTareasPersonales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTareasPersonales.Location = new System.Drawing.Point(0, 320);
+            this.btnTareasPersonales.Name = "btnTareasPersonales";
+            this.btnTareasPersonales.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnTareasPersonales.Size = new System.Drawing.Size(200, 60);
+            this.btnTareasPersonales.TabIndex = 7;
+            this.btnTareasPersonales.Text = "Tareas Personales";
+            this.btnTareasPersonales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTareasPersonales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTareasPersonales.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 
@@ -324,5 +348,6 @@ namespace capapresentacion
         private System.Windows.Forms.Button widgetBoton;
         private System.Windows.Forms.Label txtnombreusuario;
         private System.Windows.Forms.Button maximizar;
+        private FontAwesome.Sharp.IconButton btnTareasPersonales;
     }
 }

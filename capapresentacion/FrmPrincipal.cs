@@ -312,6 +312,16 @@ private void quitarBordes()
             //AbrirFormulario(new FrmTarea());
         }
 
+        /*****************************************/
+        //private void Tareas_Click(object sender, EventArgs e)
+        //{
+        //    ActivaBoton(sender, RGBColors.color1);
+        //    FrmTarea tareas = new FrmTarea();
+        //    //--- tareas.frmparent = this;
+        //    AbrirFormulario(tareas);
+        //    //AbrirFormulario(new FrmTarea());
+        //}
+        /*****************************************/
 
         private void Tiempos_Click(object sender, EventArgs e)
         {
