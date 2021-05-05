@@ -15,6 +15,25 @@ namespace capadatos
         private string _titulo;
         private string _descripcion;
         private string _estado;
+
+
+        private int _tiempoEstimado;
+        private string _prioridad;
+        private string _aplicacion;
+        private string _vdeteccion;
+        private string _modulo;
+        private string _referencias;
+        private string _vsolucion;
+        private string _historia;
+        private string _solucion;
+        private string _tdeteccion;
+        private string _tsolucion;
+        private string _tverificacion;
+        private DateTime _fechadeteccion;
+        private DateTime _fechasolucion;
+        private DateTime _fechaverificacion;
+
+
         private string _textobuscar;
         private string _proyecto;
         private string _observaciones;
@@ -32,6 +51,21 @@ namespace capadatos
         public DateTime Fecha { get => _fecha; set => _fecha = value; }
         public string Tecnico { get => _tecnico; set => _tecnico = value; }
         public string Codigo_proyecto { get => _codigo_proyecto; set => _codigo_proyecto = value; }
+        public int TiempoEstimado { get => _tiempoEstimado; set => _tiempoEstimado = value; }
+        public string Prioridad { get => _prioridad; set => _prioridad = value; }
+        public string Aplicacion { get => _aplicacion; set => _aplicacion = value; }
+        public string Vdeteccion { get => _vdeteccion; set => _vdeteccion = value; }
+        public string Modulo { get => _modulo; set => _modulo = value; }
+        public string Referencias { get => _referencias; set => _referencias = value; }
+        public string Vsolucion { get => _vsolucion; set => _vsolucion = value; }
+        public string Historia { get => _historia; set => _historia = value; }
+        public string Solucion { get => _solucion; set => _solucion = value; }
+        public string Tdeteccion { get => _tdeteccion; set => _tdeteccion = value; }
+        public string Tsolucion { get => _tsolucion; set => _tsolucion = value; }
+        public string Tverificacion { get => _tverificacion; set => _tverificacion = value; }
+        public DateTime Fechadeteccion { get => _fechadeteccion; set => _fechadeteccion = value; }
+        public DateTime Fechasolucion { get => _fechasolucion; set => _fechasolucion = value; }
+        public DateTime Fechaverificacion { get => _fechaverificacion; set => _fechaverificacion = value; }
 
         public DTarea()
         {
@@ -379,48 +413,125 @@ namespace capadatos
                 ParTitulo.Value = tarea.Titulo;
                 SqlCmd.Parameters.Add(ParTitulo);
 
-
-                //observaciones
-                SqlParameter ParObservaciones = new SqlParameter();
-                ParObservaciones.ParameterName = "@observaciones";
-                ParObservaciones.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParObservaciones.Value = tarea.Observaciones;
-                SqlCmd.Parameters.Add(ParObservaciones);
-
-                //descripcion
-                SqlParameter ParDescripcion = new SqlParameter();
-                ParDescripcion.ParameterName = "@descripcion";
-                ParDescripcion.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParDescripcion.Value = tarea.Descripcion;
-                SqlCmd.Parameters.Add(ParDescripcion);
-
-
-                //estado
-                SqlParameter ParEstado = new SqlParameter();
-                ParEstado.ParameterName = "@estado";
-                //ParFecha.SqlDbType = SqlDbType.SmallDateTime;
-                ParEstado.SqlDbType = SqlDbType.NText;
-                //ParFecha.Size = 1024;
-                ParEstado.Value = tarea.Estado;
-                SqlCmd.Parameters.Add(ParEstado);
-
-                //tecnico
-                SqlParameter ParTecnico = new SqlParameter();
-                ParTecnico.ParameterName = "@tecnico";
-                ParTecnico.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParTecnico.Value = tarea.Tecnico;
-                SqlCmd.Parameters.Add(ParTecnico);
+                //tiempo estmiado
+                SqlParameter ParTiempoEstimado = new SqlParameter();
+                ParTiempoEstimado.ParameterName = "@tiempo_estimado";
+                ParTiempoEstimado.SqlDbType = SqlDbType.Int;
+                ParTiempoEstimado.Value = tarea.TiempoEstimado;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParTiempoEstimado);
 
                 //proyecto
                 SqlParameter ParProyecto = new SqlParameter();
                 ParProyecto.ParameterName = "@proyecto";
-                ParProyecto.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParProyecto.Value = tarea.Proyecto;
+                ParProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParProyecto.Value = tarea.Proyecto; 
                 SqlCmd.Parameters.Add(ParProyecto);
+
+                //Estado
+                SqlParameter ParEstado = new SqlParameter();
+                ParEstado.ParameterName = "@estado";
+                ParEstado.SqlDbType = SqlDbType.NVarChar;
+                ParEstado.Value = tarea.Estado;
+                SqlCmd.Parameters.Add(ParEstado);
+
+                //Aplicacion
+                SqlParameter ParAplicacion = new SqlParameter();
+                ParAplicacion.ParameterName = "@aplicacion";
+                ParAplicacion.SqlDbType = SqlDbType.NVarChar;
+                ParAplicacion.Value = tarea.Aplicacion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParAplicacion);
+
+                //Version Deteccion
+                SqlParameter ParVDeteccion = new SqlParameter();
+                ParVDeteccion.ParameterName = "@vdeteccion";
+                ParVDeteccion.SqlDbType = SqlDbType.NVarChar;
+                ParVDeteccion.Value = tarea.Vdeteccion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParVDeteccion);
+
+                //Modulo
+                SqlParameter ParModulo = new SqlParameter();
+                ParModulo.ParameterName = "@modulo";
+                ParModulo.SqlDbType = SqlDbType.NVarChar;
+                ParModulo.Value = tarea.Modulo;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParModulo);
+
+                //Referencias
+                SqlParameter ParReferencias = new SqlParameter();
+                ParReferencias.ParameterName = "@referencias";
+                ParReferencias.SqlDbType = SqlDbType.NVarChar;
+                ParReferencias.Value = tarea.Referencias;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParReferencias);
+
+                //Version solucion
+                SqlParameter ParVSolucion = new SqlParameter();
+                ParVSolucion.ParameterName = "@vsolucion";
+                ParVSolucion.SqlDbType = SqlDbType.NVarChar;
+                ParVSolucion.Value = tarea.Vsolucion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParVSolucion);
+
+                //Historia
+                SqlParameter ParHistoria = new SqlParameter();
+                ParHistoria.ParameterName = "@historia";
+                ParHistoria.SqlDbType = SqlDbType.NVarChar;
+                ParHistoria.Value = tarea.Historia;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParHistoria);
+
+                //descripcion
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NVarChar;
+                ParDescripcion.Value = tarea.Descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
+
+                //Solucion
+                SqlParameter ParSolucion = new SqlParameter();
+                ParSolucion.ParameterName = "@solucion";
+                ParSolucion.SqlDbType = SqlDbType.NVarChar;
+                ParSolucion.Value = tarea.Solucion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParSolucion);
+
+                //Tecnico deteccion
+                SqlParameter ParTDeteccion = new SqlParameter();
+                ParTDeteccion.ParameterName = "@tdeteccion";
+                ParTDeteccion.SqlDbType = SqlDbType.NVarChar;
+                ParTDeteccion.Value = tarea.Tdeteccion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParTDeteccion);
+
+                //Tecnico solucion
+                SqlParameter ParTSolucion = new SqlParameter();
+                ParTSolucion.ParameterName = "@tsolucion";
+                ParTSolucion.SqlDbType = SqlDbType.NVarChar;
+                ParTSolucion.Value = tarea.Tsolucion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParTSolucion);
+
+                //Tecnico verificacion
+                SqlParameter ParTVerificacion = new SqlParameter();
+                ParTVerificacion.ParameterName = "@tverificacion";
+                ParTVerificacion.SqlDbType = SqlDbType.NVarChar;
+                ParTVerificacion.Value = tarea.Tverificacion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParTVerificacion);
+
+                //fecha deteccion
+                SqlParameter ParFechaDeteccion = new SqlParameter();
+                ParFechaDeteccion.ParameterName = "@fechadeteccion";
+                ParFechaDeteccion.SqlDbType = SqlDbType.SmallDateTime;
+                ParFechaDeteccion.Value = tarea.Fechadeteccion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParFechaDeteccion);
+
+                //fecha solucion
+                SqlParameter ParFechaSolucion = new SqlParameter();
+                ParFechaSolucion.ParameterName = "@fechasolucion";
+                ParFechaSolucion.SqlDbType = SqlDbType.SmallDateTime;
+                ParFechaSolucion.Value = tarea.Fechasolucion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParFechaSolucion);
+
+                //fecha verificacion
+                SqlParameter ParFechaVerificacion = new SqlParameter();
+                ParFechaVerificacion.ParameterName = "@fechasolucion";
+                ParFechaVerificacion.SqlDbType = SqlDbType.SmallDateTime;
+                ParFechaVerificacion.Value = tarea.Fechaverificacion;//falta cambiar esto
+                SqlCmd.Parameters.Add(ParFechaVerificacion);
+
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el Proyecto";
 
