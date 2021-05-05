@@ -140,16 +140,6 @@ namespace capapresentacion
                  detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
 
 
-
-               /* detalleTarea.visualizaDatos(
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["proyecto"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["tarea"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["descripcion"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
-                    Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
-                    );*/
             }
             catch (Exception)
             {
@@ -164,7 +154,7 @@ namespace capapresentacion
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListTareas.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
-            //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
+
 
             mostrarDetalleTareaClicada(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
         }

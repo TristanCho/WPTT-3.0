@@ -465,6 +465,7 @@ namespace capapresentacion
             this.txtEstimado.ReadOnly = true;
             this.txtEstimado.Size = new System.Drawing.Size(142, 20);
             this.txtEstimado.TabIndex = 80;
+            this.txtEstimado.Text = "0";
             // 
             // label15
             // 
@@ -605,7 +606,9 @@ namespace capapresentacion
             // dtFDeteccion
             // 
             this.dtFDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtFDeteccion.CustomFormat = " ";
             this.dtFDeteccion.Enabled = false;
+            this.dtFDeteccion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFDeteccion.Location = new System.Drawing.Point(144, 417);
             this.dtFDeteccion.Name = "dtFDeteccion";
             this.dtFDeteccion.Size = new System.Drawing.Size(112, 20);
@@ -615,16 +618,21 @@ namespace capapresentacion
             // 
             this.dtFSolucion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFSolucion.CustomFormat = " ";
             this.dtFSolucion.Enabled = false;
+            this.dtFSolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFSolucion.Location = new System.Drawing.Point(376, 417);
             this.dtFSolucion.Name = "dtFSolucion";
             this.dtFSolucion.Size = new System.Drawing.Size(112, 20);
             this.dtFSolucion.TabIndex = 90;
+            this.dtFSolucion.Value = new System.DateTime(2021, 5, 5, 17, 28, 20, 0);
             // 
             // dtFVerificacion
             // 
             this.dtFVerificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtFVerificacion.CustomFormat = " ";
             this.dtFVerificacion.Enabled = false;
+            this.dtFVerificacion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFVerificacion.Location = new System.Drawing.Point(639, 417);
             this.dtFVerificacion.Name = "dtFVerificacion";
             this.dtFVerificacion.Size = new System.Drawing.Size(112, 20);

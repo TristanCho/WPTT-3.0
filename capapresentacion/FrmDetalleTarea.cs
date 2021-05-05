@@ -90,7 +90,7 @@ namespace capapresentacion
 
         private void habilitar(bool valor)
         {
-            this.txtIdTarea.ReadOnly = !valor;
+           // this.txtIdTarea.ReadOnly = false;
             this.txtDescripcionTarea.ReadOnly = !valor;
             this.txtTituloTarea.ReadOnly = !valor;
             this.comboboxEstado.Enabled = valor;
@@ -200,7 +200,7 @@ namespace capapresentacion
             txtReferencia.Text = string.Empty;
             txtIdTarea.Text = string.Empty;
             comboboxProyecto.Items.Clear();
-            txtEstimado.Text = string.Empty;
+            //txtEstimado.Text = string.Empty;
             comboboxPrioridad.Items.Clear();
             comboboxEstado.Items.Clear();
             comboboxAplicacion.Items.Clear();
@@ -215,22 +215,6 @@ namespace capapresentacion
             comboboxTDeteccion.Items.Clear();
             comboboxSolucion.Items.Clear();
             comboboxTVerificacion.Items.Clear();
- 
-
-
-
-
-
-
-
-
-            this.txtIdTarea.Text = string.Empty;
-            this.txtTituloTarea.Text = string.Empty;
-            this.comboboxProyecto.Items.Clear();
-            this.comboboxEstado.Items.Clear();
-            //dtFechaTarea.Text = string.Empty;
-            this.txtDescripcionTarea.Text = string.Empty;
-            this.txtResolucion.Text = string.Empty;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
