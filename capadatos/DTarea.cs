@@ -353,7 +353,7 @@ namespace capadatos
             return dTarea;
         }
 
-        public string eliminarTarea(int id)
+        public string eliminarTarea(string id)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -370,7 +370,7 @@ namespace capadatos
                 //id
                 SqlParameter ParId = new SqlParameter();
                 ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.Int;
+                ParId.SqlDbType = SqlDbType.NText;
                 ParId.Value = id;
                 SqlCmd.Parameters.Add(ParId);
 

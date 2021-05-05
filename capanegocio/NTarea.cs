@@ -63,7 +63,7 @@ namespace capanegocio
             return objeto.mostrarDetalleTiempos(codigo_tarea);
         }
 
-        public static string eliminarTarea(int id)
+        public static string eliminarTarea(string id)
         {
             DTarea objeto = new DTarea();
             //objeto.Id = id;

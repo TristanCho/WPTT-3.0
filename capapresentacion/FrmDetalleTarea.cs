@@ -434,7 +434,7 @@ namespace capapresentacion
                     {
                         string rpta = "";
 
-                        rpta = NTarea.eliminarTarea(Convert.ToInt32(txtIdTarea.Text));
+                        rpta = NTarea.eliminarTarea(txtIdTarea.Text);
 
                         if (rpta.Equals("OK"))
                         {
@@ -452,29 +452,10 @@ namespace capapresentacion
                     MessageBox.Show(ex.Message + ex.StackTrace);
                 }
 
-                /*if (aux < 1)
-                {
-                    MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                }
-                this.mostrarproyectos();*/
+
             }
 
         }
-        /*
-        public void llamaVisualizaDatos()
-        {
 
-            visualizaDatos(
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["id"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["proyecto"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tarea"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["descripcion"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["observaciones"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["fecha_creacion"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["estado"].Value),
-                Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["tecnico"].Value)
-                );
-        }
-     */
     }
 }

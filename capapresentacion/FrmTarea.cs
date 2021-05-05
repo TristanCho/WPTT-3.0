@@ -182,16 +182,14 @@ namespace capapresentacion
                 if (opcion == DialogResult.OK)
                 {
                     int aux = 0;
-                    int id;
+
                     string rpta = "";
                     foreach (DataGridViewRow row in dataListTareas.Rows)
                     {
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
                             aux = 1;
-
-                            id = Convert.ToInt32(row.Cells[1].Value);
-                            rpta = NTarea.eliminarTarea(Convert.ToInt32(id));
+                            rpta = NTarea.eliminarTarea(row.Cells[2].Value.ToString());
 
                             if (rpta.Equals("OK"))
                             {
