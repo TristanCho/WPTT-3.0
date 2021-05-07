@@ -24,7 +24,7 @@ namespace capapresentacion
         
 
         //SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-         SqlConnection con = new SqlConnection("Data Source=PCCRISTHIAN\\SQLEXPRESS;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
+         SqlConnection con = new SqlConnection("data source=PCCRISTHIAN\\SQLEXPRESS; initial catalog=DesarrollosTime;user id=winplus;password=Pbjjajlp5h4m1");
         
         public Widget()
         {
@@ -43,6 +43,8 @@ namespace capapresentacion
             temporizador.Interval = 1000;
             temporizador.Elapsed += OnTimeEvent;
             /*Cronometro*/
+
+
 
             try
             {
@@ -93,7 +95,9 @@ namespace capapresentacion
                     }
                     break;
             }
+            this.Show();
             WindowState = FormWindowState.Normal;
+            
         }
 
         private void convertirWidget()
@@ -125,6 +129,7 @@ namespace capapresentacion
             if (WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Minimized;
+                this.Hide();
             }
         }
 
@@ -155,10 +160,7 @@ namespace capapresentacion
             botonApagar.Visible = false;
 
         }
-        private TimeSpan calculaHoras(TimeSpan hora_inicio, TimeSpan hora_fin)
-        {
-            return hora_fin - hora_inicio;
-        }
+
         private void botonStart_Click(object sender, EventArgs e)
         {
             iniciaCronometro();
@@ -216,8 +218,23 @@ namespace capapresentacion
         }
 
         private void Widget_FormClosing(object sender, FormClosingEventArgs e)
-        { 
-            temporizador.Stop();
+        {
+            //temporizador.Stop();
+            if ((ModifierKeys & Keys.Shift) == 0)
+            {
+                Point location = Location;
+                Size size = Size;
+                if (WindowState != FormWindowState.Normal)
+                {
+                    location = RestoreBounds.Location;
+                    size = RestoreBounds.Size;
+                }
+                string initLocation = string.Join(",", location.X, location.Y, size.Width, size.Height);
+;
+                
+                    //Properties.Settings.Default.WidgetInitialLotacion;
+            }
+
         }
 
         private void pararCronometroToolStripMenuItem_Click(object sender, EventArgs e)
