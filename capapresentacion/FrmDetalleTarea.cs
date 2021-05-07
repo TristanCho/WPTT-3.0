@@ -443,10 +443,21 @@ namespace capapresentacion
 
         private void btnFinal_Click(object sender, EventArgs e)
         {
+            DInformacionTarea.finalIndex();
+            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index-1].Cells["codigo_tarea"].Value)));
 
+            
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+           
+            DInformacionTarea.sumaIndex();
+            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
+
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             DInformacionTarea.restaIndex();
 
@@ -454,10 +465,11 @@ namespace capapresentacion
 
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
+        private void btnPrimero_Click(object sender, EventArgs e)
         {
-            DInformacionTarea.sumaIndex();
 
+            DInformacionTarea.primerIndex();
+            
             mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
 
         }

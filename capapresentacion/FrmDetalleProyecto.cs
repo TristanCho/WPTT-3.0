@@ -291,7 +291,7 @@ namespace capapresentacion
 
             FrmProyecto proyecto = new FrmProyecto();
             Console.WriteLine(proyecto.getNumeroIndice() + " numero de lineas");
-           DInformacionProyecto.finalIndex(proyecto.getNumeroIndice()-1);
+           DInformacionProyecto.finalIndex();
             llamaVisualizaDatos();
         }
 

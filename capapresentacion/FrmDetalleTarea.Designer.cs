@@ -651,6 +651,7 @@ namespace capapresentacion
             this.btnPrimero.TabIndex = 95;
             this.btnPrimero.Text = "<<";
             this.btnPrimero.UseVisualStyleBackColor = true;
+            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
             // btnFinal
             // 

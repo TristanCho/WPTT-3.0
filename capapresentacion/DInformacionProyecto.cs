@@ -40,9 +40,9 @@ namespace capadatos
                 index = 0;
         }
 
-        internal static void finalIndex(int indice)
+        internal static void finalIndex()
         {
-            index = indice;
+            index = dataListProyectos.Rows.Count-1;
         }
     }
 }
