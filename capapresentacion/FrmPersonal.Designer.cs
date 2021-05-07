@@ -29,21 +29,21 @@ namespace capapresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnEliminarTarea = new System.Windows.Forms.Button();
             this.cbEliminar = new System.Windows.Forms.CheckBox();
             this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
-            this.dataListTareas = new System.Windows.Forms.DataGridView();
+            this.dataListPersonales = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtBuscarTarea = new System.Windows.Forms.TextBox();
             this.cboBuscarTareas = new System.Windows.Forms.ComboBox();
             this.panelRecuadro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListTareas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListPersonales)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTotal
@@ -96,59 +96,60 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRecuadro.BackColor = System.Drawing.Color.Gold;
-            this.panelRecuadro.Controls.Add(this.dataListTareas);
+            this.panelRecuadro.Controls.Add(this.dataListPersonales);
             this.panelRecuadro.Location = new System.Drawing.Point(12, 66);
             this.panelRecuadro.Name = "panelRecuadro";
             this.panelRecuadro.Size = new System.Drawing.Size(776, 200);
             this.panelRecuadro.TabIndex = 28;
             // 
-            // dataListTareas
+            // dataListPersonales
             // 
-            this.dataListTareas.AllowUserToAddRows = false;
-            this.dataListTareas.AllowUserToDeleteRows = false;
-            this.dataListTareas.AllowUserToOrderColumns = true;
-            this.dataListTareas.AllowUserToResizeRows = false;
-            this.dataListTareas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataListTareas.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dataListTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataListTareas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataListTareas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataListTareas.ColumnHeadersHeight = 34;
-            this.dataListTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataListTareas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataListPersonales.AllowUserToAddRows = false;
+            this.dataListPersonales.AllowUserToDeleteRows = false;
+            this.dataListPersonales.AllowUserToOrderColumns = true;
+            this.dataListPersonales.AllowUserToResizeRows = false;
+            this.dataListPersonales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataListPersonales.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataListPersonales.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataListPersonales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataListPersonales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListPersonales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataListPersonales.ColumnHeadersHeight = 34;
+            this.dataListPersonales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataListPersonales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.dataListTareas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataListTareas.EnableHeadersVisualStyles = false;
-            this.dataListTareas.GridColor = System.Drawing.Color.DimGray;
-            this.dataListTareas.Location = new System.Drawing.Point(0, 0);
-            this.dataListTareas.Name = "dataListTareas";
-            this.dataListTareas.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListTareas.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataListTareas.RowHeadersVisible = false;
-            this.dataListTareas.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListTareas.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataListTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListTareas.Size = new System.Drawing.Size(776, 200);
-            this.dataListTareas.TabIndex = 4;
+            this.dataListPersonales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataListPersonales.EnableHeadersVisualStyles = false;
+            this.dataListPersonales.GridColor = System.Drawing.Color.DimGray;
+            this.dataListPersonales.Location = new System.Drawing.Point(0, 0);
+            this.dataListPersonales.Name = "dataListPersonales";
+            this.dataListPersonales.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListPersonales.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataListPersonales.RowHeadersVisible = false;
+            this.dataListPersonales.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListPersonales.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataListPersonales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataListPersonales.Size = new System.Drawing.Size(776, 200);
+            this.dataListPersonales.TabIndex = 4;
+            this.dataListPersonales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonales_CellContentClick);
             // 
             // Eliminar
             // 
@@ -199,7 +200,7 @@ namespace capapresentacion
             this.cboBuscarTareas.Size = new System.Drawing.Size(195, 21);
             this.cboBuscarTareas.TabIndex = 25;
             // 
-            // Personal
+            // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -212,10 +213,10 @@ namespace capapresentacion
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtBuscarTarea);
             this.Controls.Add(this.cboBuscarTareas);
-            this.Name = "Personal";
+            this.Name = "FrmPersonal";
             this.Text = "Personal";
             this.panelRecuadro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataListTareas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListPersonales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +229,7 @@ namespace capapresentacion
         private System.Windows.Forms.CheckBox cbEliminar;
         private System.Windows.Forms.Label label_añadir;
         private System.Windows.Forms.Panel panelRecuadro;
-        private System.Windows.Forms.DataGridView dataListTareas;
+        private System.Windows.Forms.DataGridView dataListPersonales;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtBuscarTarea;

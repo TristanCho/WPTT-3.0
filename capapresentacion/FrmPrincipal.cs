@@ -312,15 +312,18 @@ private void quitarBordes()
             //AbrirFormulario(new FrmTarea());
         }
 
-        /*****************************************/
-        private void Personales_Click(object sender, EventArgs e)
+
+        private void btnTareasPersonales_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
-            FrmPersonal tareas = new FrmPersonal();
+            FrmPersonal personales = new FrmPersonal();
             //--- tareas.frmparent = this;
-            AbrirFormulario(tareas);
+            AbrirFormulario(personales);
             //AbrirFormulario(new FrmTarea());
         }
+
+        /*****************************************/
+       
         /*****************************************/
 
         private void Tiempos_Click(object sender, EventArgs e)
@@ -380,5 +383,7 @@ private void quitarBordes()
                 this.WindowState = FormWindowState.Normal;
             }
         }
+
+        
     }
 }
