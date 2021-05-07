@@ -231,6 +231,11 @@ namespace capapresentacion
         {
 
         }
+
+        public int getNumeroIndice()
+        {
+            return dataListProyectos.Rows.Count;
+        }
         /*PROCEDURES*/
     }
 }

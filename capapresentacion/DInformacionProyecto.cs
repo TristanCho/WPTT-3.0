@@ -35,5 +35,14 @@ namespace capadatos
                 MessageBox.Show("Primer registro alcanzado", "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }      
         }
+        public static void primerIndex()
+        {
+                index = 0;
+        }
+
+        internal static void finalIndex(int indice)
+        {
+            index = indice;
+        }
     }
 }

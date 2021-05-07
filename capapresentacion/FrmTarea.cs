@@ -51,7 +51,10 @@ namespace capapresentacion
             this.lblTotal.Text = "Número de tareas: " + Convert.ToString(dataListTareas.Rows.Count);
             this.cbEliminar.Checked = false;
         }
-
+        public int getNumeroIndice()
+        {
+            return dataListTareas.Rows.Count;
+        }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
