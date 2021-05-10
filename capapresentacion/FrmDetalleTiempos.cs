@@ -215,19 +215,40 @@ namespace capapresentacion
             setModo("LECTURA");
             this.Hide();
         }
-        public void visualizaDatos(string id, string id_tarea, string fecha_inicio, string fecha_fin, string observaciones)
+        public void visualizaDatos(string fecha, string fechaInicio, string fechaFin,
+            string tiempo, string observaciones, string accion, string id_tarea, 
+            string codigo_tarea, string imputable, string imputado)
         {
-            this.txtIdTiempo.Text = id;
-            comboboxTarea.SelectedIndex = comboboxTarea.Items.IndexOf(id_tarea);
-            this.dtFechaInicio.Text = fecha_inicio;
-            this.dtFechaFin.Text = fecha_fin;
-            this.txtObservaciones.Text = observaciones;
+            dtFecha.Value = DateTime.Parse(fecha);
+            dtFechaInicio.Value = DateTime.Parse(fechaInicio);
+            dtFechaFin.Value = DateTime.Parse(fechaFin);
+            txtIdTiempo.Text = tiempo;
+            txtObservaciones.Text = observaciones;
+
+            comboboxAccion.Items.Add(accion);
+            comboboxAccion.SelectedIndex = 0;
+
+            txtIdTarea.Text = id_tarea;
+            txtCodTarea.Text = codigo_tarea;
+
+
+            checkImputable.Checked = transformarBoolean(imputable);
+            checkImputado.Checked = transformarBoolean(imputado);
         }
                
+        private bool transformarBoolean(string estado)
+        {
+            if (estado.Equals("False"))
+                return false;
+            
+            return true;
+        }
+
         public void mostrarTareaCombobox()
         {
-            comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
-            comboboxTarea.SelectedIndex = 0;
+           // comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
+
+            //comboboxTarea.SelectedIndex = 0;
         }
 
         private void btnEliminarTiempo_Click(object sender, EventArgs e)

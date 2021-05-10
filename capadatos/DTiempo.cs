@@ -50,9 +50,9 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "select* from Tiempos_tarea order by fecha desc";
-                //SqlCmd.CommandText = "spmostrar_tiempos";
-                //SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand query = new SqlCommand("select* from Tiempos_tarea where id_empleado=(select e.CodEmpleado from Empleados e where Usuario=@usuario) order by fecha desc");
+                query.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
+
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);

@@ -129,11 +129,16 @@ namespace capapresentacion
                 detalleTiempos.setModo("LECTURA");
 
                 detalleTiempos.visualizaDatos(
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["id"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["tarea"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_inicio"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_fin"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["observaciones"].Value)
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fechaInicio"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fechaFin"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["tiempo"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["Observaciones"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["accion"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["id_tarea"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["codigo_tarea"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputable"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputado"].Value)
                 );
 
             }
