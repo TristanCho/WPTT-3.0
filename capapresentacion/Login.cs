@@ -37,6 +37,7 @@ namespace capapresentacion
             {
                 DLoginStatico.sacaTecnico(usuario.Text);
                 FrmPrincipal principal = new FrmPrincipal();
+                DLoginStatico.usuario = usuario.Text;
                 principal.Show();
                 this.Hide();
             };

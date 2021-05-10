@@ -46,30 +46,35 @@ namespace capapresentacion
             temporizador.Interval = 1000;
             temporizador.Elapsed += OnTimeEvent;
             /*Cronometro*/
+
             
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("pruebaguardaje.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
-            MyObject obj = (MyObject)formatter.Deserialize(stream);
-            stream.Close();
-            this.Location = new Point(obj.x, obj.y);
-            //Console.WriteLine("n1: {0}", obj.x);
-            //Console.WriteLine("n2: {0}", obj.y);
+
+            if (File.Exists("widgetPosition.xml"))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream("widgetPosition.xml", FileMode.Open, FileAccess.Read, FileShare.Read);
+                MyObject obj = (MyObject)formatter.Deserialize(stream);
+                stream.Close();
+                this.Location = new Point(obj.x, obj.y);
+            }
+
+
             try
             {
                 con.Open();
-                SqlCommand query = new SqlCommand("SELECT* FROM Tareas where id_tecnico=@id order by fecha_creacion desc", con);
-                query.Parameters.Add("@id", SqlDbType.VarChar).Value = DLoginStatico.id;
+                SqlCommand query = new SqlCommand("select descripcion from TareasPersonales t where id_empleado= (Select e.CodEmpleado from Empleados e where e.Usuario='@usuario') order by t.fcreacion desc", con);
+                query.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
                 Console.WriteLine(DLoginStatico.id + " este es el id");
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();
-                dt.Columns.Add("titulo", typeof(string));
+                dt.Columns.Add("descripcion", typeof(string));
 
                 dt.Load(reader);
 
 
-                listaTareasPersonales.DisplayMember = "titulo";
-                listaTareasPersonales.ValueMember = "titulo";
+                listaTareasPersonales.DisplayMember = "descripcion";
+                listaTareasPersonales.ValueMember = "descripcion";
 
                 listaTareasPersonales.DataSource = dt;
 
@@ -79,10 +84,7 @@ namespace capapresentacion
             {
 
             }
-            if (TiempoStatic.IsWorking)
-            {
 
-            }
         }
 
         private void OnTimeEvent(object sender, ElapsedEventArgs e)
@@ -235,7 +237,7 @@ namespace capapresentacion
 
 
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("pruebaguardaje.txt", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream = new FileStream("widgetPosition.xml", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, obj);
             stream.Close();
 
