@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using capadatos;
 using capanegocio;
 using WPTT_1._0;
 
@@ -23,6 +24,7 @@ namespace capapresentacion
             InitializeComponent();
             habilitar(false);
             botonesVisible(false);
+
         }
 
         private void mensajeok(string mensaje)
@@ -34,7 +36,11 @@ namespace capapresentacion
         {
             MessageBox.Show(mensaje, "Detalle de Tiempo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        public void botonNuevoClicado()
+        {
+            mostrarTareaCombobox();
+            //mostrarTareaPersonalCombobox(DLoginStatico.usuario, comboboxTarea.SelectedItem.ToString());
+        }
         private void limpiar()
         {
             this.txtIdTiempo.Text = string.Empty;
@@ -193,9 +199,6 @@ namespace capapresentacion
                 this.eseditar = true;
                 this.botones();
                 setModo("EDICIÓN");
-                // txtObservacionesProyecto.Enabled = true;
-                //txtDescripcionProyecto.Enabled = true;
-                //this.txtDescripcionProyecto.Visible = true;
                 botonesVisible(true);
             }
             else
@@ -210,8 +213,6 @@ namespace capapresentacion
             this.eseditar = false;
             botones();
             botonesVisible(false);
-            //limpiar();
-            //this.Hide();
             setModo("LECTURA");
             this.Hide();
         }
@@ -246,9 +247,16 @@ namespace capapresentacion
 
         public void mostrarTareaCombobox()
         {
-           // comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
+            comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
 
-            //comboboxTarea.SelectedIndex = 0;
+            comboboxTarea.SelectedIndex = 0;
+        }
+        public void mostrarTareaPersonalCombobox(string usuario, string tarea)
+        {
+            comboboxTareaPersonal.Items.AddRange(NTiempo.mostrarTareaPersonalCombobox(usuario, tarea).ToArray());
+
+           // comboboxTareaPersonal.SelectedIndex = 0;
+
         }
 
         private void btnEliminarTiempo_Click(object sender, EventArgs e)
@@ -287,7 +295,7 @@ namespace capapresentacion
 
         private void FrmDetalleTiempos_Load_1(object sender, EventArgs e)
         {
-            mostrarTareaCombobox();
+
         }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
@@ -298,6 +306,11 @@ namespace capapresentacion
             botonesVisible(false);
             setModo("LECTURA");
             this.Hide();
+        }
+
+        private void comboboxTarea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mostrarTareaPersonalCombobox(DLoginStatico.usuario, comboboxTarea.SelectedItem.ToString());
         }
     }
 }

@@ -22,6 +22,7 @@ namespace capapresentacion
             InitializeComponent();
             btnEliminarTiempo.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             mostrartiempos();
+            
             quitarBordes();
         }
 
@@ -71,6 +72,7 @@ namespace capapresentacion
         {
             FrmDetalleTiempos frmTiempos = new FrmDetalleTiempos();
             frmTiempos.desbloqueaBotones();
+            frmTiempos.botonNuevoClicado();
             FrmParent.frmparent.lanzarNuevoElemento(frmTiempos);
         }
 

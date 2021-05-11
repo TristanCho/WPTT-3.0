@@ -50,10 +50,9 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCommand query = new SqlCommand("select* from Tiempos_tarea where id_empleado=(select e.CodEmpleado from Empleados e where Usuario=@usuario) order by fecha desc");
-                query.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
-
-
+                SqlCmd.CommandText = "spmostrar_tiempos";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
 
@@ -70,6 +69,59 @@ namespace capadatos
             }
 
             return dtresultado;
+
+
+
+
+            return dtresultado;
+        }
+
+        public string[] mostrarTareaPersonalCombobox(string usuario, string tarea)
+        {
+            string[] array = new string[] { };
+
+            DataTable dtresultado = new DataTable("TareasPersonales");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_tareapersonal";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+                SqlParameter ParTextoUsuario= new SqlParameter();
+                ParTextoUsuario.ParameterName = "@usuario";
+                ParTextoUsuario.SqlDbType = SqlDbType.VarChar;
+                ParTextoUsuario.Size = 10;
+                ParTextoUsuario.Value = usuario;
+                SqlCmd.Parameters.Add(ParTextoUsuario);
+
+
+                SqlParameter ParTextoTarea = new SqlParameter();
+                ParTextoTarea.ParameterName = "@tarea";
+                ParTextoTarea.SqlDbType = SqlDbType.VarChar;
+                ParTextoTarea.Size = 10;
+                ParTextoTarea.Value = tarea;
+                SqlCmd.Parameters.Add(ParTextoTarea);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+
+            return array;
         }
 
         //Método buscar proyecto por codigo
@@ -302,7 +354,7 @@ namespace capadatos
         {
             string[] array = new string[] { };
 
-            DataTable dtresultado = new DataTable("tiempos");
+            DataTable dtresultado = new DataTable("Tareas");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -310,11 +362,14 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_tareas";
+                SqlCmd.CommandText = "spmostrar_tareas";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
+
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
             }
             catch (Exception)
@@ -325,6 +380,7 @@ namespace capadatos
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
+
             return array;
         }
     }

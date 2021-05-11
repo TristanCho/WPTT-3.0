@@ -62,5 +62,12 @@ namespace capanegocio
 
             return objeto.mostrarTareaCombobox(objeto);
         }
+
+        public static string[] mostrarTareaPersonalCombobox(string usuario, string tarea)
+        {
+            DTiempo objeto = new DTiempo();
+
+            return objeto.mostrarTareaPersonalCombobox(usuario,tarea);
+        }
     }
 }

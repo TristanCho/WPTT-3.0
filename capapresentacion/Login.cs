@@ -31,8 +31,6 @@ namespace capapresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             NLogin login = new NLogin();
-            //Console.WriteLine(login.logueo(usuario.Text, Dns.GetHostName()).Usuario);
-            // Console.WriteLine(login.logueo(usuario.Text, Dns.GetHostName()).Hostname);
             if (login.logueo(usuario.Text, Dns.GetHostName()))
             {
                 DLoginStatico.sacaTecnico(usuario.Text);
