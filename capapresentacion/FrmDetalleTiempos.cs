@@ -47,7 +47,8 @@ namespace capapresentacion
             this.txtObservaciones.Text = string.Empty;
             this.dtFechaInicio.Text = string.Empty;
             this.dtFechaFin.Text = string.Empty;
-            
+            txtCodTarea.Text = string.Empty;
+            //comboboxAccion.Items.Clear();
         }
 
         private void habilitar(bool valor)
@@ -57,7 +58,15 @@ namespace capapresentacion
             this.txtObservaciones.ReadOnly = !valor;
             this.dtFechaInicio.Enabled = valor;
             this.dtFechaFin.Enabled = valor;
-           
+            this.dtFecha.Enabled = valor;
+            comboboxAccion.Enabled = valor;
+            comboboxTareaPersonal.Enabled = valor;
+            txtCodTarea.ReadOnly =true;
+            checkImputable.Enabled = valor;
+            checkImputado.Enabled = valor;
+
+
+
         }
         private void botonesVisible(bool estado)
         {
@@ -65,7 +74,8 @@ namespace capapresentacion
             btnCancelar.Visible = estado;
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
-            txtObservaciones.Enabled = estado;            
+            txtObservaciones.Enabled = estado;
+            
         }
         private void botones()
         {
@@ -126,6 +136,9 @@ namespace capapresentacion
             esnuevo = true;
             txtObservaciones.Enabled = true;
             btnEliminarTiempo.Visible = false;
+
+            desbloqueaBotones();
+            botonNuevoClicado();
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
@@ -146,28 +159,22 @@ namespace capapresentacion
                 else
                 {
                     if (esnuevo)
-                    {/*
-                        rpta = NTiempo.insertartiempo(
-                            dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
-                            txtObservaciones.Text,comboboxAccion.SelectedItem.ToString() == null ? "accion prueba" : "", txtIdTarea.Text,
-                            comboboxTarea.SelectedItem.ToString() == null ? "":" prueba tarea",
-                            DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
-                    */
-                        Console.WriteLine(comboboxTareaPersonal.SelectedItem.ToString()+"console");
-                        rpta = NTiempo.insertartiempo(
-                       dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
-                       txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
-                       comboboxTareaPersonal.SelectedItem.ToString(),
-                       DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked)); 
+                    {
+                        //Console.WriteLine(comboboxTareaPersonal.SelectedItem.ToString()+"console");
+                           rpta = NTiempo.insertartiempo(
+                          dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
+                          txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
+                          comboboxTareaPersonal.SelectedItem.ToString(),
+                          DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
                     }
                     else
                     {
-                        rpta = NTiempo.editartiempo(Convert.ToInt32(this.txtIdTiempo.Text),
-                            this.comboboxTarea.Text.Trim(), 
-                            Convert.ToDateTime(this.dtFechaInicio.Value),
-                            Convert.ToDateTime(this.dtFechaFin.Value), 
-                            this.txtObservaciones.Text.Trim());
-                     }
+                        rpta = NTiempo.editartiempo(
+                       dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
+                       txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
+                       comboboxTareaPersonal.SelectedItem.ToString(),
+                       DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
+                    }
 
                     if (rpta.Equals("OK"))
                     {
@@ -207,6 +214,7 @@ namespace capapresentacion
                 this.botones();
                 setModo("EDICIÓN");
                 botonesVisible(true);
+                mostrarTareaCombobox();
             }
             else
             {
@@ -239,7 +247,7 @@ namespace capapresentacion
 
             //Console.WriteLine(id_tarea);
             comboboxTarea.Items.Add(id_tarea);
-            comboboxTarea.SelectedIndex = 0;
+            comboboxTarea.SelectedIndex = 1;
             txtCodTarea.Text = codigo_tarea;
 
 
@@ -266,7 +274,7 @@ namespace capapresentacion
         public void mostrarTareaCombobox()
         {
             comboboxTarea.Items.AddRange(NTiempo.mostrarTareaCombobox().ToArray());
-            comboboxTarea.SelectedIndex = 0;
+            comboboxTarea.SelectedIndex = 1;
         }
         public void mostrarTareaPersonalCombobox(string usuario, string tarea)
         {
