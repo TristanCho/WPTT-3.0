@@ -194,10 +194,11 @@ namespace capapresentacion
             // comboboxTarea
             // 
             this.comboboxTarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxTarea.Enabled = false;
             this.comboboxTarea.FormattingEnabled = true;
-            this.comboboxTarea.Location = new System.Drawing.Point(100, 84);
+            this.comboboxTarea.Location = new System.Drawing.Point(103, 84);
             this.comboboxTarea.Name = "comboboxTarea";
-            this.comboboxTarea.Size = new System.Drawing.Size(120, 21);
+            this.comboboxTarea.Size = new System.Drawing.Size(117, 21);
             this.comboboxTarea.TabIndex = 55;
             this.comboboxTarea.SelectedIndexChanged += new System.EventHandler(this.comboboxTarea_SelectedIndexChanged);
             // 
