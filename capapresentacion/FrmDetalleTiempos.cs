@@ -24,7 +24,7 @@ namespace capapresentacion
             InitializeComponent();
             habilitar(false);
             botonesVisible(false);
-
+            comboboxAccion.SelectedIndex = 0;
         }
 
         private void mensajeok(string mensaje)
@@ -153,7 +153,7 @@ namespace capapresentacion
                             comboboxTarea.SelectedItem.ToString() == null ? "":" prueba tarea",
                             DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
                     */
-                        //Console.WriteLine(comboboxTarea.SelectedItem.ToString()+"console");
+                        Console.WriteLine(comboboxTareaPersonal.SelectedItem.ToString()+"console");
                         rpta = NTiempo.insertartiempo(
                        dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
                        txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
@@ -328,6 +328,7 @@ namespace capapresentacion
         private void comboboxTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
             Console.WriteLine("cambiando de item");
+            
             mostrarTareaPersonalCombobox(DLoginStatico.usuario, comboboxTarea.SelectedItem.ToString());
         }
     }
