@@ -261,9 +261,8 @@ namespace capadatos
                 //id_tareaPersonal
                 SqlParameter ParIdTareaPersonal = new SqlParameter();
                 ParIdTareaPersonal.ParameterName = "@idTareaPersonal";
-                ParIdTareaPersonal.SqlDbType = SqlDbType.Int;
-                Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
-                ParIdTareaPersonal.Value = 13;
+                ParIdTareaPersonal.SqlDbType = SqlDbType.Int;                
+                ParIdTareaPersonal.Value = Int32.Parse(tiempo.idTareaPersonal);
                 SqlCmd.Parameters.Add(ParIdTareaPersonal);
 
                 //usuario

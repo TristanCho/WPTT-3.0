@@ -196,6 +196,8 @@ namespace capapresentacion
             this.comboboxTarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTarea.Enabled = false;
             this.comboboxTarea.FormattingEnabled = true;
+            this.comboboxTarea.Items.AddRange(new object[] {
+            ""});
             this.comboboxTarea.Location = new System.Drawing.Point(103, 84);
             this.comboboxTarea.Name = "comboboxTarea";
             this.comboboxTarea.Size = new System.Drawing.Size(117, 21);
