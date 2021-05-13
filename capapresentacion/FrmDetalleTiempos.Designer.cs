@@ -113,9 +113,11 @@ namespace capapresentacion
             // 
             // dtFechaInicio
             // 
+            this.dtFechaInicio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFechaInicio.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.dtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFechaInicio.Location = new System.Drawing.Point(623, 87);
+            this.dtFechaInicio.Location = new System.Drawing.Point(346, 83);
             this.dtFechaInicio.Name = "dtFechaInicio";
             this.dtFechaInicio.Size = new System.Drawing.Size(146, 20);
             this.dtFechaInicio.TabIndex = 38;
@@ -144,9 +146,11 @@ namespace capapresentacion
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(504, 87);
+            this.label1.Location = new System.Drawing.Point(227, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 18);
             this.label1.TabIndex = 31;
@@ -154,18 +158,22 @@ namespace capapresentacion
             // 
             // dtFechaFin
             // 
+            this.dtFechaFin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFechaFin.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.dtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFechaFin.Location = new System.Drawing.Point(623, 127);
+            this.dtFechaFin.Location = new System.Drawing.Point(346, 123);
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(146, 20);
             this.dtFechaFin.TabIndex = 52;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(525, 127);
+            this.label3.Location = new System.Drawing.Point(248, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 18);
             this.label3.TabIndex = 51;
@@ -173,16 +181,18 @@ namespace capapresentacion
             // 
             // txtIdTiempo
             // 
-            this.txtIdTiempo.Location = new System.Drawing.Point(355, 125);
+            this.txtIdTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIdTiempo.Location = new System.Drawing.Point(623, 118);
             this.txtIdTiempo.Name = "txtIdTiempo";
             this.txtIdTiempo.Size = new System.Drawing.Size(146, 20);
             this.txtIdTiempo.TabIndex = 54;
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(274, 125);
+            this.label5.Location = new System.Drawing.Point(542, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 18);
             this.label5.TabIndex = 53;
@@ -235,18 +245,22 @@ namespace capapresentacion
             // 
             // dtFecha
             // 
+            this.dtFecha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFecha.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFecha.Location = new System.Drawing.Point(623, 43);
+            this.dtFecha.Location = new System.Drawing.Point(346, 39);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(146, 20);
             this.dtFecha.TabIndex = 59;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(555, 44);
+            this.label4.Location = new System.Drawing.Point(278, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 18);
             this.label4.TabIndex = 58;
@@ -303,9 +317,10 @@ namespace capapresentacion
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(278, 85);
+            this.label9.Location = new System.Drawing.Point(546, 78);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 18);
             this.label9.TabIndex = 69;
@@ -314,11 +329,10 @@ namespace capapresentacion
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(229, 49);
+            this.label8.Location = new System.Drawing.Point(497, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 18);
             this.label8.TabIndex = 71;
@@ -327,21 +341,23 @@ namespace capapresentacion
             // 
             // comboboxAccion
             // 
+            this.comboboxAccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxAccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxAccion.FormattingEnabled = true;
-            this.comboboxAccion.Location = new System.Drawing.Point(355, 84);
+            this.comboboxAccion.Location = new System.Drawing.Point(623, 77);
             this.comboboxAccion.Name = "comboboxAccion";
             this.comboboxAccion.Size = new System.Drawing.Size(146, 21);
             this.comboboxAccion.TabIndex = 74;
             // 
             // comboboxTareaPersonal
             // 
+            this.comboboxTareaPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxTareaPersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTareaPersonal.Enabled = false;
             this.comboboxTareaPersonal.FormattingEnabled = true;
             this.comboboxTareaPersonal.Items.AddRange(new object[] {
             "hola"});
-            this.comboboxTareaPersonal.Location = new System.Drawing.Point(355, 49);
+            this.comboboxTareaPersonal.Location = new System.Drawing.Point(623, 42);
             this.comboboxTareaPersonal.Name = "comboboxTareaPersonal";
             this.comboboxTareaPersonal.Size = new System.Drawing.Size(146, 21);
             this.comboboxTareaPersonal.TabIndex = 75;
