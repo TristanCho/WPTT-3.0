@@ -232,15 +232,6 @@ namespace capadatos
                 ParObservaciones.Value = proyecto.Observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
 
-                //descripcion
-                /*
-                SqlParameter ParDescripcion = new SqlParameter();
-                ParDescripcion.ParameterName = "@descripcion";
-                ParDescripcion.SqlDbType = SqlDbType.NVarChar;
-                //ParFecha.Size = 1024;
-                ParDescripcion.Value = proyecto.Descripcion;
-                SqlCmd.Parameters.Add(ParDescripcion);
-                */
 
                 //fecha
                 SqlParameter ParFecha = new SqlParameter();

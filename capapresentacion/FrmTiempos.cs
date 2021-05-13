@@ -22,6 +22,7 @@ namespace capapresentacion
             InitializeComponent();
             btnEliminarTiempo.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             mostrartiempos();
+            
             quitarBordes();
         }
 
@@ -71,6 +72,7 @@ namespace capapresentacion
         {
             FrmDetalleTiempos frmTiempos = new FrmDetalleTiempos();
             frmTiempos.desbloqueaBotones();
+            frmTiempos.botonNuevoClicado();
             FrmParent.frmparent.lanzarNuevoElemento(frmTiempos);
         }
 
@@ -129,11 +131,16 @@ namespace capapresentacion
                 detalleTiempos.setModo("LECTURA");
 
                 detalleTiempos.visualizaDatos(
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fechaInicio"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fechaFin"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["tiempo"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["Observaciones"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["accion"].Value),
                 Convert.ToString(this.dataListTiempos.CurrentRow.Cells["id"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["tarea"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_inicio"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha_fin"].Value),
-                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["observaciones"].Value)
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["codigo_tarea"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputable"].Value),
+                Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputado"].Value)
                 );
 
             }
@@ -161,7 +168,8 @@ namespace capapresentacion
                         {
                             aux = 1;
 
-                            id = Convert.ToInt32(row.Cells[1].Value);
+                            id = Convert.ToInt32(row.Cells[8].Value);
+                            
                             rpta = NTiempo.eliminartiempo(id);
 
                             if (rpta.Equals("OK"))

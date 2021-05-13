@@ -59,7 +59,7 @@ namespace capapresentacion
             this.usuario.Name = "usuario";
             this.usuario.Size = new System.Drawing.Size(368, 27);
             this.usuario.TabIndex = 1;
-            this.usuario.Text = "cllanos";
+            this.usuario.Text = "cromero";
             this.usuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1

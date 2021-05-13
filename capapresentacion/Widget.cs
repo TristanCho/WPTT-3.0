@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,18 +14,22 @@ using System.Runtime.InteropServices;
 using System.Timers;
 using capadatos;
 using capanegocio;
+using static capapresentacion.WidgetPosition;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace capapresentacion
 {
     public partial class Widget : Form
     {
-        
+
         System.Timers.Timer temporizador;
-        
+
 
         //SqlConnection con = new SqlConnection("Data Source=MSI\\SQLMSI;Initial Catalog=IlernaV2;Integrated Security=False;User Id=winplus;Password=Pbjjajlp5h4m1");
-         SqlConnection con = new SqlConnection("data source=PCCRISTHIAN\\SQLEXPRESS; initial catalog=DesarrollosTime;user id=winplus;password=Pbjjajlp5h4m1");
-        
+        SqlConnection con = new SqlConnection("data source=PCCRISTHIAN\\SQLEXPRESS; initial catalog=DesarrollosTime;user id=winplus;password=Pbjjajlp5h4m1");
+
         public Widget()
         {
             InitializeComponent();
@@ -37,31 +41,40 @@ namespace capapresentacion
         }
 
         private void Form1_Load(object sender, EventArgs e)
-
         {   /*Cronometro*/
             temporizador = new System.Timers.Timer();
             temporizador.Interval = 1000;
             temporizador.Elapsed += OnTimeEvent;
             /*Cronometro*/
 
+            
+
+            if (File.Exists("widgetPosition.xml"))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream("widgetPosition.xml", FileMode.Open, FileAccess.Read, FileShare.Read);
+                MyObject obj = (MyObject)formatter.Deserialize(stream);
+                stream.Close();
+                this.Location = new Point(obj.x, obj.y);
+            }
 
 
             try
             {
                 con.Open();
-               SqlCommand query = new SqlCommand("SELECT* FROM Tareas where id_tecnico=@id order by fecha_creacion desc", con);
-                query.Parameters.Add("@id", SqlDbType.VarChar).Value = DLoginStatico.id;
-                Console.WriteLine(DLoginStatico.id+" este es el id");
+                SqlCommand query = new SqlCommand("select descripcion from TareasPersonales t where id_empleado= (Select e.CodEmpleado from Empleados e where e.Usuario='@usuario') order by t.fcreacion desc", con);
+                query.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
+                Console.WriteLine(DLoginStatico.id + " este es el id");
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();
-                dt.Columns.Add("titulo", typeof(string));
+                dt.Columns.Add("descripcion", typeof(string));
 
                 dt.Load(reader);
 
 
-                listaTareasPersonales.DisplayMember = "titulo";
-                listaTareasPersonales.ValueMember = "titulo";
+                listaTareasPersonales.DisplayMember = "descripcion";
+                listaTareasPersonales.ValueMember = "descripcion";
 
                 listaTareasPersonales.DataSource = dt;
 
@@ -71,9 +84,7 @@ namespace capapresentacion
             {
 
             }
-            if(TiempoStatic.IsWorking){
-                
-            }
+
         }
 
         private void OnTimeEvent(object sender, ElapsedEventArgs e)
@@ -84,7 +95,7 @@ namespace capapresentacion
             }));
         }
 
- 
+
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             switch (e.Button)
@@ -97,7 +108,7 @@ namespace capapresentacion
             }
             this.Show();
             WindowState = FormWindowState.Normal;
-            
+
         }
 
         private void convertirWidget()
@@ -109,7 +120,7 @@ namespace capapresentacion
             this.Text = String.Empty;
             this.ControlBox = false;
             moverVentanaAbajoDerecha();
-            
+
         }
 
         private void cerrar_Click(object sender, EventArgs e)
@@ -164,26 +175,26 @@ namespace capapresentacion
         private void botonStart_Click(object sender, EventArgs e)
         {
             iniciaCronometro();
-            
+
 
             TiempoStatic.StartDate = DateTime.Now;
             TiempoStatic.IsWorking = true;
             botonStart.Visible = false;
             botonApagar.Visible = true;
-           
+
         }
-       
+
         private void iniciaCronometro()
         {
             temporizador.Start();
-           
+
         }
 
         private void pararCronometro()
         {
-            temporizador.Stop();           
+            temporizador.Stop();
         }
-       
+
         private void modoAplicacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmPrincipal frmPrincipal = new FrmPrincipal();
@@ -220,20 +231,15 @@ namespace capapresentacion
         private void Widget_FormClosing(object sender, FormClosingEventArgs e)
         {
             //temporizador.Stop();
-            if ((ModifierKeys & Keys.Shift) == 0)
-            {
-                Point location = Location;
-                Size size = Size;
-                if (WindowState != FormWindowState.Normal)
-                {
-                    location = RestoreBounds.Location;
-                    size = RestoreBounds.Size;
-                }
-                string initLocation = string.Join(",", location.X, location.Y, size.Width, size.Height);
-;
-                
-                    //Properties.Settings.Default.WidgetInitialLotacion;
-            }
+            MyObject obj = new MyObject();
+            obj.y = this.Top;
+            obj.x = this.Left;
+
+
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("widgetPosition.xml", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, obj);
+            stream.Close();
 
         }
 

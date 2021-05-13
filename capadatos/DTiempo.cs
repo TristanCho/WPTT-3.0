@@ -13,16 +13,25 @@ namespace capadatos
     {
         private int _id;
         private string _tarea;
-        private DateTime _fecha_inicio;
+        private string _fecha_inicio;
         private DateTime _fecha_fin;
         private string _observaciones;
         private string _textobuscar;
+        private string fecha;
+        private string fechaInicio;
+        private string fechaFin;
+        private string accion;
+        private string id_tarea;
+        private string idTareaPersonal;
+        private string usuario;
+        private int imputable;
+        private int imputado;
 
         public int Id { get => _id; set => _id = value; }
         
         public string Tarea { get => _tarea; set => _tarea = value; }
         //Posiblemente tenga que cambiar el tipo de datos a string por que desde el combobox me llegará un string
-        public DateTime Fecha_inicio { get => _fecha_inicio; set => _fecha_inicio = value; }
+        public string Fecha_inicio { get => _fecha_inicio; set => _fecha_inicio = value; }
         public DateTime Fecha_fin { get => _fecha_fin; set => _fecha_fin = value; }
         public string Observaciones { get => _observaciones; set => _observaciones = value; }
         public string Textobuscar { get => _textobuscar; set => _textobuscar = value; }
@@ -31,7 +40,7 @@ namespace capadatos
         {
 
         }
-        public DTiempo(int id, string tarea, DateTime fecha_inicio, DateTime fecha_fin, string observaciones, string textobuscar)
+        public DTiempo(int id, string tarea, string fecha_inicio, DateTime fecha_fin, string observaciones, string textobuscar)
         {
             _id = id;
             _tarea = tarea;
@@ -40,6 +49,21 @@ namespace capadatos
             _observaciones = observaciones;
             _textobuscar = textobuscar;
         }
+
+        public DTiempo(string fecha, string fechaInicio, string fechaFin, string observaciones, string accion, string id_tarea, string idTareaPersonal, string usuario, int imputable, int imputado)
+        {
+            this.fecha = fecha;
+            this.fechaInicio = fechaInicio;
+            this.fechaFin = fechaFin;
+            Observaciones = observaciones;
+            this.accion = accion;
+            this.id_tarea = id_tarea;
+            this.idTareaPersonal = idTareaPersonal;
+            this.usuario = usuario;
+            this.imputable = imputable;
+            this.imputado = imputado;
+        }
+
         public DataTable mostrartiempos(DTiempo objeto)
         {
             DataTable dtresultado = new DataTable("tiempos");
@@ -50,10 +74,9 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "select* from Tiempos_tarea order by fecha desc";
-                //SqlCmd.CommandText = "spmostrar_tiempos";
-                //SqlCmd.CommandType = CommandType.StoredProcedure;
-
+                SqlCmd.CommandText = "spmostrar_tiempos";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
 
@@ -70,6 +93,59 @@ namespace capadatos
             }
 
             return dtresultado;
+
+
+
+
+            return dtresultado;
+        }
+
+        public string[] mostrarTareaPersonalCombobox(string usuario, string tarea)
+        {
+            string[] array = new string[] { };
+
+            DataTable dtresultado = new DataTable("TareasPersonales");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_tareapersonal";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+                SqlParameter ParTextoUsuario= new SqlParameter();
+                ParTextoUsuario.ParameterName = "@usuario";
+                ParTextoUsuario.SqlDbType = SqlDbType.VarChar;
+                ParTextoUsuario.Size = 10;
+                ParTextoUsuario.Value = usuario;
+                SqlCmd.Parameters.Add(ParTextoUsuario);
+
+
+                SqlParameter ParTextoTarea = new SqlParameter();
+                ParTextoTarea.ParameterName = "@tarea";
+                ParTextoTarea.SqlDbType = SqlDbType.VarChar;
+                ParTextoTarea.Size = 10;
+                ParTextoTarea.Value = tarea;
+                SqlCmd.Parameters.Add(ParTextoTarea);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+
+            return array;
         }
 
         //Método buscar proyecto por codigo
@@ -120,7 +196,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spinsertar_tiempo";
+                SqlCmd.CommandText = "spinsertar_tiempos";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Definición de atributos
@@ -132,30 +208,31 @@ namespace capadatos
                 //ParId.Direction = ParameterDirection.Output;
                 //SqlCmd.Parameters.Add(ParId);
 
-                //tarea
-                SqlParameter ParTarea = new SqlParameter();
-                ParTarea.ParameterName = "@tarea";
-                ParTarea.SqlDbType = SqlDbType.NVarChar;
-                ParTarea.Size = 1024;
-                ParTarea.Value = tiempo.Tarea;
-                SqlCmd.Parameters.Add(ParTarea);
+
+                //fecha
+                SqlParameter ParFecha = new SqlParameter();
+                ParFecha.ParameterName = "@fecha";
+                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                //ParFecha.Size = 1024;
+                ParFecha.Value = tiempo.fecha;
+                SqlCmd.Parameters.Add(ParFecha);
 
 
                 //fecha_inicio
                 SqlParameter ParFechaInicio = new SqlParameter();
-                ParFechaInicio.ParameterName = "@fecha_inicio";
+                ParFechaInicio.ParameterName = "@fechaInicio";
                 ParFechaInicio.SqlDbType = SqlDbType.SmallDateTime;
                 //ParFecha.Size = 1024;
-                ParFechaInicio.Value = tiempo.Fecha_inicio;
+                ParFechaInicio.Value = tiempo.fechaInicio;
                 SqlCmd.Parameters.Add(ParFechaInicio);
 
 
                 //fecha_fin
                 SqlParameter ParFechaFin = new SqlParameter();
-                ParFechaFin.ParameterName = "@fecha_fin";
+                ParFechaFin.ParameterName = "@fechaFin";
                 ParFechaFin.SqlDbType = SqlDbType.SmallDateTime;
                 //ParFecha.Size = 1024;
-                ParFechaFin.Value = tiempo.Fecha_fin;
+                ParFechaFin.Value = tiempo.fechaFin;
                 SqlCmd.Parameters.Add(ParFechaFin);
 
                 //observaciones
@@ -166,6 +243,50 @@ namespace capadatos
                 ParObservaciones.Value = tiempo.Observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
 
+
+                //accion
+                SqlParameter ParAccion = new SqlParameter();
+                ParAccion.ParameterName = "@accion";
+                ParAccion.SqlDbType = SqlDbType.NVarChar;
+                ParAccion.Value = tiempo.accion;
+                SqlCmd.Parameters.Add(ParAccion);
+
+                //id_tarea
+                SqlParameter ParIdTarea = new SqlParameter();
+                ParIdTarea.ParameterName = "@id_tarea";
+                ParIdTarea.SqlDbType = SqlDbType.Int;
+                ParIdTarea.Value = Int32.Parse(tiempo.id_tarea);
+                SqlCmd.Parameters.Add(ParIdTarea);
+
+                //id_tareaPersonal
+                SqlParameter ParIdTareaPersonal = new SqlParameter();
+                ParIdTareaPersonal.ParameterName = "@idTareaPersonal";
+                ParIdTareaPersonal.SqlDbType = SqlDbType.Int;
+                Console.WriteLine(tiempo.idTareaPersonal+"tarea personla");
+                ParIdTareaPersonal.Value = 13;
+                SqlCmd.Parameters.Add(ParIdTareaPersonal);
+
+                //usuario
+                SqlParameter ParUsuario = new SqlParameter();
+                ParUsuario.ParameterName = "@usuario";
+                ParUsuario.SqlDbType = SqlDbType.NVarChar;
+                ParUsuario.Value = tiempo.usuario;
+                SqlCmd.Parameters.Add(ParUsuario);
+
+
+                //imputable
+                SqlParameter ParImputable = new SqlParameter();
+                ParImputable.ParameterName = "@imputable";
+                ParImputable.SqlDbType = SqlDbType.Bit;
+                ParImputable.Value = tiempo.imputable;
+                SqlCmd.Parameters.Add(ParImputable);
+
+                //imputado
+                SqlParameter ParImputado = new SqlParameter();
+                ParImputado.ParameterName = "@imputado";
+                ParImputado.SqlDbType = SqlDbType.Bit;
+                ParImputado.Value = tiempo.imputado;
+                SqlCmd.Parameters.Add(ParImputado);
 
                 rpta = SqlCmd.ExecuteNonQuery() == 3 ? "OK" : "No es posible insertar el tiempo";
               
@@ -302,7 +423,7 @@ namespace capadatos
         {
             string[] array = new string[] { };
 
-            DataTable dtresultado = new DataTable("tiempos");
+            DataTable dtresultado = new DataTable("Tareas");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -310,11 +431,14 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_tareas";
+                SqlCmd.CommandText = "spmostrar_tareas";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
+
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
             }
             catch (Exception)
@@ -325,7 +449,12 @@ namespace capadatos
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
+
             return array;
+        }
+
+        public void sacaCodigoTarea()
+        {  
         }
     }
 }

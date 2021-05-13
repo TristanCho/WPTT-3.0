@@ -264,6 +264,42 @@ namespace capapresentacion
             this.dtFechaProyecto.Text = fecha_creacion;
         }
 
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            DInformacionProyecto.sumaIndex();
+            llamaVisualizaDatos();
+        }
+        public void llamaVisualizaDatos()
+        {
+            visualizaDatos(
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["codigo_proyecto"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["titulo"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
+                Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));
+        }
 
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            DInformacionProyecto.restaIndex();
+            llamaVisualizaDatos();
+
+        }
+
+        private void btnFinal_Click(object sender, EventArgs e)
+        {
+
+            FrmProyecto proyecto = new FrmProyecto();
+            Console.WriteLine(proyecto.getNumeroIndice() + " numero de lineas");
+           DInformacionProyecto.finalIndex();
+            llamaVisualizaDatos();
+        }
+
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            DInformacionProyecto.primerIndex();
+            llamaVisualizaDatos();
+        }
     }
+    
 }
