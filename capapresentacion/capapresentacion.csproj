@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="DInformacionProyecto.cs" />
     <Compile Include="DInformacionTarea.cs" />
+    <Compile Include="FrmDetallePersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallePersonal.Designer.cs">
+      <DependentUpon>FrmDetallePersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDetalleTiempos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmDetallePersonal.resx">
+      <DependentUpon>FrmDetallePersonal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalleTiempos.resx">
       <DependentUpon>FrmDetalleTiempos.cs</DependentUpon>
     </EmbeddedResource>

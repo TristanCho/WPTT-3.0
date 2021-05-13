@@ -16,33 +16,66 @@ namespace capanegocio
             return objeto.mostrarpersonales(objeto);
         }
 
-        public static DataTable buscarproyecto(String textobuscar)
+        public static DataTable buscarpersonales(String textobuscar)
         {
-            DProyecto objeto = new DProyecto();
+            DPersonal objeto = new DPersonal();
             objeto.Textobuscar = textobuscar;
-            return objeto.buscarproyecto(objeto);
+            return objeto.buscarpersonales(objeto);
         }
-        public static string insertarproyecto(string titulo, string codigo_proyecto, string observaciones, DateTime fecha)
+        public static string insertarPersonal(string id_empleado, string descripcion, string fcreacion, string prioridad, string estado, string fcierre,
+            string idTareaGrupo, string idTareaDestino, string idTareaOrigen, string idTareaProyecto, string idProyecto, string id_empleadoInsert, string id_empleadoReAsign )
         {
-            DProyecto objeto = new DProyecto();
-            objeto.Titulo = titulo;
-            objeto.Observaciones = observaciones;
-            objeto.Fecha = fecha;
-            objeto.Codigo_proyecto = codigo_proyecto;
+            DPersonal objeto = new DPersonal();
+            
+            objeto.Idempleado = id_empleado;
+            objeto.Descripcion = descripcion;
+            objeto.Fcreacion = fcreacion;
+            objeto.Prioridad = prioridad;
+            objeto.Estado = estado;
+            objeto.Fcierre = fcierre;
+            objeto.IdTareaGrupo = idTareaGrupo;
+            objeto.IdTareaDestino = idTareaDestino;
+            objeto.IdTareaOrigen = idTareaOrigen;
+            objeto.IdTareaProyecto = idTareaProyecto;
+            objeto.IdProyecto = idProyecto;
+            objeto.Id_empleadoInsert = id_empleadoInsert;
+            objeto.Id_empleadoReAsign = id_empleadoReAsign;
 
-            return objeto.insertarproyecto(objeto);
+            return objeto.insertarPersonal(objeto);
         }
 
-        public static string editarproyecto(int id, string titulo, string codigo_proyecto, string observaciones, DateTime fecha)
-        {
-            DProyecto objeto = new DProyecto();
-            objeto.Id = id;
-            objeto.Titulo = titulo;
-            objeto.Observaciones = observaciones;
-            objeto.Codigo_proyecto = codigo_proyecto;
-            objeto.Fecha = fecha;
 
-            return objeto.editarproyecto(objeto);
+        public static string editartarPersonal(string idTarea,string id_empleado, string descripcion, string fcreacion, string prioridad, string estado, string fcierre,
+            string idTareaGrupo, string idTareaDestino, string idTareaOrigen, string idTareaProyecto, string idProyecto, string id_empleadoInsert, string id_empleadoReAsign)
+        {
+            DPersonal objeto = new DPersonal();
+
+            objeto.IdTarea = idTarea;
+            objeto.Idempleado = id_empleado;
+            objeto.Descripcion = descripcion;
+            objeto.Fcreacion = fcreacion;
+            objeto.Prioridad = prioridad;
+            objeto.Estado = estado;
+            objeto.Fcierre = fcierre;
+            objeto.IdTareaGrupo = idTareaGrupo;
+            objeto.IdTareaDestino = idTareaDestino;
+            objeto.IdTareaOrigen = idTareaOrigen;
+            objeto.IdTareaProyecto = idTareaProyecto;
+            objeto.IdProyecto = idProyecto;
+            objeto.Id_empleadoInsert = id_empleadoInsert;
+            objeto.Id_empleadoReAsign = id_empleadoReAsign;
+
+            return objeto.editarPersonal(objeto);
+        }
+
+
+
+        public static string eliminarPersonal(string idTarea)
+        {
+            DPersonal objeto = new DPersonal();
+            objeto.IdTarea = idTarea;
+
+            return objeto.eliminarPersonal(objeto);         
         }
 
         public static string eliminarproyecto(int id)
@@ -52,7 +85,6 @@ namespace capanegocio
 
             return objeto.eliminarproyecto(objeto);
         }
-
 
 
         public static DProyectoDatos siguienteInforme(String textobuscar)

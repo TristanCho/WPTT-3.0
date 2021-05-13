@@ -29,21 +29,28 @@ namespace capapresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnEliminarTarea = new System.Windows.Forms.Button();
             this.cbEliminar = new System.Windows.Forms.CheckBox();
             this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
-            this.dataListPersonales = new System.Windows.Forms.DataGridView();
+            this.dataListPersonal = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.txtBuscarTarea = new System.Windows.Forms.TextBox();
-            this.cboBuscarTareas = new System.Windows.Forms.ComboBox();
+            this.txtBuscarPersonal = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataPersonalTiempos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panelRecuadro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListPersonales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListPersonal)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataPersonalTiempos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTotal
@@ -96,60 +103,60 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRecuadro.BackColor = System.Drawing.Color.Gold;
-            this.panelRecuadro.Controls.Add(this.dataListPersonales);
+            this.panelRecuadro.Controls.Add(this.dataListPersonal);
             this.panelRecuadro.Location = new System.Drawing.Point(12, 66);
             this.panelRecuadro.Name = "panelRecuadro";
             this.panelRecuadro.Size = new System.Drawing.Size(776, 200);
             this.panelRecuadro.TabIndex = 28;
             // 
-            // dataListPersonales
+            // dataListPersonal
             // 
-            this.dataListPersonales.AllowUserToAddRows = false;
-            this.dataListPersonales.AllowUserToDeleteRows = false;
-            this.dataListPersonales.AllowUserToOrderColumns = true;
-            this.dataListPersonales.AllowUserToResizeRows = false;
-            this.dataListPersonales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataListPersonales.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dataListPersonales.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataListPersonales.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataListPersonales.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListPersonales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataListPersonales.ColumnHeadersHeight = 34;
-            this.dataListPersonales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataListPersonales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataListPersonal.AllowUserToAddRows = false;
+            this.dataListPersonal.AllowUserToDeleteRows = false;
+            this.dataListPersonal.AllowUserToOrderColumns = true;
+            this.dataListPersonal.AllowUserToResizeRows = false;
+            this.dataListPersonal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataListPersonal.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataListPersonal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataListPersonal.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataListPersonal.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListPersonal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataListPersonal.ColumnHeadersHeight = 34;
+            this.dataListPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataListPersonal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.dataListPersonales.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataListPersonales.EnableHeadersVisualStyles = false;
-            this.dataListPersonales.GridColor = System.Drawing.Color.DimGray;
-            this.dataListPersonales.Location = new System.Drawing.Point(0, 0);
-            this.dataListPersonales.Name = "dataListPersonales";
-            this.dataListPersonales.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListPersonales.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataListPersonales.RowHeadersVisible = false;
-            this.dataListPersonales.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListPersonales.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataListPersonales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListPersonales.Size = new System.Drawing.Size(776, 200);
-            this.dataListPersonales.TabIndex = 4;
-            this.dataListPersonales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonales_CellContentClick);
+            this.dataListPersonal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataListPersonal.EnableHeadersVisualStyles = false;
+            this.dataListPersonal.GridColor = System.Drawing.Color.DimGray;
+            this.dataListPersonal.Location = new System.Drawing.Point(0, 0);
+            this.dataListPersonal.Name = "dataListPersonal";
+            this.dataListPersonal.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListPersonal.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataListPersonal.RowHeadersVisible = false;
+            this.dataListPersonal.RowHeadersWidth = 51;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListPersonal.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataListPersonal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataListPersonal.Size = new System.Drawing.Size(776, 200);
+            this.dataListPersonal.TabIndex = 4;
+            this.dataListPersonal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonales_CellContentClick);
             // 
             // Eliminar
             // 
@@ -174,49 +181,103 @@ namespace capapresentacion
             this.btnNuevo.TabIndex = 27;
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // txtBuscarTarea
+            // txtBuscarPersonal
             // 
-            this.txtBuscarTarea.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBuscarPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarTarea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarTarea.Location = new System.Drawing.Point(213, 13);
-            this.txtBuscarTarea.Name = "txtBuscarTarea";
-            this.txtBuscarTarea.Size = new System.Drawing.Size(575, 20);
-            this.txtBuscarTarea.TabIndex = 26;
+            this.txtBuscarPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarPersonal.Location = new System.Drawing.Point(12, 13);
+            this.txtBuscarPersonal.Name = "txtBuscarPersonal";
+            this.txtBuscarPersonal.Size = new System.Drawing.Size(776, 20);
+            this.txtBuscarPersonal.TabIndex = 26;
+            this.txtBuscarPersonal.TextChanged += new System.EventHandler(this.txtBuscarPersonal_TextChanged);
             // 
-            // cboBuscarTareas
+            // panel1
             // 
-            this.cboBuscarTareas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBuscarTareas.FormattingEnabled = true;
-            this.cboBuscarTareas.Items.AddRange(new object[] {
-            "Tarea",
-            "Descripción",
-            "Aplicación",
-            "Proyecto",
-            "Prioridad",
-            "Estados"});
-            this.cboBuscarTareas.Location = new System.Drawing.Point(12, 12);
-            this.cboBuscarTareas.Name = "cboBuscarTareas";
-            this.cboBuscarTareas.Size = new System.Drawing.Size(195, 21);
-            this.cboBuscarTareas.TabIndex = 25;
+            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.Controls.Add(this.dataPersonalTiempos);
+            this.panel1.Location = new System.Drawing.Point(13, 272);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(775, 166);
+            this.panel1.TabIndex = 33;
+            // 
+            // dataPersonalTiempos
+            // 
+            this.dataPersonalTiempos.AllowUserToAddRows = false;
+            this.dataPersonalTiempos.AllowUserToDeleteRows = false;
+            this.dataPersonalTiempos.AllowUserToOrderColumns = true;
+            this.dataPersonalTiempos.AllowUserToResizeRows = false;
+            this.dataPersonalTiempos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataPersonalTiempos.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataPersonalTiempos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataPersonalTiempos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataPersonalTiempos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataPersonalTiempos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataPersonalTiempos.ColumnHeadersHeight = 34;
+            this.dataPersonalTiempos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataPersonalTiempos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn1});
+            this.dataPersonalTiempos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataPersonalTiempos.EnableHeadersVisualStyles = false;
+            this.dataPersonalTiempos.GridColor = System.Drawing.Color.DimGray;
+            this.dataPersonalTiempos.Location = new System.Drawing.Point(0, 0);
+            this.dataPersonalTiempos.Name = "dataPersonalTiempos";
+            this.dataPersonalTiempos.ReadOnly = true;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataPersonalTiempos.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataPersonalTiempos.RowHeadersVisible = false;
+            this.dataPersonalTiempos.RowHeadersWidth = 51;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dataPersonalTiempos.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataPersonalTiempos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataPersonalTiempos.Size = new System.Drawing.Size(775, 166);
+            this.dataPersonalTiempos.TabIndex = 5;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Eliminar";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 2;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCheckBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnEliminarTarea);
             this.Controls.Add(this.cbEliminar);
             this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.txtBuscarTarea);
-            this.Controls.Add(this.cboBuscarTareas);
+            this.Controls.Add(this.txtBuscarPersonal);
             this.Name = "FrmPersonal";
             this.Text = "Personal";
+            this.Load += new System.EventHandler(this.FrmPersonal_Load);
             this.panelRecuadro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataListPersonales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListPersonal)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataPersonalTiempos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,10 +290,12 @@ namespace capapresentacion
         private System.Windows.Forms.CheckBox cbEliminar;
         private System.Windows.Forms.Label label_añadir;
         private System.Windows.Forms.Panel panelRecuadro;
-        private System.Windows.Forms.DataGridView dataListPersonales;
+        private System.Windows.Forms.DataGridView dataListPersonal;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox txtBuscarTarea;
-        private System.Windows.Forms.ComboBox cboBuscarTareas;
+        private System.Windows.Forms.TextBox txtBuscarPersonal;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataPersonalTiempos;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }
