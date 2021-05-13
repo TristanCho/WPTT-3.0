@@ -262,8 +262,17 @@ namespace capadatos
                 SqlParameter ParIdTareaPersonal = new SqlParameter();
                 ParIdTareaPersonal.ParameterName = "@idTareaPersonal";
                 ParIdTareaPersonal.SqlDbType = SqlDbType.Int;
-                Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
-                ParIdTareaPersonal.Value = 13;
+                if (tiempo.idTareaPersonal.Equals(""))
+                {
+                    ParIdTareaPersonal.Value = DBNull.Value;
+                }
+                else {
+                    ParIdTareaPersonal.Value = Int32.Parse(tiempo.idTareaPersonal);
+                    Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
+                }
+
+               // Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
+                
                 SqlCmd.Parameters.Add(ParIdTareaPersonal);
 
                 //usuario
@@ -319,6 +328,14 @@ namespace capadatos
                 SqlCmd.CommandText = "speditar_tiempos";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
+                Console.WriteLine(tiempo.Id + "ESTE ES EL ID");
+
+                //id_tarea
+                SqlParameter ParId = new SqlParameter();
+                ParId.ParameterName = "@id";
+                ParId.SqlDbType = SqlDbType.Int;
+                ParId.Value = tiempo.Id;
+                SqlCmd.Parameters.Add(ParId);
 
                 //fecha
                 SqlParameter ParFecha = new SqlParameter();
@@ -373,8 +390,16 @@ namespace capadatos
                 SqlParameter ParIdTareaPersonal = new SqlParameter();
                 ParIdTareaPersonal.ParameterName = "@idTareaPersonal";
                 ParIdTareaPersonal.SqlDbType = SqlDbType.Int;
-                Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
-                ParIdTareaPersonal.Value = 13;
+                //Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
+                if (tiempo.idTareaPersonal.Equals(""))
+                {
+                    ParIdTareaPersonal.Value = DBNull.Value;
+                }
+                else
+                {
+                    ParIdTareaPersonal.Value = Int32.Parse(tiempo.idTareaPersonal);
+                    Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
+                }
                 SqlCmd.Parameters.Add(ParIdTareaPersonal);
 
 

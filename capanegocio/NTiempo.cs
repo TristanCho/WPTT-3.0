@@ -36,13 +36,13 @@ namespace capanegocio
             return objeto.insertartiempo(objeto);
         }
 
-        public static string editartiempo(string fecha, string fechaInicio, string fechaFin, string observaciones, string accion, string id_tarea,
+        public static string editartiempo(string id,string fecha, string fechaInicio, string fechaFin, string observaciones, string accion, string id_tarea,
             string idTareaPersonal,
             string usuario, int imputable, int imputado)
         {
             DTiempo objeto = new DTiempo(fecha, fechaInicio, fechaFin, observaciones, accion, id_tarea,
             idTareaPersonal, usuario, imputable, imputado);
-
+            objeto.Id = Convert.ToInt32(id);
             return objeto.editartiempo(objeto);
         }
 

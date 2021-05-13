@@ -31,7 +31,7 @@ namespace capapresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             NLogin login = new NLogin();
-            if (login.logueo(usuario.Text, Dns.GetHostName()))
+           if (login.logueo(usuario.Text, Dns.GetHostName()))
             {
                 DLoginStatico.sacaTecnico(usuario.Text);
                 FrmPrincipal principal = new FrmPrincipal();
