@@ -34,23 +34,23 @@ namespace capapresentacion
         }
         private void quitabordes()
         {
-            this.dataListPersonales.AdvancedCellBorderStyle.Left = DataGridViewAdvancedCellBorderStyle.None;
-            this.dataListPersonales.AdvancedCellBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
-            this.dataListPersonales.AdvancedCellBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
-            this.dataListPersonales.AdvancedCellBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListPersonal.AdvancedCellBorderStyle.Left = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListPersonal.AdvancedCellBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListPersonal.AdvancedCellBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListPersonal.AdvancedCellBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
         }
 
         private void FrmTarea_Load(object sender, EventArgs e)
         {
-            cboBuscarTareas.SelectedIndex = 0;
+            
         }
 
         public void mostrartareas()
         {
-            this.dataListPersonales.DataSource = NPersonal.mostrarpersonales();
+            this.dataListPersonal.DataSource = NPersonal.mostrarpersonales();
             //this.ocultarcolumnas();
             // this.btnEliminarProyecto.Visible = true;
-            this.lblTotal.Text = "Número de TPersonales: " + Convert.ToString(dataListPersonales.Rows.Count);
+            this.lblTotal.Text = "Número de TPersonales: " + Convert.ToString(dataListPersonal.Rows.Count);
             this.cbEliminar.Checked = false;
         }
 
@@ -65,60 +65,32 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             btnEliminarTarea.Visible = false;
-            this.dataListPersonales.Columns[0].Visible = false;
+            this.dataListPersonal.Columns[0].Visible = false;
            // this.dataListPersonales.Columns[1].Visible = false;
           //  this.dataListPersonales.Columns[2].Visible = false;
         }
 
-        private void txtBuscarTarea_TextChanged(object sender, EventArgs e)
+        private void txtBuscarPersonal_TextChanged(object sender, EventArgs e)
         {
-            this.buscarTarea(this.txtBuscarTarea.Text);
-        }
+            this.buscarPersonales(this.txtBuscarPersonal.Text);
+        }     
 
-        private void buscarTarea(string texto)
+        private void buscarPersonales(string texto)
         {
-            //if (cboBuscarTareas.SelectedItem != null)
-            //{
-            //    switch (cboBuscarTareas.SelectedItem.ToString())
-            //    {
-            //        case "Tarea":
-            //            this.dataListTareas.DataSource = NTarea.buscartareaTitulo(texto);
-            //            break;
-            //        case "Descripción":
-            //            this.dataListTareas.DataSource = NTarea.buscartareaDescripcion(texto);
-            //            break;
-            //        case "Aplicación":
-            //            this.dataListTareas.DataSource = NTarea.buscartareaAplicacion(texto);
-            //            break;
-            //        case "Proyecto":
-            //            this.dataListTareas.DataSource = NTarea.buscartareaProyecto(texto);
-            //            break;
-            //        case "Prioridad":
-            //            this.dataListTareas.DataSource = NTarea.buscartareaPrioridad(texto);
-            //            break;
-            //        case "Estados":
-            //            this.dataListTareas.DataSource = NTarea.buscartareaEstados(texto);
-            //            break;
-            //    }
-            //}
-            // this.ocultarcolumnas();
-        }
-
-        private void cboBuscarTareas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+            this.dataListPersonal.DataSource = NPersonal.buscarpersonales(texto);
+            this.ocultarcolumnas();
+        }             
 
         private void cbEliminar_CheckedChanged(object sender, EventArgs e)
         {
             if (this.cbEliminar.Checked)
             {
-                this.dataListPersonales.Columns[0].Visible = true;
+                this.dataListPersonal.Columns[0].Visible = true;
                 this.btnEliminarTarea.Visible = true;
             }
             else
             {
-                this.dataListPersonales.Columns[0].Visible = false;
+                this.dataListPersonal.Columns[0].Visible = false;
                 this.btnEliminarTarea.Visible = false;
             }
         }
@@ -129,13 +101,13 @@ namespace capapresentacion
             {
                 FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
 
-                DInformacionTarea.dataListTareas = dataListPersonales;
-                DInformacionTarea.index = this.dataListPersonales.CurrentRow.Index;
+                DInformacionTarea.dataListTareas = dataListPersonal;
+                DInformacionTarea.index = this.dataListPersonal.CurrentRow.Index;
                 DInformacionTarea.detalleTarea = detalleTarea;
 
 
                 //FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
-                detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListPersonales.CurrentRow.Cells["codigo_tarea"].Value)));
+                detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["codigo_tarea"].Value)));
 
                 /* detalleTarea.visualizaDatos(
                      Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
@@ -155,9 +127,9 @@ namespace capapresentacion
 
         private void dataListTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataListPersonales.Columns["Eliminar"].Index)
+            if (e.ColumnIndex == dataListPersonal.Columns["Eliminar"].Index)
             {
-                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonales.Rows[e.RowIndex].Cells["Eliminar"];
+                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonal.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
             //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
@@ -180,7 +152,7 @@ namespace capapresentacion
                     int aux = 0;
                     int id;
                     string rpta = "";
-                    foreach (DataGridViewRow row in dataListPersonales.Rows)
+                    foreach (DataGridViewRow row in dataListPersonal.Rows)
                     {
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
@@ -230,15 +202,57 @@ namespace capapresentacion
 
         private void dataListPersonales_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataListPersonales.Columns["Eliminar"].Index)
+            if (e.ColumnIndex == dataListPersonal.Columns["Eliminar"].Index)
             {
-                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonales.Rows[e.RowIndex].Cells["Eliminar"];
+                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonal.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
             //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
 
             //mostrarDetalleTareaClicada(Convert.ToString(this.dataListPersonales.CurrentRow.Cells["codigo_tarea"].Value));
         }
+
+        private void dataListPersonal_CellDoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
+
+                //DInformacionProyecto.detallePersonal = dataListPersonal;
+                //DInformacionProyecto.index = this.dataListPersonal.CurrentRow.Index;
+                //DInformacionProyecto.detalleProyecto = detalleProyecto;
+
+                //detallePersonal.visualizaDatos(
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleado"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["descripcion"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcreacion"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["prioridad"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["estado"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcierre"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaGrupo"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaDestino"].Value),
+                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaOrigen"].Value)
+                //    );
+
+                //Console.WriteLine(this.dataListProyectos.SelectedRows[2].Cells["id"].Value);
+
+                //detalleProyecto.frmparent = frmparent;
+                FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
+
+                detallePersonal.setModo("LECTURA");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FrmPersonal_Load(object sender, EventArgs e)
+        {
+
+        }
+       
     }
     
 }

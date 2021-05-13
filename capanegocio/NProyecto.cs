@@ -21,7 +21,9 @@ namespace capanegocio
             DProyecto objeto = new DProyecto();
             objeto.Textobuscar = textobuscar;
             return objeto.buscarproyecto(objeto);
+            //922
         }
+
         public static string insertarproyecto(string titulo, string codigo_proyecto, string observaciones, DateTime fecha)
         {
             DProyecto objeto = new DProyecto();
@@ -52,8 +54,6 @@ namespace capanegocio
 
             return objeto.eliminarproyecto(objeto);
         }
-
-
 
          public static DProyectoDatos siguienteInforme(String textobuscar)
          {

@@ -15,6 +15,10 @@ namespace capadatos
         private string _titulo;
         private string _descripcion;
         private string _estado;
+
+
+
+
         private int _tiempoEstimado;
         private string _prioridad;
         private string _aplicacion;
@@ -30,7 +34,6 @@ namespace capadatos
         private DateTime _fechadeteccion;
         private DateTime _fechasolucion;
         private DateTime _fechaverificacion;
-
 
         private string _textobuscar;
         private string _proyecto;
@@ -185,7 +188,6 @@ namespace capadatos
                 return array;
             
         }
-
 
 
         public string[] mostrarPrioridad(DTarea objeto)
@@ -618,8 +620,6 @@ namespace capadatos
 
             return array;
         }
-
- 
 
         public string editarTarea(DTarea tarea)
         {
@@ -1069,6 +1069,7 @@ namespace capadatos
 
             return dtresultado;
         }        
+
         public DataTable buscartareaAplicacion(DTarea tarea)
         {
             DataTable dtresultado = new DataTable("tareas");

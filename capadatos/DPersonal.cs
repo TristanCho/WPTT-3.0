@@ -11,36 +11,96 @@ namespace capadatos
 {
     public class DPersonal
     {
-        private int _idtarea;
-        private string _descripcion;        
+        private string _idTarea;
         private string _idempleado;
+        private string _descripcion;
+        private string _fcreacion;
+        private string _prioridad;
         private string _estado;
-        private string _tareaproyecto;
-        private string _proyecto;
+        private string _fcierre;
+        private string _IdTareaGrupo;
+        private string _IdTareaDestino;
+        private string _IdTareaOrigen;
+        private string _IdTareaProyecto;
+        private string _IdProyecto;
+        private string _id_empleadoInsert;
+        private string _id_empleadoReAsign;
+        private string _Textobuscar;
 
-    
-        public int Idtarea { get => _idtarea; set => _idtarea = value; }
-        public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        public string IdTarea { get => _idTarea; set => _idTarea = value; }
         public string Idempleado { get => _idempleado; set => _idempleado = value; }
+        public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        public string Fcreacion { get => _fcreacion; set => _fcreacion = value; }
+        public string Prioridad { get => _prioridad; set => _prioridad = value; }
         public string Estado { get => _estado; set => _estado = value; }
-        public string Tareaproyecto { get => _tareaproyecto; set => _tareaproyecto = value; }
-        public string Proyecto { get => _proyecto; set => _proyecto = value; }
+        public string Fcierre { get => _fcierre; set => _fcierre = value; }
+        public string IdTareaGrupo { get => _IdTareaGrupo; set => _IdTareaGrupo = value; }
+        public string IdTareaDestino { get => _IdTareaDestino; set => _IdTareaDestino = value; }
+        public string IdTareaOrigen { get => _IdTareaOrigen; set => _IdTareaOrigen = value; }
+        public string IdTareaProyecto { get => _IdTareaProyecto; set => _IdTareaProyecto = value; }
+        public string IdProyecto { get => _IdProyecto; set => _IdProyecto = value; }
+        public string Id_empleadoInsert { get => _id_empleadoInsert; set => _id_empleadoInsert = value; }
+        public string Id_empleadoReAsign { get => _id_empleadoReAsign; set => _id_empleadoReAsign = value; }
+        public string Textobuscar { get => _Textobuscar; set => _Textobuscar = value; }
+
 
         public DPersonal()
         {
 
         }
-        public DPersonal(int idtarea, string descripcion, string idempleado, string estado, string tareaproyecto, string proyecto)
+        public DPersonal(string idTarea, string idempleado, string descripcion, string fcreacion, string prioridad, string estado, string fcierre, string idTareaGrupo, string idTareaDestino, string idTareaOrigen, string idTareaProyecto, string idProyecto, string id_empleadoInsert, string id_empleadoReAsign, string textobuscar)
         {
-            _idtarea = idtarea;
-            _descripcion = descripcion;
+            _idTarea = idTarea;
             _idempleado = idempleado;
+            _descripcion = descripcion;
+            _fcreacion = fcreacion;
+            _prioridad = prioridad;
             _estado = estado;
-            _tareaproyecto = tareaproyecto;
-            _proyecto = proyecto;
+            _fcierre = fcierre;
+            _IdTareaGrupo = idTareaGrupo;
+            _IdTareaDestino = idTareaDestino;
+            _IdTareaOrigen = idTareaOrigen;
+            _IdTareaProyecto = idTareaProyecto;
+            _IdProyecto = idProyecto;
+            _id_empleadoInsert = id_empleadoInsert;
+            _id_empleadoReAsign = id_empleadoReAsign;
+            _Textobuscar = textobuscar;
         }
 
+        public DataTable buscarpersonales(DPersonal personal)
+        {
+            DataTable dtresultado = new DataTable("personales");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spbuscar_personales";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
+                //Buscar tarea personal
+                SqlParameter ParTextobuscar = new SqlParameter();
+                ParTextobuscar.ParameterName = "@textobuscar";
+                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
+                ParTextobuscar.Size = 10;
+                ParTextobuscar.Value = personal.Textobuscar;
+                SqlCmd.Parameters.Add(ParTextobuscar);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return dtresultado;
+        }
         public DataTable mostrarpersonales(DPersonal objeto)
         {
             DataTable dtresultado = new DataTable("personales");
@@ -56,60 +116,6 @@ namespace capadatos
 
                 //TODO INSERTAR EL EMPLEADO PARA EL PROCEDIMIENTO
 
-
-                /*
-                //id
-                SqlParameter ParIdTarea = new SqlParameter();
-                ParIdTarea.ParameterName = "@idTarea";
-                ParIdTarea.SqlDbType = SqlDbType.Int;
-                ParIdTarea.Direction = ParameterDirection.Output;
-                SqlCmd.Parameters.Add(ParIdTarea);
-
-
-                //descripcion               
-                SqlParameter ParDescripcion = new SqlParameter();
-                ParDescripcion.ParameterName = "@descripcion";
-                ParDescripcion.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParDescripcion.Value = objeto.Descripcion;
-                SqlCmd.Parameters.Add(ParDescripcion);
-            
-
-                //nombre
-                SqlParameter ParEmpleado = new SqlParameter();
-                ParEmpleado.ParameterName = "@Nombre";
-                ParEmpleado.SqlDbType = SqlDbType.NVarChar;
-                ParEmpleado.Size = 1024;
-                ParEmpleado.Value = objeto.Idempleado;                
-                SqlCmd.Parameters.Add(ParEmpleado);
-
-
-                //DesEstado
-                SqlParameter ParEstado = new SqlParameter();
-                ParEstado.ParameterName = "@DesEstado";
-                ParEstado.SqlDbType = SqlDbType.NVarChar;
-                ParEstado.Size = 1024;
-                ParEstado.Value = objeto.Estado;
-                SqlCmd.Parameters.Add(ParEstado);
-
-
-                //TareaProyecto
-                SqlParameter ParTareaProyecto = new SqlParameter();
-                ParTareaProyecto.ParameterName = "@TareaProyecto";
-                ParTareaProyecto.SqlDbType = SqlDbType.NText;
-                ParTareaProyecto.Size = 1024;
-                ParTareaProyecto.Value = objeto.Tareaproyecto;
-                SqlCmd.Parameters.Add(ParTareaProyecto);
-
-                //Proyecto
-                SqlParameter ParProyecto = new SqlParameter();
-                ParProyecto.ParameterName = "@Proyecto";
-                ParProyecto.SqlDbType = SqlDbType.NText;
-                ParProyecto.Size = 1024;
-                ParProyecto.Value = objeto.Proyecto;
-                SqlCmd.Parameters.Add(ParProyecto);
-                */
-
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);
             }
@@ -124,9 +130,9 @@ namespace capadatos
             return dtresultado;
         }
 
-        public DataTable mostrarDetalleTiempos(String codigo_tarea)//DTarea tarea)
+        public string insertarPersonal(DPersonal personal)
         {
-            DataTable dtresultado = new DataTable("Tiempos_tarea");
+            string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -134,33 +140,297 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_tiemposTareas";
+                SqlCmd.CommandText = "spinsertar_TareaPersonal";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                //Definición de atributos
+               
+                //id_empleado
+                SqlParameter ParIdEmpleado = new SqlParameter();
+                ParIdEmpleado.ParameterName = "@id_empleado";
+                ParIdEmpleado.SqlDbType = SqlDbType.NText;
+                ParIdEmpleado.Size = 1024;
+                ParIdEmpleado.Value = personal.IdTarea;
+                SqlCmd.Parameters.Add(ParIdEmpleado);
+
+                //descripcion
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NText;
+                ParDescripcion.Value = personal.Descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
+
+                //fecha creacion
+                SqlParameter ParFcreacion = new SqlParameter();
+                ParFcreacion.ParameterName = "@fcreacion";
+                ParFcreacion.SqlDbType = SqlDbType.SmallDateTime;
+                ParFcreacion.Value = personal.Fcreacion;
+                SqlCmd.Parameters.Add(ParFcreacion);
+
+                //Prioridad
+                SqlParameter ParPrioridad = new SqlParameter();
+                ParPrioridad.ParameterName = "@prioridad";
+                ParPrioridad.SqlDbType = SqlDbType.NText;
+                ParPrioridad.Value = personal.Prioridad;
+                SqlCmd.Parameters.Add(ParPrioridad);
+
+                //estado
+                SqlParameter ParEstado = new SqlParameter();
+                ParEstado.ParameterName = "@estado";
+                ParEstado.SqlDbType = SqlDbType.Int;
+                ParEstado.Value = personal.Estado;
+                SqlCmd.Parameters.Add(ParEstado);
+
+                //fecha cierre
+                SqlParameter ParFierre = new SqlParameter();
+                ParFierre.ParameterName = "@fcierre";
+                ParFierre.SqlDbType = SqlDbType.SmallDateTime;
+                ParFierre.Value = personal.Fcierre;
+                SqlCmd.Parameters.Add(ParFierre);
+
+                //IdTareaGrupo
+                SqlParameter ParIdTareaGrupo = new SqlParameter();
+                ParIdTareaGrupo.ParameterName = "@idTareaGrupo";
+                ParIdTareaGrupo.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaGrupo.Value = personal.IdTareaGrupo;
+                SqlCmd.Parameters.Add(ParIdTareaGrupo);
+
+
+                //IdTareaDestino
+                SqlParameter ParIdTareaDestino = new SqlParameter();
+                ParIdTareaDestino.ParameterName = "@idTareaDestino";
+                ParIdTareaDestino.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaDestino.Value = personal.IdTareaDestino;
+                SqlCmd.Parameters.Add(ParIdTareaDestino);
+
+
+                //IdTareaOrigen
+                SqlParameter ParIdTareaOrigen = new SqlParameter();
+                ParIdTareaOrigen.ParameterName = "@idTareaOrigen";
+                ParIdTareaOrigen.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaOrigen.Value = personal.IdTareaOrigen;
+                SqlCmd.Parameters.Add(ParIdTareaOrigen);
+
+                //IdTareaProyecto
+                SqlParameter ParIdTareaProyecto = new SqlParameter();
+                ParIdTareaProyecto.ParameterName = "@idTareaProyecto";
+                ParIdTareaProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaProyecto.Value = personal.IdTareaOrigen;
+                SqlCmd.Parameters.Add(ParIdTareaProyecto);
+
+
+                //IdProyecto
+                SqlParameter ParIdProyecto = new SqlParameter();
+                ParIdProyecto.ParameterName = "@idProyecto";
+                ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParIdProyecto.Value = personal.IdProyecto;
+                SqlCmd.Parameters.Add(ParIdProyecto);
+
+                //id_empleadoInsert
+                SqlParameter ParIdEmpleadoInsert = new SqlParameter();
+                ParIdEmpleadoInsert.ParameterName = "@id_empleadoInsert";
+                ParIdEmpleadoInsert.SqlDbType = SqlDbType.NVarChar;
+                ParIdEmpleadoInsert.Value = personal.Id_empleadoInsert;
+                SqlCmd.Parameters.Add(ParIdEmpleadoInsert);
+
+
+                //id_empleadoReAsign
+                SqlParameter ParId_empleadoReAsign = new SqlParameter();
+                ParId_empleadoReAsign.ParameterName = "@id_empleadoReAsign";
+                ParId_empleadoReAsign.SqlDbType = SqlDbType.NVarChar;
+                ParId_empleadoReAsign.Value = personal.Id_empleadoReAsign;
+                SqlCmd.Parameters.Add(ParId_empleadoReAsign);
+
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar tarea personal";
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
+        public string editarPersonal(DPersonal personal)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "speditar_TareaPersonal";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                //Definición de atributos
+                //TODO prepara toda la entrada de insertar tareaPersonal
+
+
+                //idTarea
+                SqlParameter ParIdTarea = new SqlParameter();
+                ParIdTarea.ParameterName = "@idTarea";
+                ParIdTarea.SqlDbType = SqlDbType.NText;
+                ParIdTarea.Size = 1024;
+                ParIdTarea.Value = personal.IdTarea;
+                SqlCmd.Parameters.Add(ParIdTarea);
+
+                //id_empleado
+                SqlParameter ParIdEmpleado = new SqlParameter();
+                ParIdEmpleado.ParameterName = "@id_empleado";
+                ParIdEmpleado.SqlDbType = SqlDbType.NText;
+                ParIdEmpleado.Size = 1024;
+                ParIdEmpleado.Value = personal.Idempleado;
+                SqlCmd.Parameters.Add(ParIdEmpleado);
+
+
+                //descripcion
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NText;
+                ParDescripcion.Value = personal.Descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
+
+
+                //fecha creacion
+                SqlParameter ParFcreacion = new SqlParameter();
+                ParFcreacion.ParameterName = "@fcreacion";
+                ParFcreacion.SqlDbType = SqlDbType.SmallDateTime;
+                ParFcreacion.Value = personal.Fcreacion;
+                SqlCmd.Parameters.Add(ParFcreacion);
+
+
+                //Prioridad
+                SqlParameter ParPrioridad = new SqlParameter();
+                ParPrioridad.ParameterName = "@prioridad";
+                ParPrioridad.SqlDbType = SqlDbType.NText;
+                ParPrioridad.Value = personal.Prioridad;
+                SqlCmd.Parameters.Add(ParPrioridad);
+
+
+                //estado
+                SqlParameter ParEstado = new SqlParameter();
+                ParEstado.ParameterName = "@estado";
+                ParEstado.SqlDbType = SqlDbType.Int;
+                ParEstado.Value = personal.Estado;
+                SqlCmd.Parameters.Add(ParEstado);
+
+                //fecha cierre
+                SqlParameter ParFierre = new SqlParameter();
+                ParFierre.ParameterName = "@fcierre";
+                ParFierre.SqlDbType = SqlDbType.SmallDateTime;
+                ParFierre.Value = personal.Fcierre;
+                SqlCmd.Parameters.Add(ParFierre);
+
+                //IdTareaGrupo
+                SqlParameter ParIdTareaGrupo = new SqlParameter();
+                ParIdTareaGrupo.ParameterName = "@idTareaGrupo";
+                ParIdTareaGrupo.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaGrupo.Value = personal.IdTareaGrupo;
+                SqlCmd.Parameters.Add(ParIdTareaGrupo);
+
+
+                //IdTareaDestino
+                SqlParameter ParIdTareaDestino = new SqlParameter();
+                ParIdTareaDestino.ParameterName = "@idTareaDestino";
+                ParIdTareaDestino.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaDestino.Value = personal.IdTareaDestino;
+                SqlCmd.Parameters.Add(ParIdTareaDestino);
+
+
+                //IdTareaOrigen
+                SqlParameter ParIdTareaOrigen = new SqlParameter();
+                ParIdTareaOrigen.ParameterName = "@idTareaOrigen";
+                ParIdTareaOrigen.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaOrigen.Value = personal.IdTareaOrigen;
+                SqlCmd.Parameters.Add(ParIdTareaOrigen);
+
+                //IdTareaProyecto
+                SqlParameter ParIdTareaProyecto = new SqlParameter();
+                ParIdTareaProyecto.ParameterName = "@idTareaProyecto";
+                ParIdTareaProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaProyecto.Value = personal.IdTareaOrigen;
+                SqlCmd.Parameters.Add(ParIdTareaProyecto);
+
+
+                //IdProyecto
+                SqlParameter ParIdProyecto = new SqlParameter();
+                ParIdProyecto.ParameterName = "@idProyecto";
+                ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParIdProyecto.Value = personal.IdProyecto;
+                SqlCmd.Parameters.Add(ParIdProyecto);
+
+                //id_empleadoInsert
+                SqlParameter ParIdEmpleadoInsert = new SqlParameter();
+                ParIdEmpleadoInsert.ParameterName = "@id_empleadoInsert";
+                ParIdEmpleadoInsert.SqlDbType = SqlDbType.NVarChar;
+                ParIdEmpleadoInsert.Value = personal.Id_empleadoInsert;
+                SqlCmd.Parameters.Add(ParIdEmpleadoInsert);
+
+
+                //id_empleadoReAsign
+                SqlParameter ParId_empleadoReAsign = new SqlParameter();
+                ParId_empleadoReAsign.ParameterName = "@id_empleadoReAsign";
+                ParId_empleadoReAsign.SqlDbType = SqlDbType.NVarChar;
+                ParId_empleadoReAsign.Value = personal.Id_empleadoReAsign;
+                SqlCmd.Parameters.Add(ParId_empleadoReAsign);
+
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible editar tarea personal";
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return rpta;
+        }
+
+        public string eliminarPersonal(DPersonal personal)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "speliminar_tarea";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter ParCodProyect = new SqlParameter();
-                ParCodProyect.ParameterName = "@codigo_proyecto";
-                ParCodProyect.SqlDbType = SqlDbType.VarChar;
-                ParCodProyect.Value = codigo_tarea;//tarea.Codigo_proyecto;
-                SqlCmd.Parameters.Add(ParCodProyect);
 
+                //idTarea
+                SqlParameter ParIdTarea = new SqlParameter();
+                ParIdTarea.ParameterName = "@idTarea";
+                ParIdTarea.SqlDbType = SqlDbType.NVarChar;
+                ParIdTarea.Value = personal.IdTarea;
+                SqlCmd.Parameters.Add(ParIdTarea);
 
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible eliminar TareaPersonal";
 
-
-
+                return rpta;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                dtresultado = null;
+                rpta = ex.Message;
             }
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
             }
-
-            return dtresultado;
+            return rpta;
         }
 
         public string[] mostrarEstadoModulo(DTarea objeto)
@@ -198,109 +468,7 @@ namespace capadatos
 
         }
 
-        public string[] mostrarPrioridad(DTarea objeto)
-        {
-            string[] array = new string[] { };
-
-            DataTable dtresultado = new DataTable("Tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_prioridad";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
-
-                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return array;
-        }
-
-        public string[] mostrarTenicos(DTarea objeto)
-        {
-            string[] array = new string[] { };
-
-            DataTable dtresultado = new DataTable("Empleados");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_tecnicos";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
-
-                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return array;
-        }
-
-        public string[] mostrarAplicaciones(DTarea objeto)
-        {
-            string[] array = new string[] { };
-
-            DataTable dtresultado = new DataTable("Aplicaciones");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_aplicaciones";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
-
-                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return array;
-
-        }
-
+      
         public DetalleTareas getDetalleTareas(string codigo_tarea)
         {
             DataTable dtresultado = new DataTable("Tareas");
@@ -361,245 +529,8 @@ namespace capadatos
             return dTarea;
         }
 
-        public string eliminarTarea(int id)
-        {
-            string rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speliminar_tarea";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-
-                //id
-                SqlParameter ParId = new SqlParameter();
-                ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.Int;
-                ParId.Value = id;
-                SqlCmd.Parameters.Add(ParId);
-
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible eliminar el Proyecto";
-
-                return rpta;
-            }
-            catch (Exception ex)
-            {
-                rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            return rpta;
-        }
-
-        public string insertartarea(DTarea tarea)
-        {
-            string rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spinsertar_tarea";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Definición de atributos
-
-
-
-                //titulo
-                SqlParameter ParTitulo = new SqlParameter();
-                ParTitulo.ParameterName = "@titulo";
-                ParTitulo.SqlDbType = SqlDbType.NText;
-                ParTitulo.Size = 1024;
-                ParTitulo.Value = tarea.Titulo;
-                SqlCmd.Parameters.Add(ParTitulo);
-
-                //tiempo estmiado
-                SqlParameter ParTiempoEstimado = new SqlParameter();
-                ParTiempoEstimado.ParameterName = "@tiempo_estimado";
-                ParTiempoEstimado.SqlDbType = SqlDbType.Int;
-                ParTiempoEstimado.Value = tarea.TiempoEstimado;
-                SqlCmd.Parameters.Add(ParTiempoEstimado);
-
-                //proyecto
-                SqlParameter ParProyecto = new SqlParameter();
-                ParProyecto.ParameterName = "@proyecto";
-                ParProyecto.SqlDbType = SqlDbType.NText;
-                ParProyecto.Value = tarea.Proyecto;
-                SqlCmd.Parameters.Add(ParProyecto);
-
-                //proyecto
-                SqlParameter ParPrioridad = new SqlParameter();
-                ParPrioridad.ParameterName = "@prioridad";
-                ParPrioridad.SqlDbType = SqlDbType.NText;
-                ParPrioridad.Value = tarea.Prioridad;
-                SqlCmd.Parameters.Add(ParPrioridad);
-
-                //Estado
-                SqlParameter ParEstado = new SqlParameter();
-                ParEstado.ParameterName = "@estado";
-                ParEstado.SqlDbType = SqlDbType.NText;
-                ParEstado.Value = tarea.Estado;
-                SqlCmd.Parameters.Add(ParEstado);
-
-                //Aplicacion
-                SqlParameter ParAplicacion = new SqlParameter();
-                ParAplicacion.ParameterName = "@aplicacion";
-                ParAplicacion.SqlDbType = SqlDbType.NText;
-                ParAplicacion.Value = tarea.Aplicacion;
-                SqlCmd.Parameters.Add(ParAplicacion);
-
-                //Version Deteccion
-                SqlParameter ParVDeteccion = new SqlParameter();
-                ParVDeteccion.ParameterName = "@vdeteccion";
-                ParVDeteccion.SqlDbType = SqlDbType.NText;
-                ParVDeteccion.Value = tarea.Vdeteccion;
-                SqlCmd.Parameters.Add(ParVDeteccion);
-
-                //Modulo
-                SqlParameter ParModulo = new SqlParameter();
-                ParModulo.ParameterName = "@modulo";
-                ParModulo.SqlDbType = SqlDbType.NText;
-                ParModulo.Value = tarea.Modulo;
-                SqlCmd.Parameters.Add(ParModulo);
-
-                //Referencias
-                SqlParameter ParReferencias = new SqlParameter();
-                ParReferencias.ParameterName = "@referencias";
-                ParReferencias.SqlDbType = SqlDbType.NText;
-                ParReferencias.Value = tarea.Referencias;
-                SqlCmd.Parameters.Add(ParReferencias);
-
-                //Version solucion
-                SqlParameter ParVSolucion = new SqlParameter();
-                ParVSolucion.ParameterName = "@vsolucion";
-                ParVSolucion.SqlDbType = SqlDbType.NText;
-                ParVSolucion.Value = tarea.Vsolucion;
-                SqlCmd.Parameters.Add(ParVSolucion);
-
-                //Historia
-                SqlParameter ParHistoria = new SqlParameter();
-                ParHistoria.ParameterName = "@historia";
-                ParHistoria.SqlDbType = SqlDbType.NText;
-                ParHistoria.Value = tarea.Historia;
-                SqlCmd.Parameters.Add(ParHistoria);
-
-                //descripcion
-                SqlParameter ParDescripcion = new SqlParameter();
-                ParDescripcion.ParameterName = "@descripcion";
-                ParDescripcion.SqlDbType = SqlDbType.NText;
-                ParDescripcion.Value = tarea.Descripcion;
-                SqlCmd.Parameters.Add(ParDescripcion);
-
-                //Solucion
-                SqlParameter ParSolucion = new SqlParameter();
-                ParSolucion.ParameterName = "@solucion";
-                ParSolucion.SqlDbType = SqlDbType.NText;
-                ParSolucion.Value = tarea.Solucion;
-                SqlCmd.Parameters.Add(ParSolucion);
-
-                //Tecnico deteccion
-                SqlParameter ParTDeteccion = new SqlParameter();
-                ParTDeteccion.ParameterName = "@tdeteccion";
-                ParTDeteccion.SqlDbType = SqlDbType.NText;
-                ParTDeteccion.Value = tarea.Tdeteccion;
-                SqlCmd.Parameters.Add(ParTDeteccion);
-
-                //Tecnico solucion
-                SqlParameter ParTSolucion = new SqlParameter();
-                ParTSolucion.ParameterName = "@tsolucion";
-                ParTSolucion.SqlDbType = SqlDbType.NText;
-                ParTSolucion.Value = tarea.Tsolucion;
-                SqlCmd.Parameters.Add(ParTSolucion);
-
-                //Tecnico verificacion
-                SqlParameter ParTVerificacion = new SqlParameter();
-                ParTVerificacion.ParameterName = "@tverificacion";
-                ParTVerificacion.SqlDbType = SqlDbType.NText;
-                ParTVerificacion.Value = tarea.Tverificacion;
-                SqlCmd.Parameters.Add(ParTVerificacion);
-
-                //fecha deteccion
-                SqlParameter ParFechaDeteccion = new SqlParameter();
-                ParFechaDeteccion.ParameterName = "@fechadeteccion";
-                ParFechaDeteccion.SqlDbType = SqlDbType.SmallDateTime;
-                ParFechaDeteccion.Value = tarea.Fechadeteccion;
-                SqlCmd.Parameters.Add(ParFechaDeteccion);
-
-                //fecha solucion
-                SqlParameter ParFechaSolucion = new SqlParameter();
-                ParFechaSolucion.ParameterName = "@fechasolucion";
-                ParFechaSolucion.SqlDbType = SqlDbType.SmallDateTime;
-                ParFechaSolucion.Value = tarea.Fechasolucion;
-                SqlCmd.Parameters.Add(ParFechaSolucion);
-
-                //fecha verificacion
-                SqlParameter ParFechaVerificacion = new SqlParameter();
-                ParFechaVerificacion.ParameterName = "@fechaverififcacion";
-                ParFechaVerificacion.SqlDbType = SqlDbType.SmallDateTime;
-                ParFechaVerificacion.Value = tarea.Fechaverificacion;
-                SqlCmd.Parameters.Add(ParFechaVerificacion);
-
-
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el Proyecto";
-
-                return rpta;
-            }
-            catch (Exception ex)
-            {
-                rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            return rpta;
-        }
-
-        public string[] mostrarEstadoCombobox(DTarea objeto)
-        {
-            string[] array = new string[] { };
-
-            DataTable dtresultado = new DataTable("TEstadosTareasPersonales");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_estados";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-                sqladap.Fill(dtresultado);
-
-                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return array;
-        }
-
+        
+       
         public string[] mostrarProyectoCombobox(DTarea objeto)
         {
             string[] array = new string[] { };
@@ -630,415 +561,7 @@ namespace capadatos
             }
 
             return array;
-        }
-
-        public string editarTarea(DTarea tarea)
-        {
-            string rpta = "";
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speditar_tarea";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Definición de atributos
-
-                //id
-                SqlParameter ParId = new SqlParameter();
-                ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.Int;
-                ParId.Value = tarea.Id;
-                SqlCmd.Parameters.Add(ParId);
-
-
-                //titulo
-                SqlParameter ParTitulo = new SqlParameter();
-                ParTitulo.ParameterName = "@titulo";
-                ParTitulo.SqlDbType = SqlDbType.NVarChar;
-                ParTitulo.Size = 1024;
-                ParTitulo.Value = tarea.Titulo;
-                SqlCmd.Parameters.Add(ParTitulo);
-
-                //descripcion
-                SqlParameter ParDescripcion = new SqlParameter();
-                ParDescripcion.ParameterName = "@descripcion";
-                ParDescripcion.SqlDbType = SqlDbType.NVarChar;
-                //ParFecha.Size = 1024;
-                ParDescripcion.Value = tarea.Descripcion;
-                SqlCmd.Parameters.Add(ParDescripcion);
-
-                //observaciones
-                SqlParameter ParObservaciones = new SqlParameter();
-                ParObservaciones.ParameterName = "@observaciones";
-                ParObservaciones.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParObservaciones.Value = tarea.Observaciones;
-                SqlCmd.Parameters.Add(ParObservaciones);
-
-
-                //fecha
-                SqlParameter ParFecha = new SqlParameter();
-                ParFecha.ParameterName = "@fecha_creacion";
-                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
-                //ParFecha.Size = 1024;
-                ParFecha.Value = tarea.Fecha;
-                SqlCmd.Parameters.Add(ParFecha);
-
-
-                //estado
-                SqlParameter ParEstado = new SqlParameter();
-                ParEstado.ParameterName = "@estado";
-                ParEstado.SqlDbType = SqlDbType.NText;
-                //ParFecha.Size = 1024;
-                ParEstado.Value = tarea.Estado;
-                SqlCmd.Parameters.Add(ParEstado);
-
-                //tecnico
-                SqlParameter ParTecnico = new SqlParameter();
-                ParTecnico.ParameterName = "@tecnico";
-                ParTecnico.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParTecnico.Value = tarea.Tecnico;
-                SqlCmd.Parameters.Add(ParTecnico);
-
-                //proyecto
-                SqlParameter ParProyecto = new SqlParameter();
-                ParProyecto.ParameterName = "@proyecto";
-                ParProyecto.SqlDbType = SqlDbType.NText;
-                //ParObservaciones.Size = 1024;
-                ParProyecto.Value = tarea.Proyecto;
-                SqlCmd.Parameters.Add(ParProyecto);
-
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible actualizar el Proyecto";
-
-                return rpta;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ha ocurrido un error");
-
-                MessageBox.Show(ex.Message, ex.StackTrace);
-                rpta = ex.Message;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            return rpta;
-        }
-
-        public DataTable buscartareaDescripcion(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareas_descripcion";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por descripcion
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            return dtresultado;
-        }
-
-        public DataTable buscartareaEstados(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareas_estado";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por estados
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
-
-        public DataTable buscartareaFechaCreacion(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareasXfechacreacion";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por fecha
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
-
-        public DataTable buscartareaObservaciones(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareasXobservaciones";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por observaciones
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
-
-        public DataTable buscartareaProyecto(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareas_proyecto";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por proyecto
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
-
-        public DataTable buscartareaPrioridad(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareas_prioridad";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por tecnico
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
-
-        public DataTable buscartareaTitulo(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareas_titulo";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por titulo
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
-
-        public DataTable buscartareaAplicacion(DTarea tarea)
-        {
-            DataTable dtresultado = new DataTable("tareas");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_tareas_aplicacion";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por titulo
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 10;
-                ParTextobuscar.Value = tarea.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-
-
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-
-            return dtresultado;
-        }
+        }      
+        
     }
 }
