@@ -232,6 +232,7 @@ namespace capadatos
                 ParObservaciones.Value = proyecto.Observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
 
+            
 
                 //fecha
                 SqlParameter ParFecha = new SqlParameter();
