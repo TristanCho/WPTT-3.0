@@ -15,8 +15,6 @@ namespace capadatos
         private string _titulo;
         private string _descripcion;
         private string _estado;
-
-
         private int _tiempoEstimado;
         private string _prioridad;
         private string _aplicacion;

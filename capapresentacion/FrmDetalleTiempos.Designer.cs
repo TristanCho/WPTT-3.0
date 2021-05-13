@@ -36,7 +36,6 @@ namespace capapresentacion
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.txtObservaciones = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblDescripciones = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -50,7 +49,6 @@ namespace capapresentacion
             this.lEdicion = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIdTarea = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCodTarea = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -132,17 +130,6 @@ namespace capapresentacion
             this.txtObservaciones.TabIndex = 34;
             this.txtObservaciones.Text = "";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(277, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 18);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Tarea:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblDescripciones
             // 
             this.lblDescripciones.AutoSize = true;
@@ -167,7 +154,7 @@ namespace capapresentacion
             // 
             this.dtFechaFin.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.dtFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFechaFin.Location = new System.Drawing.Point(623, 85);
+            this.dtFechaFin.Location = new System.Drawing.Point(623, 45);
             this.dtFechaFin.Name = "dtFechaFin";
             this.dtFechaFin.Size = new System.Drawing.Size(146, 20);
             this.dtFechaFin.TabIndex = 52;
@@ -176,7 +163,7 @@ namespace capapresentacion
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(525, 85);
+            this.label3.Location = new System.Drawing.Point(525, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 18);
             this.label3.TabIndex = 51;
@@ -208,9 +195,9 @@ namespace capapresentacion
             // 
             this.comboboxTarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTarea.FormattingEnabled = true;
-            this.comboboxTarea.Location = new System.Drawing.Point(345, 46);
+            this.comboboxTarea.Location = new System.Drawing.Point(100, 84);
             this.comboboxTarea.Name = "comboboxTarea";
-            this.comboboxTarea.Size = new System.Drawing.Size(146, 21);
+            this.comboboxTarea.Size = new System.Drawing.Size(120, 21);
             this.comboboxTarea.TabIndex = 55;
             this.comboboxTarea.SelectedIndexChanged += new System.EventHandler(this.comboboxTarea_SelectedIndexChanged);
             // 
@@ -260,13 +247,6 @@ namespace capapresentacion
             this.label4.TabIndex = 58;
             this.label4.Text = "Fecha:";
             // 
-            // txtIdTarea
-            // 
-            this.txtIdTarea.Location = new System.Drawing.Point(103, 87);
-            this.txtIdTarea.Name = "txtIdTarea";
-            this.txtIdTarea.Size = new System.Drawing.Size(117, 20);
-            this.txtIdTarea.TabIndex = 61;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -300,7 +280,7 @@ namespace capapresentacion
             // 
             this.checkImputable.AutoSize = true;
             this.checkImputable.Enabled = false;
-            this.checkImputable.Location = new System.Drawing.Point(356, 179);
+            this.checkImputable.Location = new System.Drawing.Point(623, 127);
             this.checkImputable.Name = "checkImputable";
             this.checkImputable.Size = new System.Drawing.Size(72, 17);
             this.checkImputable.TabIndex = 67;
@@ -311,7 +291,7 @@ namespace capapresentacion
             // 
             this.checkImputado.AutoSize = true;
             this.checkImputado.Enabled = false;
-            this.checkImputado.Location = new System.Drawing.Point(432, 179);
+            this.checkImputado.Location = new System.Drawing.Point(699, 126);
             this.checkImputado.Name = "checkImputado";
             this.checkImputado.Size = new System.Drawing.Size(70, 17);
             this.checkImputado.TabIndex = 68;
@@ -324,7 +304,11 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxAccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxAccion.FormattingEnabled = true;
-            this.comboboxAccion.Location = new System.Drawing.Point(623, 127);
+            this.comboboxAccion.Items.AddRange(new object[] {
+            "D",
+            "A",
+            "I"});
+            this.comboboxAccion.Location = new System.Drawing.Point(623, 87);
             this.comboboxAccion.Name = "comboboxAccion";
             this.comboboxAccion.Size = new System.Drawing.Size(146, 21);
             this.comboboxAccion.TabIndex = 70;
@@ -333,7 +317,7 @@ namespace capapresentacion
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(546, 127);
+            this.label9.Location = new System.Drawing.Point(546, 87);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 18);
             this.label9.TabIndex = 69;
@@ -346,7 +330,7 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxTareaPersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTareaPersonal.FormattingEnabled = true;
-            this.comboboxTareaPersonal.Location = new System.Drawing.Point(623, 47);
+            this.comboboxTareaPersonal.Location = new System.Drawing.Point(345, 44);
             this.comboboxTareaPersonal.Name = "comboboxTareaPersonal";
             this.comboboxTareaPersonal.Size = new System.Drawing.Size(146, 21);
             this.comboboxTareaPersonal.TabIndex = 72;
@@ -357,7 +341,7 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(497, 50);
+            this.label8.Location = new System.Drawing.Point(219, 47);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 18);
             this.label8.TabIndex = 71;
@@ -379,7 +363,6 @@ namespace capapresentacion
             this.Controls.Add(this.checkImputable);
             this.Controls.Add(this.txtCodTarea);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtIdTarea);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.label4);
@@ -396,7 +379,6 @@ namespace capapresentacion
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtFechaInicio);
             this.Controls.Add(this.txtObservaciones);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblDescripciones);
             this.Controls.Add(this.label1);
             this.Name = "FrmDetalleTiempos";
@@ -415,7 +397,6 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DateTimePicker dtFechaInicio;
         private System.Windows.Forms.RichTextBox txtObservaciones;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDescripciones;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtFechaFin;
@@ -435,7 +416,6 @@ namespace capapresentacion
         private System.Windows.Forms.CheckBox checkImputable;
         private System.Windows.Forms.TextBox txtCodTarea;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtIdTarea;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboboxTareaPersonal;
         private System.Windows.Forms.Label label8;

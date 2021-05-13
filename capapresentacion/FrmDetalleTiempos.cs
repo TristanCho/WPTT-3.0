@@ -146,12 +146,19 @@ namespace capapresentacion
                 else
                 {
                     if (esnuevo)
-                    {
+                    {/*
                         rpta = NTiempo.insertartiempo(
-                        this.comboboxTarea.Text.Trim().ToUpper(),
-                        Convert.ToDateTime(this.dtFechaInicio.Value),
-                        Convert.ToDateTime(this.dtFechaFin.Value),
-                        this.txtObservaciones.Text.Trim());
+                            dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
+                            txtObservaciones.Text,comboboxAccion.SelectedItem.ToString() == null ? "accion prueba" : "", txtIdTarea.Text,
+                            comboboxTarea.SelectedItem.ToString() == null ? "":" prueba tarea",
+                            DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
+                    */
+                        Console.WriteLine(comboboxTarea.SelectedItem.ToString()+"console");
+                        rpta = NTiempo.insertartiempo(
+                       dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
+                       txtObservaciones.Text, "accion" , comboboxTarea.SelectedItem.ToString(),
+                       " prueba tarea",
+                       DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
                     }
                     else
                     {
@@ -229,7 +236,10 @@ namespace capapresentacion
             comboboxAccion.Items.Add(accion);
             comboboxAccion.SelectedIndex = 0;
 
-            txtIdTarea.Text = id_tarea;
+            comboboxTarea.Text = "";
+            Console.WriteLine(id_tarea);
+            comboboxTarea.Items.Add(id_tarea);
+            comboboxTarea.SelectedIndex = 0;
             txtCodTarea.Text = codigo_tarea;
 
 
@@ -243,6 +253,14 @@ namespace capapresentacion
                 return false;
             
             return true;
+        }
+
+        private int booleanToInt(bool numero)
+        {
+            if (numero )
+                return 1;
+
+            return 0;
         }
 
         public void mostrarTareaCombobox()
@@ -310,7 +328,7 @@ namespace capapresentacion
 
         private void comboboxTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mostrarTareaPersonalCombobox(DLoginStatico.usuario, comboboxTarea.SelectedItem.ToString());
+           // mostrarTareaPersonalCombobox(DLoginStatico.usuario, comboboxTarea.SelectedItem.ToString());
         }
     }
 }

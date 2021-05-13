@@ -25,13 +25,15 @@ namespace capanegocio
         }
 
         //TODO cambiar el id_Tarea para que reciba un string desde la entrada de datos
-        public static string insertartiempo(string tarea, DateTime fecha_inicio, DateTime fecha_fin,string observaciones)
+        public static string insertartiempo(string fecha,string fechaInicio,string fechaFin,string observaciones,string accion,string id_tarea,
+            string idTareaPersonal,string usuario,int imputable,int imputado)
         {
-            DTiempo objeto = new DTiempo();
-            objeto.Tarea = tarea;
-            objeto.Fecha_inicio = fecha_inicio;
-            objeto.Fecha_fin = fecha_fin;
-            objeto.Observaciones = observaciones;
+            DTiempo objeto = new DTiempo(fecha,  fechaInicio,  fechaFin,  observaciones,  accion,  id_tarea,
+             idTareaPersonal,  usuario,  imputable,  imputado);
+            //objeto.Tarea = tarea;
+           // objeto.Fecha_inicio = fecha_inicio;
+            //objeto.Fecha_fin = fecha_fin;
+           // objeto.Observaciones = observaciones;
 
             return objeto.insertartiempo(objeto);
         }
@@ -41,7 +43,7 @@ namespace capanegocio
             DTiempo objeto = new DTiempo();
             objeto.Id = id;
             objeto.Tarea = tarea;
-            objeto.Fecha_inicio = fecha_inicio;
+           // objeto.Fecha_inicio = fecha_inicio;
             objeto.Fecha_fin = fecha_fin;
             objeto.Observaciones = observaciones;
 

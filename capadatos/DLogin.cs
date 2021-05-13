@@ -51,11 +51,6 @@ namespace capadatos
 
                     return true;
 
-
-                }
-                else
-                {
-                    // this.mensajeerror("El usuario o contraseña no coinciden");
                 }
 
             }
@@ -68,9 +63,6 @@ namespace capadatos
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
             }
-            Console.WriteLine("devuelve false");
-            Console.WriteLine(hostname);
-            Console.WriteLine(usuario);
             return false;
         }
 
