@@ -196,6 +196,8 @@ namespace capapresentacion
             this.comboboxTarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTarea.Enabled = false;
             this.comboboxTarea.FormattingEnabled = true;
+            this.comboboxTarea.Items.AddRange(new object[] {
+            ""});
             this.comboboxTarea.Location = new System.Drawing.Point(103, 84);
             this.comboboxTarea.Name = "comboboxTarea";
             this.comboboxTarea.Size = new System.Drawing.Size(117, 21);
@@ -280,7 +282,6 @@ namespace capapresentacion
             // checkImputable
             // 
             this.checkImputable.AutoSize = true;
-            this.checkImputable.Enabled = false;
             this.checkImputable.Location = new System.Drawing.Point(623, 127);
             this.checkImputable.Name = "checkImputable";
             this.checkImputable.Size = new System.Drawing.Size(72, 17);
@@ -291,7 +292,6 @@ namespace capapresentacion
             // checkImputado
             // 
             this.checkImputado.AutoSize = true;
-            this.checkImputado.Enabled = false;
             this.checkImputado.Location = new System.Drawing.Point(699, 126);
             this.checkImputado.Name = "checkImputado";
             this.checkImputado.Size = new System.Drawing.Size(70, 17);
@@ -316,6 +316,8 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxTareaPersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTareaPersonal.FormattingEnabled = true;
+            this.comboboxTareaPersonal.Items.AddRange(new object[] {
+            ""});
             this.comboboxTareaPersonal.Location = new System.Drawing.Point(355, 46);
             this.comboboxTareaPersonal.Name = "comboboxTareaPersonal";
             this.comboboxTareaPersonal.Size = new System.Drawing.Size(146, 21);

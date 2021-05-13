@@ -413,7 +413,7 @@ namespace capapresentacion
                 try
                 {
                     DialogResult opcion;
-                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (opcion == DialogResult.OK)
                     {
                         string rpta = "";
@@ -426,7 +426,7 @@ namespace capapresentacion
                         }
                         else
                         {
-                            this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                            this.mensajeerror("¡Ups!, Ha surgido un error");
                             this.mensajeerror(rpta);
                         }
                     }

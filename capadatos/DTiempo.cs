@@ -316,56 +316,87 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speditar_tiempo";
+                SqlCmd.CommandText = "speditar_tiempos";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                //Definición de atributos
 
-                //id
-                SqlParameter ParId = new SqlParameter();
-                ParId.ParameterName = "@id";
-                ParId.SqlDbType = SqlDbType.Int;
-                ParId.Value = tiempo.Id;
-                SqlCmd.Parameters.Add(ParId);
-
-
-                //tarea
-                SqlParameter ParTarea = new SqlParameter();
-                ParTarea.ParameterName = "@tarea";
-                ParTarea.SqlDbType = SqlDbType.NVarChar;
-                ParTarea.Size = 1024;
-                ParTarea.Value = tiempo.Tarea;
-                SqlCmd.Parameters.Add(ParTarea);
+                //fecha
+                SqlParameter ParFecha = new SqlParameter();
+                ParFecha.ParameterName = "@fecha";
+                ParFecha.SqlDbType = SqlDbType.SmallDateTime;
+                //ParFecha.Size = 1024;
+                ParFecha.Value = tiempo.fecha;
+                SqlCmd.Parameters.Add(ParFecha);
 
 
                 //fecha_inicio
                 SqlParameter ParFechaInicio = new SqlParameter();
-                ParFechaInicio.ParameterName = "@fecha_inicio";
+                ParFechaInicio.ParameterName = "@fechaInicio";
                 ParFechaInicio.SqlDbType = SqlDbType.SmallDateTime;
-                ParFechaInicio.Value = tiempo.Fecha_inicio;
+                //ParFecha.Size = 1024;
+                ParFechaInicio.Value = tiempo.fechaInicio;
                 SqlCmd.Parameters.Add(ParFechaInicio);
 
 
                 //fecha_fin
                 SqlParameter ParFechaFin = new SqlParameter();
-                ParFechaFin.ParameterName = "@fecha_fin";
+                ParFechaFin.ParameterName = "@fechaFin";
                 ParFechaFin.SqlDbType = SqlDbType.SmallDateTime;
                 //ParFecha.Size = 1024;
-                ParFechaFin.Value = tiempo.Fecha_fin;
+                ParFechaFin.Value = tiempo.fechaFin;
                 SqlCmd.Parameters.Add(ParFechaFin);
 
                 //observaciones
                 SqlParameter ParObservaciones = new SqlParameter();
                 ParObservaciones.ParameterName = "@observaciones";
                 ParObservaciones.SqlDbType = SqlDbType.NText;
-                ParObservaciones.Size = 255;
+                //ParObservaciones.Size = 1024;
                 ParObservaciones.Value = tiempo.Observaciones;
                 SqlCmd.Parameters.Add(ParObservaciones);
 
 
-                rpta = SqlCmd.ExecuteNonQuery() == 3 ? "OK" : "No es posible editar el Registro de tiempo";
+                //accion
+                SqlParameter ParAccion = new SqlParameter();
+                ParAccion.ParameterName = "@accion";
+                ParAccion.SqlDbType = SqlDbType.NVarChar;
+                ParAccion.Value = tiempo.accion;
+                SqlCmd.Parameters.Add(ParAccion);
 
-                
+                //id_tarea
+                SqlParameter ParIdTarea = new SqlParameter();
+                ParIdTarea.ParameterName = "@id_tarea";
+                ParIdTarea.SqlDbType = SqlDbType.Int;
+                ParIdTarea.Value = Int32.Parse(tiempo.id_tarea);
+                SqlCmd.Parameters.Add(ParIdTarea);
+
+                //id_tareaPersonal
+                SqlParameter ParIdTareaPersonal = new SqlParameter();
+                ParIdTareaPersonal.ParameterName = "@idTareaPersonal";
+                ParIdTareaPersonal.SqlDbType = SqlDbType.Int;
+                Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
+                ParIdTareaPersonal.Value = 13;
+                SqlCmd.Parameters.Add(ParIdTareaPersonal);
+
+
+
+
+                //imputable
+                SqlParameter ParImputable = new SqlParameter();
+                ParImputable.ParameterName = "@imputable";
+                ParImputable.SqlDbType = SqlDbType.Bit;
+                ParImputable.Value = tiempo.imputable;
+                SqlCmd.Parameters.Add(ParImputable);
+
+                //imputado
+                SqlParameter ParImputado = new SqlParameter();
+                ParImputado.ParameterName = "@imputado";
+                ParImputado.SqlDbType = SqlDbType.Bit;
+                ParImputado.Value = tiempo.imputado;
+                SqlCmd.Parameters.Add(ParImputado);
+
+                rpta = SqlCmd.ExecuteNonQuery() == 3 ? "OK" : "No es posible insertar el tiempo";
+
+
                 return rpta;
             }
             catch (Exception ex)
