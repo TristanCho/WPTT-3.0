@@ -26,7 +26,8 @@ namespace capanegocio
 
         //TODO cambiar el id_Tarea para que reciba un string desde la entrada de datos
         public static string insertartiempo(string fecha,string fechaInicio,string fechaFin,string observaciones,string accion,string id_tarea,
-            string idTareaPersonal,string usuario,int imputable,int imputado)
+            string idTareaPersonal,
+            string usuario,int imputable,int imputado)
         {
             DTiempo objeto = new DTiempo(fecha,  fechaInicio,  fechaFin,  observaciones,  accion,  id_tarea,
              idTareaPersonal,  usuario,  imputable,  imputado);

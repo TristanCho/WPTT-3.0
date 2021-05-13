@@ -54,10 +54,10 @@ namespace capapresentacion
             this.label7 = new System.Windows.Forms.Label();
             this.checkImputable = new System.Windows.Forms.CheckBox();
             this.checkImputado = new System.Windows.Forms.CheckBox();
-            this.comboboxAccion = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboboxTareaPersonal = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.comboboxAccion = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +113,7 @@ namespace capapresentacion
             // 
             this.dtFechaInicio.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.dtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFechaInicio.Location = new System.Drawing.Point(345, 85);
+            this.dtFechaInicio.Location = new System.Drawing.Point(355, 87);
             this.dtFechaInicio.Name = "dtFechaInicio";
             this.dtFechaInicio.Size = new System.Drawing.Size(146, 20);
             this.dtFechaInicio.TabIndex = 38;
@@ -144,7 +144,7 @@ namespace capapresentacion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(226, 85);
+            this.label1.Location = new System.Drawing.Point(236, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 18);
             this.label1.TabIndex = 31;
@@ -232,7 +232,7 @@ namespace capapresentacion
             // 
             this.dtFecha.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFecha.Location = new System.Drawing.Point(345, 125);
+            this.dtFecha.Location = new System.Drawing.Point(355, 127);
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(146, 20);
             this.dtFecha.TabIndex = 59;
@@ -241,7 +241,7 @@ namespace capapresentacion
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(277, 126);
+            this.label4.Location = new System.Drawing.Point(287, 128);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 18);
             this.label4.TabIndex = 58;
@@ -298,21 +298,6 @@ namespace capapresentacion
             this.checkImputado.Text = "Imputado";
             this.checkImputado.UseVisualStyleBackColor = true;
             // 
-            // comboboxAccion
-            // 
-            this.comboboxAccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboboxAccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboboxAccion.FormattingEnabled = true;
-            this.comboboxAccion.Items.AddRange(new object[] {
-            "D",
-            "A",
-            "I"});
-            this.comboboxAccion.Location = new System.Drawing.Point(623, 87);
-            this.comboboxAccion.Name = "comboboxAccion";
-            this.comboboxAccion.Size = new System.Drawing.Size(146, 21);
-            this.comboboxAccion.TabIndex = 70;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -330,7 +315,7 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboboxTareaPersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTareaPersonal.FormattingEnabled = true;
-            this.comboboxTareaPersonal.Location = new System.Drawing.Point(345, 44);
+            this.comboboxTareaPersonal.Location = new System.Drawing.Point(355, 46);
             this.comboboxTareaPersonal.Name = "comboboxTareaPersonal";
             this.comboboxTareaPersonal.Size = new System.Drawing.Size(146, 21);
             this.comboboxTareaPersonal.TabIndex = 72;
@@ -341,12 +326,26 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(219, 47);
+            this.label8.Location = new System.Drawing.Point(229, 49);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(123, 18);
             this.label8.TabIndex = 71;
             this.label8.Text = "Tarea personal:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboboxAccion
+            // 
+            this.comboboxAccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxAccion.FormattingEnabled = true;
+            this.comboboxAccion.Items.AddRange(new object[] {
+            "A",
+            "D",
+            "V",
+            "DI"});
+            this.comboboxAccion.Location = new System.Drawing.Point(623, 90);
+            this.comboboxAccion.Name = "comboboxAccion";
+            this.comboboxAccion.Size = new System.Drawing.Size(146, 21);
+            this.comboboxAccion.TabIndex = 74;
             // 
             // FrmDetalleTiempos
             // 
@@ -355,9 +354,9 @@ namespace capapresentacion
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(781, 494);
             this.ControlBox = false;
+            this.Controls.Add(this.comboboxAccion);
             this.Controls.Add(this.comboboxTareaPersonal);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboboxAccion);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.checkImputado);
             this.Controls.Add(this.checkImputable);
@@ -410,7 +409,6 @@ namespace capapresentacion
         private System.Windows.Forms.Label lEdicion;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboboxAccion;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkImputado;
         private System.Windows.Forms.CheckBox checkImputable;
@@ -419,5 +417,6 @@ namespace capapresentacion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboboxTareaPersonal;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboboxAccion;
     }
 }

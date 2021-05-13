@@ -156,8 +156,8 @@ namespace capapresentacion
                         Console.WriteLine(comboboxTarea.SelectedItem.ToString()+"console");
                         rpta = NTiempo.insertartiempo(
                        dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
-                       txtObservaciones.Text, "accion" , comboboxTarea.SelectedItem.ToString(),
-                       " prueba tarea",
+                       txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
+                       comboboxTarea.SelectedItem.ToString(),
                        DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
                     }
                     else
@@ -236,7 +236,6 @@ namespace capapresentacion
             comboboxAccion.Items.Add(accion);
             comboboxAccion.SelectedIndex = 0;
 
-            comboboxTarea.Text = "";
             Console.WriteLine(id_tarea);
             comboboxTarea.Items.Add(id_tarea);
             comboboxTarea.SelectedIndex = 0;
