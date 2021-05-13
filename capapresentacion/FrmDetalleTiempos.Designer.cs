@@ -343,7 +343,7 @@ namespace capapresentacion
             "D",
             "V",
             "DI"});
-            this.comboboxAccion.Location = new System.Drawing.Point(623, 90);
+            this.comboboxAccion.Location = new System.Drawing.Point(623, 86);
             this.comboboxAccion.Name = "comboboxAccion";
             this.comboboxAccion.Size = new System.Drawing.Size(146, 21);
             this.comboboxAccion.TabIndex = 74;
