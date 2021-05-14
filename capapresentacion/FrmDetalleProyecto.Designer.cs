@@ -53,6 +53,7 @@ namespace capapresentacion
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnFinal = new System.Windows.Forms.Button();
             this.btnPrimero = new System.Windows.Forms.Button();
+            this.lblPaginas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,9 +239,9 @@ namespace capapresentacion
             // btnSiguiente
             // 
             this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSiguiente.Location = new System.Drawing.Point(384, 459);
+            this.btnSiguiente.Location = new System.Drawing.Point(386, 459);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.Size = new System.Drawing.Size(45, 23);
             this.btnSiguiente.TabIndex = 31;
             this.btnSiguiente.Text = ">";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -249,9 +250,9 @@ namespace capapresentacion
             // btnAtras
             // 
             this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAtras.Location = new System.Drawing.Point(258, 459);
+            this.btnAtras.Location = new System.Drawing.Point(303, 459);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(75, 23);
+            this.btnAtras.Size = new System.Drawing.Size(40, 23);
             this.btnAtras.TabIndex = 32;
             this.btnAtras.Text = "<";
             this.btnAtras.UseVisualStyleBackColor = true;
@@ -260,9 +261,9 @@ namespace capapresentacion
             // btnFinal
             // 
             this.btnFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFinal.Location = new System.Drawing.Point(465, 459);
+            this.btnFinal.Location = new System.Drawing.Point(437, 459);
             this.btnFinal.Name = "btnFinal";
-            this.btnFinal.Size = new System.Drawing.Size(75, 23);
+            this.btnFinal.Size = new System.Drawing.Size(45, 23);
             this.btnFinal.TabIndex = 33;
             this.btnFinal.Text = ">>";
             this.btnFinal.UseVisualStyleBackColor = true;
@@ -271,13 +272,22 @@ namespace capapresentacion
             // btnPrimero
             // 
             this.btnPrimero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrimero.Location = new System.Drawing.Point(177, 459);
+            this.btnPrimero.Location = new System.Drawing.Point(249, 459);
             this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(75, 23);
+            this.btnPrimero.Size = new System.Drawing.Size(40, 23);
             this.btnPrimero.TabIndex = 34;
             this.btnPrimero.Text = "<<";
             this.btnPrimero.UseVisualStyleBackColor = true;
             this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
+            // 
+            // lblPaginas
+            // 
+            this.lblPaginas.AutoSize = true;
+            this.lblPaginas.Location = new System.Drawing.Point(686, 12);
+            this.lblPaginas.Name = "lblPaginas";
+            this.lblPaginas.Size = new System.Drawing.Size(35, 13);
+            this.lblPaginas.TabIndex = 36;
+            this.lblPaginas.Text = "label2";
             // 
             // FrmDetalleProyecto
             // 
@@ -285,6 +295,7 @@ namespace capapresentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(749, 494);
+            this.Controls.Add(this.lblPaginas);
             this.Controls.Add(this.btnPrimero);
             this.Controls.Add(this.btnFinal);
             this.Controls.Add(this.btnAtras);
@@ -339,5 +350,6 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnFinal;
         private System.Windows.Forms.Button btnPrimero;
+        private System.Windows.Forms.Label lblPaginas;
     }
 }

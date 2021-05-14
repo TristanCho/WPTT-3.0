@@ -255,7 +255,15 @@ namespace capadatos
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@id_tarea";
                 ParIdTarea.SqlDbType = SqlDbType.Int;
-                ParIdTarea.Value = Int32.Parse(tiempo.id_tarea);
+                if (tiempo.id_tarea.Equals(""))
+                {
+                    ParIdTarea.Value = DBNull.Value;
+                }
+                else
+                {
+                    ParIdTarea.Value = Int32.Parse(tiempo.id_tarea);
+                    // Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
+                }
                 SqlCmd.Parameters.Add(ParIdTarea);
 
                 //id_tareaPersonal
@@ -297,7 +305,7 @@ namespace capadatos
                 ParImputado.Value = tiempo.imputado;
                 SqlCmd.Parameters.Add(ParImputado);
 
-                rpta = SqlCmd.ExecuteNonQuery() == 3 ? "OK" : "No es posible insertar el tiempo";
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar el tiempo";
               
 
                 return rpta;
@@ -383,7 +391,21 @@ namespace capadatos
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@id_tarea";
                 ParIdTarea.SqlDbType = SqlDbType.Int;
-                ParIdTarea.Value = Int32.Parse(tiempo.id_tarea);
+
+                if (tiempo.id_tarea.Equals(""))
+                {
+                    ParIdTarea.Value = DBNull.Value;
+                }
+                else
+                {
+                    ParIdTarea.Value = Int32.Parse(tiempo.id_tarea);
+                   // Console.WriteLine(Int32.Parse(tiempo.idTareaPersonal));
+                }
+                
+
+
+
+
                 SqlCmd.Parameters.Add(ParIdTarea);
 
                 //id_tareaPersonal
@@ -419,7 +441,7 @@ namespace capadatos
                 ParImputado.Value = tiempo.imputado;
                 SqlCmd.Parameters.Add(ParImputado);
 
-                rpta = SqlCmd.ExecuteNonQuery() == 3 ? "OK" : "No es posible insertar el tiempo";
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible editar el tiempo";
 
 
                 return rpta;

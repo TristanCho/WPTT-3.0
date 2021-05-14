@@ -162,13 +162,13 @@ namespace capapresentacion
             try
             {
                 string rpta = "";
-                if (this.comboboxTarea.Text==string.Empty)
-                {
-                    mensajeerror("Formulario incompleto");
-                    this.iconoerror.SetError(this.comboboxTarea, "Ingresar Tarea");
-                }
-                else
-                {
+                /* if (this.comboboxTarea.Text==string.Empty)
+                 {
+                     mensajeerror("Formulario incompleto");
+                     this.iconoerror.SetError(this.comboboxTarea, "Ingresar Tarea");
+                 }
+                 else
+                 {*/
                     if (esnuevo)
                     {
                         //Console.WriteLine(comboboxTareaPersonal.SelectedItem.ToString()+"console");
@@ -209,7 +209,7 @@ namespace capapresentacion
                     this.Hide();
                     FrmTiempos tiempos = new FrmTiempos();
                     FrmParent.frmparent.lanzarNuevoElemento(tiempos);
-                }
+               // }
             }
             catch (Exception ex)
             {
@@ -219,19 +219,14 @@ namespace capapresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (!this.txtIdTiempo.Text.Equals(""))
-            {
+          
                 this.eseditar = true;
                 this.botones();
                 setModo("EDICIÓN");
                 botonesVisible(true);
                 mostrarTareaCombobox();
                 
-            }
-            else
-            {
-                this.mensajeerror("seleccione el registro a modificar");
-            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

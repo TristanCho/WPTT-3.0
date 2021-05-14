@@ -40,9 +40,15 @@ namespace capadatos
                 index = 0;
         }
 
-        internal static void finalIndex()
+        public static void finalIndex()
         {
             index = dataListProyectos.Rows.Count-1;
+        }       
+        public static string  getFinalCount()
+        {
+            return dataListProyectos.Rows.Count+"";
         }
+
+
     }
 }

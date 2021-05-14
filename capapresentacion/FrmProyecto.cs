@@ -65,6 +65,7 @@ namespace capapresentacion
             ocultarcolumnas();
             //this.btnEliminarProyecto.Visible = true;
             this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListProyectos.Rows.Count);
+
         }
 
         private void ocultarcolumnas()

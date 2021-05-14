@@ -18,6 +18,7 @@ namespace capapresentacion
         bool esnuevo = false;
         bool eseditar = false;
         public string idproyecto = "";
+        public string npaginas = "";
         public FrmPrincipal frmparent;
         public FrmDetalleProyecto()
         {
@@ -34,7 +35,10 @@ namespace capapresentacion
         {
             MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-       
+       public void setNpaginas(String numero)
+        {
+            npaginas = numero;
+        }
         private void limpiar()
         {
             this.txtIdProyecto.Text = string.Empty;
@@ -268,15 +272,19 @@ namespace capapresentacion
         {
             DInformacionProyecto.sumaIndex();
             llamaVisualizaDatos();
+
         }
+      
         public void llamaVisualizaDatos()
         {
+            
             visualizaDatos(
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["id"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["codigo_proyecto"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["titulo"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["observaciones"].Value),
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));
+            
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
