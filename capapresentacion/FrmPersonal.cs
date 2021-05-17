@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using capadatos;
 using capanegocio;
 using WPTT_1._0;
 
@@ -95,19 +94,19 @@ namespace capapresentacion
             }
         }
 
-        private void dataListTareas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataListPersonal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
+                FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
 
-                DInformacionTarea.dataListTareas = dataListPersonal;
-                DInformacionTarea.index = this.dataListPersonal.CurrentRow.Index;
-                DInformacionTarea.detalleTarea = detalleTarea;
+                InformacionPersonal.dataListPersonal = dataListPersonal;
+                InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
+                //InformacionPersonal.detallePersonal = detallePersonal;
 
 
                 //FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
-                detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["codigo_tarea"].Value)));
+               // detallePersonal.mostrarDetallePersonal(detallePersonal.getDetalleTareas(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["codigo_tarea"].Value)));
 
                 /* detalleTarea.visualizaDatos(
                      Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
@@ -218,27 +217,12 @@ namespace capapresentacion
             {
                 FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
 
-                //DInformacionProyecto.detallePersonal = dataListPersonal;
-                //DInformacionProyecto.index = this.dataListPersonal.CurrentRow.Index;
-                //DInformacionProyecto.detalleProyecto = detalleProyecto;
+                InformacionPersonal.dataListPersonal = dataListPersonal;
+                InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
+                //InformacionPersonal.detallePersonal = detallePersonal;
 
-                //detallePersonal.visualizaDatos(
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleado"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["descripcion"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcreacion"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["prioridad"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["estado"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcierre"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaGrupo"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaDestino"].Value),
-                //    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaOrigen"].Value)
-                //    );
-
-                //Console.WriteLine(this.dataListProyectos.SelectedRows[2].Cells["id"].Value);
-
-                //detalleProyecto.frmparent = frmparent;
                 FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
+               // detallePersonal.mostrarDetalleTareas(detallePersonal.getDetalleTareas(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["codigo_tarea"].Value)));
 
                 detallePersonal.setModo("LECTURA");
             }

@@ -5,38 +5,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace capapresentacion
 {
-    class DInformacionTarea
+
+    class InformacionPersonal
     {
-        public static DataGridView dataListTareas;
+        public static DataGridView dataListPersonal;
         public static int index;
-        public static FrmDetalleTarea detalleTarea;
+        public static FrmDetalleTarea detallePersonal;
 
 
 
         public static void sumaIndex()
         {
-            if (!(dataListTareas.Rows.Count <= DInformacionTarea.index + 1))
+            if (!(dataListPersonal.Rows.Count <= InformacionPersonal.index + 1))
             {
                 index += 1;
             }
             else
             {
-                MessageBox.Show("Ultimo registro alcanzado", "Detalle de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ultimo registro alcanzado", "Tareas Personales", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
 
         public static void restaIndex()
         {
-            if (!(0 > DInformacionTarea.index - 1))
+            if (!(0 > InformacionPersonal.index - 1))
             {
                 index -= 1;
             }
             else
             {
-                MessageBox.Show("Primer registro alcanzado", "Detalle de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Primer registro alcanzado", "Tareas Personalesa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -44,7 +46,7 @@ namespace capapresentacion
 
         public static void finalIndex()
         {
-            index=dataListTareas.Rows.Count-1;
+            index = dataListPersonal.Rows.Count - 1;
         }
 
         public static void primerIndex()
@@ -52,5 +54,4 @@ namespace capapresentacion
             index = 0; ;
         }
     }
-
 }

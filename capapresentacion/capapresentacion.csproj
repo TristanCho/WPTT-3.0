@@ -80,6 +80,7 @@
     <Compile Include="FrmTiempos.Designer.cs">
       <DependentUpon>FrmTiempos.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformacionPersonal.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

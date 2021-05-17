@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
-using capadatos;
 using capanegocio;
 using WPTT_1._0;
 
@@ -25,6 +24,8 @@ namespace capapresentacion
             habilitar(false);
             botonesVisible(false);
         }
+
+     
         private void mensajeok(string mensaje)
         {
             MessageBox.Show(mensaje, "Detalle de Personal", MessageBoxButtons.OK, MessageBoxIcon.Information);
