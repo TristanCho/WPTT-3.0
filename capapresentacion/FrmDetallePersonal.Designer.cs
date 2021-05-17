@@ -64,10 +64,10 @@ namespace capapresentacion
             this.label12 = new System.Windows.Forms.Label();
             this.lblAplicacion = new System.Windows.Forms.Label();
             this.lblEstadoTituloTarea = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnIrGrupo = new FontAwesome.Sharp.IconButton();
             this.btnIrDestino = new FontAwesome.Sharp.IconButton();
             this.btnIrOrigen = new FontAwesome.Sharp.IconButton();
+            this.cbPrioridad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label3
@@ -436,14 +436,6 @@ namespace capapresentacion
             this.lblEstadoTituloTarea.Text = "Estado + Titulo";
             this.lblEstadoTituloTarea.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(193, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(45, 21);
-            this.textBox1.TabIndex = 72;
-            // 
             // btnIrGrupo
             // 
             this.btnIrGrupo.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -483,15 +475,23 @@ namespace capapresentacion
             this.btnIrOrigen.Text = "ir";
             this.btnIrOrigen.UseVisualStyleBackColor = true;
             // 
+            // cbPrioridad
+            // 
+            this.cbPrioridad.FormattingEnabled = true;
+            this.cbPrioridad.Location = new System.Drawing.Point(196, 34);
+            this.cbPrioridad.Name = "cbPrioridad";
+            this.cbPrioridad.Size = new System.Drawing.Size(77, 21);
+            this.cbPrioridad.TabIndex = 76;
+            // 
             // FrmDetallePersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 562);
+            this.Controls.Add(this.cbPrioridad);
             this.Controls.Add(this.btnIrOrigen);
             this.Controls.Add(this.btnIrDestino);
             this.Controls.Add(this.btnIrGrupo);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblEstadoTituloTarea);
             this.Controls.Add(this.lblAplicacion);
             this.Controls.Add(this.cbEmpleadoReAsign);
@@ -571,9 +571,9 @@ namespace capapresentacion
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblAplicacion;
         private System.Windows.Forms.Label lblEstadoTituloTarea;
-        private System.Windows.Forms.TextBox textBox1;
         private FontAwesome.Sharp.IconButton btnIrGrupo;
         private FontAwesome.Sharp.IconButton btnIrDestino;
         private FontAwesome.Sharp.IconButton btnIrOrigen;
+        private System.Windows.Forms.ComboBox cbPrioridad;
     }
 }

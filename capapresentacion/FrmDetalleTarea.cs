@@ -234,7 +234,7 @@ namespace capapresentacion
             //llamaVisualizaDatos();
         }
 
-        internal void mostrarDetalleTareas(DetalleTareas tarea)
+        internal void mostrarDetalleTareas(DDetalleTareas tarea)
         {
             txtTituloTarea.Text = tarea.Titulo;
             txtReferencia.Text = tarea.Referencias;
@@ -294,7 +294,7 @@ namespace capapresentacion
 
         }
 
-        public DetalleTareas getDetalleTareas(string codigo_tarea)
+        public DDetalleTareas getDetalleTareas(string codigo_tarea)
         {
            return NTarea.getDetalleTareas(codigo_tarea);
         }
@@ -472,6 +472,11 @@ namespace capapresentacion
             
             mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
 
+        }
+
+        public static implicit operator FrmDetalleTarea(FrmDetallePersonal v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

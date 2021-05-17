@@ -155,7 +155,7 @@ namespace capanegocio
             return objeto.mostrarEstadoCombobox(objeto);
         }
 
-        public static DetalleTareas getDetalleTareas(String codigo_tarea)
+        public static DDetalleTareas getDetalleTareas(String codigo_tarea)
         {
             DTarea objeto = new DTarea();
              return objeto.getDetalleTareas(codigo_tarea);

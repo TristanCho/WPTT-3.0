@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace capadatos
 {
-    public class DetallePersonales
+    public class DDetalleTareas
     {
         private string titulo;
         private string referencias;
@@ -29,11 +29,11 @@ namespace capadatos
         private string fVerificacion;
         private string historia;
 
-        public DetallePersonales(string titulo, string referencias, string codigo,
+        public DDetalleTareas(string titulo, string referencias, string codigo,
             string proyecto, string prioridad, string tiempo_estimado,
             string estado, string aplicacion, string modulo, string vDeteccion,
-            string vSolucion, string historia, string descripcion, string solucion,
-            string tDeteccion, string tSolucion, string tVerificacion,
+            string vSolucion, string historia, string descripcion,string solucion,
+            string tDeteccion,string tSolucion, string tVerificacion,
             string fDeteccion, string fSolucion,
             string fVerificacion)
         {

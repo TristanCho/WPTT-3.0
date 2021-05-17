@@ -7,6 +7,7 @@
 //using System.Text;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
+using capadatos;
 using capanegocio;
 using WPTT_1._0;
 
@@ -18,6 +19,8 @@ namespace capapresentacion
         bool eseditar = false;
         public string idpersonal = "";
         public FrmPrincipal frmparent;
+
+
         public FrmDetallePersonal()
         {
             InitializeComponent();
@@ -25,7 +28,48 @@ namespace capapresentacion
             botonesVisible(false);
         }
 
-     
+        internal void mostrarDetallePersonal(DDetallePersonales dp)
+        {
+            cbPrioridad.Text = dp.Prioridad;
+            cbProyecto.Text = dp.IdProyecto;
+            cbTareaProyecto.Text = dp.IdTareaProyecto;
+            //TODO Pendiente agregar la aplicación o número de aplicacion
+
+            cbTareaProyecto.Items.Clear();
+            cbTareaProyecto.Items.Add(dp.IdTareaProyecto);
+            cbTareaProyecto.SelectedIndex = 0;
+            //TODO Pendiente mostrar al lado del combo box Tarea/Proyecto [estado + Titulo]
+
+
+            cbEmpleadoAsign.Items.Clear();
+            cbEmpleadoAsign.Items.Add(dp.Id_empleadoReAsign);
+            cbEmpleadoAsign.SelectedIndex = 0;
+
+            cbEmpleadoReAsign.Items.Clear();
+            cbEmpleadoReAsign.Items.Add(dp.Id_empleadoReAsign);
+            cbEmpleadoReAsign.SelectedIndex = 0;
+
+
+            cbEstado.Items.Clear();
+            cbEstado.Items.Add(dp.Estado);
+            cbEstado.SelectedIndex = 0;
+
+            dtcreacion.Text = dp.Fcreacion;
+            dtCierre.Text = dp.Fcierre;
+
+            txtTareaGrupo.Text = dp.IdTareaGrupo;
+            txtTareaOrigen.Text = dp.IdTareaOrigen;
+            txtTareaDestino.Text = dp.IdTareaDestino;
+            txtDescripcion.Text = dp.Descripcion;
+            txtObservacionesTiempos.Text = dp.ObsTiempos;
+
+        }
+
+        public DDetallePersonales getDetallePersonal(string codigo_tarea)
+        {
+            return NPersonal.getDetallePersonal(codigo_tarea);
+        }
+
         private void mensajeok(string mensaje)
         {
             MessageBox.Show(mensaje, "Detalle de Personal", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -49,6 +93,7 @@ namespace capapresentacion
             this.txtDescripcion.Text = string.Empty;
             this.txtObservacionesTiempos.Text = string.Empty;            
         }
+
         private void habilitar(bool valor)
         {
             this.txtIdPersonal.ReadOnly = true;

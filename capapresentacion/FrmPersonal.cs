@@ -64,9 +64,7 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             btnEliminarTarea.Visible = false;
-            this.dataListPersonal.Columns[0].Visible = false;
-           // this.dataListPersonales.Columns[1].Visible = false;
-          //  this.dataListPersonales.Columns[2].Visible = false;
+            this.dataListPersonal.Columns[0].Visible = false;          
         }
 
         private void txtBuscarPersonal_TextChanged(object sender, EventArgs e)
@@ -102,21 +100,7 @@ namespace capapresentacion
 
                 InformacionPersonal.dataListPersonal = dataListPersonal;
                 InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
-                //InformacionPersonal.detallePersonal = detallePersonal;
-
-
-                //FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
-               // detallePersonal.mostrarDetallePersonal(detallePersonal.getDetalleTareas(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["codigo_tarea"].Value)));
-
-                /* detalleTarea.visualizaDatos(
-                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["id"].Value),
-                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["proyecto"].Value),
-                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["tarea"].Value),
-                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["descripcion"].Value),
-                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["observaciones"].Value),
-                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["fecha_creacion"].Value),
-                     Convert.ToString(this.dataListTareas.CurrentRow.Cells["estado"].Value)
-                     );*/
+             
             }
             catch (Exception)
             {
@@ -130,16 +114,9 @@ namespace capapresentacion
             {
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonal.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }
-            //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
-
-            //mostrarDetalleTareaClicada(Convert.ToString(this.dataListPersonales.CurrentRow.Cells["codigo_tarea"].Value));
+            }           
         }
-        //private void mostrarDetalleTareaClicada(string codigo_tarea)
-        //{
-        //    //this.dataListDetalleTareas.Columns[0].Visible = false;
-        //    dataListDetalleTareas.DataSource = NTarea.mostrarDetalleTiempos(codigo_tarea);
-        //}
+      
         private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
             try
@@ -205,10 +182,7 @@ namespace capapresentacion
             {
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonal.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }
-            //Console.WriteLine(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value));
-
-            //mostrarDetalleTareaClicada(Convert.ToString(this.dataListPersonales.CurrentRow.Cells["codigo_tarea"].Value));
+            }            
         }
 
         private void dataListPersonal_CellDoubleClick(object sender, EventArgs e)
@@ -219,10 +193,10 @@ namespace capapresentacion
 
                 InformacionPersonal.dataListPersonal = dataListPersonal;
                 InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
-                //InformacionPersonal.detallePersonal = detallePersonal;
+                InformacionPersonal.detallePersonal = detallePersonal;
 
                 FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
-               // detallePersonal.mostrarDetalleTareas(detallePersonal.getDetalleTareas(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["codigo_tarea"].Value)));
+                detallePersonal.mostrarDetallePersonal(detallePersonal.getDetallePersonal(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value)));
 
                 detallePersonal.setModo("LECTURA");
             }
@@ -235,8 +209,6 @@ namespace capapresentacion
         private void FrmPersonal_Load(object sender, EventArgs e)
         {
 
-        }
-       
-    }
-    
+        }       
+    }    
 }

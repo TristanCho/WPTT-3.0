@@ -22,6 +22,15 @@ namespace capanegocio
             objeto.Textobuscar = textobuscar;
             return objeto.buscarpersonales(objeto);
         }
+
+        public static DDetallePersonales getDetallePersonal(String idTarea)
+        {
+            DPersonal objeto = new DPersonal();
+            return objeto.getDetallePersonal(idTarea);
+        }
+
+      
+
         public static string insertarPersonal(string id_empleado, string descripcion, string fcreacion, string prioridad, string estado, string fcierre,
             string idTareaGrupo, string idTareaDestino, string idTareaOrigen, string idTareaProyecto, string idProyecto, string id_empleadoInsert, string id_empleadoReAsign )
         {

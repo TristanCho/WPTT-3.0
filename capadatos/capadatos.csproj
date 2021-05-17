@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
-    <Compile Include="DetallePersonales.cs" />
-    <Compile Include="DetalleTareas.cs" />
+    <Compile Include="DDetallePersonales.cs" />
+    <Compile Include="DDetalleTareas.cs" />
     <Compile Include="DLogin.cs" />
     <Compile Include="DLoginStatico.cs" />
     <Compile Include="DPersonal.cs" />

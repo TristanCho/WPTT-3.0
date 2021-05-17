@@ -293,11 +293,11 @@ namespace capadatos
 
         }
 
-        public DetalleTareas getDetalleTareas(string codigo_tarea)
+        public DDetalleTareas getDetalleTareas(string codigo_tarea)
         {
             DataTable dtresultado = new DataTable("Tareas");
             SqlConnection SqlCon = new SqlConnection();
-            DetalleTareas dTarea;
+            DDetalleTareas dTarea;
             string[] array = new string[] { };
             try
             {
@@ -327,7 +327,7 @@ namespace capadatos
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
             }
-            dTarea = new DetalleTareas(dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
+            dTarea = new DDetalleTareas(dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First(),

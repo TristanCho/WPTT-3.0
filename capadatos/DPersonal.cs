@@ -468,12 +468,12 @@ namespace capadatos
 
         }
 
-      
-        public DetalleTareas getDetalleTareas(string codigo_tarea)
+
+        public DDetallePersonales getDetallePersonal(string idTarea)
         {
-            DataTable dtresultado = new DataTable("Tareas");
+            DataTable dtresultado = new DataTable("personal");
             SqlConnection SqlCon = new SqlConnection();
-            DetalleTareas dTarea;
+            DDetallePersonales dPersonal;
             string[] array = new string[] { };
             try
             {
@@ -481,21 +481,18 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spVisualizarDetalleTareas";
+                SqlCmd.CommandText = "spVisualizarDetallePersonal";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter ParCodTarea = new SqlParameter();
-                ParCodTarea.ParameterName = "@codigo_tarea";
-                ParCodTarea.SqlDbType = SqlDbType.VarChar;
-                ParCodTarea.Value = codigo_tarea;//tarea.Codigo_proyecto;
-                SqlCmd.Parameters.Add(ParCodTarea);
+                SqlParameter ParIdTarea = new SqlParameter();
+                ParIdTarea.ParameterName = "@codigo_tarea";
+                ParIdTarea.SqlDbType = SqlDbType.Int;
+                ParIdTarea.Value = idTarea;
+                SqlCmd.Parameters.Add(ParIdTarea);
 
 
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);                
                 sqladap.Fill(dtresultado);
-
-
-
             }
             catch (Exception)
             {
@@ -506,7 +503,8 @@ namespace capadatos
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
 
             }
-            dTarea = new DetalleTareas(dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
+            dPersonal = new DDetallePersonales(
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First(),
@@ -519,18 +517,17 @@ namespace capadatos
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[10].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[11].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[12].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[13].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[14].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[15].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[16].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[17].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[18].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[19].ToString()).First());
-            return dTarea;
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[13].ToString()).First()
+                );
+                //dtresultado.Rows.OfType<DataRow>().Select(k => k[14].ToString()).First(),
+                //dtresultado.Rows.OfType<DataRow>().Select(k => k[15].ToString()).First(),
+                //dtresultado.Rows.OfType<DataRow>().Select(k => k[16].ToString()).First(),
+                //dtresultado.Rows.OfType<DataRow>().Select(k => k[17].ToString()).First(),
+                //dtresultado.Rows.OfType<DataRow>().Select(k => k[18].ToString()).First(),
+                //dtresultado.Rows.OfType<DataRow>().Select(k => k[19].ToString()).First());
+            return dPersonal;
         }
 
-        
-       
         public string[] mostrarProyectoCombobox(DTarea objeto)
         {
             string[] array = new string[] { };
