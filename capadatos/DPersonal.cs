@@ -519,12 +519,7 @@ namespace capadatos
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[12].ToString()).First(),
                 dtresultado.Rows.OfType<DataRow>().Select(k => k[13].ToString()).First()
                 );
-                //dtresultado.Rows.OfType<DataRow>().Select(k => k[14].ToString()).First(),
-                //dtresultado.Rows.OfType<DataRow>().Select(k => k[15].ToString()).First(),
-                //dtresultado.Rows.OfType<DataRow>().Select(k => k[16].ToString()).First(),
-                //dtresultado.Rows.OfType<DataRow>().Select(k => k[17].ToString()).First(),
-                //dtresultado.Rows.OfType<DataRow>().Select(k => k[18].ToString()).First(),
-                //dtresultado.Rows.OfType<DataRow>().Select(k => k[19].ToString()).First());
+             
             return dPersonal;
         }
 
