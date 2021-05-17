@@ -216,7 +216,7 @@ namespace capapresentacion
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 26);
             this.btnEliminarProyecto.TabIndex = 44;
             this.btnEliminarProyecto.UseVisualStyleBackColor = false;
-            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click_1);
+            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
             // 
             // cbProyecto
             // 
@@ -267,7 +267,6 @@ namespace capapresentacion
             this.label4.Size = new System.Drawing.Size(209, 18);
             this.label4.TabIndex = 50;
             this.label4.Text = "Observaciones Tiempos:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -338,7 +337,6 @@ namespace capapresentacion
             this.txtTareaOrigen.Name = "txtTareaOrigen";
             this.txtTareaOrigen.Size = new System.Drawing.Size(57, 21);
             this.txtTareaOrigen.TabIndex = 60;
-            this.txtTareaOrigen.TextChanged += new System.EventHandler(this.txtTareaOrigen_TextChanged);
             // 
             // txtTareaGrupo
             // 
@@ -347,7 +345,6 @@ namespace capapresentacion
             this.txtTareaGrupo.Name = "txtTareaGrupo";
             this.txtTareaGrupo.Size = new System.Drawing.Size(57, 21);
             this.txtTareaGrupo.TabIndex = 61;
-            this.txtTareaGrupo.TextChanged += new System.EventHandler(this.txtTareaGrupo_TextChanged);
             // 
             // label9
             // 
@@ -416,7 +413,6 @@ namespace capapresentacion
             this.label12.TabIndex = 68;
             this.label12.Text = "Emp.Reasign:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // lblAplicacion
             // 

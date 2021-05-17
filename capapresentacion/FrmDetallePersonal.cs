@@ -12,41 +12,7 @@ using capanegocio;
 using WPTT_1._0;
 
 namespace capapresentacion
-{
-    //public partial class FrmDetallePersonal : Form
-    //{
-    //    public FrmDetallePersonal()
-    //    {
-    //        InitializeComponent();
-    //    }
-
-    //    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-    //    {
-
-    //    }
-
-    //    private void btnNuevo_Click(object sender, EventArgs e)
-    //    {
-
-    //    }
-
-    //    private void btnEditar_Click(object sender, EventArgs e)
-    //    {
-
-    //    }
-
-    //    private void btnGuardar_Click(object sender, EventArgs e)
-    //    {
-
-    //    }
-
-    //    private void btnCancelar_Click(object sender, EventArgs e)
-    //    {
-
-    //    }
-
-    //}
-
+{   
     public partial class FrmDetallePersonal : Form
     {
         bool esnuevo = false;
@@ -61,12 +27,12 @@ namespace capapresentacion
         }
         private void mensajeok(string mensaje)
         {
-            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(mensaje, "Detalle de Personal", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void mensajeerror(string mensaje)
         {
-            MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(mensaje, "Detalle de Personal", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void limpiar()
@@ -96,17 +62,13 @@ namespace capapresentacion
             this.txtObservacionesTiempos.ReadOnly = true;
         }
 
-
-
-
         private void botonesVisible(bool estado)
         {
             btnGuardar.Visible = estado;
             btnCancelar.Visible = estado;
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
-            txtDescripcion.Enabled = estado;
-            //txtDescripcionProyecto.Enabled = estado;
+            txtDescripcion.Enabled = estado;           
         }
 
         private void botones()
@@ -156,7 +118,6 @@ namespace capapresentacion
         {
             esnuevo = true;
             txtDescripcion.Enabled = true;
-            // txtDescripcionProyecto.Enabled = true;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
@@ -302,30 +263,6 @@ namespace capapresentacion
 
 
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTareaGrupo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTareaOrigen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminarProyecto_Click_1(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }
