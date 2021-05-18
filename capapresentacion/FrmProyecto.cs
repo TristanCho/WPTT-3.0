@@ -50,7 +50,7 @@ namespace capapresentacion
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-           this.FormClosed += new FormClosedEventHandler(cerrarX);
+            this.FormClosed += new FormClosedEventHandler(cerrarX);
         }
 
         private void FrmPrincipal_MouseDown(object sender, MouseEventArgs e)
@@ -84,7 +84,7 @@ namespace capapresentacion
             FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
             detalleproyecto.visualizaBotonesCambiarFormulario(false);
             detalleproyecto.crearProyecto();
-            detalleproyecto.setBotonEliminar(false);
+          //  detalleproyecto.setBotonEliminar(false);
         }
 
 
@@ -94,7 +94,7 @@ namespace capapresentacion
             FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
             detalleproyecto.visualizaBotonesCambiarFormulario(false);
             detalleproyecto.crearProyecto();
-            detalleproyecto.setBotonEliminar(false);
+          //  detalleproyecto.setBotonEliminar(false);
         }
 
         private void quitarBordes()
@@ -116,7 +116,7 @@ namespace capapresentacion
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);        
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         /*fin del drag*/
 
         private void cbEliminar_CheckedChanged_1(object sender, EventArgs e)
@@ -151,35 +151,51 @@ namespace capapresentacion
         {
             try
             {
-                FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
+                detalleProyecto();
 
-                DInformacionProyecto.dataListProyectos = dataListProyectos;
-                DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
-                DInformacionProyecto.detalleProyecto = detalleProyecto;
-
-                detalleProyecto.visualizaDatos(
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
-                     );
-
-                //Console.WriteLine(this.dataListProyectos.SelectedRows[2].Cells["id"].Value);
-
-                //detalleProyecto.frmparent = frmparent;
-                FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
-                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
-                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
-                detalleProyecto.setModo("LECTURA");
-               
             }
             catch (Exception)
             {
                 MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void botonEliminarProyecto()
+        private void detalleProyecto()
+        {
+            FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
+
+            DInformacionProyecto.dataListProyectos = dataListProyectos;
+            DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
+            DInformacionProyecto.detalleProyecto = detalleProyecto;
+
+            detalleProyecto.visualizaDatos(
+                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),
+                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),
+                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
+                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
+                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
+                 );
+
+
+            FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
+            detalleProyecto.setModo("LECTURA");
+        }
+        public void editarProyecto()
+        {
+
+            foreach (DataGridViewRow row in dataListProyectos.Rows)
+            {
+                if (Convert.ToBoolean(row.Selected))
+                {
+                    detalleProyecto();
+                    break;
+
+                }
+            }
+           
+        }
+        public void botonEliminarProyectoPrincipal()
         {
             try
             {
@@ -192,23 +208,24 @@ namespace capapresentacion
                     string rpta = "";
                     foreach (DataGridViewRow row in dataListProyectos.Rows)
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        if (Convert.ToBoolean(row.Selected))
                         {
                             aux = 1;
 
                             id = Convert.ToInt32(row.Cells[1].Value);
                             rpta = NProyecto.eliminarproyecto(id);
 
-                            if (rpta.Equals("OK"))
-                            {
-                                this.mensajeok("Registro eliminado");
-                            }
-                            else
-                            {
-                                this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
-                                this.mensajeerror(rpta);
-                            }
+
                         }
+                    }
+                    if (rpta.Equals("OK"))
+                    {
+                        this.mensajeok("Registro eliminado");
+                    }
+                    else
+                    {
+                        this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                        this.mensajeerror(rpta);
                     }
                     if (aux < 1)
                     {
@@ -216,16 +233,12 @@ namespace capapresentacion
                     }
                     this.mostrarproyectos();
                 }
-                else
-                {
-                    this.btnEliminarProyecto.Enabled = false;
-                    this.cbEliminar.Checked = false;
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+
         }
         /*PROCEDURES*/
         private void btnEliminarProyecto_Click_1(object sender, EventArgs e)

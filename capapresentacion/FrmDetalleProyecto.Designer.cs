@@ -38,21 +38,12 @@ namespace capapresentacion
             this.txtObservacionesProyecto = new System.Windows.Forms.RichTextBox();
             this.txtIdProyecto = new System.Windows.Forms.TextBox();
             this.txtTituloProyecto = new System.Windows.Forms.TextBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.mensajetool = new System.Windows.Forms.ToolTip(this.components);
             this.iconoerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.dtFechaProyecto = new System.Windows.Forms.DateTimePicker();
             this.lEdicion = new System.Windows.Forms.Label();
-            this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.txtcodigoProyecto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnSiguiente = new System.Windows.Forms.Button();
-            this.btnAtras = new System.Windows.Forms.Button();
-            this.btnFinal = new System.Windows.Forms.Button();
-            this.btnPrimero = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +98,7 @@ namespace capapresentacion
             this.txtObservacionesProyecto.Location = new System.Drawing.Point(15, 172);
             this.txtObservacionesProyecto.Name = "txtObservacionesProyecto";
             this.txtObservacionesProyecto.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtObservacionesProyecto.Size = new System.Drawing.Size(725, 235);
+            this.txtObservacionesProyecto.Size = new System.Drawing.Size(725, 310);
             this.txtObservacionesProyecto.TabIndex = 14;
             this.txtObservacionesProyecto.Text = "";
             // 
@@ -126,54 +117,6 @@ namespace capapresentacion
             this.txtTituloProyecto.Name = "txtTituloProyecto";
             this.txtTituloProyecto.Size = new System.Drawing.Size(223, 21);
             this.txtTituloProyecto.TabIndex = 16;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(12, 459);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 19;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(12, 459);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 20;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(93, 459);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 21;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(93, 459);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 22;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // iconoerror
             // 
@@ -199,23 +142,6 @@ namespace capapresentacion
             this.lEdicion.TabIndex = 25;
             this.lEdicion.Text = "[MODO LECTURA]";
             // 
-            // btnEliminarProyecto
-            // 
-            this.btnEliminarProyecto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminarProyecto.BackColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarProyecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
-            this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(708, 456);
-            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarProyecto.Name = "btnEliminarProyecto";
-            this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
-            this.btnEliminarProyecto.TabIndex = 28;
-            this.btnEliminarProyecto.UseVisualStyleBackColor = false;
-            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
-            // 
             // txtcodigoProyecto
             // 
             this.txtcodigoProyecto.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -235,67 +161,15 @@ namespace capapresentacion
             this.label3.Text = "C Proyecto:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSiguiente.Location = new System.Drawing.Point(386, 459);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(45, 23);
-            this.btnSiguiente.TabIndex = 31;
-            this.btnSiguiente.Text = ">";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAtras.Location = new System.Drawing.Point(303, 459);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(40, 23);
-            this.btnAtras.TabIndex = 32;
-            this.btnAtras.Text = "<";
-            this.btnAtras.UseVisualStyleBackColor = true;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
-            // btnFinal
-            // 
-            this.btnFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFinal.Location = new System.Drawing.Point(437, 459);
-            this.btnFinal.Name = "btnFinal";
-            this.btnFinal.Size = new System.Drawing.Size(45, 23);
-            this.btnFinal.TabIndex = 33;
-            this.btnFinal.Text = ">>";
-            this.btnFinal.UseVisualStyleBackColor = true;
-            this.btnFinal.Click += new System.EventHandler(this.btnFinal_Click);
-            // 
-            // btnPrimero
-            // 
-            this.btnPrimero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrimero.Location = new System.Drawing.Point(249, 459);
-            this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(40, 23);
-            this.btnPrimero.TabIndex = 34;
-            this.btnPrimero.Text = "<<";
-            this.btnPrimero.UseVisualStyleBackColor = true;
-            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
-            // 
             // FrmDetalleProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(749, 494);
-            this.Controls.Add(this.btnPrimero);
-            this.Controls.Add(this.btnFinal);
-            this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtcodigoProyecto);
             this.Controls.Add(this.lEdicion);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtFechaProyecto);
             this.Controls.Add(this.txtTituloProyecto);
             this.Controls.Add(this.txtIdProyecto);
@@ -304,7 +178,6 @@ namespace capapresentacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTituloProyecto);
             this.Controls.Add(this.lbl_idproyecto);
-            this.Controls.Add(this.btnEliminarProyecto);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDetalleProyecto";
             this.Text = "Proyecto";
@@ -324,20 +197,11 @@ namespace capapresentacion
         private System.Windows.Forms.RichTextBox txtObservacionesProyecto;
         private System.Windows.Forms.TextBox txtIdProyecto;
         private System.Windows.Forms.TextBox txtTituloProyecto;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ToolTip mensajetool;
         private System.Windows.Forms.ErrorProvider iconoerror;
         private System.Windows.Forms.DateTimePicker dtFechaProyecto;
         private System.Windows.Forms.Label lEdicion;
-        private System.Windows.Forms.Button btnEliminarProyecto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtcodigoProyecto;
-        private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.Button btnFinal;
-        private System.Windows.Forms.Button btnPrimero;
     }
 }

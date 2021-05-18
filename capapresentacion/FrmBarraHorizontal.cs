@@ -71,10 +71,15 @@ namespace capapresentacion
         {
             switch (FrmParent.frmparent.getFormularioActual().ToString())
             {
+                case "capapresentacion.FrmProyecto, Text: ":
+                    FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
+                    proyecto.editarProyecto();
+                   // proyecto.botonEliminarProyectoPrincipal();
 
+                    break;
                 case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyect.editarProyecto();
+                    FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                    detalleProyecto.editarProyecto();
                     visualizaBotonesCambiarFormulario(false);
                     visualizaBotonGuardar(true);
                     break;
@@ -100,6 +105,31 @@ namespace capapresentacion
                     visualizaBotonesCambiarFormulario(true);
                     visualizaBotonGuardar(false);
                     proyect.bloqueaProyecto();
+                    break;
+                case "capapresentacion.FrmTarea, Text: FrmTarea":
+
+                    break;
+                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                    break;
+
+            }
+        }
+
+        private void btnEliminarProyecto_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(FrmParent.frmparent.getFormularioActual().ToString());
+            switch (FrmParent.frmparent.getFormularioActual().ToString())
+            {
+
+                case "capapresentacion.FrmProyecto, Text: ":
+                    FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
+                    proyecto.botonEliminarProyectoPrincipal();
+
+                    break;
+                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                    FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                    detalleProyecto.botonEliminarProyecto();
                     break;
                 case "capapresentacion.FrmTarea, Text: FrmTarea":
 
@@ -200,8 +230,8 @@ namespace capapresentacion
         {
             btnGuardar.Visible = false;
             btnCancelar.Visible = false;
-            btnNuevo.Visible = false;
-            btnEditar.Visible = false;
+            btnNuevo.Visible = true;
+            btnEditar.Visible = true;
             visualizaBotonesCambiarFormulario(false);
         }
         public void visualizaBotonGuardar(bool value)
@@ -217,28 +247,6 @@ namespace capapresentacion
             }
         }
 
-        private void btnEliminarProyecto_Click(object sender, EventArgs e)
-        {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
 
-                case "capapresentacion.FrmeProyecto, Text: ":
-                    FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
-                    //proyecto.
-
-                    break;
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
-                    break;
-
-            }
-        }
     }
 }

@@ -24,7 +24,7 @@ namespace capapresentacion
         {
             InitializeComponent();
             habilitar(false);
-            botonesVisible(false);
+          //  botonesVisible(false);
         }
         public void guardarProyecto()
         {
@@ -78,8 +78,8 @@ namespace capapresentacion
                         this.mensajeerror(rpta);
                     }
 
-                    botonesVisible(false);
-                    botones();
+                   // botonesVisible(false);
+                   // botones();
                     this.Hide();
                     FrmProyecto proyecto = new FrmProyecto();
                     FrmParent.frmparent.lanzarNuevoElemento(proyecto);
@@ -124,46 +124,46 @@ namespace capapresentacion
             //this.txtDescripcionProyecto.ReadOnly = !valor;
             this.dtFechaProyecto.Enabled = valor;            
         }
-        
-        private void botonesVisible(bool estado)
-        {
-            btnGuardar.Visible = estado;
-            btnCancelar.Visible = estado;
-            btnEditar.Visible = !estado;
-            btnNuevo.Visible = !estado;
-            
-            txtObservacionesProyecto.Enabled = estado;
-            //txtDescripcionProyecto.Enabled = estado;
-        }
 
-        private void botones()
-        {
-            if(esnuevo || eseditar)
-            {
-                habilitar(true );
-                btnNuevo.Enabled = false;
-                btnGuardar.Enabled = true;
-                btnEditar.Enabled = false;
-                btnCancelar.Enabled = true;
-            }
-            else
-            {
-                habilitar(false);
-                btnNuevo.Enabled = true;
-                btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnCancelar.Enabled = false;
-            }
-        }
+        /* private void botonesVisible(bool estado)
+         {
+             btnGuardar.Visible = estado;
+             btnCancelar.Visible = estado;
+             btnEditar.Visible = !estado;
+             btnNuevo.Visible = !estado;
 
-        internal void setBotonEliminar(bool value)
-        {
-            btnEliminarProyecto.Visible=value;
-        }
+             txtObservacionesProyecto.Enabled = estado;
+             //txtDescripcionProyecto.Enabled = estado;
+         }
 
+         private void botones()
+         {
+             if(esnuevo || eseditar)
+             {
+                 habilitar(true );
+                 btnNuevo.Enabled = false;
+                 btnGuardar.Enabled = true;
+                 btnEditar.Enabled = false;
+                 btnCancelar.Enabled = true;
+             }
+             else
+             {
+                 habilitar(false);
+                 btnNuevo.Enabled = true;
+                 btnGuardar.Enabled = false;
+                 btnEditar.Enabled = true;
+                 btnCancelar.Enabled = false;
+             }
+         }
+
+         internal void setBotonEliminar(bool value)
+         {
+             btnEliminarProyecto.Visible=value;
+         }
+         */
         private void FrmDetalleProyecto_Load(object sender, EventArgs e)
         {
-            this.botones();
+          //  this.botones();
             this.FormClosed += new FormClosedEventHandler(cerrarX);
         }
 
@@ -186,7 +186,7 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             crearProyecto();
-            btnEliminarProyecto.Visible = false;
+         //   btnEliminarProyecto.Visible = false;
             visualizaBotonesCambiarFormulario(false);
         }
         public void bloqueaProyecto()
@@ -198,9 +198,9 @@ namespace capapresentacion
         public void crearProyecto() {
             esnuevo = true;
             txtObservacionesProyecto.Enabled = true;
-            botonesVisible(true);
+          //  botonesVisible(true);
             setModo("CREACIÓN");
-            botones();
+           // botones();
             limpiar();
         }
         
@@ -255,8 +255,8 @@ namespace capapresentacion
                         this.mensajeerror(rpta);
                     }
    
-                    botonesVisible(false);
-                    botones();
+                //    botonesVisible(false);
+                //    botones();
                     this.Hide();
                     FrmProyecto proyecto = new FrmProyecto();
                     FrmParent.frmparent.lanzarNuevoElemento(proyecto);
@@ -273,7 +273,7 @@ namespace capapresentacion
             if (!this.txtIdProyecto.Text.Equals(""))
             {
                 this.eseditar = true;
-                this.botones();
+             //   this.botones();
                 setModo("EDICIÓN");
                 // txtObservacionesProyecto.Enabled = true;
                 //txtDescripcionProyecto.Enabled = true;
@@ -292,12 +292,12 @@ namespace capapresentacion
             if (!this.txtIdProyecto.Text.Equals(""))
             {
                 this.eseditar = true;
-                this.botones();
+              //  this.botones();
                 setModo("EDICIÓN");
                // txtObservacionesProyecto.Enabled = true;
                 //txtDescripcionProyecto.Enabled = true;
                 //this.txtDescripcionProyecto.Visible = true;
-                botonesVisible(true);
+             //   botonesVisible(true);
                 visualizaBotonesCambiarFormulario(false);
             }
             else
@@ -307,10 +307,10 @@ namespace capapresentacion
         }
         public void visualizaBotonesCambiarFormulario(bool value)
         {
-            btnAtras.Visible = value;
-            btnPrimero.Visible = value;
-            btnSiguiente.Visible = value;
-            btnFinal.Visible = value;
+          //  btnAtras.Visible = value;
+         //   btnPrimero.Visible = value;
+         //   btnSiguiente.Visible = value;
+         //   btnFinal.Visible = value;
 
         }
         public void botonCancelar()
@@ -325,13 +325,46 @@ namespace capapresentacion
         {
             esnuevo = false;
             this.eseditar = false;
-            botones();
-            botonesVisible(false);
+          //  botones();
+         //   botonesVisible(false);
             //limpiar();
             //this.Hide();
             setModo("LECTURA");
            // this.Hide();
             //llamaVisualizaDatos();
+        }
+        public void botonEliminarProyecto()
+        {
+            if (!lEdicion.Text.Equals("[MODO EDICIÓN]") && !lEdicion.Text.Equals("[MODO CREACIÓN]"))
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (opcion == DialogResult.OK)
+                    {
+
+                        string rpta = "";
+
+                        rpta = NProyecto.eliminarproyecto(Convert.ToInt32(txtIdProyecto.Text));
+
+                        if (rpta.Equals("OK"))
+                        {
+                            this.mensajeok("Registro eliminado");
+                            FrmParent.frmparent.AbrirFormulario(new FrmProyecto());
+                        }
+                        else
+                        {
+                            this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                            this.mensajeerror(rpta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
         }
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
