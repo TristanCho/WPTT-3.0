@@ -47,6 +47,7 @@ namespace capapresentacion
             this.iconoFormularioActual = new FontAwesome.Sharp.IconPictureBox();
             this.textoInicio = new System.Windows.Forms.Label();
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.panelBarraHorizontal = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reloj_image)).BeginInit();
@@ -301,9 +302,17 @@ namespace capapresentacion
             this.panelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormulario.Location = new System.Drawing.Point(200, 50);
             this.panelFormulario.Name = "panelFormulario";
-            this.panelFormulario.Size = new System.Drawing.Size(784, 517);
-            this.panelFormulario.TabIndex = 2;
+            this.panelFormulario.Size = new System.Drawing.Size(784, 486);
+            this.panelFormulario.TabIndex = 3;
             this.panelFormulario.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panelBarraHorizontal
+            // 
+            this.panelBarraHorizontal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBarraHorizontal.Location = new System.Drawing.Point(200, 536);
+            this.panelBarraHorizontal.Name = "panelBarraHorizontal";
+            this.panelBarraHorizontal.Size = new System.Drawing.Size(784, 31);
+            this.panelBarraHorizontal.TabIndex = 2;
             // 
             // FrmPrincipal
             // 
@@ -312,6 +321,7 @@ namespace capapresentacion
             this.ClientSize = new System.Drawing.Size(984, 567);
             this.ControlBox = false;
             this.Controls.Add(this.panelFormulario);
+            this.Controls.Add(this.panelBarraHorizontal);
             this.Controls.Add(this.panelTitulo);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -350,5 +360,6 @@ namespace capapresentacion
         private System.Windows.Forms.Label txtnombreusuario;
         private System.Windows.Forms.Button maximizar;
         private FontAwesome.Sharp.IconButton btnTareasPersonales;
+        private System.Windows.Forms.Panel panelBarraHorizontal;
     }
 }

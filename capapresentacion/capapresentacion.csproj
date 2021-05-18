@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="DInformacionProyecto.cs" />
     <Compile Include="DInformacionTarea.cs" />
+    <Compile Include="FrmBarraHorizontal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBarraHorizontal.Designer.cs">
+      <DependentUpon>FrmBarraHorizontal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDetallePersonal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,7 @@
     <Compile Include="FrmPersonal.Designer.cs">
       <DependentUpon>FrmPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="StaticBarraHorizontal.cs" />
     <Compile Include="TiempoStatic.cs" />
     <Compile Include="Widget.cs">
       <SubType>Form</SubType>
@@ -137,6 +144,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmBarraHorizontal.resx">
+      <DependentUpon>FrmBarraHorizontal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetallePersonal.resx">
       <DependentUpon>FrmDetallePersonal.cs</DependentUpon>
     </EmbeddedResource>

@@ -58,6 +58,7 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
+            detalleTareas.visualizaBotonesCambiarFormulario(false);
             detalleTareas.crearNuevo();
             detalleTareas.setTecnico();
             detalleTareas.setBotonEliminar(false);

@@ -26,6 +26,75 @@ namespace capapresentacion
             habilitar(false);
             botonesVisible(false);
         }
+        public void guardarProyecto()
+        {
+
+            try
+            {
+                string rpta = "";
+                if (this.txtTituloProyecto.Text == string.Empty)
+                {
+                    mensajeerror("Formulario incompleto");
+                    this.iconoerror.SetError(this.txtTituloProyecto, "Ingresar Título");
+                }
+                else
+                {
+                    if (esnuevo)
+                    {
+                        rpta = NProyecto.insertarproyecto(
+                            this.txtTituloProyecto.Text.Trim(),
+                           this.txtcodigoProyecto.Text.Trim(),
+                            this.txtObservacionesProyecto.Text.Trim(),
+                            Convert.ToDateTime(this.dtFechaProyecto.Value));
+                    }
+                    else
+                    {
+
+                        rpta = NProyecto.editarproyecto(
+                            Convert.ToInt32(this.txtIdProyecto.Text),
+                            this.txtTituloProyecto.Text.Trim(),
+                           this.txtcodigoProyecto.Text.Trim(),
+                            this.txtObservacionesProyecto.Text.Trim(),
+                            Convert.ToDateTime(this.dtFechaProyecto.Value));
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (esnuevo)
+                        {
+                            this.mensajeok("Se ha creado el proyecto satisfactoriamente");
+                            limpiar();
+
+                        }
+                        else
+                        {
+                            this.mensajeok("Se ha editado el proyecto satisfactoriamente");
+                            limpiar();
+                        }
+
+                    }
+                    else
+                    {
+                        this.mensajeerror(rpta);
+                    }
+
+                    botonesVisible(false);
+                    botones();
+                    this.Hide();
+                    FrmProyecto proyecto = new FrmProyecto();
+                    FrmParent.frmparent.lanzarNuevoElemento(proyecto);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, ex.StackTrace);
+            }
+
+
+        }
+
+
         private void mensajeok(string mensaje)
         {
             MessageBox.Show(mensaje,"Detalle de Proyecto",MessageBoxButtons.OK,MessageBoxIcon.Information);            
@@ -35,15 +104,13 @@ namespace capapresentacion
         {
             MessageBox.Show(mensaje, "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-       public void setNpaginas(String numero)
-        {
-            npaginas = numero;
-        }
+
         private void limpiar()
         {
             this.txtIdProyecto.Text = string.Empty;
             this.txtTituloProyecto.Text = string.Empty;
             this.txtObservacionesProyecto.Text = string.Empty;
+            txtcodigoProyecto.Text = string.Empty;
             //this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
         }
@@ -52,7 +119,8 @@ namespace capapresentacion
             this.txtIdProyecto.ReadOnly = true;
             this.txtcodigoProyecto.ReadOnly = true;
             this.txtTituloProyecto.ReadOnly = !valor;
-            this.txtObservacionesProyecto.ReadOnly = !valor;
+            //this.txtObservacionesProyecto.ReadOnly = !valor;
+            txtObservacionesProyecto.Enabled = valor;
             //this.txtDescripcionProyecto.ReadOnly = !valor;
             this.dtFechaProyecto.Enabled = valor;            
         }
@@ -111,16 +179,25 @@ namespace capapresentacion
             lEdicion.Text = "[MODO " + modo + "]";
         }
 
+        public void nuevoClicado()
+        {
+            crearProyecto();
+        }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             crearProyecto();
             btnEliminarProyecto.Visible = false;
+            visualizaBotonesCambiarFormulario(false);
         }
-
+        public void bloqueaProyecto()
+        {
+            txtObservacionesProyecto.Enabled = false;
+            txtTituloProyecto.ReadOnly = true;
+            dtFechaProyecto.Enabled = false;
+        }
         public void crearProyecto() {
             esnuevo = true;
             txtObservacionesProyecto.Enabled = true;
-           // txtDescripcionProyecto.Enabled = true;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
@@ -191,7 +268,25 @@ namespace capapresentacion
                 MessageBox.Show(ex.Message,ex.StackTrace);
             }
         }
-
+        public void editarProyecto()
+        {
+            if (!this.txtIdProyecto.Text.Equals(""))
+            {
+                this.eseditar = true;
+                this.botones();
+                setModo("EDICIÓN");
+                // txtObservacionesProyecto.Enabled = true;
+                //txtDescripcionProyecto.Enabled = true;
+                //this.txtDescripcionProyecto.Visible = true;
+                habilitar(true);
+                //botonesVisible(true);
+               // visualizaBotonesCambiarFormulario(false);
+            }
+            else
+            {
+                this.mensajeerror("seleccione el registro a modificar");
+            }
+        }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (!this.txtIdProyecto.Text.Equals(""))
@@ -203,13 +298,29 @@ namespace capapresentacion
                 //txtDescripcionProyecto.Enabled = true;
                 //this.txtDescripcionProyecto.Visible = true;
                 botonesVisible(true);
+                visualizaBotonesCambiarFormulario(false);
             }
             else
             {
                 this.mensajeerror("seleccione el registro a modificar");
             }
         }
+        public void visualizaBotonesCambiarFormulario(bool value)
+        {
+            btnAtras.Visible = value;
+            btnPrimero.Visible = value;
+            btnSiguiente.Visible = value;
+            btnFinal.Visible = value;
 
+        }
+        public void botonCancelar()
+        {
+            esnuevo = false;
+            this.eseditar = false;
+            //botones();
+            //botonesVisible(false);
+            setModo("LECTURA");
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             esnuevo = false;
@@ -219,7 +330,7 @@ namespace capapresentacion
             //limpiar();
             //this.Hide();
             setModo("LECTURA");
-            this.Hide();
+           // this.Hide();
             //llamaVisualizaDatos();
         }
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
@@ -268,12 +379,6 @@ namespace capapresentacion
             this.dtFechaProyecto.Text = fecha_creacion;
         }
 
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            DInformacionProyecto.sumaIndex();
-            llamaVisualizaDatos();
-
-        }
       
         public void llamaVisualizaDatos()
         {
@@ -286,7 +391,23 @@ namespace capapresentacion
                 Convert.ToString(DInformacionProyecto.dataListProyectos.Rows[DInformacionProyecto.index].Cells["fecha"].Value));
             
         }
+        public void botonSiguiente()
+        {
+            DInformacionProyecto.sumaIndex();
+            llamaVisualizaDatos();
+        }
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            DInformacionProyecto.sumaIndex();
+            llamaVisualizaDatos();
 
+        }
+
+        public void botonAtras()
+        {
+            DInformacionProyecto.restaIndex();
+            llamaVisualizaDatos();
+        }
         private void btnAtras_Click(object sender, EventArgs e)
         {
             DInformacionProyecto.restaIndex();
@@ -294,19 +415,25 @@ namespace capapresentacion
 
         }
 
-        private void btnFinal_Click(object sender, EventArgs e)
+        public void botonUltimo()
         {
-
-            FrmProyecto proyecto = new FrmProyecto();
-            Console.WriteLine(proyecto.getNumeroIndice() + " numero de lineas");
-           DInformacionProyecto.finalIndex();
+            DInformacionProyecto.finalIndex();
             llamaVisualizaDatos();
         }
+        private void btnFinal_Click(object sender, EventArgs e)
+        {
+           DInformacionProyecto.finalIndex();
+           llamaVisualizaDatos();
+        }
 
-        private void btnPrimero_Click(object sender, EventArgs e)
+        public void botonPrimero()
         {
             DInformacionProyecto.primerIndex();
             llamaVisualizaDatos();
+        }
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

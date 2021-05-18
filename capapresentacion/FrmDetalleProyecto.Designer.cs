@@ -53,7 +53,6 @@ namespace capapresentacion
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnFinal = new System.Windows.Forms.Button();
             this.btnPrimero = new System.Windows.Forms.Button();
-            this.lblPaginas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,9 +141,9 @@ namespace capapresentacion
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(581, 459);
+            this.btnGuardar.Location = new System.Drawing.Point(12, 459);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 20;
@@ -166,9 +165,9 @@ namespace capapresentacion
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(662, 459);
+            this.btnCancelar.Location = new System.Drawing.Point(93, 459);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 22;
@@ -202,14 +201,14 @@ namespace capapresentacion
             // 
             // btnEliminarProyecto
             // 
-            this.btnEliminarProyecto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarProyecto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminarProyecto.BackColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
             this.btnEliminarProyecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
             this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(705, 69);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(708, 456);
             this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
             this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
@@ -280,22 +279,12 @@ namespace capapresentacion
             this.btnPrimero.UseVisualStyleBackColor = true;
             this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
-            // lblPaginas
-            // 
-            this.lblPaginas.AutoSize = true;
-            this.lblPaginas.Location = new System.Drawing.Point(686, 12);
-            this.lblPaginas.Name = "lblPaginas";
-            this.lblPaginas.Size = new System.Drawing.Size(35, 13);
-            this.lblPaginas.TabIndex = 36;
-            this.lblPaginas.Text = "label2";
-            // 
             // FrmDetalleProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(749, 494);
-            this.Controls.Add(this.lblPaginas);
             this.Controls.Add(this.btnPrimero);
             this.Controls.Add(this.btnFinal);
             this.Controls.Add(this.btnAtras);
@@ -350,6 +339,5 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnFinal;
         private System.Windows.Forms.Button btnPrimero;
-        private System.Windows.Forms.Label lblPaginas;
     }
 }

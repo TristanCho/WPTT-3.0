@@ -54,6 +54,7 @@ namespace capapresentacion
                 this.botones();
                 setModo("EDICION");
                 botonesVisible(true);
+                visualizaBotonesCambiarFormulario(false);
                 rellenarComboboxes();
             }
             else
@@ -61,6 +62,15 @@ namespace capapresentacion
                 this.mensajeerror("selleccione el registro a modificar");
             }
         }
+
+        public void visualizaBotonesCambiarFormulario(bool value)
+        {
+            btnAtras.Visible = value;
+            btnPrimero.Visible = value;
+            btnSiguiente.Visible = value;
+            btnFinal.Visible = value;
+        }
+
         private void botonesVisible(bool estado)
         {
             btnGuardar.Visible = estado;
@@ -115,6 +125,10 @@ namespace capapresentacion
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
         {
 
+        }
+        public void prueballamada()
+        {
+            Console.WriteLine("prueba de llamada");
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {

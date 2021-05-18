@@ -94,10 +94,6 @@ namespace capadatos
 
             return dtresultado;
 
-
-
-
-            return dtresultado;
         }
 
         public string[] mostrarTareaPersonalCombobox(string usuario, string tarea)

@@ -78,10 +78,21 @@ namespace capapresentacion
             this.cbEliminar.Checked = false;
         }
 
+        public void nuevoProyecto()
+        {
+            FrmDetalleProyecto detalleproyecto = new FrmDetalleProyecto();
+            FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
+            detalleproyecto.visualizaBotonesCambiarFormulario(false);
+            detalleproyecto.crearProyecto();
+            detalleproyecto.setBotonEliminar(false);
+        }
+
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmDetalleProyecto detalleproyecto = new FrmDetalleProyecto();
             FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
+            detalleproyecto.visualizaBotonesCambiarFormulario(false);
             detalleproyecto.crearProyecto();
             detalleproyecto.setBotonEliminar(false);
         }
@@ -158,15 +169,64 @@ namespace capapresentacion
 
                 //detalleProyecto.frmparent = frmparent;
                 FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
-
+                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
                 detalleProyecto.setModo("LECTURA");
+               
             }
             catch (Exception)
             {
                 MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public void botonEliminarProyecto()
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    int aux = 0;
+                    int id;
+                    string rpta = "";
+                    foreach (DataGridViewRow row in dataListProyectos.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            aux = 1;
 
+                            id = Convert.ToInt32(row.Cells[1].Value);
+                            rpta = NProyecto.eliminarproyecto(id);
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.mensajeok("Registro eliminado");
+                            }
+                            else
+                            {
+                                this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                                this.mensajeerror(rpta);
+                            }
+                        }
+                    }
+                    if (aux < 1)
+                    {
+                        MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    }
+                    this.mostrarproyectos();
+                }
+                else
+                {
+                    this.btnEliminarProyecto.Enabled = false;
+                    this.cbEliminar.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
         /*PROCEDURES*/
         private void btnEliminarProyecto_Click_1(object sender, EventArgs e)
         {
