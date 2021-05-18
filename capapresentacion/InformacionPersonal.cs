@@ -13,15 +13,14 @@ namespace capapresentacion
     {
         public static DataGridView dataListPersonal;
         public static int index;
-        public static FrmDetalleTarea detallePersonal;
-
-
+        public static FrmDetallePersonal detallePersonal;
 
         public static void sumaIndex()
         {
             if (!(dataListPersonal.Rows.Count <= InformacionPersonal.index + 1))
             {
                 index += 1;
+                MessageBox.Show(Convert.ToString(index));
             }
             else
             {

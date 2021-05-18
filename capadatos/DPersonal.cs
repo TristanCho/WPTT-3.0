@@ -130,6 +130,64 @@ namespace capadatos
             return dtresultado;
         }
 
+        public DDetallePersonales getDetallePersonal(string idTarea)
+        {
+            DataTable dtresultado = new DataTable("TareasPersonales");
+            SqlConnection SqlCon = new SqlConnection();
+            DDetallePersonales dPersonal;
+            string[] array = new string[] { };
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spVisualizarDetallePersonal";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParIdTarea = new SqlParameter();
+                ParIdTarea.ParameterName = "@idTarea";
+                ParIdTarea.SqlDbType = SqlDbType.Int;
+                ParIdTarea.Value = idTarea;
+                SqlCmd.Parameters.Add(ParIdTarea);
+
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                sqladap.Fill(dtresultado);
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+            dPersonal = new DDetallePersonales(
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[6].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[7].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[8].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[9].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[10].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[11].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[12].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[13].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[14].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[15].ToString()).First(),
+                dtresultado.Rows.OfType<DataRow>().Select(k => k[16].ToString()).First()
+                //dtresultado.Rows.OfType<DataRow>().Select(k => k[17].ToString()).First()
+                );
+
+            return dPersonal;
+        }
+
         public string insertarPersonal(DPersonal personal)
         {
             string rpta = "";
@@ -433,7 +491,7 @@ namespace capadatos
             return rpta;
         }
 
-        public string[] mostrarEstadoModulo(DTarea objeto)
+        public string[] mostrarEstadoModulo(DPersonal objeto)
         {
             string[] array = new string[] { };
 
@@ -466,64 +524,9 @@ namespace capadatos
 
             return array;
 
-        }
+        }        
 
-
-        public DDetallePersonales getDetallePersonal(string idTarea)
-        {
-            DataTable dtresultado = new DataTable("personal");
-            SqlConnection SqlCon = new SqlConnection();
-            DDetallePersonales dPersonal;
-            string[] array = new string[] { };
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spVisualizarDetallePersonal";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlParameter ParIdTarea = new SqlParameter();
-                ParIdTarea.ParameterName = "@codigo_tarea";
-                ParIdTarea.SqlDbType = SqlDbType.Int;
-                ParIdTarea.Value = idTarea;
-                SqlCmd.Parameters.Add(ParIdTarea);
-
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);                
-                sqladap.Fill(dtresultado);
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            dPersonal = new DDetallePersonales(
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[2].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[3].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[4].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[5].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[6].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[7].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[8].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[9].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[10].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[11].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[12].ToString()).First(),
-                dtresultado.Rows.OfType<DataRow>().Select(k => k[13].ToString()).First()
-                );
-             
-            return dPersonal;
-        }
-
-        public string[] mostrarProyectoCombobox(DTarea objeto)
+        public string[] mostrarProyectoCombobox(DPersonal objeto)
         {
             string[] array = new string[] { };
 
