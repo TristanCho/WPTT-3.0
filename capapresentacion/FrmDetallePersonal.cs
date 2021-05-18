@@ -30,25 +30,30 @@ namespace capapresentacion
 
         internal void mostrarDetallePersonal(DDetallePersonales dp)
         {
-            cbPrioridad.Text = dp.Prioridad;
-            cbProyecto.Text = dp.IdProyecto;
-            cbTareaProyecto.Text = dp.IdTareaProyecto;
-            //TODO Pendiente agregar la aplicación o número de aplicacion
 
-            cbTareaProyecto.Items.Clear();
-            cbTareaProyecto.Items.Add(dp.IdTareaProyecto);
-            cbTareaProyecto.SelectedIndex = 0;
-            //TODO Pendiente mostrar al lado del combo box Tarea/Proyecto [estado + Titulo]
+            MessageBox.Show("mostrarDetallePersonal");
 
+            txtIdPersonal.Text = idpersonal;
+
+            cbPrioridad.Items.Clear();
+            cbPrioridad.Items.Add(dp.Prioridad);
+            cbPrioridad.SelectedIndex = 0;
+
+            cbProyecto.Items.Clear();
+            cbProyecto.Items.Add(dp.IdProyecto);
+            cbProyecto.SelectedIndex = 0;
+
+            lblAplicacion.Text = dp.Aplicacion;
+
+            lblEstadoTituloTarea.Text = dp.Titulo;//TODO estado + Titulo
 
             cbEmpleadoAsign.Items.Clear();
-            cbEmpleadoAsign.Items.Add(dp.Id_empleadoReAsign);
+            cbEmpleadoAsign.Items.Add(dp.Id_empleado);
             cbEmpleadoAsign.SelectedIndex = 0;
 
             cbEmpleadoReAsign.Items.Clear();
             cbEmpleadoReAsign.Items.Add(dp.Id_empleadoReAsign);
             cbEmpleadoReAsign.SelectedIndex = 0;
-
 
             cbEstado.Items.Clear();
             cbEstado.Items.Add(dp.Estado);
@@ -57,17 +62,49 @@ namespace capapresentacion
             dtcreacion.Text = dp.Fcreacion;
             dtCierre.Text = dp.Fcierre;
 
+            cbTareaProyecto.Items.Clear();
+            cbTareaProyecto.Items.Add(dp.TareaProyecto);
+            cbTareaProyecto.SelectedIndex = 0;
+             
             txtTareaGrupo.Text = dp.IdTareaGrupo;
             txtTareaOrigen.Text = dp.IdTareaOrigen;
             txtTareaDestino.Text = dp.IdTareaDestino;
+
             txtDescripcion.Text = dp.Descripcion;
             txtObservacionesTiempos.Text = dp.ObsTiempos;
 
+            //cbTareaProyecto.Items.Clear();
+            //cbTareaProyecto.Items.Add(dp.TareaProyecto);
+            //cbTareaProyecto.SelectedIndex = 0;
+            ////TODO Pendiente mostrar al lado del combo box Tarea/Proyecto [estado + Titulo]
+
+
+            //cbEmpleadoAsign.Items.Clear();
+            //cbEmpleadoAsign.Items.Add(dp.Id_empleadoReAsign);
+            //cbEmpleadoAsign.SelectedIndex = 0;
+
+            //cbEmpleadoReAsign.Items.Clear();
+            //cbEmpleadoReAsign.Items.Add(dp.Id_empleadoReAsign);
+            //cbEmpleadoReAsign.SelectedIndex = 0;
+
+
+            //cbEstado.Items.Clear();
+            //cbEstado.Items.Add(dp.Estado);
+            //cbEstado.SelectedIndex = 0;
+
+            //dtcreacion.Text = dp.Fcreacion;
+            //dtCierre.Text = dp.Fcierre;
+
+            //txtTareaGrupo.Text = dp.IdTareaGrupo;
+            //txtTareaOrigen.Text = dp.IdTareaOrigen;
+            //txtTareaDestino.Text = dp.IdTareaDestino;
+            
+
         }
 
-        public DDetallePersonales getDetallePersonal(string codigo_tarea)
+        public DDetallePersonales getDetallePersonal(string idTarea)
         {
-            return NPersonal.getDetallePersonal(codigo_tarea);
+            return NPersonal.getDetallePersonal(idTarea);
         }
 
         private void mensajeok(string mensaje)
@@ -298,17 +335,28 @@ namespace capapresentacion
 
         }
 
-        public void visualizaDatos(string idTarea, string prioridad,string id_empleado,string EstadoTPersonal, string id_empleadoReAsign, string fcreacion, string fcierre,
-             string idTareaGrupo, string idTareaOrigen, string idTareaDestino,string ProyectoPrincipal, string Aplicacion, string codigoTarea, string estadoTarea,string descripcion)
+        public void visualizaDatos(string idTarea, string prioridad, string idProyecto, string aplicacion,string tareaProyecto,string EstadoTProyecto, string titulo,
+            string id_empleado, string id_empleadoReAsign, string estado, 
+            string fcreacion, string fcierre, string idTareaGrupo, string idTareaOrigen, string idTareaDestino,
+            string descripcion, string obsTiempos)
         {
             this.txtIdPersonal.Text = idTarea;
-            this.cbProyecto.Text = ProyectoPrincipal;
-            this.cbTareaProyecto.Text = codigoTarea;
+            this.cbPrioridad.Text = prioridad;
+            this.cbProyecto.Text = idProyecto;
+            this.lblAplicacion.Text = aplicacion;
+            this.cbTareaProyecto.Text = tareaProyecto;
+            this.cbEstado.Text = EstadoTProyecto;//TODO pendiente mostrar el titulo en FrmDetallePersonal
+            this.lblEstadoTituloTarea.Text = titulo;
+            this.cbEmpleadoAsign.Text = id_empleado;
+            this.cbEmpleadoReAsign.Text = id_empleadoReAsign;
+            this.cbEstado.Text = estado;
             this.dtcreacion.Text = fcreacion;
             this.dtCierre.Text = fcierre;
-
-
-        }
-    
+            this.txtTareaGrupo.Text = idTareaGrupo;
+            this.txtTareaOrigen.Text = idTareaOrigen;
+            this.txtTareaDestino.Text = idTareaDestino;
+            this.txtDescripcion.Text = descripcion;
+            this.txtObservacionesTiempos.Text = obsTiempos;   
+        }    
     }
 }

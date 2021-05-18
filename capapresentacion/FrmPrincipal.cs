@@ -204,10 +204,6 @@ namespace capapresentacion
             //AbrirFormulario(new FrmTarea());
         }
 
-        /*****************************************/
-       
-        /*****************************************/
-
         private void Tiempos_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
