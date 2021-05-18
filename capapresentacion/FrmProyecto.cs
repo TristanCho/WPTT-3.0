@@ -21,7 +21,6 @@ namespace capapresentacion
         public FrmProyecto()
         {
             InitializeComponent();
-            btnEliminarProyecto.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             activaCheckBox();
             mostrarproyectos();
             tamañoColumnas();
@@ -75,7 +74,7 @@ namespace capapresentacion
             this.dataListProyectos.Columns[2].Visible = false;
             //this.dataListProyectos.Columns[3].Visible = false;
             //this.btnEliminarProyecto.Enabled = false;
-            this.cbEliminar.Checked = false;
+            //this.cbEliminar.Checked = false;
         }
 
         public void nuevoProyecto()
@@ -126,7 +125,7 @@ namespace capapresentacion
 
         private void activaCheckBox()
         {
-            if (this.cbEliminar.Checked)
+           /* if (this.cbEliminar.Checked)
             {
                 this.dataListProyectos.Columns[0].Visible = true;
                 this.btnEliminarProyecto.Visible = true;
@@ -135,7 +134,7 @@ namespace capapresentacion
             {
                 this.dataListProyectos.Columns[0].Visible = false;
                 this.btnEliminarProyecto.Visible = false;
-            }
+            }*/
         }
 
         private void dataListProyectos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -280,8 +279,8 @@ namespace capapresentacion
                 }
                 else
                 {
-                    this.btnEliminarProyecto.Enabled = false;
-                    this.cbEliminar.Checked = false;
+                  //  this.btnEliminarProyecto.Enabled = false;
+                   // this.cbEliminar.Checked = false;
                 }
             }
             catch (Exception ex)

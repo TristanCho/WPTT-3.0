@@ -63,7 +63,9 @@ namespace capapresentacion
                         if (esnuevo)
                         {
                             this.mensajeok("Se ha creado el proyecto satisfactoriamente");
-                            limpiar();
+                            bloqueaProyecto();
+                            
+                           // limpiar();
 
                         }
                         else
@@ -80,9 +82,9 @@ namespace capapresentacion
 
                    // botonesVisible(false);
                    // botones();
-                    this.Hide();
+                    /*this.Hide();
                     FrmProyecto proyecto = new FrmProyecto();
-                    FrmParent.frmparent.lanzarNuevoElemento(proyecto);
+                    FrmParent.frmparent.lanzarNuevoElemento(proyecto);*/
                 }
             }
             catch (Exception ex)
@@ -198,6 +200,8 @@ namespace capapresentacion
         public void crearProyecto() {
             esnuevo = true;
             txtObservacionesProyecto.Enabled = true;
+            txtTituloProyecto.ReadOnly = false;
+            dtFechaProyecto.Enabled = true;
           //  botonesVisible(true);
             setModo("CREACIÓN");
            // botones();

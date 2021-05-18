@@ -56,6 +56,7 @@ namespace capapresentacion
                 case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
                     FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                     proyect.guardarProyecto();
+                    visualizaBotonGuardar(false);
                     break;
                 case "capapresentacion.FrmTarea, Text: FrmTarea":
 
