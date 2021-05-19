@@ -193,8 +193,7 @@ namespace capapresentacion
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["ObsTiempos"].Value)
                 );
                 FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
-                detallePersonal.mostrarDetallePersonal(detallePersonal.getDetallePersonal(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value)));
-                detallePersonal.setModo("LECTURA");
+                          detallePersonal.setModo("LECTURA");
             }
             catch (Exception ex)
             {
