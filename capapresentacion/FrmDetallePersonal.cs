@@ -72,34 +72,7 @@ namespace capapresentacion
             txtTareaDestino.Text = dp.IdTareaDestino;
 
             txtDescripcion.Text = dp.Descripcion;
-            txtObservacionesTiempos.Text = dp.ObsTiempos;
-
-            //cbTareaProyecto.Items.Clear();
-            //cbTareaProyecto.Items.Add(dp.TareaProyecto);
-            //cbTareaProyecto.SelectedIndex = 0;
-            ////TODO Pendiente mostrar al lado del combo box Tarea/Proyecto [estado + Titulo]
-
-
-            //cbEmpleadoAsign.Items.Clear();
-            //cbEmpleadoAsign.Items.Add(dp.Id_empleadoReAsign);
-            //cbEmpleadoAsign.SelectedIndex = 0;
-
-            //cbEmpleadoReAsign.Items.Clear();
-            //cbEmpleadoReAsign.Items.Add(dp.Id_empleadoReAsign);
-            //cbEmpleadoReAsign.SelectedIndex = 0;
-
-
-            //cbEstado.Items.Clear();
-            //cbEstado.Items.Add(dp.Estado);
-            //cbEstado.SelectedIndex = 0;
-
-            //dtcreacion.Text = dp.Fcreacion;
-            //dtCierre.Text = dp.Fcierre;
-
-            //txtTareaGrupo.Text = dp.IdTareaGrupo;
-            //txtTareaOrigen.Text = dp.IdTareaOrigen;
-            //txtTareaDestino.Text = dp.IdTareaDestino;
-            
+            txtObservacionesTiempos.Text = dp.ObsTiempos;         
 
         }
 

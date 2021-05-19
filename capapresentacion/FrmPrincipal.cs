@@ -47,7 +47,7 @@ namespace capapresentacion
         }
         public Form getFormularioActual()
         {
-           // Console.WriteLine(formActivo + " esto es el form devuelto");
+            Console.WriteLine(formActivo + " esto es el form devuelto");
             return formActivo;
         }
 

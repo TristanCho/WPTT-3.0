@@ -142,7 +142,7 @@ namespace capapresentacion
             // dtcreacion
             // 
             this.dtcreacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtcreacion.Location = new System.Drawing.Point(90, 145);
+            this.dtcreacion.Location = new System.Drawing.Point(92, 137);
             this.dtcreacion.Name = "dtcreacion";
             this.dtcreacion.Size = new System.Drawing.Size(98, 20);
             this.dtcreacion.TabIndex = 38;
@@ -182,7 +182,7 @@ namespace capapresentacion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 145);
+            this.label1.Location = new System.Drawing.Point(12, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 18);
             this.label1.TabIndex = 33;
@@ -227,7 +227,7 @@ namespace capapresentacion
             // cbTareaProyecto
             // 
             this.cbTareaProyecto.FormattingEnabled = true;
-            this.cbTareaProyecto.Location = new System.Drawing.Point(107, 106);
+            this.cbTareaProyecto.Location = new System.Drawing.Point(107, 170);
             this.cbTareaProyecto.Name = "cbTareaProyecto";
             this.cbTareaProyecto.Size = new System.Drawing.Size(121, 21);
             this.cbTareaProyecto.TabIndex = 49;
@@ -236,7 +236,7 @@ namespace capapresentacion
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 109);
+            this.label2.Location = new System.Drawing.Point(9, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 18);
             this.label2.TabIndex = 48;
@@ -270,7 +270,7 @@ namespace capapresentacion
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 179);
+            this.label5.Location = new System.Drawing.Point(14, 69);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 18);
             this.label5.TabIndex = 52;
@@ -281,7 +281,7 @@ namespace capapresentacion
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(202, 179);
+            this.label6.Location = new System.Drawing.Point(206, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 18);
             this.label6.TabIndex = 54;
@@ -291,7 +291,7 @@ namespace capapresentacion
             // txtTareaDestino
             // 
             this.txtTareaDestino.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTareaDestino.Location = new System.Drawing.Point(504, 177);
+            this.txtTareaDestino.Location = new System.Drawing.Point(508, 67);
             this.txtTareaDestino.Name = "txtTareaDestino";
             this.txtTareaDestino.Size = new System.Drawing.Size(57, 21);
             this.txtTareaDestino.TabIndex = 57;
@@ -300,7 +300,7 @@ namespace capapresentacion
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(406, 180);
+            this.label7.Location = new System.Drawing.Point(410, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 18);
             this.label7.TabIndex = 56;
@@ -311,7 +311,7 @@ namespace capapresentacion
             // 
             this.dtCierre.CustomFormat = "";
             this.dtCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtCierre.Location = new System.Drawing.Point(261, 144);
+            this.dtCierre.Location = new System.Drawing.Point(263, 136);
             this.dtCierre.Name = "dtCierre";
             this.dtCierre.Size = new System.Drawing.Size(98, 20);
             this.dtCierre.TabIndex = 59;
@@ -320,7 +320,7 @@ namespace capapresentacion
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(205, 145);
+            this.label8.Location = new System.Drawing.Point(207, 137);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 18);
             this.label8.TabIndex = 58;
@@ -329,7 +329,7 @@ namespace capapresentacion
             // txtTareaOrigen
             // 
             this.txtTareaOrigen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTareaOrigen.Location = new System.Drawing.Point(290, 176);
+            this.txtTareaOrigen.Location = new System.Drawing.Point(294, 66);
             this.txtTareaOrigen.Name = "txtTareaOrigen";
             this.txtTareaOrigen.Size = new System.Drawing.Size(57, 21);
             this.txtTareaOrigen.TabIndex = 60;
@@ -337,7 +337,7 @@ namespace capapresentacion
             // txtTareaGrupo
             // 
             this.txtTareaGrupo.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTareaGrupo.Location = new System.Drawing.Point(99, 176);
+            this.txtTareaGrupo.Location = new System.Drawing.Point(103, 66);
             this.txtTareaGrupo.Name = "txtTareaGrupo";
             this.txtTareaGrupo.Size = new System.Drawing.Size(57, 21);
             this.txtTareaGrupo.TabIndex = 61;
@@ -356,7 +356,7 @@ namespace capapresentacion
             // cbEmpleadoAsign
             // 
             this.cbEmpleadoAsign.FormattingEnabled = true;
-            this.cbEmpleadoAsign.Location = new System.Drawing.Point(112, 69);
+            this.cbEmpleadoAsign.Location = new System.Drawing.Point(112, 98);
             this.cbEmpleadoAsign.Name = "cbEmpleadoAsign";
             this.cbEmpleadoAsign.Size = new System.Drawing.Size(121, 21);
             this.cbEmpleadoAsign.TabIndex = 65;
@@ -365,7 +365,7 @@ namespace capapresentacion
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(9, 72);
+            this.label10.Location = new System.Drawing.Point(9, 101);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 18);
             this.label10.TabIndex = 64;
@@ -375,7 +375,7 @@ namespace capapresentacion
             // cbEstado
             // 
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(565, 69);
+            this.cbEstado.Location = new System.Drawing.Point(565, 98);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(121, 21);
             this.cbEstado.TabIndex = 67;
@@ -384,7 +384,7 @@ namespace capapresentacion
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(499, 72);
+            this.label11.Location = new System.Drawing.Point(499, 101);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(71, 18);
             this.label11.TabIndex = 66;
@@ -394,7 +394,7 @@ namespace capapresentacion
             // cbEmpleadoReAsign
             // 
             this.cbEmpleadoReAsign.FormattingEnabled = true;
-            this.cbEmpleadoReAsign.Location = new System.Drawing.Point(369, 69);
+            this.cbEmpleadoReAsign.Location = new System.Drawing.Point(369, 98);
             this.cbEmpleadoReAsign.Name = "cbEmpleadoReAsign";
             this.cbEmpleadoReAsign.Size = new System.Drawing.Size(121, 21);
             this.cbEmpleadoReAsign.TabIndex = 69;
@@ -403,7 +403,7 @@ namespace capapresentacion
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(248, 72);
+            this.label12.Location = new System.Drawing.Point(248, 101);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(121, 18);
             this.label12.TabIndex = 68;
@@ -425,7 +425,7 @@ namespace capapresentacion
             // 
             this.lblEstadoTituloTarea.AutoSize = true;
             this.lblEstadoTituloTarea.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstadoTituloTarea.Location = new System.Drawing.Point(234, 109);
+            this.lblEstadoTituloTarea.Location = new System.Drawing.Point(234, 173);
             this.lblEstadoTituloTarea.Name = "lblEstadoTituloTarea";
             this.lblEstadoTituloTarea.Size = new System.Drawing.Size(136, 18);
             this.lblEstadoTituloTarea.TabIndex = 71;
@@ -438,7 +438,7 @@ namespace capapresentacion
             this.btnIrGrupo.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnIrGrupo.IconColor = System.Drawing.Color.Black;
             this.btnIrGrupo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnIrGrupo.Location = new System.Drawing.Point(162, 175);
+            this.btnIrGrupo.Location = new System.Drawing.Point(166, 65);
             this.btnIrGrupo.Name = "btnIrGrupo";
             this.btnIrGrupo.Size = new System.Drawing.Size(29, 29);
             this.btnIrGrupo.TabIndex = 73;
@@ -451,7 +451,7 @@ namespace capapresentacion
             this.btnIrDestino.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnIrDestino.IconColor = System.Drawing.Color.Black;
             this.btnIrDestino.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnIrDestino.Location = new System.Drawing.Point(567, 175);
+            this.btnIrDestino.Location = new System.Drawing.Point(571, 65);
             this.btnIrDestino.Name = "btnIrDestino";
             this.btnIrDestino.Size = new System.Drawing.Size(29, 29);
             this.btnIrDestino.TabIndex = 74;
@@ -464,7 +464,7 @@ namespace capapresentacion
             this.btnIrOrigen.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnIrOrigen.IconColor = System.Drawing.Color.Black;
             this.btnIrOrigen.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnIrOrigen.Location = new System.Drawing.Point(353, 174);
+            this.btnIrOrigen.Location = new System.Drawing.Point(357, 64);
             this.btnIrOrigen.Name = "btnIrOrigen";
             this.btnIrOrigen.Size = new System.Drawing.Size(29, 29);
             this.btnIrOrigen.TabIndex = 75;
