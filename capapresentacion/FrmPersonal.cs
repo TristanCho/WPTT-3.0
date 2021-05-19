@@ -99,45 +99,6 @@ namespace capapresentacion
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
         }
-        private void dataListPersonal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {           
-            try
-            {
-                FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
-
-                InformacionPersonal.dataListPersonal = dataListPersonal;
-                InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
-                InformacionPersonal.detallePersonal = detallePersonal;                
-                detallePersonal.visualizaDatos(
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["prioridad"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idProyecto"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_aplicacion"].Value),                
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaProyecto"].Value),                
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["EstadoTProy"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["titulo"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleado"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleadoReAsign"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["estado"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcreacion"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcierre"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaGrupo"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaOrigen"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaDestino"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["descripcion"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["ObsTiempos"].Value)
-                );               
-                FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
-                detallePersonal.mostrarDetallePersonal(detallePersonal.getDetallePersonal(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value)));
-                detallePersonal.setModo("LECTURA");
-            }
-            catch (Exception ex)
-            {
-                
-                MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                MessageBox.Show(ex.Message);
-            }
-        }
              
         private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
@@ -201,6 +162,46 @@ namespace capapresentacion
         private void FrmPersonal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataListPersonal_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
+
+                InformacionPersonal.dataListPersonal = dataListPersonal;
+                InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
+                InformacionPersonal.detallePersonal = detallePersonal;
+                detallePersonal.visualizaDatos(
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["prioridad"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idProyecto"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_aplicacion"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaProyecto"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["EstadoTProy"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["titulo"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleado"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleadoReAsign"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["estado"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcreacion"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcierre"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaGrupo"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaOrigen"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaDestino"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["descripcion"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["ObsTiempos"].Value)
+                );
+                FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
+                detallePersonal.mostrarDetallePersonal(detallePersonal.getDetallePersonal(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value)));
+                detallePersonal.setModo("LECTURA");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message);
+            }
         }
     }    
 }

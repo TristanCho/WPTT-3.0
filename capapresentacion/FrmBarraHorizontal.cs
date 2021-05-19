@@ -75,7 +75,9 @@ namespace capapresentacion
                 case "capapresentacion.FrmProyecto, Text: ":
                     FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
                     proyecto.editarProyecto();
-                   // proyecto.botonEliminarProyectoPrincipal();
+                    visualizaBotonesCambiarFormulario(false);
+                    visualizaBotonGuardar(true);
+                    // proyecto.botonEliminarProyectoPrincipal();
 
                     break;
                 case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":

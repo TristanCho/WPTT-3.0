@@ -189,7 +189,7 @@ namespace capadatos
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParIdTarea = new SqlParameter();
-                ParIdTarea.ParameterName = "@idTarea";
+                ParIdTarea.ParameterName = "@empleado";
                 ParIdTarea.SqlDbType = SqlDbType.Int;
                 ParIdTarea.Value = idTarea;
                 SqlCmd.Parameters.Add(ParIdTarea);
@@ -198,8 +198,9 @@ namespace capadatos
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex+"excepcion");
                 dtresultado = null;
             }
             finally
@@ -207,8 +208,7 @@ namespace capadatos
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
 
-            try
-            {
+           
                 dPersonal = new DDetallePersonales(
               dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).First(),
               dtresultado.Rows.OfType<DataRow>().Select(k => k[1].ToString()).First(),
@@ -230,12 +230,7 @@ namespace capadatos
               //dtresultado.Rows.OfType<DataRow>().Select(k => k[17].ToString()).First()
               );
                 return dPersonal;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return null;
-            }          
+                    
         }
 
         public string insertarPersonal(DPersonal personal)

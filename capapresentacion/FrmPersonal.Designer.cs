@@ -157,7 +157,7 @@ namespace capapresentacion
             this.dataListPersonal.Size = new System.Drawing.Size(776, 200);
             this.dataListPersonal.TabIndex = 4;
             this.dataListPersonal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonales_CellContentClick);
-            this.dataListPersonal.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonal_CellDoubleClick);
+            this.dataListPersonal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonal_CellDoubleClick_1);
             // 
             // Eliminar
             // 

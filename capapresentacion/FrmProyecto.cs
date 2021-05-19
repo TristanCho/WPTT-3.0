@@ -188,6 +188,9 @@ namespace capapresentacion
                 if (Convert.ToBoolean(row.Selected))
                 {
                     detalleProyecto();
+
+                   
+
                     break;
 
                 }
