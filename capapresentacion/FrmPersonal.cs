@@ -91,7 +91,14 @@ namespace capapresentacion
                 this.btnEliminarTarea.Visible = false;
             }
         }
-
+        private void dataListPersonales_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataListPersonal.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonal.Rows[e.RowIndex].Cells["Eliminar"];
+                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
+            }
+        }
         private void dataListPersonal_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {           
             try
@@ -100,16 +107,15 @@ namespace capapresentacion
 
                 InformacionPersonal.dataListPersonal = dataListPersonal;
                 InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
-                InformacionPersonal.detallePersonal = detallePersonal;
-              
+                InformacionPersonal.detallePersonal = detallePersonal;                
                 detallePersonal.visualizaDatos(
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["prioridad"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idProyecto"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_aplicacion"].Value),
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_aplicacion"].Value),                
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaProyecto"].Value),                
+                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["EstadoTProy"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["titulo"].Value),
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaProy"].Value),                
-                Convert.ToString(this.dataListPersonal.CurrentRow.Cells["estadoTProyec"].Value),                
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleado"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleadoReAsign"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["estado"].Value),
@@ -120,14 +126,14 @@ namespace capapresentacion
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaDestino"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["descripcion"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["ObsTiempos"].Value)
-                );
-                MessageBox.Show("Linea 123");
+                );               
                 FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
                 detallePersonal.mostrarDetallePersonal(detallePersonal.getDetallePersonal(Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value)));
                 detallePersonal.setModo("LECTURA");
             }
             catch (Exception ex)
             {
+                
                 MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 MessageBox.Show(ex.Message);
             }
@@ -191,15 +197,7 @@ namespace capapresentacion
         {
             MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        private void dataListPersonales_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataListPersonal.Columns["Eliminar"].Index)
-            {
-                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonal.Rows[e.RowIndex].Cells["Eliminar"];
-                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }            
-        }
+    
         private void FrmPersonal_Load(object sender, EventArgs e)
         {
 

@@ -42,8 +42,6 @@ namespace capapresentacion
             StaticBarraHorizontal.horizontalParent= new FrmBarraHorizontal();
             barraHorizontal(StaticBarraHorizontal.horizontalParent);
             StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
-
-
         }
         public Form getFormularioActual()
         {
@@ -182,8 +180,6 @@ namespace capapresentacion
             StaticBarraHorizontal.horizontalParent.botonesPrincipal();
 
         }
-
-
 
         private void Tareas_Click(object sender, EventArgs e)
         {

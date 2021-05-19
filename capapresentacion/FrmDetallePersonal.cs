@@ -1,11 +1,4 @@
 ﻿using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
 using System.Windows.Forms;
 using capadatos;
 using capanegocio;
@@ -46,6 +39,14 @@ namespace capapresentacion
             lblAplicacion.Text = dp.Aplicacion;
 
             lblEstadoTituloTarea.Text = dp.Titulo;//TODO estado + Titulo
+
+            cbTareaProyecto.Items.Clear();
+            cbTareaProyecto.Items.Add(dp.TareaProyecto);
+            cbTareaProyecto.SelectedIndex = 0;
+
+            cbTareaProyecto.Items.Clear();
+            cbTareaProyecto.Items.Add(dp.EstadoTProyecto);
+            cbTareaProyecto.SelectedIndex = 0;
 
             cbEmpleadoAsign.Items.Clear();
             cbEmpleadoAsign.Items.Add(dp.Id_empleado);
