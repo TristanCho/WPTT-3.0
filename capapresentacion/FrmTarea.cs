@@ -162,6 +162,28 @@ namespace capapresentacion
             }
         }
 
+        public void editarTarea()
+        {
+            foreach (DataGridViewRow row in dataListDetalleTareas.Rows)
+            {
+                if (Convert.ToBoolean(row.Selected))
+                {
+                    FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
+
+                    DInformacionTarea.dataListTareas = dataListTareas;
+                    DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
+                    DInformacionTarea.detalleTarea = detalleTarea;
+
+
+                    FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
+                    detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
+
+                    break;
+
+                }
+            }
+        }
+
         private void dataListTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataListTareas.Columns["Eliminar"].Index)
@@ -179,6 +201,11 @@ namespace capapresentacion
             dataListDetalleTareas.DataSource= NTarea.mostrarDetalleTiempos(codigo_tarea);
        }
         private void btnEliminarTarea_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        public void botonEliminarTarea()
         {
             try
             {
@@ -224,6 +251,7 @@ namespace capapresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
         private void mensajeok(string mensaje)
         {
             MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);

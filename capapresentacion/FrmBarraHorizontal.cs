@@ -22,272 +22,321 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(FrmParent.frmparent.getFormularioActual().ToString());
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
-                case "capapresentacion.FrmProyecto, Text: ":
-                    FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyecto.nuevoProyecto();
-                    visualizaBotonesCambiarFormulario(false);
-                    visualizaBotonGuardar(true);
-                    break;
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto dtproyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    dtproyect.nuevoClicado();
-                     visualizaBotonesCambiarFormulario(false);
-                    visualizaBotonGuardar(true);
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-                    FrmTarea tarea = (FrmTarea)FrmParent.frmparent.getFormularioActual();
-                    tarea.nuevaTarea();
-                    //tarea.
-                    break;
-                case "capapresentacion.FrmDetalleTarea, Text: Tarea":
-                    FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
-                    break;  
-            
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-                    FrmDetalleTiempos tiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+            //Console.WriteLine(FrmParent.frmparent.getFormularioActual().ToString());
 
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-               
-            }
-            
+            controlDeBotones("Nuevo");
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
-
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyect.guardarProyecto();
-                    visualizaBotonGuardar(false);
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-            }
+            controlDeBotones("Guardar");
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
-                case "capapresentacion.FrmProyecto, Text: ":
-                    FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyecto.editarProyecto();
-                    visualizaBotonesCambiarFormulario(false);
-                    visualizaBotonGuardar(true);
-                    // proyecto.botonEliminarProyectoPrincipal();
-
-                    break;
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    detalleProyecto.editarProyecto();
-                    visualizaBotonesCambiarFormulario(false);
-                    visualizaBotonGuardar(true);
-                    break;
-                case "capapresentacion.FrmDetalleTarea, Text: Tarea":
-                    FrmDetalleTarea tarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
-
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-                    FrmDetalleTiempos tiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-
-            }
+            controlDeBotones("Editar");
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
-
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    visualizaBotonesCambiarFormulario(true);
-                    visualizaBotonGuardar(false);
-                    proyect.bloqueaProyecto();
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-
-            }
+            controlDeBotones("Cancelar");
         }
-
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(FrmParent.frmparent.getFormularioActual().ToString());
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
+            controlDeBotones("Eliminar");
+            //Console.WriteLine(FrmParent.frmparent.getFormularioActual().ToString());
 
-                case "capapresentacion.FrmProyecto, Text: ":
-                    FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyecto.botonEliminarProyectoPrincipal();
-
-                    break;
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    detalleProyecto.botonEliminarProyecto();
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-
-            }
         }
 
         private void btnPrimero_Click(object sender, EventArgs e)
         {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
+            controlDeBotones("Primero");
 
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyect.botonPrimero();
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-
-            }
-            
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
-
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyect.botonAtras();
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-
-            }
+            controlDeBotones("Atras");
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
-            {
+            controlDeBotones("Siguiente");
 
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyect.botonSiguiente();
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
-                    break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                    break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                    break;
-
-            }
         }
 
         private void btnFinal_Click(object sender, EventArgs e)
         {
-            switch (FrmParent.frmparent.getFormularioActual().ToString())
+            controlDeBotones("Final");
+
+        }
+        private void controlDeBotones(string boton)
+        {
+            switch (boton)
             {
+                case "Nuevo":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+                        case "capapresentacion.FrmProyecto, Text: ":
+                            FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyecto.nuevoProyecto();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+                            break;
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto dtproyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            dtproyect.nuevoClicado();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+                            FrmTarea tarea = (FrmTarea)FrmParent.frmparent.getFormularioActual();
+                            tarea.nuevaTarea();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+                            //tarea.
+                            break;
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            break;
 
-                case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
-                    FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
-                    proyect.botonUltimo();
-                    break;
-                case "capapresentacion.FrmTarea, Text: FrmTarea":
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+                            FrmDetalleTiempos tiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
 
-                    break;
-                case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
 
+                    }
                     break;
-                case "capapresentacion.FrmPersonal, Text: Personal":
-                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+                case "Guardar":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
 
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyect.guardarProyecto();
+                            visualizaBotonGuardar(false);
+                            break;
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.guardarTarea();
+                            visualizaBotonGuardar(false);
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+                    }
                     break;
-                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                case "Editar":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+                        case "capapresentacion.FrmProyecto, Text: ":
+                            FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyecto.editarProyecto();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+                            // proyecto.botonEliminarProyectoPrincipal();
+
+                            break;
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            detalleProyecto.editarProyecto();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+                            FrmTarea tarea = (FrmTarea)FrmParent.frmparent.getFormularioActual();
+                            tarea.editarTarea();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+                            FrmDetalleTiempos tiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+
+                    }
+                    break;
+                case "Cancelar":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            visualizaBotonesCambiarFormulario(true);
+                            visualizaBotonGuardar(false);
+                            proyect.bloqueaProyecto();
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+
+                    }
+                    break;
+                case "Eliminar":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+
+                        case "capapresentacion.FrmProyecto, Text: ":
+                            FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyecto.botonEliminarProyectoPrincipal();
+
+                            break;
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            detalleProyecto.botonEliminarProyecto();
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+                            FrmTarea tarea = (FrmTarea)FrmParent.frmparent.getFormularioActual();
+                            tarea.botonEliminarTarea();
+                            break;
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.botonEliminarTarea();
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+
+                    }
+                    break;
+                case "Primero":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyect.botonPrimero();
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+
+                    }
+                    break;
+                case "Atras":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyect.botonAtras();
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+
+                    }
+                    break;
+                case "Siguiente":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyect.botonSiguiente();
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+
+                    }
+                    break;
+                case "Final":
+                    switch (FrmParent.frmparent.getFormularioActual().ToString())
+                    {
+
+                        case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
+                            FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
+                            proyect.botonUltimo();
+                            break;
+                        case "capapresentacion.FrmTarea, Text: FrmTarea":
+
+                            break;
+                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
+
+                            break;
+                        case "capapresentacion.FrmPersonal, Text: Personal":
+                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                            break;
+                        case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                            FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+
+                    }
                     break;
 
             }
         }
+
+
 
         public void visualizaBotonesCambiarFormulario(bool value)
         {

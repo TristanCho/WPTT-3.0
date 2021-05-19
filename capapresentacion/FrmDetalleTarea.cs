@@ -129,6 +129,99 @@ namespace capapresentacion
             comboboxTVerificacion.Enabled = valor;
         }
 
+        public void guardarTarea()
+        {
+            try
+            {
+                string rpta = "";
+
+                if (this.txtTituloTarea.Text == string.Empty)
+                {
+                    mensajeerror("Formulario incompleto");
+                    //this.iconoerror.SetError(this.txtTituloTarea, "Ingresar Título");
+                }
+                else
+                {
+                    if (esnuevo)
+                    {
+                        rpta = NTarea.insertartarea(
+                            txtTituloTarea.Text,
+                            Convert.ToInt32(txtEstimado.Text),
+                            this.comboboxProyecto.SelectedItem.ToString(),
+                            comboboxPrioridad.SelectedItem.ToString(),
+                            comboboxEstado.SelectedItem.ToString(),
+                            comboboxAplicacion.SelectedItem.ToString(),
+                            txtDeteccion.Text,
+                            comboboxModulo.SelectedItem.ToString(),
+                            txtReferencia.Text,
+                            txtVSolucion.Text,
+                            txtHistoria.Text,
+                            txtDescripcionTarea.Text,
+                            txtResolucion.Text,
+                            comboboxTDeteccion.SelectedItem.ToString(),
+                            comboboxSolucion.SelectedItem.ToString(),
+                            comboboxTVerificacion.SelectedItem.ToString(),
+                             Convert.ToDateTime(dtFDeteccion.Value),
+                             Convert.ToDateTime(dtFSolucion.Value),
+                             Convert.ToDateTime(dtFVerificacion.Value)
+                            );
+                    }
+                    else
+                    {
+                        //TODO falta por acabar, salta error
+                        rpta = NTarea.editarTarea(
+                            this.txtIdTarea.Text,
+                            txtTituloTarea.Text,
+                            Convert.ToInt32(txtEstimado.Text),
+                            this.comboboxProyecto.SelectedItem.ToString(),
+                            comboboxPrioridad.SelectedItem.ToString(),
+                            comboboxEstado.SelectedItem.ToString(),
+                            comboboxAplicacion.SelectedItem.ToString(),
+                            txtDeteccion.Text,
+                            comboboxModulo.SelectedItem.ToString(),
+                            txtReferencia.Text,
+                            txtVSolucion.Text,
+                            txtHistoria.Text,
+                            txtDescripcionTarea.Text,
+                            txtResolucion.Text,
+                            comboboxTDeteccion.SelectedItem.ToString(),
+                            comboboxSolucion.SelectedItem.ToString(),
+                            comboboxTVerificacion.SelectedItem.ToString(),
+                             Convert.ToDateTime(dtFDeteccion.Value),
+                             Convert.ToDateTime(dtFSolucion.Value),
+                             Convert.ToDateTime(dtFVerificacion.Value));
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        if (esnuevo)
+                        {
+                            this.mensajeok("Se ha creado la tarea satisfactoriamente");
+                        }
+                        else
+                        {
+                            this.mensajeok("Se ha editado la tarea satisfactoriamente");
+                        }
+                    }
+                    else
+                    {
+                        this.mensajeerror(rpta);
+                    }
+                    botonesVisible(false);
+                    botones();
+                    this.limpiar();
+                    FrmTarea tarea = new FrmTarea();
+                    FrmParent.frmparent.lanzarNuevoElemento(tarea);
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, ex.StackTrace);
+            }
+        }
+
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
         {
 
@@ -152,6 +245,40 @@ namespace capapresentacion
             mostrarAplicacionCombobox();
             mostrarPrioridadCombobox();
             mostrarTecnicos();
+        }
+
+        public void botonEliminarTarea()
+        {
+            if (!txtIdTarea.Text.Equals(""))
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (opcion == DialogResult.OK)
+                    {
+                        string rpta = "";
+
+                        rpta = NTarea.eliminarTarea(txtIdTarea.Text);
+
+                        if (rpta.Equals("OK"))
+                        {
+                            this.mensajeok("Registro eliminado");
+                        }
+                        else
+                        {
+                            this.mensajeerror("¡Ups!, Ha surgido un error");
+                            this.mensajeerror(rpta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+
+
+            }
         }
 
         private void mostrarTecnicos()
@@ -335,130 +462,13 @@ namespace capapresentacion
         {
 
 
-            try
-            {
-                string rpta = "";
-
-                if (this.txtTituloTarea.Text == string.Empty)
-                {
-                    mensajeerror("Formulario incompleto");
-                    //this.iconoerror.SetError(this.txtTituloTarea, "Ingresar Título");
-                }
-                else
-                {
-                    if (esnuevo)
-                    {
-                        rpta = NTarea.insertartarea(
-                            txtTituloTarea.Text,
-                            Convert.ToInt32(txtEstimado.Text),
-                            this.comboboxProyecto.SelectedItem.ToString(),
-                            comboboxPrioridad.SelectedItem.ToString(),
-                            comboboxEstado.SelectedItem.ToString(),
-                            comboboxAplicacion.SelectedItem.ToString(),
-                            txtDeteccion.Text,
-                            comboboxModulo.SelectedItem.ToString(),
-                            txtReferencia.Text,
-                            txtVSolucion.Text,
-                            txtHistoria.Text,
-                            txtDescripcionTarea.Text,
-                            txtResolucion.Text,
-                            comboboxTDeteccion.SelectedItem.ToString(),
-                            comboboxSolucion.SelectedItem.ToString(),
-                            comboboxTVerificacion.SelectedItem.ToString(),
-                             Convert.ToDateTime(dtFDeteccion.Value),
-                             Convert.ToDateTime(dtFSolucion.Value),
-                             Convert.ToDateTime(dtFVerificacion.Value)
-                            );
-                    }
-                    else
-                    {
-                        //TODO falta por acabar, salta error
-                        rpta = NTarea.editarTarea(
-                            this.txtIdTarea.Text,
-                            txtTituloTarea.Text,
-                            Convert.ToInt32(txtEstimado.Text),
-                            this.comboboxProyecto.SelectedItem.ToString(),
-                            comboboxPrioridad.SelectedItem.ToString(),
-                            comboboxEstado.SelectedItem.ToString(),
-                            comboboxAplicacion.SelectedItem.ToString(),
-                            txtDeteccion.Text,
-                            comboboxModulo.SelectedItem.ToString(),
-                            txtReferencia.Text,
-                            txtVSolucion.Text,
-                            txtHistoria.Text,
-                            txtDescripcionTarea.Text,
-                            txtResolucion.Text,
-                            comboboxTDeteccion.SelectedItem.ToString(),
-                            comboboxSolucion.SelectedItem.ToString(),
-                            comboboxTVerificacion.SelectedItem.ToString(),
-                             Convert.ToDateTime(dtFDeteccion.Value),
-                             Convert.ToDateTime(dtFSolucion.Value),
-                             Convert.ToDateTime(dtFVerificacion.Value));
-                    }
-
-                    if (rpta.Equals("OK"))
-                    {
-                        if (esnuevo)
-                        {
-                            this.mensajeok("Se ha creado la tarea satisfactoriamente");
-                        }
-                        else
-                        {
-                            this.mensajeok("Se ha editado la tarea satisfactoriamente");
-                        }
-                    }
-                    else
-                    {
-                        this.mensajeerror(rpta);
-                    }
-                    botonesVisible(false);
-                    botones();
-                    this.limpiar();
-                    FrmTarea tarea = new FrmTarea();
-                    FrmParent.frmparent.lanzarNuevoElemento(tarea);
-                }
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, ex.StackTrace);
-            }
+            
         }
         
 
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
-            if (!txtIdTarea.Text.Equals(""))
-            {
-                try
-                {
-                    DialogResult opcion;
-                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (opcion == DialogResult.OK)
-                    {
-                        string rpta = "";
 
-                        rpta = NTarea.eliminarTarea(txtIdTarea.Text);
-
-                        if (rpta.Equals("OK"))
-                        {
-                            this.mensajeok("Registro eliminado");
-                        }
-                        else
-                        {
-                            this.mensajeerror("¡Ups!, Ha surgido un error");
-                            this.mensajeerror(rpta);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + ex.StackTrace);
-                }
-
-
-            }
 
         }
 
