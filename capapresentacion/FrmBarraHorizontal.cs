@@ -77,7 +77,13 @@ namespace capapresentacion
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
                     break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
 
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                    break;
             }
         }
 
@@ -107,6 +113,13 @@ namespace capapresentacion
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
                     FrmDetalleTiempos tiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
                     break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                    break;
 
             }
         }
@@ -127,6 +140,13 @@ namespace capapresentacion
                     break;
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
+                    break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                     break;
 
             }
@@ -153,6 +173,13 @@ namespace capapresentacion
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
                     break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                    break;
 
             }
         }
@@ -171,6 +198,13 @@ namespace capapresentacion
                     break;
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
+                    break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                     break;
 
             }
@@ -192,6 +226,13 @@ namespace capapresentacion
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
                     break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                    break;
 
             }
         }
@@ -211,6 +252,13 @@ namespace capapresentacion
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
                     break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                    break;
 
             }
         }
@@ -229,6 +277,13 @@ namespace capapresentacion
                     break;
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
+                    break;
+                case "capapresentacion.FrmPersonal, Text: Personal":
+                    FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+
+                    break;
+                case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                     break;
 
             }
