@@ -129,7 +129,7 @@ namespace capapresentacion
             this.dtFechaProyecto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFechaProyecto.Location = new System.Drawing.Point(368, 79);
             this.dtFechaProyecto.Name = "dtFechaProyecto";
-            this.dtFechaProyecto.Size = new System.Drawing.Size(101, 20);
+            this.dtFechaProyecto.Size = new System.Drawing.Size(223, 20);
             this.dtFechaProyecto.TabIndex = 18;
             // 
             // lEdicion
