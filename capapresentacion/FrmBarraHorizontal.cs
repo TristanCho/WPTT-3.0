@@ -37,9 +37,15 @@ namespace capapresentacion
                      visualizaBotonesCambiarFormulario(false);
                     visualizaBotonGuardar(true);
                     break;
+                case "capapresentacion.FrmTarea, Text: FrmTarea":
+                    FrmTarea tarea = (FrmTarea)FrmParent.frmparent.getFormularioActual();
+                    tarea.nuevaTarea();
+                    //tarea.
+                    break;
                 case "capapresentacion.FrmDetalleTarea, Text: Tarea":
-                    FrmDetalleTarea tarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
-                    break;                
+                    FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                    break;  
+            
                 case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
                     FrmDetalleTiempos tiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
                     break;
@@ -243,10 +249,11 @@ namespace capapresentacion
             btnCancelar.Visible = value;
             btnNuevo.Visible = !value;
             btnEditar.Visible = !value;
+            btnEliminarProyecto.Visible = !value;
             if (value)
             {
-                btnCancelar.Location = new Point(110, 2);
-                btnGuardar.Location = new Point(29, 2);
+                btnCancelar.Location = new Point(93, 5);
+                btnGuardar.Location = new Point(47, 5);
             }
         }
 

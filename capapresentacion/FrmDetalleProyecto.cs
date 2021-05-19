@@ -116,15 +116,18 @@ namespace capapresentacion
             //this.txtDescripcionProyecto.Text = string.Empty;
             this.dtFechaProyecto.Text = string.Empty;
         }
-        private void habilitar(bool valor)
+        public void habilitar(bool valor)
         {
+          
             this.txtIdProyecto.ReadOnly = true;
             this.txtcodigoProyecto.ReadOnly = true;
             this.txtTituloProyecto.ReadOnly = !valor;
+            this.txtObservacionesProyecto.Enabled = valor;
+            this.dtFechaProyecto.Enabled = valor;   
             //this.txtObservacionesProyecto.ReadOnly = !valor;
-            txtObservacionesProyecto.Enabled = valor;
+
             //this.txtDescripcionProyecto.ReadOnly = !valor;
-            this.dtFechaProyecto.Enabled = valor;            
+         
         }
 
         /* private void botonesVisible(bool estado)

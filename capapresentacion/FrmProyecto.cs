@@ -150,7 +150,25 @@ namespace capapresentacion
         {
             try
             {
-                detalleProyecto();
+                FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
+
+                DInformacionProyecto.dataListProyectos = dataListProyectos;
+                DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
+                DInformacionProyecto.detalleProyecto = detalleProyecto;
+
+                detalleProyecto.visualizaDatos(
+                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),
+                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),
+                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
+                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
+                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
+                     );
+
+
+                FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
+                detalleProyecto.setModo("LECTURA");
 
             }
             catch (Exception)
@@ -158,28 +176,7 @@ namespace capapresentacion
                 MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void detalleProyecto()
-        {
-            FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
 
-            DInformacionProyecto.dataListProyectos = dataListProyectos;
-            DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
-            DInformacionProyecto.detalleProyecto = detalleProyecto;
-
-            detalleProyecto.visualizaDatos(
-                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),
-                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),
-                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
-                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
-                 Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
-                 );
-
-
-            FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
-            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
-            StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
-            detalleProyecto.setModo("LECTURA");
-        }
         public void editarProyecto()
         {
 
@@ -187,10 +184,26 @@ namespace capapresentacion
             {
                 if (Convert.ToBoolean(row.Selected))
                 {
-                    detalleProyecto();
+                    FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
 
-                   
+                    DInformacionProyecto.dataListProyectos = dataListProyectos;
+                    DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
+                    DInformacionProyecto.detalleProyecto = detalleProyecto;
 
+                    detalleProyecto.visualizaDatos(
+                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),
+                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),
+                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
+                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
+                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
+                         );
+
+
+                    FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
+                    detalleProyecto.setModo("LECTURA");
+                    detalleProyecto.habilitar(true);
                     break;
 
                 }

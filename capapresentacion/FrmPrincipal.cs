@@ -22,6 +22,7 @@ namespace capapresentacion
         private Panel panelIzquierdo;
         private string nombreusuario;
         public Form formActivo;
+        private bool barraAbierta = false;
 
 
        // private DLogin login;
@@ -39,9 +40,10 @@ namespace capapresentacion
             FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Text = string.Empty;
             FrmParent.frmparent = this;
+            /*
             StaticBarraHorizontal.horizontalParent= new FrmBarraHorizontal();
             barraHorizontal(StaticBarraHorizontal.horizontalParent);
-            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);*/
         }
         public Form getFormularioActual()
         {
@@ -177,8 +179,19 @@ namespace capapresentacion
             //proyecto.frmparent = this;
            //--- FrmParent.frmparent = this;
             AbrirFormulario(proyecto);
+            activaBarraHorizontal();
             StaticBarraHorizontal.horizontalParent.botonesPrincipal();
 
+        }
+        private void activaBarraHorizontal()
+        {
+            if (!barraAbierta) {
+                Console.WriteLine("entrando a la barra");
+            StaticBarraHorizontal.horizontalParent = new FrmBarraHorizontal();
+            barraHorizontal(StaticBarraHorizontal.horizontalParent);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+            barraAbierta = true;
+            }
         }
 
         private void Tareas_Click(object sender, EventArgs e)
@@ -187,6 +200,8 @@ namespace capapresentacion
             FrmTarea tareas = new FrmTarea();
            //--- tareas.frmparent = this;
             AbrirFormulario(tareas);
+            activaBarraHorizontal();
+            StaticBarraHorizontal.horizontalParent.botonesPrincipal();
             //AbrirFormulario(new FrmTarea());
         }
 
@@ -197,6 +212,8 @@ namespace capapresentacion
             FrmPersonal personales = new FrmPersonal();
             //--- tareas.frmparent = this;
             AbrirFormulario(personales);
+            activaBarraHorizontal();
+            StaticBarraHorizontal.horizontalParent.botonesPrincipal();
             //AbrirFormulario(new FrmTarea());
         }
 
@@ -206,7 +223,8 @@ namespace capapresentacion
             FrmTiempos tiempos = new FrmTiempos();
            //--- tiempos.frmparent = this;
             AbrirFormulario(tiempos);
-
+            activaBarraHorizontal();
+            StaticBarraHorizontal.horizontalParent.botonesPrincipal();
         }
 
         private void panelTitulo_Paint(object sender, PaintEventArgs e)

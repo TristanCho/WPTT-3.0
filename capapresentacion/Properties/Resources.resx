@@ -118,31 +118,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="flechas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\flechas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Lupa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Lupa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DeleteButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\DeleteButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flechas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\flechas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\iconStop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="proximo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\proximo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="concepto-tiempo_24911-16705" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\concepto-tiempo_24911-16705.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Lupa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Lupa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="duplicar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\duplicar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\addNew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="proximo - copia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\proximo - copia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="disquete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disquete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Lupa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Lupa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="boton-de-avance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boton-de-avance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="reloj1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cerrar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="concepto-tiempo_24911-16705" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\concepto-tiempo_24911-16705.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="agregar-archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\agregar-archivo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\archivo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="proximo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\proximo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="contrato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\contrato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boton-de-avance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boton-de-avance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="botonprimero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\botonprimero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

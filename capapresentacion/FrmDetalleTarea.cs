@@ -80,6 +80,13 @@ namespace capapresentacion
             btnNuevo.Visible = !estado;
         }
 
+        public void crearTarea()
+        {
+            crearNuevo();
+            rellenarComboboxes();
+
+        }
+
         internal void setBotonEliminar(bool value)
         {
             btnEliminarProyecto.Visible = value;
