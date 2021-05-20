@@ -202,7 +202,7 @@ namespace capapresentacion
                     FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
                     StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
                     StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
-                    detalleProyecto.setModo("LECTURA");
+                    detalleProyecto.setModo("EDICIÓN");
                     detalleProyecto.habilitar(true);
                     break;
 

@@ -50,34 +50,38 @@ namespace capapresentacion
         {
             if (!this.txtIdTarea.Text.Equals(""))
             {
-                this.eseditar = true;
-                this.botones();
-                setModo("EDICION");
-                botonesVisible(true);
-                visualizaBotonesCambiarFormulario(false);
-                rellenarComboboxes();
+               // this.eseditar = true;
+               // this.botones();
+               // setModo("EDICION");
+              //  botonesVisible(true);
+             //   visualizaBotonesCambiarFormulario(false);
+            //    rellenarComboboxes();
             }
             else
             {
                 this.mensajeerror("selleccione el registro a modificar");
             }
         }
-
+        public void activarEdicion(bool value)
+        {
+            eseditar = value;
+            botones();
+        }
         public void visualizaBotonesCambiarFormulario(bool value)
         {
-            btnAtras.Visible = value;
-            btnPrimero.Visible = value;
-            btnSiguiente.Visible = value;
-            btnFinal.Visible = value;
+            //btnAtras.Visible = value;
+            //btnPrimero.Visible = value;
+           // btnSiguiente.Visible = value;
+           // btnFinal.Visible = value;
         }
 
         private void botonesVisible(bool estado)
         {
-            btnGuardar.Visible = estado;
-            btnCancelar.Visible = estado;
+            //btnGuardar.Visible = estado;
+           // btnCancelar.Visible = estado;
 
-            btnEditar.Visible = !estado;
-            btnNuevo.Visible = !estado;
+           // btnEditar.Visible = !estado;
+           // btnNuevo.Visible = !estado;
         }
 
         public void crearTarea()
@@ -135,13 +139,7 @@ namespace capapresentacion
             {
                 string rpta = "";
 
-                if (this.txtTituloTarea.Text == string.Empty)
-                {
-                    mensajeerror("Formulario incompleto");
-                    //this.iconoerror.SetError(this.txtTituloTarea, "Ingresar Título");
-                }
-                else
-                {
+                
                     if (esnuevo)
                     {
                         rpta = NTarea.insertartarea(
@@ -209,10 +207,10 @@ namespace capapresentacion
                     }
                     botonesVisible(false);
                     botones();
-                    this.limpiar();
-                    FrmTarea tarea = new FrmTarea();
-                    FrmParent.frmparent.lanzarNuevoElemento(tarea);
-                }
+                    //this.limpiar();
+                    //FrmTarea tarea = new FrmTarea();
+                   // FrmParent.frmparent.lanzarNuevoElemento(tarea);
+                
             }
 
             catch (Exception ex)
@@ -270,6 +268,8 @@ namespace capapresentacion
                             this.mensajeerror("¡Ups!, Ha surgido un error");
                             this.mensajeerror(rpta);
                         }
+
+                        this.Hide();
                     }
                 }
                 catch (Exception ex)
@@ -322,23 +322,29 @@ namespace capapresentacion
         {
             lEdicion.Text = "[MODO " + modo + "]";
         }
+
+        public void removerDelIndex()
+        {
+            DInformacionTarea.removerDelIndex();
+        }
+
         private void botones()
         {
             if (esnuevo || this.eseditar)
             {
                 habilitar(true);
-                btnNuevo.Enabled = false;
-                btnGuardar.Enabled = true;
-                btnEditar.Enabled = false;
-                btnCancelar.Enabled = true;
+              //  --btnNuevo.Enabled = false;
+              //  btnGuardar.Enabled = true;
+                //--btnEditar.Enabled = false;
+               // btnCancelar.Enabled = true;
             }
             else
             {
                 habilitar(false);
-                btnNuevo.Enabled = true;
-                btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnCancelar.Enabled = false;
+               // --btnNuevo.Enabled = true;
+                //btnGuardar.Enabled = false;
+              // -- btnEditar.Enabled = true;
+              //  btnCancelar.Enabled = false;
             }
         }
 
@@ -370,6 +376,11 @@ namespace capapresentacion
             lectura();
         }
 
+        public void cancelar()
+        {
+            lectura();
+        }
+
         public void lectura()
         {
             esnuevo = false;
@@ -377,7 +388,7 @@ namespace capapresentacion
             botones();
             botonesVisible(false);
             //limpiar();
-            this.Hide();
+            //this.Hide();
             setModo("LECTURA");
             //llamaVisualizaDatos();
         }
@@ -442,6 +453,8 @@ namespace capapresentacion
 
         }
 
+
+
         public DDetalleTareas getDetalleTareas(string codigo_tarea)
         {
            return NTarea.getDetalleTareas(codigo_tarea);
@@ -462,14 +475,11 @@ namespace capapresentacion
         {
 
 
-            
         }
         
 
         private void btnEliminarProyecto_Click(object sender, EventArgs e)
         {
-
-
         }
 
         private void btnFinal_Click(object sender, EventArgs e)
@@ -480,6 +490,31 @@ namespace capapresentacion
             
         }
 
+        public void siguiente()
+        {
+            DInformacionTarea.sumaIndex();
+            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
+
+        }
+        public void botonUltimo()
+        {
+            DInformacionTarea.finalIndex();
+            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index - 1].Cells["codigo_tarea"].Value)));
+
+        }
+
+        public void atras()
+        {
+            DInformacionTarea.restaIndex();
+            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
+
+        }
+        public void primero()
+        {
+            DInformacionTarea.primerIndex();
+            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
+
+        }
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
            
@@ -490,9 +525,6 @@ namespace capapresentacion
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            DInformacionTarea.restaIndex();
-
-            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
 
         }
 

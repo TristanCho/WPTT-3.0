@@ -153,7 +153,8 @@ namespace capapresentacion
 
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
                  detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
-
+                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
 
             }
             catch (Exception)
@@ -164,20 +165,37 @@ namespace capapresentacion
 
         public void editarTarea()
         {
-            foreach (DataGridViewRow row in dataListDetalleTareas.Rows)
+            foreach (DataGridViewRow row in dataListTareas.Rows)
             {
+                Console.WriteLine("foreach");
                 if (Convert.ToBoolean(row.Selected))
                 {
-                    FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
+                    try
+                    {
+                        FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
 
-                    DInformacionTarea.dataListTareas = dataListTareas;
-                    DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
-                    DInformacionTarea.detalleTarea = detalleTarea;
+                        DInformacionTarea.dataListTareas = dataListTareas;
+                        DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
+                        DInformacionTarea.detalleTarea = detalleTarea;
 
+                        FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
+                        detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
+                        StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                        StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
 
-                    FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
-                    detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
+                        // this.eseditar = true;
+                        //this.botones();
+                        detalleTarea.setModo("EDICION");
+                        // botonesVisible(true);
+                        //visualizaBotonesCambiarFormulario(false);
+                        detalleTarea.rellenarComboboxes();
+                        detalleTarea.activarEdicion(true);
 
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
 
                 }
@@ -197,8 +215,8 @@ namespace capapresentacion
         }
         private void mostrarDetalleTareaClicada(string codigo_tarea)
         {
-            this.dataListDetalleTareas.Columns[0].Visible = false;
-            dataListDetalleTareas.DataSource= NTarea.mostrarDetalleTiempos(codigo_tarea);
+            this.dataListDetalleTiempos.Columns[0].Visible = false;
+            dataListDetalleTiempos.DataSource= NTarea.mostrarDetalleTiempos(codigo_tarea);
        }
         private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
@@ -218,21 +236,22 @@ namespace capapresentacion
                     string rpta = "";
                     foreach (DataGridViewRow row in dataListTareas.Rows)
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        if (Convert.ToBoolean(row.Selected))
                         {
                             aux = 1;
                             rpta = NTarea.eliminarTarea(row.Cells[2].Value.ToString());
 
-                            if (rpta.Equals("OK"))
-                            {
-                                this.mensajeok("Registro eliminado");
-                            }
-                            else
-                            {
-                                this.mensajeerror("¡Ups!, No se ha podido eliminar la tarea");
-                                this.mensajeerror(rpta);
-                            }
+
                         }
+                    }
+                    if (rpta.Equals("OK"))
+                    {
+                        this.mensajeok("Registro eliminado");
+                    }
+                    else
+                    {
+                        this.mensajeerror("¡Ups!, No se ha podido eliminar la tarea");
+                        this.mensajeerror(rpta);
                     }
                     if (aux < 1)
                     {

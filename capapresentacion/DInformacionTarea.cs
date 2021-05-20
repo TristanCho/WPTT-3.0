@@ -28,6 +28,11 @@ namespace capapresentacion
 
         }
 
+        public static void removerDelIndex()
+        {
+            index = index - 1;
+        }
+
         public static void restaIndex()
         {
             if (!(0 > DInformacionTarea.index - 1))
@@ -49,7 +54,7 @@ namespace capapresentacion
 
         public static void primerIndex()
         {
-            index = 0; ;
+            index = 0; 
         }
     }
 

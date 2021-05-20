@@ -98,6 +98,9 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetalleTarea, Text: Tarea":
                             FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.crearNuevo();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
                             break;
 
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
@@ -116,15 +119,16 @@ namespace capapresentacion
                 case "Guardar":
                     switch (FrmParent.frmparent.getFormularioActual().ToString())
                     {
-
                         case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
                             FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                             proyect.guardarProyecto();
                             visualizaBotonGuardar(false);
+                            visualizaBotonesCambiarFormulario(true);
                             break;
                         case "capapresentacion.FrmDetalleTarea, Text: Tarea":
                             FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
                             detalleTarea.guardarTarea();
+                            detalleTarea.cancelar();
                             visualizaBotonGuardar(false);
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
@@ -159,9 +163,17 @@ namespace capapresentacion
                         case "capapresentacion.FrmTarea, Text: FrmTarea":
                             FrmTarea tarea = (FrmTarea)FrmParent.frmparent.getFormularioActual();
                             tarea.editarTarea();
+
                             visualizaBotonesCambiarFormulario(false);
                             visualizaBotonGuardar(true);
 
+                            break;
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.activarEdicion(true);
+                            detalleTarea.cancelar();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
                             FrmDetalleTiempos tiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
@@ -179,18 +191,20 @@ namespace capapresentacion
                 case "Cancelar":
                     switch (FrmParent.frmparent.getFormularioActual().ToString())
                     {
-
                         case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
                             FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                             visualizaBotonesCambiarFormulario(true);
                             visualizaBotonGuardar(false);
                             proyect.bloqueaProyecto();
+                            proyect.setModo("LECTURA");
                             break;
-                        case "capapresentacion.FrmTarea, Text: FrmTarea":
-
-                            break;
-                        case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
-
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            visualizaBotonesCambiarFormulario(true);
+                            visualizaBotonGuardar(false);
+                            detalleTarea.cancelar();
+                            //Console.WriteLine("estoy en editar");
+                            // tarea.bloqueaProyecto();
                             break;
                         case "capapresentacion.FrmPersonal, Text: Personal":
                             FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
@@ -221,6 +235,7 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetalleTarea, Text: Tarea":
                             FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            
                             detalleTarea.botonEliminarTarea();
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
@@ -244,8 +259,9 @@ namespace capapresentacion
                             FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                             proyect.botonPrimero();
                             break;
-                        case "capapresentacion.FrmTarea, Text: FrmTarea":
-
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.primero();
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
@@ -268,8 +284,9 @@ namespace capapresentacion
                             FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                             proyect.botonAtras();
                             break;
-                        case "capapresentacion.FrmTarea, Text: FrmTarea":
-
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.atras();
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
@@ -292,8 +309,9 @@ namespace capapresentacion
                             FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                             proyect.botonSiguiente();
                             break;
-                        case "capapresentacion.FrmTarea, Text: FrmTarea":
-
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.siguiente();
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 
@@ -316,8 +334,9 @@ namespace capapresentacion
                             FrmDetalleProyecto proyect = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                             proyect.botonUltimo();
                             break;
-                        case "capapresentacion.FrmTarea, Text: FrmTarea":
-
+                        case "capapresentacion.FrmDetalleTarea, Text: Tarea":
+                            FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
+                            detalleTarea.botonUltimo();
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
 

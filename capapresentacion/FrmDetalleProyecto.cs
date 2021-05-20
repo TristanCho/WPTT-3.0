@@ -436,45 +436,28 @@ namespace capapresentacion
             DInformacionProyecto.sumaIndex();
             llamaVisualizaDatos();
         }
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            DInformacionProyecto.sumaIndex();
-            llamaVisualizaDatos();
 
-        }
 
         public void botonAtras()
         {
             DInformacionProyecto.restaIndex();
             llamaVisualizaDatos();
         }
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            DInformacionProyecto.restaIndex();
-            llamaVisualizaDatos();
 
-        }
 
         public void botonUltimo()
         {
             DInformacionProyecto.finalIndex();
             llamaVisualizaDatos();
         }
-        private void btnFinal_Click(object sender, EventArgs e)
-        {
-           DInformacionProyecto.finalIndex();
-           llamaVisualizaDatos();
-        }
+
 
         public void botonPrimero()
         {
             DInformacionProyecto.primerIndex();
             llamaVisualizaDatos();
         }
-        private void btnPrimero_Click(object sender, EventArgs e)
-        {
 
-        }
     }
     
 }
