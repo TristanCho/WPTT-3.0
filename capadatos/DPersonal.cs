@@ -606,7 +606,6 @@ namespace capadatos
         public string[] mostrarPrioridad(DPersonal objeto)
         {
             string[] array = new string[] { };
-
             DataTable dtresultado = new DataTable("Personales");
             SqlConnection SqlCon = new SqlConnection();
             try
@@ -617,12 +616,10 @@ namespace capadatos
                 SqlCmd.Connection = SqlCon;
                 SqlCmd.CommandText = "spmostrar_combo_prioridad_tp";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                //es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
                 sqladap.Fill(dtresultado);
-
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
-
             }
             catch (Exception)
             {
@@ -631,9 +628,7 @@ namespace capadatos
             finally
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
             }
-
             return array;
         }
 

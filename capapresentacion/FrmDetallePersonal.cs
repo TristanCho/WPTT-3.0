@@ -112,6 +112,13 @@ namespace capapresentacion
             cbPrioridad.SelectedIndex = 0;
         }
 
+        private void mostrarProyectosCombobox()
+        {
+            cbProyecto.Items.AddRange(NPersonal.mostrarProyectos().ToArray());
+            cbProyecto.SelectedIndex = 0;
+        }
+
+
         private void habilitar(bool valor)
         {
             this.txtIdPersonal.ReadOnly = true;
@@ -345,11 +352,12 @@ namespace capapresentacion
 
         public void rellenarComboboxes()
         {
-            //mostrarProyectoCombobox();
+            mostrarPrioridadCombobox();
+            mostrarProyectosCombobox();
             //mostrarEstadoCombobox();
             //mostrarModuloCombobox();
             //mostrarAplicacionCombobox();
-            mostrarPrioridadCombobox();
+            
             //mostrarTecnicos();
         }
 

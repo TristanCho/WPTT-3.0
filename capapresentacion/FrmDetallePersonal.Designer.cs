@@ -221,7 +221,7 @@ namespace capapresentacion
             this.cbProyecto.FormattingEnabled = true;
             this.cbProyecto.Location = new System.Drawing.Point(369, 35);
             this.cbProyecto.Name = "cbProyecto";
-            this.cbProyecto.Size = new System.Drawing.Size(121, 21);
+            this.cbProyecto.Size = new System.Drawing.Size(196, 21);
             this.cbProyecto.TabIndex = 47;
             // 
             // cbTareaProyecto
@@ -414,7 +414,7 @@ namespace capapresentacion
             // 
             this.lblAplicacion.AutoSize = true;
             this.lblAplicacion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAplicacion.Location = new System.Drawing.Point(496, 37);
+            this.lblAplicacion.Location = new System.Drawing.Point(571, 37);
             this.lblAplicacion.Name = "lblAplicacion";
             this.lblAplicacion.Size = new System.Drawing.Size(90, 18);
             this.lblAplicacion.TabIndex = 70;

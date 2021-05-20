@@ -112,8 +112,10 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.crearNuevo();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
                             break;
-
                     }
                     break;
                 case "Guardar":
