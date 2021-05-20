@@ -615,7 +615,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_prioridadTP";
+                SqlCmd.CommandText = "spmostrar_combo_prioridad_tp";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado

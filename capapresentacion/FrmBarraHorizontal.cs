@@ -23,7 +23,6 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             //Console.WriteLine(FrmParent.frmparent.getFormularioActual().ToString());
-
             controlDeBotones("Nuevo");
         }
 
@@ -51,7 +50,6 @@ namespace capapresentacion
         private void btnPrimero_Click(object sender, EventArgs e)
         {
             controlDeBotones("Primero");
-
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -62,7 +60,6 @@ namespace capapresentacion
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             controlDeBotones("Siguiente");
-
         }
 
         private void btnFinal_Click(object sender, EventArgs e)
@@ -357,8 +354,6 @@ namespace capapresentacion
 
             }
         }
-
-
 
         public void visualizaBotonesCambiarFormulario(bool value)
         {

@@ -151,8 +151,6 @@ namespace capapresentacion
             //this.FormClosed += new FormClosedEventHandler(cerrarX);
         }
 
-
-
         internal void enviaDatos(String texto)
         {
             

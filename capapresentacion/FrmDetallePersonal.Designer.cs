@@ -346,7 +346,7 @@ namespace capapresentacion
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(113, 37);
+            this.label9.Location = new System.Drawing.Point(89, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 18);
             this.label9.TabIndex = 62;
@@ -474,9 +474,9 @@ namespace capapresentacion
             // cbPrioridad
             // 
             this.cbPrioridad.FormattingEnabled = true;
-            this.cbPrioridad.Location = new System.Drawing.Point(196, 34);
+            this.cbPrioridad.Location = new System.Drawing.Point(172, 34);
             this.cbPrioridad.Name = "cbPrioridad";
-            this.cbPrioridad.Size = new System.Drawing.Size(77, 21);
+            this.cbPrioridad.Size = new System.Drawing.Size(111, 21);
             this.cbPrioridad.TabIndex = 76;
             // 
             // FrmDetallePersonal
