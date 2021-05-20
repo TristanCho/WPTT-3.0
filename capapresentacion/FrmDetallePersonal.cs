@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using capadatos;
 using capanegocio;
@@ -103,6 +104,12 @@ namespace capapresentacion
             this.txtTareaDestino.Text = "";
             this.txtDescripcion.Text = string.Empty;
             this.txtObservacionesTiempos.Text = string.Empty;            
+        }
+
+        private void mostrarPrioridadCombobox()
+        {
+            cbPrioridad.Items.AddRange(NPersonal.mostrarPrioridad().ToArray());
+            cbPrioridad.SelectedIndex = 0;
         }
 
         private void habilitar(bool valor)
@@ -331,6 +338,47 @@ namespace capapresentacion
             this.txtTareaDestino.Text = idTareaDestino;
             this.txtDescripcion.Text = descripcion;
             this.txtObservacionesTiempos.Text = obsTiempos;   
-        }    
+        }
+
+
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+
+        public void rellenarComboboxes()
+        {
+            //mostrarProyectoCombobox();
+            //mostrarEstadoCombobox();
+            //mostrarModuloCombobox();
+            //mostrarAplicacionCombobox();
+            mostrarPrioridadCombobox();
+            //mostrarTecnicos();
+        }
+
+        public void visualizaBotonesCambiarFormulario(bool value)
+        {
+            //btnAtras.Visible = value;
+            //btnPrimero.Visible = value;
+            // btnSiguiente.Visible = value;
+            // btnFinal.Visible = value;
+        }
+
+        public void crearPersonal()
+        {
+            crearNuevo();
+            rellenarComboboxes();
+
+        }
+
+        public void crearNuevo()
+        {
+            esnuevo = true;
+            botonesVisible(true);
+            setModo("CREACIÓN");
+            botones();
+            limpiar();
+        }
+
+
+
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
     }
 }

@@ -202,5 +202,25 @@ namespace capapresentacion
                 MessageBox.Show(ex.Message);
             }
         }
-    }    
+
+
+
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+        
+
+        public void nuevaPersonal()
+        {
+
+            FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
+            FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
+            detallePersonal.visualizaBotonesCambiarFormulario(false);
+            detallePersonal.crearPersonal();
+
+        }
+
+
+
+
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+    }
 }
