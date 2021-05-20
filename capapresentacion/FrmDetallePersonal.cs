@@ -126,9 +126,10 @@ namespace capapresentacion
             this.cbTareaProyecto.Enabled = valor;
             this.dtcreacion.Enabled = !valor;            
             this.dtCierre.Enabled = valor;
-            this.txtTareaGrupo.ReadOnly = true;
-            this.txtTareaOrigen.ReadOnly = true;
-            this.txtTareaDestino.ReadOnly = true;
+            //this.txtTareaGrupo.ReadOnly = true;
+            //this.txtTareaOrigen.ReadOnly = true;
+           // this.txtTareaDestino.ReadOnly = true;
+           //TODO Revisar el bloqueo de estos campos
             this.txtDescripcion.ReadOnly = true;
             this.txtObservacionesTiempos.ReadOnly = true;
         }

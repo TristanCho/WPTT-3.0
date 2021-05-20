@@ -309,8 +309,8 @@ namespace capapresentacion
             // 
             // dtCierre
             // 
-            this.dtCierre.CustomFormat = "";
-            this.dtCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtCierre.CustomFormat = " ";
+            this.dtCierre.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtCierre.Location = new System.Drawing.Point(263, 136);
             this.dtCierre.Name = "dtCierre";
             this.dtCierre.Size = new System.Drawing.Size(98, 20);
