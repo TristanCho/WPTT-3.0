@@ -93,10 +93,18 @@ namespace capanegocio
             return objeto.anteriorInforme(objeto);
         }
 
+
+       
         public static string[] mostrarPrioridad()
         {
             DPersonal objeto = new DPersonal();
-            return objeto.mostrarPrioridad(objeto);
+            return objeto.mostrarPrioridadCombobox(objeto);
+        }
+
+        public static string[] mostrarTareaProyecto()
+        {
+            DPersonal objeto = new DPersonal();
+            return objeto.mostrarTareaProyectoCombobox(objeto);
         }
 
         public static string[] mostrarProyectos()
@@ -105,7 +113,21 @@ namespace capanegocio
             return objeto.mostrarProyectoCombobox(objeto);
         }
 
-        
+        public static string[] mostrarEmpleados()
+        {
+            DPersonal objeto = new DPersonal();
+            return objeto.mostrarEmpleadosCombobox(objeto);
+        }
+
+        public static string[] mostrarEstados()
+        {
+            DPersonal objeto = new DPersonal();
+            return objeto.mostrarEstadosCombobox(objeto);
+        }
+
+        //mostrarEstados
+
+
 
     }
 }

@@ -603,10 +603,10 @@ namespace capadatos
             return array;
         }
 
-        public string[] mostrarPrioridad(DPersonal objeto)
+        public string[] mostrarEstadosCombobox(DPersonal objeto)
         {
             string[] array = new string[] { };
-            DataTable dtresultado = new DataTable("Personales");
+            DataTable dtresultado = new DataTable("Estados");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -614,7 +614,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_combo_prioridad_tp";
+                SqlCmd.CommandText = "spmostrar_combo_estados";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 //es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
@@ -632,5 +632,105 @@ namespace capadatos
             return array;
         }
 
+        public string[] mostrarEmpleadosCombobox(DPersonal objeto)
+        {
+            string[] array = new string[] { };
+            DataTable dtresultado = new DataTable("Empleados");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_empleados";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                //es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return array;
+        }
+
+       
+        public string[] mostrarPrioridadCombobox(DPersonal objeto)
+        {
+            string[] array = new string[] { };
+            DataTable dtresultado = new DataTable("Prioridad");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_prioridadTP";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                //es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return array;
+        }
+
+        //mostrarTareaProyectoCombobox
+        public string[] mostrarTareaProyectoCombobox(DPersonal objeto)
+        {
+            string[] array = new string[] { };
+            DataTable dtresultado = new DataTable("TareaProyecto");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_TareaProyectoPNULL";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                //es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+
+
+                //TODO VIERNES 21 DE MAYO 1331HRS
+                ////id_empleado
+                //SqlParameter ParIdTareaProyecto = new SqlParameter();
+                //ParIdTareaProyecto.ParameterName = "@id_empleado";
+                //ParIdTareaProyecto.SqlDbType = SqlDbType.NVarChar;
+                //ParIdTareaProyecto.Size = 255;
+                //ParIdTareaProyecto.Value = objeto.IdTareaProyecto;
+                //SqlCmd.Parameters.Add(ParIdTareaProyecto);
+
+                sqladap.Fill(dtresultado);
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return array;
+        }
     }
 }

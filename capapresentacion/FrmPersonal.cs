@@ -205,17 +205,14 @@ namespace capapresentacion
 
 
 
-        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
-        
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////     
 
         public void nuevaPersonal()
         {
-
             FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
             FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
             detallePersonal.visualizaBotonesCambiarFormulario(false);
             detallePersonal.crearPersonal();
-
         }
 
 

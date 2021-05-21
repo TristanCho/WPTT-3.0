@@ -106,6 +106,17 @@ namespace capapresentacion
             this.txtObservacionesTiempos.Text = string.Empty;            
         }
 
+
+
+        //COMBOX
+        //mostrarTareaProyectoCombobox
+
+        private void mostrarTareaProyectoCombobox()
+        {
+            cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
+            cbTareaProyecto.SelectedIndex = 0;
+        }
+
         private void mostrarPrioridadCombobox()
         {
             cbPrioridad.Items.AddRange(NPersonal.mostrarPrioridad().ToArray());
@@ -117,6 +128,21 @@ namespace capapresentacion
             cbProyecto.Items.AddRange(NPersonal.mostrarProyectos().ToArray());
             cbProyecto.SelectedIndex = 0;
         }
+
+        private void mostrarEmpleadosCombobox()
+        {
+            cbEmpleadoAsign.Items.AddRange(NPersonal.mostrarEmpleados().ToArray());
+            cbEmpleadoReAsign.Items.AddRange(NPersonal.mostrarEmpleados().ToArray());
+            cbEmpleadoAsign.SelectedIndex = 0;
+            cbEmpleadoReAsign.SelectedIndex = 0;
+        }
+
+        private void mostrarEstadosCombobox()
+        {
+            cbEstado.Items.AddRange(NPersonal.mostrarEstados().ToArray());
+            cbEstado.SelectedIndex = 0;
+        }
+
 
 
         private void habilitar(bool valor)
@@ -353,12 +379,14 @@ namespace capapresentacion
 
         public void rellenarComboboxes()
         {
-            mostrarPrioridadCombobox();
+            mostrarEstadosCombobox();
             mostrarProyectosCombobox();
-            //mostrarEstadoCombobox();
+            mostrarEmpleadosCombobox();
+            mostrarPrioridadCombobox();
+            mostrarTareaProyectoCombobox();
             //mostrarModuloCombobox();
             //mostrarAplicacionCombobox();
-            
+
             //mostrarTecnicos();
         }
 
@@ -374,7 +402,6 @@ namespace capapresentacion
         {
             crearNuevo();
             rellenarComboboxes();
-
         }
 
         public void crearNuevo()
