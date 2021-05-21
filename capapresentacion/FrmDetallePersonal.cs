@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using capadatos;
 using capanegocio;
@@ -105,6 +106,45 @@ namespace capapresentacion
             this.txtObservacionesTiempos.Text = string.Empty;            
         }
 
+
+
+        //COMBOX
+        //mostrarTareaProyectoCombobox
+
+        private void mostrarTareaProyectoCombobox()
+        {
+            cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
+            cbTareaProyecto.SelectedIndex = 0;
+        }
+
+        private void mostrarPrioridadCombobox()
+        {
+            cbPrioridad.Items.AddRange(NPersonal.mostrarPrioridad().ToArray());
+            cbPrioridad.SelectedIndex = 0;
+        }
+
+        private void mostrarProyectosCombobox()
+        {
+            cbProyecto.Items.AddRange(NPersonal.mostrarProyectos().ToArray());
+            cbProyecto.SelectedIndex = 0;
+        }
+
+        private void mostrarEmpleadosCombobox()
+        {
+            cbEmpleadoAsign.Items.AddRange(NPersonal.mostrarEmpleados().ToArray());
+            cbEmpleadoReAsign.Items.AddRange(NPersonal.mostrarEmpleados().ToArray());
+            cbEmpleadoAsign.SelectedIndex = 0;
+            cbEmpleadoReAsign.SelectedIndex = 0;
+        }
+
+        private void mostrarEstadosCombobox()
+        {
+            cbEstado.Items.AddRange(NPersonal.mostrarEstados().ToArray());
+            cbEstado.SelectedIndex = 0;
+        }
+
+
+
         private void habilitar(bool valor)
         {
             this.txtIdPersonal.ReadOnly = true;
@@ -112,9 +152,10 @@ namespace capapresentacion
             this.cbTareaProyecto.Enabled = valor;
             this.dtcreacion.Enabled = !valor;            
             this.dtCierre.Enabled = valor;
-            this.txtTareaGrupo.ReadOnly = true;
-            this.txtTareaOrigen.ReadOnly = true;
-            this.txtTareaDestino.ReadOnly = true;
+            //this.txtTareaGrupo.ReadOnly = true;
+            //this.txtTareaOrigen.ReadOnly = true;
+           // this.txtTareaDestino.ReadOnly = true;
+           //TODO Revisar el bloqueo de estos campos
             this.txtDescripcion.ReadOnly = true;
             this.txtObservacionesTiempos.ReadOnly = true;
         }
@@ -331,6 +372,49 @@ namespace capapresentacion
             this.txtTareaDestino.Text = idTareaDestino;
             this.txtDescripcion.Text = descripcion;
             this.txtObservacionesTiempos.Text = obsTiempos;   
-        }    
+        }
+
+
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+
+        public void rellenarComboboxes()
+        {
+            mostrarEstadosCombobox();
+            mostrarProyectosCombobox();
+            mostrarEmpleadosCombobox();
+            mostrarPrioridadCombobox();
+            mostrarTareaProyectoCombobox();
+            //mostrarModuloCombobox();
+            //mostrarAplicacionCombobox();
+
+            //mostrarTecnicos();
+        }
+
+        public void visualizaBotonesCambiarFormulario(bool value)
+        {
+            //btnAtras.Visible = value;
+            //btnPrimero.Visible = value;
+            // btnSiguiente.Visible = value;
+            // btnFinal.Visible = value;
+        }
+
+        public void crearPersonal()
+        {
+            crearNuevo();
+            rellenarComboboxes();
+        }
+
+        public void crearNuevo()
+        {
+            esnuevo = true;
+            botonesVisible(true);
+            setModo("CREACIÓN");
+            botones();
+            limpiar();
+        }
+
+
+
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
     }
 }

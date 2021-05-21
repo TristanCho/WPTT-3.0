@@ -23,7 +23,6 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             //Console.WriteLine(FrmParent.frmparent.getFormularioActual().ToString());
-
             controlDeBotones("Nuevo");
         }
 
@@ -51,7 +50,6 @@ namespace capapresentacion
         private void btnPrimero_Click(object sender, EventArgs e)
         {
             controlDeBotones("Primero");
-
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -62,7 +60,6 @@ namespace capapresentacion
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             controlDeBotones("Siguiente");
-
         }
 
         private void btnFinal_Click(object sender, EventArgs e)
@@ -115,12 +112,17 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmPersonal, Text: Personal":
                             FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+                            personal.nuevaPersonal();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
 
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.crearNuevo();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
                             break;
-
                     }
                     break;
                 case "Guardar":
@@ -388,8 +390,6 @@ namespace capapresentacion
 
             }
         }
-
-
 
         public void visualizaBotonesCambiarFormulario(bool value)
         {

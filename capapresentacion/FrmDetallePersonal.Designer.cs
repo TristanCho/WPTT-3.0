@@ -74,7 +74,7 @@ namespace capapresentacion
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(289, 37);
+            this.label3.Location = new System.Drawing.Point(210, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 18);
             this.label3.TabIndex = 46;
@@ -219,9 +219,9 @@ namespace capapresentacion
             // cbProyecto
             // 
             this.cbProyecto.FormattingEnabled = true;
-            this.cbProyecto.Location = new System.Drawing.Point(369, 35);
+            this.cbProyecto.Location = new System.Drawing.Point(294, 35);
             this.cbProyecto.Name = "cbProyecto";
-            this.cbProyecto.Size = new System.Drawing.Size(121, 21);
+            this.cbProyecto.Size = new System.Drawing.Size(276, 21);
             this.cbProyecto.TabIndex = 47;
             // 
             // cbTareaProyecto
@@ -309,8 +309,8 @@ namespace capapresentacion
             // 
             // dtCierre
             // 
-            this.dtCierre.CustomFormat = "";
-            this.dtCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtCierre.CustomFormat = " ";
+            this.dtCierre.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtCierre.Location = new System.Drawing.Point(263, 136);
             this.dtCierre.Name = "dtCierre";
             this.dtCierre.Size = new System.Drawing.Size(98, 20);
@@ -346,7 +346,7 @@ namespace capapresentacion
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(113, 37);
+            this.label9.Location = new System.Drawing.Point(89, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(87, 18);
             this.label9.TabIndex = 62;
@@ -377,7 +377,7 @@ namespace capapresentacion
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Location = new System.Drawing.Point(565, 98);
             this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cbEstado.Size = new System.Drawing.Size(100, 21);
             this.cbEstado.TabIndex = 67;
             // 
             // label11
@@ -414,11 +414,11 @@ namespace capapresentacion
             // 
             this.lblAplicacion.AutoSize = true;
             this.lblAplicacion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAplicacion.Location = new System.Drawing.Point(496, 37);
+            this.lblAplicacion.Location = new System.Drawing.Point(574, 37);
             this.lblAplicacion.Name = "lblAplicacion";
-            this.lblAplicacion.Size = new System.Drawing.Size(90, 18);
+            this.lblAplicacion.Size = new System.Drawing.Size(44, 18);
             this.lblAplicacion.TabIndex = 70;
-            this.lblAplicacion.Text = "Aplicación";
+            this.lblAplicacion.Text = "      ";
             this.lblAplicacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblEstadoTituloTarea
@@ -474,9 +474,9 @@ namespace capapresentacion
             // cbPrioridad
             // 
             this.cbPrioridad.FormattingEnabled = true;
-            this.cbPrioridad.Location = new System.Drawing.Point(196, 34);
+            this.cbPrioridad.Location = new System.Drawing.Point(172, 34);
             this.cbPrioridad.Name = "cbPrioridad";
-            this.cbPrioridad.Size = new System.Drawing.Size(77, 21);
+            this.cbPrioridad.Size = new System.Drawing.Size(35, 21);
             this.cbPrioridad.TabIndex = 76;
             // 
             // FrmDetallePersonal
