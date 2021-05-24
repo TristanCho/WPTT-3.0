@@ -101,6 +101,12 @@ namespace capanegocio
             return objeto.mostrarPrioridadCombobox(objeto);
         }
 
+        public static string[] mostrarTareaProyectoNull()
+        {
+            DPersonal objeto = new DPersonal();          
+            return objeto.mostrarTareaProyectoNullCombobox(objeto);
+        }
+
         public static string[] mostrarTareaProyecto()
         {
             DPersonal objeto = new DPersonal();

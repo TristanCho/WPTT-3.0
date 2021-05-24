@@ -108,14 +108,7 @@ namespace capapresentacion
 
 
 
-        //COMBOX
-        //mostrarTareaProyectoCombobox
-
-        private void mostrarTareaProyectoCombobox()
-        {
-            cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
-            cbTareaProyecto.SelectedIndex = 0;
-        }
+     
 
         private void mostrarPrioridadCombobox()
         {
@@ -128,6 +121,25 @@ namespace capapresentacion
             cbProyecto.Items.AddRange(NPersonal.mostrarProyectos().ToArray());
             cbProyecto.SelectedIndex = 0;
         }
+
+        private void mostrarTareaProyectoCombobox()
+        {
+
+            string s1 = cbProyecto.Text;
+            if (s1 == "Sin asignar")
+            {
+                MessageBox.Show("Es igual a Sin asignar");
+                cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyectoNull().ToArray());
+                cbTareaProyecto.SelectedIndex = 0;
+            }
+            else
+            {
+                cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
+                cbTareaProyecto.SelectedIndex = 0;
+            }
+
+        }
+       
 
         private void mostrarEmpleadosCombobox()
         {

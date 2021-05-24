@@ -660,7 +660,6 @@ namespace capadatos
             }
             return array;
         }
-
        
         public string[] mostrarPrioridadCombobox(DPersonal objeto)
         {
@@ -690,9 +689,8 @@ namespace capadatos
             }
             return array;
         }
-
         //mostrarTareaProyectoCombobox
-        public string[] mostrarTareaProyectoCombobox(DPersonal objeto)
+        public string[] mostrarTareaProyectoNullCombobox(DPersonal objeto)
         {
             string[] array = new string[] { };
             DataTable dtresultado = new DataTable("TareaProyecto");
@@ -732,5 +730,52 @@ namespace capadatos
             }
             return array;
         }
+
+        public string[] mostrarTareaProyectoCombobox(DPersonal objeto)
+        {
+            string[] array = new string[] { };
+            DataTable dtresultado = new DataTable("TareaProyecto");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_TareaProyecto";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                //es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+
+                ////id_empleado
+                //SqlParameter ParIdTareaProyecto = new SqlParameter();
+                //ParIdTareaProyecto.ParameterName = "@id_empleado";
+                //ParIdTareaProyecto.SqlDbType = SqlDbType.NVarChar;
+                //ParIdTareaProyecto.Size = 255;
+                //ParIdTareaProyecto.Value = objeto.IdTareaProyecto;
+                //SqlCmd.Parameters.Add(ParIdTareaProyecto);
+
+                //id_proyecto
+                SqlParameter ParIdProyecto = new SqlParameter();
+                ParIdProyecto.ParameterName = "@idProyecto";
+                ParIdProyecto.SqlDbType = SqlDbType.Int;
+                ParIdProyecto.Direction = ParameterDirection.Output;
+                ParIdProyecto.Value = objeto.IdProyecto;
+                SqlCmd.Parameters.Add(ParIdProyecto);
+
+                sqladap.Fill(dtresultado);
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception)
+            {
+                dtresultado = null;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return array;
+        }
+
     }
 }
