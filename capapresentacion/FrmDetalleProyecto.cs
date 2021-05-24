@@ -80,8 +80,9 @@ namespace capapresentacion
                         this.mensajeerror(rpta);
                     }
 
-                   // botonesVisible(false);
-                   // botones();
+                    FrmParent.frmparent.AbrirFormulario(new FrmProyecto());
+                    // botonesVisible(false);
+                    // botones();
                     /*this.Hide();
                     FrmProyecto proyecto = new FrmProyecto();
                     FrmParent.frmparent.lanzarNuevoElemento(proyecto);*/
@@ -294,24 +295,7 @@ namespace capapresentacion
                 this.mensajeerror("seleccione el registro a modificar");
             }
         }
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (!this.txtIdProyecto.Text.Equals(""))
-            {
-                this.eseditar = true;
-              //  this.botones();
-                setModo("EDICIÓN");
-               // txtObservacionesProyecto.Enabled = true;
-                //txtDescripcionProyecto.Enabled = true;
-                //this.txtDescripcionProyecto.Visible = true;
-             //   botonesVisible(true);
-                visualizaBotonesCambiarFormulario(false);
-            }
-            else
-            {
-                this.mensajeerror("seleccione el registro a modificar");
-            }
-        }
+
         public void visualizaBotonesCambiarFormulario(bool value)
         {
           //  btnAtras.Visible = value;
@@ -458,6 +442,10 @@ namespace capapresentacion
             llamaVisualizaDatos();
         }
 
+        public void volver()
+        {
+            FrmParent.frmparent.AbrirFormulario(new FrmProyecto());
+        }
     }
     
 }

@@ -93,7 +93,7 @@ namespace capapresentacion
 
         internal void setBotonEliminar(bool value)
         {
-            btnEliminarProyecto.Visible = value;
+           //dtFDeteccion btnEliminarProyecto.Visible = value;
         }
 
         public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, 
@@ -207,9 +207,10 @@ namespace capapresentacion
                     }
                     botonesVisible(false);
                     botones();
+
                     //this.limpiar();
-                    //FrmTarea tarea = new FrmTarea();
-                   // FrmParent.frmparent.lanzarNuevoElemento(tarea);
+                    FrmTarea tarea = new FrmTarea();
+                   FrmParent.frmparent.lanzarNuevoElemento(tarea);
                 
             }
 
@@ -269,7 +270,8 @@ namespace capapresentacion
                             this.mensajeerror(rpta);
                         }
 
-                        this.Hide();
+                        this.Close();
+                        FrmParent.frmparent.lanzarNuevoElemento(new FrmTarea());
                     }
                 }
                 catch (Exception ex)
@@ -317,6 +319,7 @@ namespace capapresentacion
             setModo("CREACIÓN");
             botones();
             limpiar();
+            rellenarComboboxes();
         }
         public void setModo(String modo)
         {
@@ -445,9 +448,12 @@ namespace capapresentacion
             comboboxTVerificacion.Items.Add(tarea.TVerificacion);
             comboboxTVerificacion.SelectedIndex = 0;
 
-            dtFDeteccion.Text = tarea.FDeteccion;
-            dtFSolucion.Text = tarea.FSolucion;
-            dtFVerificacion.Text = tarea.FVerificacion;
+            //dtFDeteccion.Value = Convert.ToDateTime(tarea.FDeteccion);
+            dtFDeteccion.Value = DateTime.Today.AddDays(1); 
+            //dtFDeteccion.Text  = tarea.FSolucion; 
+            Console.WriteLine(tarea.FDeteccion+ " FECHA DE DETECCION");
+            dtFSolucion.Value = Convert.ToDateTime(tarea.FSolucion);
+            dtFVerificacion.Value = Convert.ToDateTime(tarea.FVerificacion);
 
 
 
@@ -535,6 +541,11 @@ namespace capapresentacion
             
             mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
 
+        }
+
+        public void volver()
+        {
+            FrmParent.frmparent.AbrirFormulario(new FrmTarea());
         }
 
         public static implicit operator FrmDetalleTarea(FrmDetallePersonal v)

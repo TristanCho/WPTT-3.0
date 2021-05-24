@@ -43,7 +43,6 @@ namespace capapresentacion
             this.comboboxProyecto = new System.Windows.Forms.ComboBox();
             this.comboboxEstado = new System.Windows.Forms.ComboBox();
             this.lEdicion = new System.Windows.Forms.Label();
-            this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.comboboxSolucion = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.comboboxTVerificacion = new System.Windows.Forms.ComboBox();
@@ -221,22 +220,6 @@ namespace capapresentacion
             this.lEdicion.Size = new System.Drawing.Size(101, 14);
             this.lEdicion.TabIndex = 53;
             this.lEdicion.Text = "[MODO LECTURA]";
-            // 
-            // btnEliminarProyecto
-            // 
-            this.btnEliminarProyecto.BackColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarProyecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
-            this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(120, 165);
-            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarProyecto.Name = "btnEliminarProyecto";
-            this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 28);
-            this.btnEliminarProyecto.TabIndex = 54;
-            this.btnEliminarProyecto.UseVisualStyleBackColor = false;
-            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
             // 
             // comboboxSolucion
             // 
@@ -556,7 +539,6 @@ namespace capapresentacion
             this.dtFDeteccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dtFDeteccion.CustomFormat = " ";
             this.dtFDeteccion.Enabled = false;
-            this.dtFDeteccion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFDeteccion.Location = new System.Drawing.Point(144, 417);
             this.dtFDeteccion.Name = "dtFDeteccion";
             this.dtFDeteccion.Size = new System.Drawing.Size(112, 20);
@@ -568,7 +550,6 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFSolucion.CustomFormat = " ";
             this.dtFSolucion.Enabled = false;
-            this.dtFSolucion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFSolucion.Location = new System.Drawing.Point(376, 417);
             this.dtFSolucion.Name = "dtFSolucion";
             this.dtFSolucion.Size = new System.Drawing.Size(112, 20);
@@ -580,7 +561,6 @@ namespace capapresentacion
             this.dtFVerificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dtFVerificacion.CustomFormat = " ";
             this.dtFVerificacion.Enabled = false;
-            this.dtFVerificacion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFVerificacion.Location = new System.Drawing.Point(639, 417);
             this.dtFVerificacion.Name = "dtFVerificacion";
             this.dtFVerificacion.Size = new System.Drawing.Size(112, 20);
@@ -622,7 +602,6 @@ namespace capapresentacion
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboboxAplicacion);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnEliminarProyecto);
             this.Controls.Add(this.lEdicion);
             this.Controls.Add(this.comboboxEstado);
             this.Controls.Add(this.comboboxProyecto);
@@ -659,7 +638,6 @@ namespace capapresentacion
         private System.Windows.Forms.ComboBox comboboxProyecto;
         private System.Windows.Forms.ComboBox comboboxEstado;
         private System.Windows.Forms.Label lEdicion;
-        private System.Windows.Forms.Button btnEliminarProyecto;
         private System.Windows.Forms.ComboBox comboboxSolucion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboboxTVerificacion;

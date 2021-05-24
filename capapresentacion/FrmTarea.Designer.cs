@@ -35,16 +35,12 @@ namespace capapresentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
             this.dataListTareas = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtBuscarTarea = new System.Windows.Forms.TextBox();
-            this.cbEliminar = new System.Windows.Forms.CheckBox();
             this.cboBuscarTareas = new System.Windows.Forms.ComboBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.btnEliminarTarea = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataListDetalleTiempos = new System.Windows.Forms.DataGridView();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -53,15 +49,6 @@ namespace capapresentacion
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListDetalleTiempos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label_añadir
-            // 
-            this.label_añadir.AutoSize = true;
-            this.label_añadir.Location = new System.Drawing.Point(123, 42);
-            this.label_añadir.Name = "label_añadir";
-            this.label_añadir.Size = new System.Drawing.Size(37, 13);
-            this.label_añadir.TabIndex = 21;
-            this.label_añadir.Text = "Añadir";
             // 
             // panelRecuadro
             // 
@@ -145,17 +132,6 @@ namespace capapresentacion
             this.txtBuscarTarea.TabIndex = 14;
             this.txtBuscarTarea.TextChanged += new System.EventHandler(this.txtBuscarTarea_TextChanged);
             // 
-            // cbEliminar
-            // 
-            this.cbEliminar.AutoSize = true;
-            this.cbEliminar.Location = new System.Drawing.Point(12, 42);
-            this.cbEliminar.Name = "cbEliminar";
-            this.cbEliminar.Size = new System.Drawing.Size(62, 17);
-            this.cbEliminar.TabIndex = 22;
-            this.cbEliminar.Text = "Eliminar";
-            this.cbEliminar.UseVisualStyleBackColor = true;
-            this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
-            // 
             // cboBuscarTareas
             // 
             this.cboBuscarTareas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -182,37 +158,6 @@ namespace capapresentacion
             this.lblTotal.Size = new System.Drawing.Size(98, 13);
             this.lblTotal.TabIndex = 24;
             this.lblTotal.Text = "Número de Tareas:";
-            // 
-            // btnEliminarTarea
-            // 
-            this.btnEliminarTarea.BackColor = System.Drawing.Color.White;
-            this.btnEliminarTarea.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarTarea.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarTarea.FlatAppearance.BorderSize = 0;
-            this.btnEliminarTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarTarea.Location = new System.Drawing.Point(77, 34);
-            this.btnEliminarTarea.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarTarea.Name = "btnEliminarTarea";
-            this.btnEliminarTarea.Size = new System.Drawing.Size(32, 28);
-            this.btnEliminarTarea.TabIndex = 23;
-            this.btnEliminarTarea.UseVisualStyleBackColor = false;
-            this.btnEliminarTarea.Click += new System.EventHandler(this.btnEliminarTarea_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackgroundImage = global::capapresentacion.Properties.Resources.addNew;
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(163, 34);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(26, 28);
-            this.btnNuevo.TabIndex = 19;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // panel1
             // 
@@ -291,11 +236,7 @@ namespace capapresentacion
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.btnEliminarTarea);
-            this.Controls.Add(this.cbEliminar);
-            this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
-            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtBuscarTarea);
             this.Controls.Add(this.cboBuscarTareas);
             this.Name = "FrmTarea";
@@ -311,15 +252,10 @@ namespace capapresentacion
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label_añadir;
         private System.Windows.Forms.Panel panelRecuadro;
         private System.Windows.Forms.DataGridView dataListTareas;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
-        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtBuscarTarea;
-        private System.Windows.Forms.Button btnEliminarTarea;
-        private System.Windows.Forms.CheckBox cbEliminar;
         private System.Windows.Forms.ComboBox cboBuscarTareas;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Panel panel1;

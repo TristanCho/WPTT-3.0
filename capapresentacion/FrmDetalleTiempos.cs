@@ -127,12 +127,14 @@ namespace capapresentacion
             frmPrincipal.Show();
         }
 
+
+
         public void setModo(String modo)
         {
             lEdicion.Text = "[MODO " + modo + "]";
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        public void nuevoClicado()
         {
             esnuevo = true;
             txtObservaciones.Enabled = true;
@@ -144,6 +146,11 @@ namespace capapresentacion
             botones();
             limpiar();
             botonNuevoClicado();
+
+        }
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+
         }
         private string getTareaPersonal()
         {
@@ -161,7 +168,7 @@ namespace capapresentacion
             
             try
             {
-                string rpta = "";
+
                 /* if (this.comboboxTarea.Text==string.Empty)
                  {
                      mensajeerror("Formulario incompleto");
@@ -169,7 +176,8 @@ namespace capapresentacion
                  }
                  else
                  {*/
-                    if (esnuevo)
+                string rpta = "";
+                if (esnuevo)
                     {
                         //Console.WriteLine(comboboxTareaPersonal.SelectedItem.ToString()+"console");
                         rpta = NTiempo.insertartiempo(
@@ -215,6 +223,46 @@ namespace capapresentacion
             {
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
+        }
+
+        public void guardar()
+        {
+            string rpta = "";
+            if (esnuevo)
+            {
+                //Console.WriteLine(comboboxTareaPersonal.SelectedItem.ToString()+"console");
+                rpta = NTiempo.insertartiempo(
+               dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
+               txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
+               getTareaPersonal(),
+               DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
+            }
+            else
+            {
+                rpta = NTiempo.editartiempo(txtId.Text,
+               dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
+               txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
+               getTareaPersonal(),
+               DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
+            }
+
+            if (rpta.Equals("OK"))
+            {
+                if (esnuevo)
+                {
+                    this.mensajeok("Se ha creado el Registro de tiempo satisfactoriamente");
+                }
+                else
+                {
+                    this.mensajeok("Se ha editado el Registro de tiempo satisfactoriamente");
+                }
+
+            }
+            else
+            {
+                this.mensajeerror(rpta);
+            }
+            FrmParent.frmparent.AbrirFormulario(new FrmTiempos());
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -297,6 +345,40 @@ namespace capapresentacion
         }
 
         private void btnEliminarTiempo_Click(object sender, EventArgs e)
+        {
+            if (!lEdicion.Text.Equals(""))
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (opcion == DialogResult.OK)
+                    {
+
+                        string rpta = "";
+
+                        rpta = NTiempo.eliminartiempo(Convert.ToInt32(txtId.Text));
+
+                        if (rpta.Equals("OK"))
+                        {
+                            this.mensajeok("Registro eliminado");
+                            FrmParent.frmparent.AbrirFormulario(new FrmTiempos());
+                        }
+                        else
+                        {
+                            this.mensajeerror("¡Ups!, Algo ha salido mal...");
+                            this.mensajeerror(rpta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
+        }
+
+        public void botonEliminarTiempo()
         {
             if (!lEdicion.Text.Equals(""))
             {

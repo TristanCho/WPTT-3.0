@@ -38,6 +38,9 @@ namespace capapresentacion
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btn_volver = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEliminarProyecto
@@ -67,7 +70,7 @@ namespace capapresentacion
             this.btnPrimero.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrimero.FlatAppearance.BorderSize = 0;
             this.btnPrimero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrimero.Location = new System.Drawing.Point(266, 7);
+            this.btnPrimero.Location = new System.Drawing.Point(3, 5);
             this.btnPrimero.Name = "btnPrimero";
             this.btnPrimero.Size = new System.Drawing.Size(50, 23);
             this.btnPrimero.TabIndex = 103;
@@ -83,7 +86,7 @@ namespace capapresentacion
             this.btnFinal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFinal.FlatAppearance.BorderSize = 0;
             this.btnFinal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinal.Location = new System.Drawing.Point(487, 7);
+            this.btnFinal.Location = new System.Drawing.Point(149, 5);
             this.btnFinal.Name = "btnFinal";
             this.btnFinal.Size = new System.Drawing.Size(50, 23);
             this.btnFinal.TabIndex = 102;
@@ -99,7 +102,7 @@ namespace capapresentacion
             this.btnAtras.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAtras.FlatAppearance.BorderSize = 0;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtras.Location = new System.Drawing.Point(322, 7);
+            this.btnAtras.Location = new System.Drawing.Point(39, 5);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(50, 23);
             this.btnAtras.TabIndex = 101;
@@ -116,7 +119,7 @@ namespace capapresentacion
             this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSiguiente.FlatAppearance.BorderSize = 0;
             this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSiguiente.Location = new System.Drawing.Point(431, 8);
+            this.btnSiguiente.Location = new System.Drawing.Point(111, 5);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(50, 23);
             this.btnSiguiente.TabIndex = 100;
@@ -132,7 +135,7 @@ namespace capapresentacion
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(696, 7);
+            this.btnCancelar.Location = new System.Drawing.Point(630, 7);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(42, 23);
             this.btnCancelar.TabIndex = 99;
@@ -163,7 +166,7 @@ namespace capapresentacion
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.FlatAppearance.BorderSize = 0;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(650, 7);
+            this.btnGuardar.Location = new System.Drawing.Point(584, 7);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(40, 23);
             this.btnGuardar.TabIndex = 97;
@@ -185,23 +188,45 @@ namespace capapresentacion
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btn_volver
+            // 
+            this.btn_volver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_volver.Location = new System.Drawing.Point(713, 7);
+            this.btn_volver.Name = "btn_volver";
+            this.btn_volver.Size = new System.Drawing.Size(75, 23);
+            this.btn_volver.TabIndex = 105;
+            this.btn_volver.Text = "volver";
+            this.btn_volver.UseVisualStyleBackColor = true;
+            this.btn_volver.Click += new System.EventHandler(this.btn_volver_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.btnPrimero);
+            this.panel1.Controls.Add(this.btnSiguiente);
+            this.panel1.Controls.Add(this.btnAtras);
+            this.panel1.Controls.Add(this.btnFinal);
+            this.panel1.Location = new System.Drawing.Point(315, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 40);
+            this.panel1.TabIndex = 106;
+            // 
             // FrmBarraHorizontal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 43);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btn_volver);
             this.Controls.Add(this.btnEliminarProyecto);
-            this.Controls.Add(this.btnPrimero);
-            this.Controls.Add(this.btnFinal);
-            this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
             this.Name = "FrmBarraHorizontal";
             this.Text = "FrmBarraHorizontal";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -217,5 +242,7 @@ namespace capapresentacion
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEliminarProyecto;
+        private System.Windows.Forms.Button btn_volver;
+        private System.Windows.Forms.Panel panel1;
     }
 }

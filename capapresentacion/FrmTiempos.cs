@@ -112,6 +112,16 @@ namespace capapresentacion
             }
         }
 
+        public void nuevoTiempo()
+        {
+
+            FrmDetalleTiempos detalleTiempos = new FrmDetalleTiempos();
+            FrmParent.frmparent.lanzarNuevoElemento(detalleTiempos);
+            //detalleTiempos.visualizaBotonesCambiarFormulario(false);
+            //detalleTiempos.crearTarea();
+            detalleTiempos.nuevoClicado();
+        }
+
         private void dataListTiempos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataListTiempos.Columns["Eliminar"].Index)
@@ -212,6 +222,44 @@ namespace capapresentacion
             this.buscarTiempo(this.txtBuscarTiempo.Text);
         }
 
-        
+        public void botonEliminarTiempo()
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tiempo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    int aux = 0;
+                    string rpta = "";
+                    foreach (DataGridViewRow row in dataListTiempos.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Selected))
+                        {
+                            aux = 1;
+                            rpta = NTiempo.eliminartiempo(Convert.ToInt32(row.Cells[8].Value));
+                        }
+                    }
+                    if (rpta.Equals("OK"))
+                    {
+                        this.mensajeok("Registro eliminado");
+                    }
+                    else
+                    {
+                        this.mensajeerror("¡Ups!, No se ha podido eliminar el Tiempo");
+                        this.mensajeerror(rpta);
+                    }
+                    if (aux < 1)
+                    {
+                        MessageBox.Show("No haz seleccionado ningún Tiempo", "Eliminar Tiempo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    }
+                    this.mostrartiempos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }

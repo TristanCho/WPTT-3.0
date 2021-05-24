@@ -47,19 +47,16 @@ namespace capapresentacion
         {
             this.dataListTareas.DataSource = NTarea.mostrartareas();
             this.ocultarcolumnas();
-            // this.btnEliminarProyecto.Visible = true;
             this.lblTotal.Text = "Número de tareas: " + Convert.ToString(dataListTareas.Rows.Count);
-            this.cbEliminar.Checked = false;
+            //this.cbEliminar.Checked = false;
         }
 
         public void nuevaTarea()
         {
-            
                 FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
                 detalleTarea.visualizaBotonesCambiarFormulario(false);
                 detalleTarea.crearTarea();
-            
         }
 
         public int getNumeroIndice()
@@ -78,7 +75,7 @@ namespace capapresentacion
 
         private void ocultarcolumnas()
         {
-            btnEliminarTarea.Visible = false;
+            //btnEliminarTarea.Visible = false;
             this.dataListTareas.Columns[0].Visible = false;
             this.dataListTareas.Columns[1].Visible = false;
             this.dataListTareas.Columns[2].Visible = false;
@@ -126,19 +123,6 @@ namespace capapresentacion
 
         }
 
-        private void cbEliminar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.cbEliminar.Checked)
-            {
-                this.dataListTareas.Columns[0].Visible = true;
-                this.btnEliminarTarea.Visible = true;
-            }
-            else
-            {
-                this.dataListTareas.Columns[0].Visible = false;
-                this.btnEliminarTarea.Visible = false;
-            }
-        }
 
         private void dataListTareas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -190,7 +174,6 @@ namespace capapresentacion
                         //visualizaBotonesCambiarFormulario(false);
                         detalleTarea.rellenarComboboxes();
                         detalleTarea.activarEdicion(true);
-
                     }
                     catch (Exception)
                     {
@@ -259,11 +242,11 @@ namespace capapresentacion
                     }
                     this.mostrartareas();
                 }
-                else
+                /*else
                 {
                     this.btnEliminarTarea.Enabled = false;
                     this.cbEliminar.Checked = false;
-                }
+                }*/
             }
             catch (Exception ex)
             {
