@@ -119,6 +119,15 @@ namespace capanegocio
             return objeto.mostrarProyectoCombobox(objeto);
         }
 
+
+        ///////////////////Actual cllanos//////////////////////////////////////////// 
+        public static string[] mostrarTareaProyectoCombobox(string usuario, string tarea)
+        {
+            DPersonal objeto = new DPersonal();
+            return objeto.mostrarTareaProyectoCombobox(usuario, tarea);
+        }
+        ///////////////////Actual cllanos//////////////////////////////////////////// 
+
         public static string[] mostrarEmpleados()
         {
             DPersonal objeto = new DPersonal();
@@ -130,10 +139,5 @@ namespace capanegocio
             DPersonal objeto = new DPersonal();
             return objeto.mostrarEstadosCombobox(objeto);
         }
-
-        //mostrarEstados
-
-
-
     }
 }

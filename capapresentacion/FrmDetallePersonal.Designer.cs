@@ -223,6 +223,7 @@ namespace capapresentacion
             this.cbProyecto.Name = "cbProyecto";
             this.cbProyecto.Size = new System.Drawing.Size(276, 21);
             this.cbProyecto.TabIndex = 47;
+            this.cbProyecto.SelectedIndexChanged += new System.EventHandler(this.cbProyecto_SelectedIndexChanged);
             // 
             // cbTareaProyecto
             // 
@@ -231,6 +232,7 @@ namespace capapresentacion
             this.cbTareaProyecto.Name = "cbTareaProyecto";
             this.cbTareaProyecto.Size = new System.Drawing.Size(121, 21);
             this.cbTareaProyecto.TabIndex = 49;
+            this.cbTareaProyecto.SelectedIndexChanged += new System.EventHandler(this.cbTareaProyecto_SelectedIndexChanged);
             // 
             // label2
             // 

@@ -339,8 +339,7 @@ namespace capapresentacion
         public void mostrarTareaPersonalCombobox(string usuario, string tarea)
         {
             comboboxTareaPersonal.Items.AddRange(NTiempo.mostrarTareaPersonalCombobox(usuario, tarea).ToArray());
-
-           // comboboxTareaPersonal.SelectedIndex = 0;
+            //comboboxTareaPersonal.SelectedIndex = 0;
 
         }
 

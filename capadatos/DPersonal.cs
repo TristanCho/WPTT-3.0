@@ -591,9 +591,10 @@ namespace capadatos
 
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 dtresultado = null;
+                MessageBox.Show(e.Message);
             }
             finally
             {
@@ -758,12 +759,62 @@ namespace capadatos
                 //id_proyecto
                 SqlParameter ParIdProyecto = new SqlParameter();
                 ParIdProyecto.ParameterName = "@idProyecto";
-                ParIdProyecto.SqlDbType = SqlDbType.Int;
+                ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParIdProyecto.Size = 1024;
                 ParIdProyecto.Direction = ParameterDirection.Output;
-                ParIdProyecto.Value = objeto.IdProyecto;
+                ParIdProyecto.Value = objeto.IdTareaProyecto;
                 SqlCmd.Parameters.Add(ParIdProyecto);
 
                 sqladap.Fill(dtresultado);
+                array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+            }
+            catch (Exception e)
+            {
+                dtresultado = null;
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+            }
+            return array;
+        }
+
+        public string[] mostrarTareaProyectoCombobox(string usuario, string tarea)
+        {
+            string[] array = new string[] { };
+
+            DataTable dtresultado = new DataTable("TareasProyecto");
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "spmostrar_combo_TareaProyecto";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+
+                SqlParameter ParTextoUsuario = new SqlParameter();
+                ParTextoUsuario.ParameterName = "@usuario";
+                ParTextoUsuario.SqlDbType = SqlDbType.VarChar;
+                ParTextoUsuario.Size = 10;
+                ParTextoUsuario.Value = usuario;
+                SqlCmd.Parameters.Add(ParTextoUsuario);
+
+
+                SqlParameter ParTextoTarea = new SqlParameter();
+                ParTextoTarea.ParameterName = "@tarea";
+                ParTextoTarea.SqlDbType = SqlDbType.VarChar;
+                ParTextoTarea.Size = 10;
+                ParTextoTarea.Value = tarea;
+                SqlCmd.Parameters.Add(ParTextoTarea);
+
+                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
+                //es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
+                sqladap.Fill(dtresultado);
+
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
             }
             catch (Exception)
@@ -774,6 +825,7 @@ namespace capadatos
             {
                 if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
             }
+
             return array;
         }
 
