@@ -444,6 +444,7 @@ namespace capapresentacion
 
         public void volver()
         {
+            this.Close();
             FrmParent.frmparent.AbrirFormulario(new FrmProyecto());
         }
     }

@@ -64,7 +64,7 @@ namespace capapresentacion
                 con.Open();
                 SqlCommand query = new SqlCommand("select descripcion from TareasPersonales t where id_empleado= (Select e.CodEmpleado from Empleados e where e.Usuario='@usuario') order by t.fcreacion desc", con);
                 query.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
-                Console.WriteLine(DLoginStatico.id + " este es el id");
+                Console.WriteLine(DLoginStatico.usuario + " este es el id");
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
                 DataTable dt = new DataTable();

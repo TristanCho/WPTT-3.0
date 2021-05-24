@@ -451,7 +451,7 @@ namespace capapresentacion
             //dtFDeteccion.Value = Convert.ToDateTime(tarea.FDeteccion);
             dtFDeteccion.Value = DateTime.Today.AddDays(1); 
             //dtFDeteccion.Text  = tarea.FSolucion; 
-            Console.WriteLine(tarea.FDeteccion+ " FECHA DE DETECCION");
+            Console.WriteLine(tarea.FSolucion + " FECHA DE DETECCION");
             dtFSolucion.Value = Convert.ToDateTime(tarea.FSolucion);
             dtFVerificacion.Value = Convert.ToDateTime(tarea.FVerificacion);
 
@@ -545,6 +545,7 @@ namespace capapresentacion
 
         public void volver()
         {
+            this.Close();
             FrmParent.frmparent.AbrirFormulario(new FrmTarea());
         }
 

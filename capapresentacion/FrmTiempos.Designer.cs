@@ -32,27 +32,14 @@ namespace capapresentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
             this.dataListTiempos = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.cbEliminar = new System.Windows.Forms.CheckBox();
-            this.btnEliminarTiempo = new System.Windows.Forms.Button();
             this.txtBuscarTiempo = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.panelRecuadro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListTiempos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label_añadir
-            // 
-            this.label_añadir.AutoSize = true;
-            this.label_añadir.Location = new System.Drawing.Point(123, 42);
-            this.label_añadir.Name = "label_añadir";
-            this.label_añadir.Size = new System.Drawing.Size(37, 13);
-            this.label_añadir.TabIndex = 27;
-            this.label_añadir.Text = "Añadir";
             // 
             // panelRecuadro
             // 
@@ -125,47 +112,6 @@ namespace capapresentacion
             this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackgroundImage = global::capapresentacion.Properties.Resources.addNew;
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(163, 34);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(26, 28);
-            this.btnNuevo.TabIndex = 25;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // cbEliminar
-            // 
-            this.cbEliminar.Location = new System.Drawing.Point(12, 42);
-            this.cbEliminar.Name = "cbEliminar";
-            this.cbEliminar.Size = new System.Drawing.Size(62, 17);
-            this.cbEliminar.TabIndex = 55;
-            this.cbEliminar.Text = "Eliminar";
-            this.cbEliminar.UseVisualStyleBackColor = true;
-            this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
-            // 
-            // btnEliminarTiempo
-            // 
-            this.btnEliminarTiempo.BackColor = System.Drawing.Color.White;
-            this.btnEliminarTiempo.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarTiempo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarTiempo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarTiempo.FlatAppearance.BorderSize = 0;
-            this.btnEliminarTiempo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarTiempo.Location = new System.Drawing.Point(77, 34);
-            this.btnEliminarTiempo.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarTiempo.Name = "btnEliminarTiempo";
-            this.btnEliminarTiempo.Size = new System.Drawing.Size(32, 28);
-            this.btnEliminarTiempo.TabIndex = 56;
-            this.btnEliminarTiempo.UseVisualStyleBackColor = false;
-            this.btnEliminarTiempo.Click += new System.EventHandler(this.btnEliminarTiempo_Click);
-            // 
             // txtBuscarTiempo
             // 
             this.txtBuscarTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -195,11 +141,7 @@ namespace capapresentacion
             this.ClientSize = new System.Drawing.Size(796, 517);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.txtBuscarTiempo);
-            this.Controls.Add(this.btnEliminarTiempo);
-            this.Controls.Add(this.cbEliminar);
-            this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
-            this.Controls.Add(this.btnNuevo);
             this.Name = "FrmTiempos";
             this.Text = "FrmTiempos";
             this.Load += new System.EventHandler(this.FrmTiempos_Load);
@@ -211,14 +153,9 @@ namespace capapresentacion
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label_añadir;
         private System.Windows.Forms.Panel panelRecuadro;
         private System.Windows.Forms.DataGridView dataListTiempos;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.CheckBox cbEliminar;
-        private System.Windows.Forms.Button btnEliminarTiempo;
         private System.Windows.Forms.TextBox txtBuscarTiempo;
         private System.Windows.Forms.Label lblTotal;
     }
