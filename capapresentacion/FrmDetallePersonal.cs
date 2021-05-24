@@ -119,27 +119,20 @@ namespace capapresentacion
         private void mostrarProyectosCombobox()
         {
             cbProyecto.Items.AddRange(NPersonal.mostrarProyectos().ToArray());
-            cbProyecto.SelectedIndex = 0;
+            cbProyecto.SelectedIndex = 0;          
+        }
+
+        private void mostrarTareaProyectoNullCombobox()
+        {
+            cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyectoNull().ToArray());
+            cbTareaProyecto.SelectedIndex = 0;   
         }
 
         private void mostrarTareaProyectoCombobox()
         {
-
-            string s1 = cbProyecto.Text;
-            if (s1 == "Sin asignar")
-            {
-                MessageBox.Show("Es igual a Sin asignar");
-                cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyectoNull().ToArray());
-                cbTareaProyecto.SelectedIndex = 0;
-            }
-            else
-            {
-                cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
-                cbTareaProyecto.SelectedIndex = 0;
-            }
-
+            cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
+            cbTareaProyecto.SelectedIndex = 0;
         }
-       
 
         private void mostrarEmpleadosCombobox()
         {
@@ -154,8 +147,6 @@ namespace capapresentacion
             cbEstado.Items.AddRange(NPersonal.mostrarEstados().ToArray());
             cbEstado.SelectedIndex = 0;
         }
-
-
 
         private void habilitar(bool valor)
         {
@@ -396,6 +387,7 @@ namespace capapresentacion
             mostrarEmpleadosCombobox();
             mostrarPrioridadCombobox();
             mostrarTareaProyectoCombobox();
+            mostrarTareaProyectoNullCombobox();
             //mostrarModuloCombobox();
             //mostrarAplicacionCombobox();
 
@@ -423,6 +415,38 @@ namespace capapresentacion
             setModo("CREACIÓN");
             botones();
             limpiar();
+        }
+
+        private void cbTareaProyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Evento en cbTareaProyecto_SelectedIndexChanged");
+        }
+        public void mostrarTareaProyectoCombobox(string usuario, string tarea)
+        {
+            cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyectoCombobox(usuario, tarea).ToArray());
+            //comboboxTareaPersonal.SelectedIndex = 0;
+
+        }
+        private void cbProyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Evento en cbProyecto_SelectedIndexChanged");
+            string s1 = cbProyecto.Text;
+            if (s1 == "Sin asignar")
+            {
+                //MessageBox.Show("Es igual a Sin asignar");
+                cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyectoNull().ToArray());
+                //cbTareaProyecto.SelectedIndex = 0;
+                //MessageBox.Show("en el if");
+            }
+            else
+            {
+                mostrarTareaProyectoCombobox();
+                //cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
+                //cbTareaProyecto.SelectedIndex = 0;
+                //// s1 = "blanco";
+                //MessageBox.Show(s1);
+                MessageBox.Show("Estoy en Else despues de mostrarTareaProyectoCombobox() L443 de FrmDetallePersonales");
+            };
         }
 
 
