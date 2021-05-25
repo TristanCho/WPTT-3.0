@@ -20,7 +20,7 @@ namespace capapresentacion
         public FrmTiempos()
         {
             InitializeComponent();
-            btnEliminarTiempo.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+           
             mostrartiempos();
             
             quitarBordes();
@@ -56,7 +56,6 @@ namespace capapresentacion
         {
             this.dataListTiempos.DataSource = NTiempo.mostrartiempos();
             this.ocultarcolumnas();
-            this.btnEliminarTiempo.Visible = true;
             this.lblTotal.Text = "Número de registros: " + Convert.ToString(dataListTiempos.Rows.Count);
         }
 
@@ -64,8 +63,6 @@ namespace capapresentacion
         {
             this.dataListTiempos.Columns[0].Visible = false;
             //this.dataListTiempos.Columns[1].Visible = false;
-            this.btnEliminarTiempo.Enabled = false;
-            this.cbEliminar.Checked = false;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -98,20 +95,6 @@ namespace capapresentacion
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         /*fin del drag*/
 
-        private void cbEliminar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.cbEliminar.Checked)
-            {
-                this.dataListTiempos.Columns[0].Visible = true;
-                this.btnEliminarTiempo.Enabled = true;
-            }
-            else
-            {
-                this.dataListTiempos.Columns[0].Visible = false;
-                this.btnEliminarTiempo.Enabled = false;
-            }
-        }
-
         public void nuevoTiempo()
         {
 
@@ -137,6 +120,10 @@ namespace capapresentacion
             {
                 FrmDetalleTiempos detalleTiempos = new FrmDetalleTiempos();
 
+                DInformacionTiempo.dataLisTiempos = dataListTiempos;
+                DInformacionTiempo.index = this.dataListTiempos.CurrentRow.Index;
+                DInformacionTiempo.detalleTiempos = detalleTiempos;
+
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTiempos);
                 detalleTiempos.setModo("LECTURA");
 
@@ -153,6 +140,8 @@ namespace capapresentacion
                 Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputable"].Value),
                 Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputado"].Value)
                 );
+                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
 
             }
             catch (Exception ex)
@@ -199,11 +188,6 @@ namespace capapresentacion
                         MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     }
                     this.mostrartiempos();
-                }
-                else
-                {
-                    this.btnEliminarTiempo.Enabled = false;
-                    this.cbEliminar.Checked = false;
                 }
             }
             catch (Exception ex)
@@ -259,6 +243,41 @@ namespace capapresentacion
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        public void editarTiempo()
+        {
+            foreach (DataGridViewRow row in dataListTiempos.Rows)
+            {
+                if (Convert.ToBoolean(row.Selected))
+                {
+                    FrmDetalleTiempos detalleTiempos = new FrmDetalleTiempos();
+
+                    DInformacionTiempo.dataLisTiempos = dataListTiempos;
+                    DInformacionTiempo.index = this.dataListTiempos.CurrentRow.Index;
+                    DInformacionTiempo.detalleTiempos = detalleTiempos;
+
+                    FrmParent.frmparent.lanzarNuevoElemento(detalleTiempos);
+                    detalleTiempos.setModo("LECTURA");
+
+                    detalleTiempos.visualizaDatos(
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fecha"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fechaInicio"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["fechaFin"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["tiempo"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["Observaciones"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["accion"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["id"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["id_tarea"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["codigo_tarea"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputable"].Value),
+                    Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputado"].Value)
+                    );
+                    detalleTiempos.botonEditar();
+
+                    break;
+                }
             }
         }
     }

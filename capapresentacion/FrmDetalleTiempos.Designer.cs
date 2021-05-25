@@ -355,8 +355,6 @@ namespace capapresentacion
             this.comboboxTareaPersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxTareaPersonal.Enabled = false;
             this.comboboxTareaPersonal.FormattingEnabled = true;
-            this.comboboxTareaPersonal.Items.AddRange(new object[] {
-            "hola"});
             this.comboboxTareaPersonal.Location = new System.Drawing.Point(623, 42);
             this.comboboxTareaPersonal.Name = "comboboxTareaPersonal";
             this.comboboxTareaPersonal.Size = new System.Drawing.Size(146, 21);

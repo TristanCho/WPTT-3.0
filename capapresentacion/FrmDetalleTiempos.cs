@@ -154,13 +154,10 @@ namespace capapresentacion
         }
         private string getTareaPersonal()
         {
-           //Console.WriteLine(comboboxTareaPersonal.SelectedValue.ToString());
             if (comboboxTareaPersonal.SelectedValue == null)
             {
-                Console.WriteLine("nullo");
                  return "";
              }
-            Console.WriteLine(comboboxTareaPersonal.SelectedValue.ToString());
             return comboboxTareaPersonal.SelectedValue.ToString();
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -264,6 +261,14 @@ namespace capapresentacion
             }
             FrmParent.frmparent.AbrirFormulario(new FrmTiempos());
         }
+        public void botonEditar()
+        {
+            this.eseditar = true;
+            this.botones();
+            setModo("EDICIÓN");
+            botonesVisible(true);
+            mostrarTareaCombobox();
+        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -336,6 +341,21 @@ namespace capapresentacion
             comboboxAccion.Items.AddRange(new string[] { "A", "D", "V", "DI" });
             comboboxAccion.SelectedIndex = 1;
         }
+
+        public void cancelar()
+        {
+            dtFecha.Enabled = false;
+            dtFechaInicio.Enabled = false;
+            dtFechaFin.Enabled = false;
+            dtFecha.Enabled = false;
+            comboboxTareaPersonal.Enabled = false;
+            comboboxTarea.Enabled = false;
+            comboboxAccion.Enabled = false;
+            checkImputado.Enabled = false;
+            checkImputable.Enabled = false;
+            txtObservaciones.ReadOnly = true;
+        }
+
         public void mostrarTareaPersonalCombobox(string usuario, string tarea)
         {
             comboboxTareaPersonal.Items.AddRange(NTiempo.mostrarTareaPersonalCombobox(usuario, tarea).ToArray());
@@ -428,9 +448,58 @@ namespace capapresentacion
 
         private void comboboxTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("cambiando de item");
+            Console.WriteLine("el usuario es :"+ DLoginStatico.usuario);
             
             mostrarTareaPersonalCombobox(DLoginStatico.usuario, comboboxTarea.SelectedItem.ToString());
+        }
+
+        public void llamaVisualizaDatos()
+        {
+            visualizaDatos(
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["fecha"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["fechaInicio"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["fechaFin"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["tiempo"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["Observaciones"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["accion"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["id"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["id_tarea"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["codigo_tarea"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["imputable"].Value),
+                Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["imputado"].Value));
+                
+
+        }
+
+        public void botonPrimero()
+        {
+                DInformacionTiempo.primerIndex();
+                llamaVisualizaDatos();
+
+        }
+
+        public void botonAtras()
+        {
+            DInformacionTiempo.restaIndex();
+            llamaVisualizaDatos();
+        }
+
+        public void botonSiguiente()
+        {
+            DInformacionTiempo.sumaIndex();
+            llamaVisualizaDatos();
+        }
+
+        public void botonFinal()
+        {
+            DInformacionTiempo.finalIndex();
+            llamaVisualizaDatos();
+        }
+
+        public void volver()
+        {
+            this.Close();
+            FrmParent.frmparent.AbrirFormulario(new FrmTiempos());
         }
     }
 }
