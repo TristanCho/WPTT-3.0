@@ -53,6 +53,7 @@ namespace capapresentacion
             this.txtTituloAplicacion.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTituloAplicacion.Location = new System.Drawing.Point(368, 38);
             this.txtTituloAplicacion.Name = "txtTituloAplicacion";
+            this.txtTituloAplicacion.ReadOnly = true;
             this.txtTituloAplicacion.Size = new System.Drawing.Size(223, 21);
             this.txtTituloAplicacion.TabIndex = 37;
             // 
@@ -61,6 +62,7 @@ namespace capapresentacion
             this.txtIdAplicacion.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdAplicacion.Location = new System.Drawing.Point(67, 39);
             this.txtIdAplicacion.Name = "txtIdAplicacion";
+            this.txtIdAplicacion.ReadOnly = true;
             this.txtIdAplicacion.Size = new System.Drawing.Size(162, 21);
             this.txtIdAplicacion.TabIndex = 36;
             // 
@@ -69,9 +71,9 @@ namespace capapresentacion
             this.panelDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDescripcion.Enabled = false;
             this.panelDescripcion.Location = new System.Drawing.Point(15, 132);
             this.panelDescripcion.Name = "panelDescripcion";
+            this.panelDescripcion.ReadOnly = true;
             this.panelDescripcion.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.panelDescripcion.Size = new System.Drawing.Size(725, 328);
             this.panelDescripcion.TabIndex = 35;

@@ -38,7 +38,7 @@ namespace capapresentacion
             }
             else
             {
-                rpta = NAplicacion.editarAplicacion();
+                rpta = NAplicacion.editarAplicacion(Convert.ToInt32(txtIdAplicacion.Text), txtTituloAplicacion.Text, panelDescripcion.Text);
             }
 
             if (rpta.Equals("OK"))
@@ -57,7 +57,9 @@ namespace capapresentacion
             {
                 this.mensajeerror(rpta);
             }
-            FrmParent.frmparent.AbrirFormulario(new FrmTiempos());
+            this.Close();
+            StaticBarraHorizontal.horizontalParent.botonesPrincipal();
+            FrmParent.frmparent.AbrirFormulario(new FrmAplicaciones());
         }
         private void mensajeok(string mensaje)
         {
@@ -76,6 +78,110 @@ namespace capapresentacion
           //  setModo("CREACIÓN");
           //  botones();
           //  limpiar();
+        }
+
+        public void desbloquear(bool valor)
+        {
+            txtTituloAplicacion.ReadOnly = !valor;
+            panelDescripcion.ReadOnly = !valor;
+        }
+
+        public void cancelar()
+        {
+            desbloquear(false);
+        }
+
+        public void nuevaAplicacion()
+        {
+            desbloquear(true);
+            txtTituloAplicacion.Text = string.Empty;
+            txtIdAplicacion.Text = string.Empty;
+            panelDescripcion.Text = string.Empty;
+        }
+        public void setModo(String modo)
+        {
+            lEdicion.Text = "[MODO " + modo + "]";
+        }
+        public void botonEditar()
+        {
+            this.esnuevo = false;
+            setModo("EDICIÓN");
+        }
+        public void llamaVisualizaDatos()
+        {
+
+            visualizaDatos(
+                Convert.ToString(DInformacionAplicacion.datalistAplicaciones.Rows[DInformacionAplicacion.index].Cells["id"].Value),
+                Convert.ToString(DInformacionAplicacion.datalistAplicaciones.Rows[DInformacionAplicacion.index].Cells["titulo"].Value),
+                Convert.ToString(DInformacionAplicacion.datalistAplicaciones.Rows[DInformacionAplicacion.index].Cells["descripcion"].Value));
+
+        }
+        public void botonPrimero()
+        {
+            DInformacionAplicacion.primerIndex();
+            llamaVisualizaDatos();
+        }
+
+        public void botonAtras()
+        {
+            DInformacionAplicacion.restaIndex();
+            llamaVisualizaDatos();
+        }
+
+        public void botonSiguiente()
+        {
+            DInformacionAplicacion.sumaIndex();
+            llamaVisualizaDatos();
+        }
+
+        public void botonFinal()
+        {
+            DInformacionAplicacion.finalIndex();
+            llamaVisualizaDatos();
+        }
+
+        public void esNuevo()
+        {
+            esnuevo = true;
+        }
+
+        public void botonEliminar()
+        {
+          
+                if (!txtIdAplicacion.Text.Equals(""))
+                {
+                    try
+                    {
+                        DialogResult opcion;
+                        opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (opcion == DialogResult.OK)
+                        {
+
+                            string rpta = "";
+
+                            rpta = NAplicacion.eliminaraplicacion(Convert.ToInt32(txtIdAplicacion.Text));
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.mensajeok("Registro eliminado");
+                                this.Close();
+                                FrmParent.frmparent.AbrirFormulario(new FrmAplicaciones());
+                            }
+                            else
+                            {
+                                this.mensajeerror("¡Ups!, Algo ha salido mal...");
+                                this.mensajeerror(rpta);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + ex.StackTrace);
+                    }
+                }
+
+
+           
         }
     }
 }

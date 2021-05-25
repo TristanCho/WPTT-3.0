@@ -130,6 +130,12 @@ namespace capapresentacion
                             visualizaBotonesCambiarFormulario(false);
                             visualizaBotonGuardar(true);
                             break;
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.nuevaAplicacion();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+                            break;
                     }
                     break;
                 case "Guardar":
@@ -163,6 +169,7 @@ namespace capapresentacion
                             break;                      
                         case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
                             FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.esNuevo();
                             detalleAplicacion.guardar();
                             break;
                     }
@@ -217,6 +224,14 @@ namespace capapresentacion
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             break;
+                        case "capapresentacion.FrmAplicaciones, Text: ":
+                            FrmAplicaciones aplicaciones = (FrmAplicaciones)FrmParent.frmparent.getFormularioActual();
+                            aplicaciones.botonEditar();
+                            break;
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.botonEditar();
+                            break;
 
                     }
                     break;
@@ -250,6 +265,12 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            break;
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            visualizaBotonesCambiarFormulario(true);
+                            visualizaBotonGuardar(false);
+                            detalleAplicacion.cancelar();
                             break;
 
                     }
@@ -292,7 +313,16 @@ namespace capapresentacion
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             break;
-
+                        case "capapresentacion.FrmAplicaciones, Text: ":
+                            FrmAplicaciones aplicaciones = (FrmAplicaciones)FrmParent.frmparent.getFormularioActual();
+                            aplicaciones.botonEliminarAplicacionPrincipal();
+                            break;
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.botonEliminar();
+                            visualizaBotonGuardar(false);
+                            visualizaBotonesCambiarFormulario(false);
+                            break;
                     }
                     break;
                 case "Primero":
@@ -318,7 +348,10 @@ namespace capapresentacion
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             break;
-
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.botonPrimero();
+                            break;
                     }
                     break;
                 case "Atras":
@@ -344,7 +377,10 @@ namespace capapresentacion
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             break;
-
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.botonAtras();
+                            break;
                     }
                     break;
                 case "Siguiente":
@@ -370,7 +406,10 @@ namespace capapresentacion
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             break;
-
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.botonSiguiente();
+                            break;
                     }
                     break;
                 case "Final":
@@ -396,7 +435,10 @@ namespace capapresentacion
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             break;
-
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.botonFinal();
+                            break;
                     }
                     break;
                 case "Volver":

@@ -10,17 +10,19 @@ namespace capadatos
 {
     public class DAplicacion
     {
-        private string id;
+        private int id;
         private string titulo;
         private string descripcion;
+
+        public int Id { get => id; set => id = value; }
 
         public DAplicacion()
         {
         }
 
-        public DAplicacion(string id, string titulo, string descripcion)
+        public DAplicacion(int id, string titulo, string descripcion)
         {
-            this.id = id;
+            this.Id = id;
             this.titulo = titulo;
             this.descripcion = descripcion;
         }
@@ -29,6 +31,64 @@ namespace capadatos
         {
             this.titulo = titulo;
             this.descripcion = descripcion;
+        }
+
+        public string editarAplicacion(DAplicacion datos)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "speditar_aplicacion";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //Definición de atributos
+
+                //id
+                SqlParameter ParId = new SqlParameter();
+                ParId.ParameterName = "@id";
+                ParId.SqlDbType = SqlDbType.SmallInt;
+                ParId.Value = datos.id;
+                SqlCmd.Parameters.Add(ParId);
+
+
+                //titulo
+                SqlParameter ParTitulo = new SqlParameter();
+                ParTitulo.ParameterName = "@titulo";
+                ParTitulo.SqlDbType = SqlDbType.NVarChar;
+                ParTitulo.Size = 1024;
+                ParTitulo.Value = datos.titulo;
+                SqlCmd.Parameters.Add(ParTitulo);
+
+
+                //observaciones
+                SqlParameter ParDescripcion = new SqlParameter();
+                ParDescripcion.ParameterName = "@descripcion";
+                ParDescripcion.SqlDbType = SqlDbType.NText;
+                //ParObservaciones.Size = 1024;
+                ParDescripcion.Value = datos.descripcion;
+                SqlCmd.Parameters.Add(ParDescripcion);
+
+
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible actualizar la aplicacion";
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+            return rpta;
         }
 
         public DataTable mostrarAplicaciones(DAplicacion objeto)
@@ -58,6 +118,45 @@ namespace capadatos
 
             }
             return dtresultado;
+        }
+
+        public string eliminaraplicacion(int id)
+        {
+            string rpta = "";
+            SqlConnection SqlCon = new SqlConnection();
+            try
+            {
+                SqlCon.ConnectionString = Conexion.cn;
+                SqlCon.Open();
+                SqlCommand SqlCmd = new SqlCommand();
+                SqlCmd.Connection = SqlCon;
+                SqlCmd.CommandText = "speliminar_aplicacion";
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                //Definición de atributos
+
+                Console.WriteLine(id);
+                //id
+                SqlParameter ParId = new SqlParameter();
+                ParId.ParameterName = "@id";
+                ParId.SqlDbType = SqlDbType.Int;
+                ParId.Value = id;
+                SqlCmd.Parameters.Add(ParId);
+
+                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible eliminar la Aplicacion";
+
+                return rpta;
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+
+            }
+            return rpta;
         }
 
         public string insertarAplicacion(DAplicacion objeto)

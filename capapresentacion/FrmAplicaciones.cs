@@ -21,7 +21,7 @@ namespace capapresentacion
         public FrmAplicaciones()
         {
             InitializeComponent();
-            activaCheckBox();
+           // activaCheckBox();
             mostrarproyectos();
             tamañoColumnas();
             quitarBordes();
@@ -54,8 +54,8 @@ namespace capapresentacion
 
         private void FrmPrincipal_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+           // ReleaseCapture();
+          //  SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         public void mostrarproyectos()
@@ -111,17 +111,14 @@ namespace capapresentacion
             this.dataListAplicaciones.AdvancedCellBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
             this.dataListAplicaciones.AdvancedCellBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
         }
-        /*Utilizado para mover el panel atraves de la pantalla*/
+        /*Utilizado para mover el panel atraves de la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        /*fin del drag*/
+       */ /*fin del drag*/
 
-        private void cbEliminar_CheckedChanged_1(object sender, EventArgs e)
-        {
-            activaCheckBox();
-        }
+
 
         private void activaCheckBox()
         {
@@ -138,50 +135,18 @@ namespace capapresentacion
         }
      
 
-        public void editarProyecto()
-        {
-
-            foreach (DataGridViewRow row in dataListAplicaciones.Rows)
-            {
-                if (Convert.ToBoolean(row.Selected))
-                {
-                    FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
-
-                    DInformacionProyecto.dataListProyectos = dataListAplicaciones;
-                    DInformacionProyecto.index = this.dataListAplicaciones.CurrentRow.Index;
-                    DInformacionProyecto.detalleProyecto = detalleProyecto;
-
-                    detalleProyecto.visualizaDatos(
-                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["id"].Value),
-                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["codigo_proyecto"].Value),
-                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["titulo"].Value),
-                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["observaciones"].Value),
-                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["fecha"].Value)
-                         );
-
-
-                    FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
-                    StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
-                    StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
-                    detalleProyecto.setModo("EDICIÓN");
-                    detalleProyecto.habilitar(true);
-                    break;
-
-                }
-            }
-
-        }
 
         public void nuevaAplicacion()
         {
             FrmDetalleAplicacion detalleAplicacion = new FrmDetalleAplicacion();
             detalleAplicacion.crearNuevo();
+            detalleAplicacion.desbloquear(true);
             FrmParent.frmparent.lanzarNuevoElemento(detalleAplicacion);
            // detalleAplicacion.visualizaBotonesCambiarFormulario(false);
            // detalleAplicacion.crearPersonal();
         }
 
-        public void botonEliminarProyectoPrincipal()
+        public void botonEliminarAplicacionPrincipal()
         {
             try
             {
@@ -197,9 +162,9 @@ namespace capapresentacion
                         if (Convert.ToBoolean(row.Selected))
                         {
                             aux = 1;
-
-                            id = Convert.ToInt32(row.Cells[1].Value);
-                            rpta = NProyecto.eliminarproyecto(id);
+                            id = Convert.ToInt32(row.Cells[0].Value);
+                            rpta = NAplicacion.eliminaraplicacion(id);
+                           // rpta = NProyecto.eliminarproyecto(id);
 
 
                         }
@@ -227,54 +192,7 @@ namespace capapresentacion
 
         }
         /*PROCEDURES*/
-        private void btnEliminarProyecto_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult opcion;
-                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (opcion == DialogResult.OK)
-                {
-                    int aux = 0;
-                    int id;
-                    string rpta = "";
-                    foreach (DataGridViewRow row in dataListAplicaciones.Rows)
-                    {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
-                        {
-                            aux = 1;
 
-                            id = Convert.ToInt32(row.Cells[1].Value);
-                            rpta = NProyecto.eliminarproyecto(id);
-
-                            if (rpta.Equals("OK"))
-                            {
-                                this.mensajeok("Registro eliminado");
-                            }
-                            else
-                            {
-                                this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
-                                this.mensajeerror(rpta);
-                            }
-                        }
-                    }
-                    if (aux < 1)
-                    {
-                        MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    }
-                    this.mostrarproyectos();
-                }
-                else
-                {
-                    //  this.btnEliminarProyecto.Enabled = false;
-                    // this.cbEliminar.Checked = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
 
         private void buscarProyecto(string texto)
         {
@@ -292,10 +210,6 @@ namespace capapresentacion
 
         }
 
-        public int getNumeroIndice()
-        {
-            return dataListAplicaciones.Rows.Count;
-        }
 
         private void dataListAplicaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {/*
@@ -305,10 +219,38 @@ namespace capapresentacion
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }*/
         }
-     
+
+        public void botonEditar()
+        {
+            foreach (DataGridViewRow row in dataListAplicaciones.Rows)
+            {
+                if (Convert.ToBoolean(row.Selected))
+                {
+                    FrmDetalleAplicacion detalleAplicacion = new FrmDetalleAplicacion();
+
+                    DInformacionAplicacion.datalistAplicaciones = dataListAplicaciones;
+                    DInformacionAplicacion.index = this.dataListAplicaciones.CurrentRow.Index;
+                    DInformacionAplicacion.detalleAplicacion = detalleAplicacion;
+
+                    FrmParent.frmparent.lanzarNuevoElemento(detalleAplicacion);
+                    //detalleAplicacion.setModo("LECTURA");
+
+                    detalleAplicacion.visualizaDatos(
+                    Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["id"].Value),
+                    Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["titulo"].Value),
+                    Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["descripcion"].Value)
+                    );
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
+                     detalleAplicacion.desbloquear(true);
+
+                    break;
+                }
+            }
+        }
 
         private void dataListAplicaciones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {/*
             try
             {
                 FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
@@ -335,7 +277,7 @@ namespace capapresentacion
             catch (Exception)
             {
                 MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
         private void dataListAplicaciones_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
@@ -343,16 +285,21 @@ namespace capapresentacion
             FrmDetalleAplicacion detalleAplicacion = new FrmDetalleAplicacion();
             FrmParent.frmparent.lanzarNuevoElemento(detalleAplicacion);
 
+
+            DInformacionAplicacion.datalistAplicaciones = dataListAplicaciones;
+            DInformacionAplicacion.index = this.dataListAplicaciones.CurrentRow.Index;
+            DInformacionAplicacion.detalleAplicacion = detalleAplicacion;
+
             detalleAplicacion.visualizaDatos(
                Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["id"].Value),
                Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["titulo"].Value),
                Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["descripcion"].Value)
        );
-
+            detalleAplicacion.desbloquear(true);
             StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
             StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
-
-           // detalleAplicacion.setModo("LECTURA");
+            detalleAplicacion.desbloquear(false);
+            // detalleAplicacion.setModo("LECTURA");
         }
     }
 }
