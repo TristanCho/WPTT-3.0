@@ -29,16 +29,16 @@ namespace capapresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelRecuadro = new System.Windows.Forms.Panel();
-            this.dataListProyectos = new System.Windows.Forms.DataGridView();
+            this.dataListAplicaciones = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtBuscarProyecto = new System.Windows.Forms.TextBox();
             this.panelRecuadro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataListProyectos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListAplicaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // panelRecuadro
@@ -47,59 +47,61 @@ namespace capapresentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRecuadro.BackColor = System.Drawing.Color.Gold;
-            this.panelRecuadro.Controls.Add(this.dataListProyectos);
+            this.panelRecuadro.Controls.Add(this.dataListAplicaciones);
             this.panelRecuadro.Location = new System.Drawing.Point(12, 65);
             this.panelRecuadro.Name = "panelRecuadro";
             this.panelRecuadro.Size = new System.Drawing.Size(775, 411);
             this.panelRecuadro.TabIndex = 23;
             // 
-            // dataListProyectos
+            // dataListAplicaciones
             // 
-            this.dataListProyectos.AllowUserToAddRows = false;
-            this.dataListProyectos.AllowUserToDeleteRows = false;
-            this.dataListProyectos.AllowUserToOrderColumns = true;
-            this.dataListProyectos.AllowUserToResizeRows = false;
-            this.dataListProyectos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataListProyectos.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dataListProyectos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataListProyectos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataListProyectos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListProyectos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataListProyectos.ColumnHeadersHeight = 34;
-            this.dataListProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataListProyectos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataListAplicaciones.AllowUserToAddRows = false;
+            this.dataListAplicaciones.AllowUserToDeleteRows = false;
+            this.dataListAplicaciones.AllowUserToOrderColumns = true;
+            this.dataListAplicaciones.AllowUserToResizeRows = false;
+            this.dataListAplicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataListAplicaciones.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dataListAplicaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataListAplicaciones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataListAplicaciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListAplicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataListAplicaciones.ColumnHeadersHeight = 34;
+            this.dataListAplicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataListAplicaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.dataListProyectos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataListProyectos.EnableHeadersVisualStyles = false;
-            this.dataListProyectos.GridColor = System.Drawing.Color.DimGray;
-            this.dataListProyectos.Location = new System.Drawing.Point(0, 0);
-            this.dataListProyectos.Name = "dataListProyectos";
-            this.dataListProyectos.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataListProyectos.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dataListProyectos.RowHeadersVisible = false;
-            this.dataListProyectos.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.dataListProyectos.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataListProyectos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataListProyectos.Size = new System.Drawing.Size(775, 411);
-            this.dataListProyectos.TabIndex = 4;
+            this.dataListAplicaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataListAplicaciones.EnableHeadersVisualStyles = false;
+            this.dataListAplicaciones.GridColor = System.Drawing.Color.DimGray;
+            this.dataListAplicaciones.Location = new System.Drawing.Point(0, 0);
+            this.dataListAplicaciones.Name = "dataListAplicaciones";
+            this.dataListAplicaciones.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataListAplicaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataListAplicaciones.RowHeadersVisible = false;
+            this.dataListAplicaciones.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataListAplicaciones.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataListAplicaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataListAplicaciones.Size = new System.Drawing.Size(775, 411);
+            this.dataListAplicaciones.TabIndex = 4;
+            this.dataListAplicaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListAplicaciones_CellContentClick);
+            this.dataListAplicaciones.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListAplicaciones_CellDoubleClick);
             // 
             // Eliminar
             // 
@@ -141,7 +143,7 @@ namespace capapresentacion
             this.Name = "FrmAplicaciones";
             this.Text = "FrmAplicaciones";
             this.panelRecuadro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataListProyectos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataListAplicaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +152,7 @@ namespace capapresentacion
         #endregion
 
         private System.Windows.Forms.Panel panelRecuadro;
-        private System.Windows.Forms.DataGridView dataListProyectos;
+        private System.Windows.Forms.DataGridView dataListAplicaciones;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtBuscarProyecto;

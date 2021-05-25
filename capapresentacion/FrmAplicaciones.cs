@@ -29,7 +29,7 @@ namespace capapresentacion
 
         private void tamañoColumnas()
         {
-            this.dataListProyectos.Columns[1].Width = 30;
+            this.dataListAplicaciones.Columns[1].Width = 30;
         }
 
         private void mensajeok(string mensaje)
@@ -60,18 +60,18 @@ namespace capapresentacion
 
         public void mostrarproyectos()
         {
-            this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
+            this.dataListAplicaciones.DataSource = NProyecto.mostrarproyectos();
             ocultarcolumnas();
             //this.btnEliminarProyecto.Visible = true;
-            this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListProyectos.Rows.Count);
-
+            this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListAplicaciones.Rows.Count);
         }
 
         private void ocultarcolumnas()
         {
-            this.dataListProyectos.Columns[0].Visible = false;
+            MessageBox.Show("Pendiente revisar las columnas a ocultar");
+            //this.dataListAplicaciones.Columns[0].Visible = false;
 
-            this.dataListProyectos.Columns[2].Visible = false;
+           // this.dataListAplicaciones.Columns[2].Visible = false;
             //this.dataListProyectos.Columns[3].Visible = false;
             //this.btnEliminarProyecto.Enabled = false;
             //this.cbEliminar.Checked = false;
@@ -106,10 +106,10 @@ namespace capapresentacion
             this.ControlBox = false;
 
             //quita bordes del datagrid
-            this.dataListProyectos.AdvancedCellBorderStyle.Left = DataGridViewAdvancedCellBorderStyle.None;
-            this.dataListProyectos.AdvancedCellBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
-            this.dataListProyectos.AdvancedCellBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
-            this.dataListProyectos.AdvancedCellBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListAplicaciones.AdvancedCellBorderStyle.Left = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListAplicaciones.AdvancedCellBorderStyle.Right = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListAplicaciones.AdvancedCellBorderStyle.Bottom = DataGridViewAdvancedCellBorderStyle.None;
+            this.dataListAplicaciones.AdvancedCellBorderStyle.Top = DataGridViewAdvancedCellBorderStyle.None;
         }
         /*Utilizado para mover el panel atraves de la pantalla*/
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -136,66 +136,27 @@ namespace capapresentacion
                  this.btnEliminarProyecto.Visible = false;
              }*/
         }
-
-        private void dataListProyectos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataListProyectos.Columns["Eliminar"].Index)
-            {
-                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListProyectos.Rows[e.RowIndex].Cells["Eliminar"];
-                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }
-        }
-
-        private void dataListProyectos_CellDoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
-
-                DInformacionProyecto.dataListProyectos = dataListProyectos;
-                DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
-                DInformacionProyecto.detalleProyecto = detalleProyecto;
-
-                detalleProyecto.visualizaDatos(
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
-                     Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
-                     );
-
-
-                FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
-                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
-                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
-                detalleProyecto.setModo("LECTURA");
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+     
 
         public void editarProyecto()
         {
 
-            foreach (DataGridViewRow row in dataListProyectos.Rows)
+            foreach (DataGridViewRow row in dataListAplicaciones.Rows)
             {
                 if (Convert.ToBoolean(row.Selected))
                 {
                     FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
 
-                    DInformacionProyecto.dataListProyectos = dataListProyectos;
-                    DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
+                    DInformacionProyecto.dataListProyectos = dataListAplicaciones;
+                    DInformacionProyecto.index = this.dataListAplicaciones.CurrentRow.Index;
                     DInformacionProyecto.detalleProyecto = detalleProyecto;
 
                     detalleProyecto.visualizaDatos(
-                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["id"].Value),
-                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["codigo_proyecto"].Value),
-                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["titulo"].Value),
-                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["observaciones"].Value),
-                         Convert.ToString(this.dataListProyectos.CurrentRow.Cells["fecha"].Value)
+                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["id"].Value),
+                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["codigo_proyecto"].Value),
+                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["titulo"].Value),
+                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["observaciones"].Value),
+                         Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["fecha"].Value)
                          );
 
 
@@ -221,7 +182,7 @@ namespace capapresentacion
                     int aux = 0;
                     int id;
                     string rpta = "";
-                    foreach (DataGridViewRow row in dataListProyectos.Rows)
+                    foreach (DataGridViewRow row in dataListAplicaciones.Rows)
                     {
                         if (Convert.ToBoolean(row.Selected))
                         {
@@ -267,7 +228,7 @@ namespace capapresentacion
                     int aux = 0;
                     int id;
                     string rpta = "";
-                    foreach (DataGridViewRow row in dataListProyectos.Rows)
+                    foreach (DataGridViewRow row in dataListAplicaciones.Rows)
                     {
                         if (Convert.ToBoolean(row.Cells[0].Value))
                         {
@@ -307,7 +268,7 @@ namespace capapresentacion
 
         private void buscarProyecto(string texto)
         {
-            this.dataListProyectos.DataSource = NProyecto.buscarproyecto(texto);
+            this.dataListAplicaciones.DataSource = NProyecto.buscarproyecto(texto);
             this.ocultarcolumnas();
         }
 
@@ -323,8 +284,49 @@ namespace capapresentacion
 
         public int getNumeroIndice()
         {
-            return dataListProyectos.Rows.Count;
+            return dataListAplicaciones.Rows.Count;
         }
-        /*PROCEDURES*/
+
+        private void dataListAplicaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataListAplicaciones.Columns["Eliminar"].Index)
+            {
+                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListAplicaciones.Rows[e.RowIndex].Cells["Eliminar"];
+                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
+            }
+        }
+     
+
+        private void dataListAplicaciones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("En  Doble clic");
+            try
+            {
+                FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
+
+                DInformacionProyecto.dataListProyectos = dataListAplicaciones;
+                DInformacionProyecto.index = this.dataListAplicaciones.CurrentRow.Index;
+                DInformacionProyecto.detalleProyecto = detalleProyecto;
+
+                detalleProyecto.visualizaDatos(
+                     Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["id"].Value),
+                     Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["codigo_proyecto"].Value),
+                     Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["titulo"].Value),
+                     Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["observaciones"].Value),
+                     Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["fecha"].Value)
+                     );
+
+
+                FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
+                detalleProyecto.setModo("LECTURA");
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
