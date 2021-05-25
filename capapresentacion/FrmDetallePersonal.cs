@@ -24,9 +24,6 @@ namespace capapresentacion
 
         internal void mostrarDetallePersonal(DDetallePersonales dp)
         {
-
-            
-
             txtIdPersonal.Text = idpersonal;
 
             cbPrioridad.Items.Clear();
@@ -99,16 +96,12 @@ namespace capapresentacion
             this.cbTareaProyecto.Items.Clear();
             this.dtcreacion.Value = DateTime.Now;
             this.dtCierre.Value = DateTime.Now;
-            this.txtTareaGrupo.Text = "";
-            this.txtTareaOrigen.Text = "";
-            this.txtTareaDestino.Text = "";
+            this.txtTareaGrupo.Text = string.Empty;
+            this.txtTareaOrigen.Text = string.Empty;
+            this.txtTareaDestino.Text = string.Empty;
             this.txtDescripcion.Text = string.Empty;
             this.txtObservacionesTiempos.Text = string.Empty;            
         }
-
-
-
-     
 
         private void mostrarPrioridadCombobox()
         {
@@ -159,8 +152,8 @@ namespace capapresentacion
             //this.txtTareaOrigen.ReadOnly = true;
            // this.txtTareaDestino.ReadOnly = true;
            //TODO Revisar el bloqueo de estos campos
-            this.txtDescripcion.ReadOnly = true;
-            this.txtObservacionesTiempos.ReadOnly = true;
+            this.txtDescripcion.ReadOnly = false;
+            this.txtObservacionesTiempos.ReadOnly = valor;
         }
 
         private void botonesVisible(bool estado)
@@ -169,7 +162,7 @@ namespace capapresentacion
             btnCancelar.Visible = estado;
             btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
-            txtDescripcion.Enabled = estado;           
+            txtDescripcion.Enabled = true;    //Todo Revisar este txt aislado       
         }
 
         private void botones()
@@ -211,11 +204,12 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            crearProyecto();
+            MessageBox.Show("btnNuevo_Click FrmDetPersonal L210");
+            crearNuevo();
             btnEliminarProyecto.Visible = false;
         }
 
-        public void crearProyecto()
+        public void crearPersonal()
         {
             esnuevo = true;
             txtDescripcion.Enabled = true;
@@ -223,6 +217,9 @@ namespace capapresentacion
             setModo("CREACIÓN");
             botones();
             limpiar();
+
+            crearNuevo();
+            rellenarComboboxes();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -377,9 +374,6 @@ namespace capapresentacion
             this.txtObservacionesTiempos.Text = obsTiempos;   
         }
 
-
-        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
-
         public void rellenarComboboxes()
         {
             mostrarEstadosCombobox();
@@ -402,12 +396,6 @@ namespace capapresentacion
             // btnFinal.Visible = value;
         }
 
-        public void crearPersonal()
-        {
-            crearNuevo();
-            rellenarComboboxes();
-        }
-
         public void crearNuevo()
         {
             esnuevo = true;
@@ -421,13 +409,7 @@ namespace capapresentacion
         {
            
         }
-        /*
-        public void mostrarTareaProyectoCombobox(string usuario, string tarea)
-        {
-            cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyectoCombobox(usuario, tarea).ToArray());
-            //comboboxTareaPersonal.SelectedIndex = 0;
-
-        }*/
+   
         private void cbProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             string s1 = cbProyecto.Text;
@@ -461,9 +443,83 @@ namespace capapresentacion
 
             FrmParent.frmparent.AbrirFormulario(new FrmPersonal());
         }
+        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+        public void desbloqueaBotones()
+        {
+            esnuevo = true;
+            txtDescripcion.Enabled = true;
+            txtObservacionesTiempos.Enabled = true;
+            botonesVisible(true);
+            setModo("CREACIÓN");
+            botones();
+            limpiar();
+        }
 
+        public void botonNuevoClicado()
+        {
+            MessageBox.Show("boton Nuevo Clicado");
+            //mostrarTareaCombobox();
+            //comboboxAccion.Items.AddRange( new string[] { "A", "D", "V", "DI" });
+            //mostrarTareaPersonalCombobox(DLoginStatico.usuario, comboboxTarea.SelectedItem.ToString());
+        }
 
+        public void guardar()
+        {
+            string rpta = "";
+            if (esnuevo)
+            {
+                try
+                {
+                    rpta = NPersonal.insertarPersonal(
+                    cbEmpleadoAsign.SelectedItem.ToString(), 
+                    txtDescripcion.ToString(), 
+                    dtcreacion.Value.ToString(), 
+                    cbPrioridad.SelectedItem.ToString(), 
+                    cbEstado.SelectedItem.ToString(), 
+                    dtCierre.Value.ToString(),
+                    txtTareaGrupo.ToString(), 
+                    txtTareaDestino.ToString(), 
+                    txtTareaOrigen.ToString(), 
+                    cbTareaProyecto.SelectedItem.ToString(), 
+                    cbProyecto.SelectedItem.ToString(), 
+                    DLoginStatico.usuario, 
+                    cbEmpleadoReAsign.SelectedItem.ToString()
+                    );
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
+            else
+            {
+                rpta = NPersonal.editartarPersonal(
+                   txtIdPersonal.ToString(),cbEmpleadoAsign.SelectedItem.ToString(), txtDescripcion.ToString(), dtcreacion.Value.ToString(), cbPrioridad.SelectedItem.ToString(), cbEstado.SelectedItem.ToString(), dtCierre.Value.ToString(),
+                   txtTareaGrupo.ToString(), txtTareaDestino.ToString(), txtTareaOrigen.ToString(), cbTareaProyecto.SelectedItem.ToString(), cbProyecto.SelectedItem.ToString(), DLoginStatico.usuario, cbEmpleadoReAsign.SelectedItem.ToString()
+                   );
+            }
+
+            if (rpta.Equals("OK"))
+            {
+                if (esnuevo)
+                {
+                    this.mensajeok("Se ha creado una tarea personal satisfactoriamente");
+                }
+                else
+                {
+                    this.mensajeok("Se ha editado la tarea personal satisfactoriamente");
+                }
+
+            }
+            else
+            {
+                this.mensajeerror(rpta);
+            }
+            FrmParent.frmparent.AbrirFormulario(new FrmPersonal());
+        }
 
         ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+
+
     }
 }

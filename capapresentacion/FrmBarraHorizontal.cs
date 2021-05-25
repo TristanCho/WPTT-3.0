@@ -116,7 +116,6 @@ namespace capapresentacion
                             personal.nuevaPersonal();
                             visualizaBotonesCambiarFormulario(false);
                             visualizaBotonGuardar(true);
-
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
@@ -160,18 +159,23 @@ namespace capapresentacion
                             visualizaBotonGuardar(false);
                             visualizaBotonesCambiarFormulario(false);
                             break;
-                        case "capapresentacion.FrmPersonal, Text: Personal":
-                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
-                            break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+
+                            detallePersonal.guardar();
+                            visualizaBotonGuardar(false);
+                            visualizaBotonesCambiarFormulario(false);
+
                             break;                      
                         case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
                             FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
                             detalleAplicacion.esNuevo();
                             detalleAplicacion.guardar();
+
                             break;
+                        //case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
+                        //    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                        //    break;
                     }
                     break;
                 case "Editar":
