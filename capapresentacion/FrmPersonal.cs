@@ -16,14 +16,14 @@ namespace capapresentacion
     public partial class FrmPersonal : Form
     {
         public FrmPrincipal frmparent;
-        FrmDetalleTarea detalleTareas = new FrmDetalleTarea();
+       // FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
         public FrmPersonal()
         {
             InitializeComponent();
             mostrartareas();
-            ocultarcolumnas();
+            //ocultarcolumnas();
             quitabordes();
-            tamañoColumnas();
+            //tamañoColumnas();
         }
         private void tamañoColumnas()
         {
@@ -53,12 +53,21 @@ namespace capapresentacion
             this.cbEliminar.Checked = false;
         }
 
+        public void nuevoProyecto()
+        {
+            FrmDetallePersonal detallepersonal = new FrmDetallePersonal();
+            FrmParent.frmparent.lanzarNuevoElemento(detallepersonal);
+            detallepersonal.visualizaBotonesCambiarFormulario(false);
+            detallepersonal.crearPersonal();
+            //  detalleproyecto.setBotonEliminar(false);
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-           // FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
-            detalleTareas.crearNuevo();
-            detalleTareas.setTecnico();
-            detalleTareas.setBotonEliminar(false);
+            FrmDetallePersonal frmPersonal = new FrmDetallePersonal();
+            frmPersonal.desbloqueaBotones();
+            frmPersonal.botonNuevoClicado();
+            FrmParent.frmparent.lanzarNuevoElemento(frmPersonal);
         }
 
         private void ocultarcolumnas()

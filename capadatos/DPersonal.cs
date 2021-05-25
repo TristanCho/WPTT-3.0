@@ -252,7 +252,7 @@ namespace capadatos
                 ParIdEmpleado.ParameterName = "@id_empleado";
                 ParIdEmpleado.SqlDbType = SqlDbType.NText;
                 ParIdEmpleado.Size = 1024;
-                ParIdEmpleado.Value = personal.IdTarea;
+                ParIdEmpleado.Value = personal.Id_empleado;
                 SqlCmd.Parameters.Add(ParIdEmpleado);
 
                 //descripcion
@@ -279,7 +279,7 @@ namespace capadatos
                 //estado
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
-                ParEstado.SqlDbType = SqlDbType.Int;
+                ParEstado.SqlDbType = SqlDbType.NText;
                 ParEstado.Value = personal.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 

@@ -179,9 +179,19 @@ namespace capapresentacion
             AbrirFormulario(proyecto);
             activaBarraHorizontal();
             StaticBarraHorizontal.horizontalParent.botonesPrincipal();
-
         }
-        /****************************************CRISTHIAN****************************************************************/
+
+        private void btnTareasPersonales_Click(object sender, EventArgs e)
+        {
+            ActivaBoton(sender, RGBColors.color1);
+            FrmPersonal personales = new FrmPersonal();
+            //--- tareas.frmparent = this;
+            AbrirFormulario(personales);
+            activaBarraHorizontal();
+            StaticBarraHorizontal.horizontalParent.botonesPrincipal();
+            //AbrirFormulario(new FrmTarea());
+        }
+
         private void btnAplicaciones_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
@@ -193,7 +203,7 @@ namespace capapresentacion
             StaticBarraHorizontal.horizontalParent.botonesPrincipal();
         }
 
-        /****************************************CRISTHIAN****************************************************************/
+       
         private void activaBarraHorizontal()
         {
             if (!barraAbierta) {
@@ -217,16 +227,7 @@ namespace capapresentacion
         }
 
 
-        private void btnTareasPersonales_Click(object sender, EventArgs e)
-        {
-            ActivaBoton(sender, RGBColors.color1);
-            FrmPersonal personales = new FrmPersonal();
-            //--- tareas.frmparent = this;
-            AbrirFormulario(personales);
-            activaBarraHorizontal();
-            StaticBarraHorizontal.horizontalParent.botonesPrincipal();
-            //AbrirFormulario(new FrmTarea());
-        }
+     
 
         private void Tiempos_Click(object sender, EventArgs e)
         {
