@@ -431,6 +431,7 @@ namespace capapresentacion
         private void cbProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             string s1 = cbProyecto.Text;
+            MessageBox.Show(s1);
             if (s1 == "Sin asignar")
             {
                 Console.WriteLine(" Es igual a Sin asignar");
