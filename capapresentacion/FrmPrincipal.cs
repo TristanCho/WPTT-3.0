@@ -181,6 +181,19 @@ namespace capapresentacion
             StaticBarraHorizontal.horizontalParent.botonesPrincipal();
 
         }
+        /****************************************CRISTHIAN****************************************************************/
+        private void btnAplicaciones_Click(object sender, EventArgs e)
+        {
+            ActivaBoton(sender, RGBColors.color1);
+            FrmAplicaciones aplicaciones = new FrmAplicaciones();
+            //proyecto.frmparent = this;
+            //--- FrmParent.frmparent = this;
+            AbrirFormulario(aplicaciones);
+            activaBarraHorizontal();
+            StaticBarraHorizontal.horizontalParent.botonesPrincipal();
+        }
+
+        /****************************************CRISTHIAN****************************************************************/
         private void activaBarraHorizontal()
         {
             if (!barraAbierta) {
@@ -274,6 +287,7 @@ namespace capapresentacion
             }
         }
 
-        
+
+
     }
 }

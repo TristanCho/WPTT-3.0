@@ -762,7 +762,7 @@ namespace capadatos
                 ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
                 ParIdProyecto.Size = 1024;
                 ParIdProyecto.Direction = ParameterDirection.Output;
-                ParIdProyecto.Value = objeto.IdTareaProyecto;
+                ParIdProyecto.Value = objeto.Titulo;
                 SqlCmd.Parameters.Add(ParIdProyecto);
 
                 sqladap.Fill(dtresultado);

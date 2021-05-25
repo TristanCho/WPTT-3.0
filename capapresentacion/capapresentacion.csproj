@@ -49,6 +49,12 @@
   <ItemGroup>
     <Compile Include="DInformacionProyecto.cs" />
     <Compile Include="DInformacionTarea.cs" />
+    <Compile Include="FrmAplicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAplicaciones.Designer.cs">
+      <DependentUpon>FrmAplicaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBarraHorizontal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmAplicaciones.resx">
+      <DependentUpon>FrmAplicaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBarraHorizontal.resx">
       <DependentUpon>FrmBarraHorizontal.cs</DependentUpon>
     </EmbeddedResource>

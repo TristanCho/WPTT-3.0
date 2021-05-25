@@ -386,7 +386,7 @@ namespace capapresentacion
             mostrarProyectosCombobox();
             mostrarEmpleadosCombobox();
             mostrarPrioridadCombobox();
-            mostrarTareaProyectoCombobox();
+            //mostrarTareaProyectoCombobox();
             mostrarTareaProyectoNullCombobox();
             //mostrarModuloCombobox();
             //mostrarAplicacionCombobox();
@@ -429,8 +429,9 @@ namespace capapresentacion
         }
         private void cbProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show("Evento en cbProyecto_SelectedIndexChanged");
+           
             string s1 = cbProyecto.Text;
+            MessageBox.Show(s1);
             if (s1 == "Sin asignar")
             {
                 //MessageBox.Show("Es igual a Sin asignar");
@@ -440,9 +441,10 @@ namespace capapresentacion
             }
             else
             {
-                mostrarTareaProyectoCombobox();
-                //cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
-                //cbTareaProyecto.SelectedIndex = 0;
+                //mostrarTareaProyectoCombobox();
+                cbTareaProyecto.Items.Clear();
+                cbTareaProyecto.Items.AddRange(NPersonal.mostrarTareaProyecto().ToArray());
+                cbTareaProyecto.SelectedIndex = 0;
                 //// s1 = "blanco";
                 //MessageBox.Show(s1);
                 MessageBox.Show("Estoy en Else despues de mostrarTareaProyectoCombobox() L443 de FrmDetallePersonales");
