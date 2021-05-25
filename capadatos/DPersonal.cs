@@ -732,7 +732,7 @@ namespace capadatos
             return array;
         }
 
-        public string[] mostrarTareaProyectoCombobox(DPersonal objeto)
+        public string[] mostrarTareaProyectoCombobox(String tarea)
         {
             string[] array = new string[] { };
             DataTable dtresultado = new DataTable("TareaProyecto");
@@ -761,12 +761,12 @@ namespace capadatos
                 ParIdProyecto.ParameterName = "@idProyecto";
                 ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
                 ParIdProyecto.Size = 1024;
-                ParIdProyecto.Direction = ParameterDirection.Output;
-                ParIdProyecto.Value = objeto.IdTareaProyecto;
+                ParIdProyecto.Value = tarea;
                 SqlCmd.Parameters.Add(ParIdProyecto);
 
                 sqladap.Fill(dtresultado);
                 array = dtresultado.Rows.OfType<DataRow>().Select(k => k[0].ToString()).ToArray();
+
             }
             catch (Exception e)
             {
