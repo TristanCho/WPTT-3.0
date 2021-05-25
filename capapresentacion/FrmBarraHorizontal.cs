@@ -123,6 +123,12 @@ namespace capapresentacion
                             visualizaBotonesCambiarFormulario(false);
                             visualizaBotonGuardar(true);
                             break;
+                        case "capapresentacion.FrmAplicaciones, Text: ":
+                            FrmAplicaciones aplicaciones = (FrmAplicaciones)FrmParent.frmparent.getFormularioActual();
+                            aplicaciones.nuevaAplicacion();
+                            visualizaBotonesCambiarFormulario(false);
+                            visualizaBotonGuardar(true);
+                            break;
                     }
                     break;
                 case "Guardar":
@@ -149,13 +155,11 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                            detallePersonal.guardar();
-                            visualizaBotonGuardar(false);
-                            visualizaBotonesCambiarFormulario(false);
+                            break;                      
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.guardar();
                             break;
-                        //case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
-                        //    FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-                        //    break;
                     }
                     break;
                 case "Editar":

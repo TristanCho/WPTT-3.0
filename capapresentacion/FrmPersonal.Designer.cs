@@ -40,16 +40,16 @@ namespace capapresentacion
             this.cbEliminar = new System.Windows.Forms.CheckBox();
             this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
+            this.dataListPersonal = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtBuscarPersonal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataListPersonal = new System.Windows.Forms.DataGridView();
             this.dataPersonalTiempos = new System.Windows.Forms.DataGridView();
             this.Tiempos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelRecuadro.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataListPersonal)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataPersonalTiempos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,51 +109,6 @@ namespace capapresentacion
             this.panelRecuadro.Size = new System.Drawing.Size(776, 200);
             this.panelRecuadro.TabIndex = 28;
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackgroundImage = global::capapresentacion.Properties.Resources.addNew;
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(163, 35);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(26, 28);
-            this.btnNuevo.TabIndex = 27;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // txtBuscarPersonal
-            // 
-            this.txtBuscarPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscarPersonal.Location = new System.Drawing.Point(12, 13);
-            this.txtBuscarPersonal.Name = "txtBuscarPersonal";
-            this.txtBuscarPersonal.Size = new System.Drawing.Size(776, 20);
-            this.txtBuscarPersonal.TabIndex = 26;
-            this.txtBuscarPersonal.TextChanged += new System.EventHandler(this.txtBuscarPersonal_TextChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Gold;
-            this.panel1.Controls.Add(this.dataPersonalTiempos);
-            this.panel1.Location = new System.Drawing.Point(13, 272);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(775, 166);
-            this.panel1.TabIndex = 33;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.MinimumWidth = 2;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // dataListPersonal
             // 
             this.dataListPersonal.AllowUserToAddRows = false;
@@ -203,6 +158,51 @@ namespace capapresentacion
             this.dataListPersonal.TabIndex = 4;
             this.dataListPersonal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonales_CellContentClick);
             this.dataListPersonal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonal_CellDoubleClick_1);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.MinimumWidth = 2;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackgroundImage = global::capapresentacion.Properties.Resources.addNew;
+            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Location = new System.Drawing.Point(163, 35);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(26, 28);
+            this.btnNuevo.TabIndex = 27;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            // 
+            // txtBuscarPersonal
+            // 
+            this.txtBuscarPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscarPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscarPersonal.Location = new System.Drawing.Point(12, 13);
+            this.txtBuscarPersonal.Name = "txtBuscarPersonal";
+            this.txtBuscarPersonal.Size = new System.Drawing.Size(776, 20);
+            this.txtBuscarPersonal.TabIndex = 26;
+            this.txtBuscarPersonal.TextChanged += new System.EventHandler(this.txtBuscarPersonal_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.Controls.Add(this.dataPersonalTiempos);
+            this.panel1.Location = new System.Drawing.Point(13, 272);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(775, 166);
+            this.panel1.TabIndex = 33;
             // 
             // dataPersonalTiempos
             // 
@@ -262,6 +262,7 @@ namespace capapresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTotal);
@@ -275,8 +276,8 @@ namespace capapresentacion
             this.Text = "Personal";
             this.Load += new System.EventHandler(this.FrmPersonal_Load);
             this.panelRecuadro.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataListPersonal)).EndInit();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataPersonalTiempos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
