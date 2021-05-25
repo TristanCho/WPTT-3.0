@@ -29,7 +29,7 @@ namespace capapresentacion
 
         private void tamañoColumnas()
         {
-            this.dataListAplicaciones.Columns[1].Width = 30;
+            this.dataListAplicaciones.Columns[0].Width = 30;
         }
 
         private void mensajeok(string mensaje)
@@ -60,7 +60,8 @@ namespace capapresentacion
 
         public void mostrarproyectos()
         {
-            this.dataListAplicaciones.DataSource = NProyecto.mostrarproyectos();
+           // this.dataListAplicaciones.DataSource = NProyecto.mostrarproyectos();
+            this.dataListAplicaciones.DataSource = NAplicacion.mostraraplicacion();
             ocultarcolumnas();
             //this.btnEliminarProyecto.Visible = true;
             this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListAplicaciones.Rows.Count);
@@ -68,7 +69,6 @@ namespace capapresentacion
 
         private void ocultarcolumnas()
         {
-            MessageBox.Show("Pendiente revisar las columnas a ocultar");
             //this.dataListAplicaciones.Columns[0].Visible = false;
 
            // this.dataListAplicaciones.Columns[2].Visible = false;
@@ -171,6 +171,16 @@ namespace capapresentacion
             }
 
         }
+
+        public void nuevaAplicacion()
+        {
+            FrmDetalleAplicacion detalleAplicacion = new FrmDetalleAplicacion();
+            detalleAplicacion.crearNuevo();
+            FrmParent.frmparent.lanzarNuevoElemento(detalleAplicacion);
+           // detalleAplicacion.visualizaBotonesCambiarFormulario(false);
+           // detalleAplicacion.crearPersonal();
+        }
+
         public void botonEliminarProyectoPrincipal()
         {
             try
@@ -288,18 +298,17 @@ namespace capapresentacion
         }
 
         private void dataListAplicaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {/*
             if (e.ColumnIndex == dataListAplicaciones.Columns["Eliminar"].Index)
             {
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListAplicaciones.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }
+            }*/
         }
      
 
         private void dataListAplicaciones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("En  Doble clic");
             try
             {
                 FrmDetalleProyecto detalleProyecto = new FrmDetalleProyecto();
@@ -327,6 +336,23 @@ namespace capapresentacion
             {
                 MessageBox.Show("Error en el evento Double click ", "Error en el evento Double click ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dataListAplicaciones_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            FrmDetalleAplicacion detalleAplicacion = new FrmDetalleAplicacion();
+            FrmParent.frmparent.lanzarNuevoElemento(detalleAplicacion);
+
+            detalleAplicacion.visualizaDatos(
+               Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["id"].Value),
+               Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["titulo"].Value),
+               Convert.ToString(this.dataListAplicaciones.CurrentRow.Cells["descripcion"].Value)
+       );
+
+            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
+
+           // detalleAplicacion.setModo("LECTURA");
         }
     }
 }
