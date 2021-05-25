@@ -25,7 +25,7 @@ namespace capapresentacion
         internal void mostrarDetallePersonal(DDetallePersonales dp)
         {
 
-            MessageBox.Show("mostrarDetallePersonal");
+            
 
             txtIdPersonal.Text = idpersonal;
 
@@ -431,7 +431,6 @@ namespace capapresentacion
         private void cbProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             string s1 = cbProyecto.Text;
-            MessageBox.Show(s1);
             if (s1 == "Sin asignar")
             {
                 Console.WriteLine(" Es igual a Sin asignar");
@@ -454,6 +453,13 @@ namespace capapresentacion
                 }
 
             };
+        }
+
+        public void volver()
+        {
+            this.Close();
+
+            FrmParent.frmparent.AbrirFormulario(new FrmPersonal());
         }
 
 

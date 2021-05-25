@@ -225,8 +225,6 @@ namespace capapresentacion
                             visualizaBotonesCambiarFormulario(true);
                             visualizaBotonGuardar(false);
                             detalleTarea.cancelar();
-                            //Console.WriteLine("estoy en editar");
-                            // tarea.bloqueaProyecto();
                             break;
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
                             FrmDetalleTiempos detalleTiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
@@ -406,11 +404,9 @@ namespace capapresentacion
                             FrmDetalleTiempos detalleTiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
                             detalleTiempos.volver();
                             break;
-                        case "capapresentacion.FrmPersonal, Text: Personal":
-                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-                            break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.volver();
                             break;
 
                     }

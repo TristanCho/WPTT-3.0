@@ -71,10 +71,7 @@ namespace capapresentacion
         }
         private void botonesVisible(bool estado)
         {
-            btnGuardar.Visible = estado;
-            btnCancelar.Visible = estado;
-            btnEditar.Visible = !estado;
-            btnNuevo.Visible = !estado;
+  
             txtObservaciones.Enabled = estado;
 
         }
@@ -83,18 +80,10 @@ namespace capapresentacion
             if (esnuevo || this.eseditar)
             {
                 habilitar(true);
-                btnNuevo.Enabled = false;
-                btnGuardar.Enabled = true;
-                btnEditar.Enabled = false;
-                btnCancelar.Enabled = true;
             }
             else
             {
                 habilitar(false);
-                btnNuevo.Enabled = true;
-                btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnCancelar.Enabled = false;
             }
         }
 
@@ -102,17 +91,12 @@ namespace capapresentacion
         {
             esnuevo = true;
             txtObservaciones.Enabled = true;
-            btnEliminarTiempo.Visible = false;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
             limpiar();
         }
 
-        internal void setBotonEliminar(bool value)
-        {
-            btnEliminarTiempo.Visible = value;
-        }
 
         private void FrmDetalleTiempos_Load(object sender, EventArgs e)
         {
@@ -138,8 +122,6 @@ namespace capapresentacion
         {
             esnuevo = true;
             txtObservaciones.Enabled = true;
-            btnEliminarTiempo.Visible = false;
-
             desbloqueaBotones();
             botonesVisible(true);
             setModo("CREACIÓN");
@@ -282,15 +264,7 @@ namespace capapresentacion
             
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            esnuevo = false;
-            this.eseditar = false;
-            botones();
-            botonesVisible(false);
-            setModo("LECTURA");
-            this.Hide();
-        }
+
         public void visualizaDatos(string fecha, string fechaInicio, string fechaFin,
             string tiempo, string observaciones, string accion, string id, string id_tarea,
             string codigo_tarea, string imputable, string imputado)
@@ -436,15 +410,7 @@ namespace capapresentacion
 
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-            esnuevo = false;
-            this.eseditar = false;
-            botones();
-            botonesVisible(false);
-            setModo("LECTURA");
-            this.Hide();
-        }
+
 
         private void comboboxTarea_SelectedIndexChanged(object sender, EventArgs e)
         {

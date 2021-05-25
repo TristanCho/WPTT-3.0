@@ -30,10 +30,6 @@ namespace capapresentacion
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.dtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.txtObservaciones = new System.Windows.Forms.RichTextBox();
             this.lblDescripciones = new System.Windows.Forms.Label();
@@ -45,7 +41,6 @@ namespace capapresentacion
             this.iconoerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.mensajetool = new System.Windows.Forms.ToolTip(this.components);
             this.comboboxTarea = new System.Windows.Forms.ComboBox();
-            this.btnEliminarTiempo = new System.Windows.Forms.Button();
             this.lEdicion = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,54 +57,6 @@ namespace capapresentacion
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(694, 459);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 42;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Location = new System.Drawing.Point(93, 459);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 41;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(613, 459);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 40;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(12, 459);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 39;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dtFechaInicio
             // 
@@ -215,23 +162,6 @@ namespace capapresentacion
             this.comboboxTarea.Size = new System.Drawing.Size(117, 21);
             this.comboboxTarea.TabIndex = 55;
             this.comboboxTarea.SelectedIndexChanged += new System.EventHandler(this.comboboxTarea_SelectedIndexChanged);
-            // 
-            // btnEliminarTiempo
-            // 
-            this.btnEliminarTiempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminarTiempo.BackColor = System.Drawing.Color.White;
-            this.btnEliminarTiempo.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarTiempo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarTiempo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarTiempo.FlatAppearance.BorderSize = 0;
-            this.btnEliminarTiempo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarTiempo.Location = new System.Drawing.Point(737, 194);
-            this.btnEliminarTiempo.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarTiempo.Name = "btnEliminarTiempo";
-            this.btnEliminarTiempo.Size = new System.Drawing.Size(32, 28);
-            this.btnEliminarTiempo.TabIndex = 56;
-            this.btnEliminarTiempo.UseVisualStyleBackColor = false;
-            this.btnEliminarTiempo.Click += new System.EventHandler(this.btnEliminarTiempo_Click);
             // 
             // lEdicion
             // 
@@ -399,16 +329,11 @@ namespace capapresentacion
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lEdicion);
-            this.Controls.Add(this.btnEliminarTiempo);
             this.Controls.Add(this.comboboxTarea);
             this.Controls.Add(this.txtIdTiempo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtFechaFin);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtFechaInicio);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.lblDescripciones);
@@ -423,10 +348,6 @@ namespace capapresentacion
         }
 
         #endregion
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DateTimePicker dtFechaInicio;
         private System.Windows.Forms.RichTextBox txtObservaciones;
         private System.Windows.Forms.Label lblDescripciones;
@@ -438,7 +359,6 @@ namespace capapresentacion
         private System.Windows.Forms.ErrorProvider iconoerror;
         private System.Windows.Forms.ToolTip mensajetool;
         private System.Windows.Forms.ComboBox comboboxTarea;
-        private System.Windows.Forms.Button btnEliminarTiempo;
         private System.Windows.Forms.Label lEdicion;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Label label4;

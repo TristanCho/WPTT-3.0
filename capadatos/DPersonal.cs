@@ -761,6 +761,10 @@ namespace capadatos
                 ParIdProyecto.ParameterName = "@idProyecto";
                 ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
                 ParIdProyecto.Size = 1024;
+
+                ParIdProyecto.Value = tarea;
+
+                //ParIdProyecto.Direction = ParameterDirection.Output;
                 ParIdProyecto.Value = tarea;
                 SqlCmd.Parameters.Add(ParIdProyecto);
 
