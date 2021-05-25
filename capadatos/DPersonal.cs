@@ -194,7 +194,6 @@ namespace capadatos
                 ParIdTarea.Value = idTarea;
                 SqlCmd.Parameters.Add(ParIdTarea);
 
-
                 SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
                 sqladap.Fill(dtresultado);
             }
@@ -246,11 +245,11 @@ namespace capadatos
                 SqlCmd.CommandText = "spinsertar_TareaPersonal";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
                 //Definición de atributos
-               
+               //TODO pasar a los valores que se entregaran a la base de datos
                 //id_empleado
                 SqlParameter ParIdEmpleado = new SqlParameter();
                 ParIdEmpleado.ParameterName = "@id_empleado";
-                ParIdEmpleado.SqlDbType = SqlDbType.NText;
+                ParIdEmpleado.SqlDbType = SqlDbType.NVarChar;
                 ParIdEmpleado.Size = 1024;
                 ParIdEmpleado.Value = personal.Id_empleado;
                 SqlCmd.Parameters.Add(ParIdEmpleado);
@@ -258,7 +257,8 @@ namespace capadatos
                 //descripcion
                 SqlParameter ParDescripcion = new SqlParameter();
                 ParDescripcion.ParameterName = "@descripcion";
-                ParDescripcion.SqlDbType = SqlDbType.NText;
+                ParDescripcion.SqlDbType = SqlDbType.NVarChar;
+                ParDescripcion.Size = 1024;
                 ParDescripcion.Value = personal.Descripcion;
                 SqlCmd.Parameters.Add(ParDescripcion);
 
@@ -272,14 +272,15 @@ namespace capadatos
                 //Prioridad
                 SqlParameter ParPrioridad = new SqlParameter();
                 ParPrioridad.ParameterName = "@prioridad";
-                ParPrioridad.SqlDbType = SqlDbType.NText;
+                ParPrioridad.SqlDbType = SqlDbType.Int;
                 ParPrioridad.Value = personal.Prioridad;
                 SqlCmd.Parameters.Add(ParPrioridad);
 
                 //estado
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
-                ParEstado.SqlDbType = SqlDbType.NText;
+                ParEstado.SqlDbType = SqlDbType.NVarChar;
+                ParEstado.Size = 1024;
                 ParEstado.Value = personal.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 
@@ -293,7 +294,7 @@ namespace capadatos
                 //IdTareaGrupo
                 SqlParameter ParIdTareaGrupo = new SqlParameter();
                 ParIdTareaGrupo.ParameterName = "@idTareaGrupo";
-                ParIdTareaGrupo.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaGrupo.SqlDbType = SqlDbType.Int;
                 ParIdTareaGrupo.Value = personal.IdTareaGrupo;
                 SqlCmd.Parameters.Add(ParIdTareaGrupo);
 
@@ -301,7 +302,7 @@ namespace capadatos
                 //IdTareaDestino
                 SqlParameter ParIdTareaDestino = new SqlParameter();
                 ParIdTareaDestino.ParameterName = "@idTareaDestino";
-                ParIdTareaDestino.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaDestino.SqlDbType = SqlDbType.Int;
                 ParIdTareaDestino.Value = personal.IdTareaDestino;
                 SqlCmd.Parameters.Add(ParIdTareaDestino);
 
@@ -309,7 +310,7 @@ namespace capadatos
                 //IdTareaOrigen
                 SqlParameter ParIdTareaOrigen = new SqlParameter();
                 ParIdTareaOrigen.ParameterName = "@idTareaOrigen";
-                ParIdTareaOrigen.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaOrigen.SqlDbType = SqlDbType.Int;
                 ParIdTareaOrigen.Value = personal.IdTareaOrigen;
                 SqlCmd.Parameters.Add(ParIdTareaOrigen);
 
@@ -317,6 +318,7 @@ namespace capadatos
                 SqlParameter ParIdTareaProyecto = new SqlParameter();
                 ParIdTareaProyecto.ParameterName = "@idTareaProyecto";
                 ParIdTareaProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParIdTareaProyecto.Size = 1024;
                 ParIdTareaProyecto.Value = personal.IdTareaOrigen;
                 SqlCmd.Parameters.Add(ParIdTareaProyecto);
 
@@ -325,6 +327,7 @@ namespace capadatos
                 SqlParameter ParIdProyecto = new SqlParameter();
                 ParIdProyecto.ParameterName = "@idProyecto";
                 ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
+                ParIdProyecto.Size = int.MaxValue;
                 ParIdProyecto.Value = personal.IdProyecto;
                 SqlCmd.Parameters.Add(ParIdProyecto);
 
@@ -332,17 +335,34 @@ namespace capadatos
                 SqlParameter ParIdEmpleadoInsert = new SqlParameter();
                 ParIdEmpleadoInsert.ParameterName = "@id_empleadoInsert";
                 ParIdEmpleadoInsert.SqlDbType = SqlDbType.NVarChar;
+                ParIdEmpleadoInsert.Size = 1024;
                 ParIdEmpleadoInsert.Value = personal.Id_empleado;
                 SqlCmd.Parameters.Add(ParIdEmpleadoInsert);
 
-
+                
                 //id_empleadoReAsign
                 SqlParameter ParId_empleadoReAsign = new SqlParameter();
                 ParId_empleadoReAsign.ParameterName = "@id_empleadoReAsign";
                 ParId_empleadoReAsign.SqlDbType = SqlDbType.NVarChar;
+                ParId_empleadoReAsign.Size = 1024;
                 ParId_empleadoReAsign.Value = personal.Id_empleadoReAsign;
                 SqlCmd.Parameters.Add(ParId_empleadoReAsign);
 
+                Console.WriteLine(
+                    "IdEmpleado:" + Id_empleado +
+                    " Descripcion:" + Descripcion +
+                    " FCreacion:" + Fcreacion +
+                    " Prioridad:" + Prioridad +
+                    " estado:" + Estado +
+                    " Fcierre:" + Fcierre +
+                    " IdTareaGrupo:" + IdTareaGrupo +
+                    " IdTareaDestino:" + IdTareaDestino +
+                    " IdTareaOrigen:" + IdTareaOrigen +
+                    " IdTareaProyecto:" + IdTareaProyecto +
+                    " IdProyecto:" + IdProyecto +
+                    " id_empleadoInsert:" + Id_empleadoInsert +
+                    " id_empleadoReAsign:" + Id_empleadoReAsign
+                    ) ;
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible insertar tarea personal";
 
@@ -351,6 +371,7 @@ namespace capadatos
             catch (Exception ex)
             {
                 rpta = ex.Message;
+                MessageBox.Show(ex.Message);
             }
             finally
             {

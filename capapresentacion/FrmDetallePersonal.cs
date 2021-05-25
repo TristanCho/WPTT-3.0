@@ -467,11 +467,29 @@ namespace capapresentacion
         {
             string rpta = "";
             if (esnuevo)
-            {            
-                rpta = NPersonal.insertarPersonal(
-                    cbEmpleadoAsign.SelectedItem.ToString(),txtDescripcion.ToString(),dtcreacion.Value.ToString(),cbPrioridad.SelectedItem.ToString(),cbEstado.SelectedItem.ToString(),dtCierre.Value.ToString(),
-                    txtTareaGrupo.ToString(),txtTareaDestino.ToString(),txtTareaOrigen.ToString(),cbTareaProyecto.SelectedItem.ToString(),cbProyecto.SelectedItem.ToString(), DLoginStatico.usuario,cbEmpleadoReAsign.SelectedItem.ToString()
+            {
+                try
+                {
+                    rpta = NPersonal.insertarPersonal(
+                    cbEmpleadoAsign.SelectedItem.ToString(), 
+                    txtDescripcion.ToString(), 
+                    dtcreacion.Value.ToString(), 
+                    cbPrioridad.SelectedItem.ToString(), 
+                    cbEstado.SelectedItem.ToString(), 
+                    dtCierre.Value.ToString(),
+                    txtTareaGrupo.ToString(), 
+                    txtTareaDestino.ToString(), 
+                    txtTareaOrigen.ToString(), 
+                    cbTareaProyecto.SelectedItem.ToString(), 
+                    cbProyecto.SelectedItem.ToString(), 
+                    DLoginStatico.usuario, 
+                    cbEmpleadoReAsign.SelectedItem.ToString()
                     );
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
             else
             {
