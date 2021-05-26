@@ -472,14 +472,14 @@ namespace capapresentacion
                 {
                     rpta = NPersonal.insertarPersonal(
                     cbEmpleadoAsign.SelectedItem.ToString(), 
-                    txtDescripcion.ToString(), 
+                    txtDescripcion.Text, 
                     dtcreacion.Value.ToString(), 
                     cbPrioridad.SelectedItem.ToString(), 
                     cbEstado.SelectedItem.ToString(), 
                     dtCierre.Value.ToString(),
-                    txtTareaGrupo.ToString(), 
-                    txtTareaDestino.ToString(), 
-                    txtTareaOrigen.ToString(), 
+                    txtTareaGrupo.Text, 
+                    txtTareaDestino.Text, 
+                    txtTareaOrigen.Text, 
                     cbTareaProyecto.SelectedItem.ToString(), 
                     cbProyecto.SelectedItem.ToString(), 
                     DLoginStatico.usuario, 
