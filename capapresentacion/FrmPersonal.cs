@@ -23,13 +23,22 @@ namespace capapresentacion
             mostrartareas();
             ocultarcolumnas();
             quitabordes();
-            //tamañoColumnas();
+            tamañoColumnas();
         }
         private void tamañoColumnas()
         {
-           // this.dataListPersonales.Columns[4].Width = 200;
-           // this.dataListPersonales.Columns[6].Width = 150;
-           // this.dataListPersonales.Columns[7].Width = 50;
+            this.dataListPersonal.Columns[1].Width = 35;
+            this.dataListPersonal.Columns[2].Width = 120;
+            this.dataListPersonal.Columns[3].Width = 120;
+            this.dataListPersonal.Columns[4].Width = 35;
+            this.dataListPersonal.Columns[5].Width = 70;
+            this.dataListPersonal.Columns[6].Width = 200;
+            this.dataListPersonal.Columns[7].Width = 35;
+            this.dataListPersonal.Columns[8].Width = 35;
+            this.dataListPersonal.Columns[9].Width = 35;
+            this.dataListPersonal.Columns[11].Width = 50;
+            // this.dataListPersonal.Columns[6].Width = 150;
+            //this.dataListPersonal.Columns[7].Width = 50;
         }
         private void quitabordes()
         {
@@ -73,7 +82,9 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             btnEliminarTarea.Visible = false;
-            this.dataListPersonal.Columns[0].Visible = false;          
+            this.dataListPersonal.Columns[0].Visible = false;
+            //this.dataListPersonal.Columns[2].Visible = false;
+            //this.dataListPersonal.Columns[3].Visible = false;
         }
 
         private void txtBuscarPersonal_TextChanged(object sender, EventArgs e)
