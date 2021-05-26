@@ -4,19 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using capapresentacion;
 
-namespace capadatos
+namespace capapresentacion
 {
-    public static class DInformacionProyecto
+    public static class DInformacionAplicacion
     {
-        public static DataGridView dataListProyectos;
+        public static DataGridView datalistAplicaciones;
         public static int index;
-        public static FrmDetalleProyecto detalleProyecto;
-
+        public static FrmDetalleAplicacion detalleAplicacion;
         public static void sumaIndex()
         {
-            if (!(dataListProyectos.Rows.Count <= DInformacionProyecto.index + 1))
+            if (!(datalistAplicaciones.Rows.Count <= index + 1))
             {
                 index += 1;
             }
@@ -27,24 +25,23 @@ namespace capadatos
         }
         public static void restaIndex()
         {
-            if (!(0 > DInformacionProyecto.index - 1))
+            if (!(0 > index - 1))
             {
                 index -= 1;
             }
-            else{
+            else
+            {
                 MessageBox.Show("Primer registro alcanzado", "Detalle de Proyecto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }      
+            }
         }
         public static void primerIndex()
         {
-                index = 0;
+            index = 0;
         }
 
         public static void finalIndex()
         {
-            index = dataListProyectos.Rows.Count-1;
-        }  
-
-
+            index = datalistAplicaciones.Rows.Count - 1;
+        }
     }
 }

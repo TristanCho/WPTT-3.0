@@ -22,9 +22,18 @@ namespace capanegocio
             return objeto.insertarAplicacion(objeto);
         }
 
-        public static string editarAplicacion()
+        public static string editarAplicacion(int id, string titulo, string descripcion)
         {
-            throw new NotImplementedException();
+            DAplicacion objeto = new DAplicacion(id,titulo,descripcion);
+            return objeto.editarAplicacion(objeto);
+        }
+
+        public static string eliminaraplicacion(int id)
+        {
+            DAplicacion objeto = new DAplicacion();
+            objeto.Id = id;
+
+            return objeto.eliminaraplicacion(id);
         }
     }
 }

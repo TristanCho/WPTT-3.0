@@ -382,6 +382,7 @@ namespace capapresentacion
         public void cancelar()
         {
             lectura();
+            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
         }
 
         public void lectura()
