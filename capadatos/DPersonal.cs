@@ -137,7 +137,7 @@ namespace capadatos
         }
         public DataTable mostrarpersonales(DPersonal objeto)
         {
-            DataTable dtresultado = new DataTable("personales");
+            DataTable dtresultado = new DataTable("TareasPersonales");
             SqlConnection SqlCon = new SqlConnection();
             try
             {
@@ -145,17 +145,17 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "sp1";
+                SqlCmd.CommandText = "spmostrar_personales";
                 //SqlCmd.CommandText = "spVisualizarDetallePersonal";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 ////id_empleado
-                //SqlParameter ParIdEmpleado = new SqlParameter();
-                //ParIdEmpleado.ParameterName = "@id_empleado";                
-                //ParIdEmpleado.SqlDbType = SqlDbType.Int;
-                ////ParIdEmpleado.Size = 1024;
-                //ParIdEmpleado.Value = objeto.Id_empleado;
-                //SqlCmd.Parameters.Add(ParIdEmpleado);
+                SqlParameter ParUsuario = new SqlParameter();
+                ParUsuario.ParameterName = "@usuario";
+                ParUsuario.SqlDbType = SqlDbType.VarChar;
+                //ParIdEmpleado.Size = 1024;
+                ParUsuario.Value = DLoginStatico.usuario;
+                SqlCmd.Parameters.Add(ParUsuario);
 
                 //TODO INSERTAR EL EMPLEADO PARA EL PROCEDIMIENTO
 
