@@ -20,10 +20,16 @@ namespace capapresentacion
         public FrmTiempos()
         {
             InitializeComponent();
-           
             mostrartiempos();
-            
             quitarBordes();
+            reducirColumnas();
+        }
+
+        private void reducirColumnas()
+        {
+            this.dataListTiempos.Columns[5].Width = 200;
+            this.dataListTiempos.Columns[8].Width = 60;
+            this.dataListTiempos.Columns[10].Width = 60;
         }
 
         private void mensajeok(string mensaje)
@@ -46,11 +52,6 @@ namespace capapresentacion
             this.FormClosed += new FormClosedEventHandler(cerrarX);
         }
 
-        private void FrmPrincipal_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
 
         public void mostrartiempos()
         {
@@ -62,7 +63,6 @@ namespace capapresentacion
         private void ocultarcolumnas()
         {
             this.dataListTiempos.Columns[0].Visible = false;
-            //this.dataListTiempos.Columns[1].Visible = false;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -95,13 +95,19 @@ namespace capapresentacion
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         /*fin del drag*/
 
+        private void guardaDataList(FrmDetalleTiempos detalleTiempos)
+        {
+            DInformacionTiempo.dataLisTiempos = dataListTiempos;
+            DInformacionTiempo.index = this.dataListTiempos.CurrentRow.Index;
+            DInformacionTiempo.detalleTiempos = detalleTiempos;
+        }
         public void nuevoTiempo()
         {
 
             FrmDetalleTiempos detalleTiempos = new FrmDetalleTiempos();
+            guardaDataList(detalleTiempos);
+
             FrmParent.frmparent.lanzarNuevoElemento(detalleTiempos);
-            //detalleTiempos.visualizaBotonesCambiarFormulario(false);
-            //detalleTiempos.crearTarea();
             detalleTiempos.nuevoClicado();
         }
 
@@ -112,7 +118,7 @@ namespace capapresentacion
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListTiempos.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }
-        }       
+        }
 
         private void dataListTiempos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -120,9 +126,7 @@ namespace capapresentacion
             {
                 FrmDetalleTiempos detalleTiempos = new FrmDetalleTiempos();
 
-                DInformacionTiempo.dataLisTiempos = dataListTiempos;
-                DInformacionTiempo.index = this.dataListTiempos.CurrentRow.Index;
-                DInformacionTiempo.detalleTiempos = detalleTiempos;
+                guardaDataList(detalleTiempos);
 
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTiempos);
                 detalleTiempos.setModo("LECTURA");
@@ -151,51 +155,6 @@ namespace capapresentacion
             }
         }
 
-        private void btnEliminarTiempo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult opcion;
-                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Registro de tiempo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (opcion == DialogResult.OK)
-                {
-                    int aux = 0;
-                    int id;
-                    string rpta = "";
-                    foreach (DataGridViewRow row in dataListTiempos.Rows)
-                    {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
-                        {
-                            aux = 1;
-
-                            id = Convert.ToInt32(row.Cells[8].Value);
-                            
-                            rpta = NTiempo.eliminartiempo(id);
-
-                            if (rpta.Equals("OK"))
-                            {
-                                this.mensajeok("Registro eliminado");
-                            }
-                            else
-                            {
-                                this.mensajeerror("¡Ups!, Algo ha salido mal...");
-                                this.mensajeerror(rpta);
-                            }
-                        }
-                    }
-                    if (aux < 1)
-                    {
-                        MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    }
-                    this.mostrartiempos();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-                
         private void buscarTiempo(string texto)
         {
             this.dataListTiempos.DataSource = NTiempo.buscartiempo(texto);

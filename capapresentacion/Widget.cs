@@ -62,8 +62,10 @@ namespace capapresentacion
             try
             {
                 con.Open();
-                SqlCommand query = new SqlCommand("select descripcion from TareasPersonales t where id_empleado= (Select e.CodEmpleado from Empleados e where e.Usuario='@usuario') order by t.fcreacion desc", con);
-                query.Parameters.Add("@usuario", SqlDbType.VarChar).Value = DLoginStatico.usuario;
+                SqlCommand query = new SqlCommand("select descripcion from TareasPersonales t where id_empleado= (Select e.CodEmpleado from Empleados e where e.Usuario='"+ DLoginStatico.usuario + "') order by t.fcreacion desc", con);
+                //  query.Parameters.Add("@usuario", SqlDbType.VarChar);
+                // query.Parameters["@usuario"].Value = DLoginStatico.usuario;
+               // query.Parameters.AddWithValue("@usuario", DLoginStatico.usuario);
                 Console.WriteLine(DLoginStatico.usuario + " este es el id");
                 SqlDataReader reader;
                 reader = query.ExecuteReader();
@@ -77,7 +79,7 @@ namespace capapresentacion
                 listaTareasPersonales.ValueMember = "descripcion";
 
                 listaTareasPersonales.DataSource = dt;
-
+                Console.WriteLine(dt.Rows.Count+" es el dt");
                 con.Close();
             }
             catch (Exception)

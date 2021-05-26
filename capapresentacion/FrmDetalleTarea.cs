@@ -19,11 +19,10 @@ namespace capapresentacion
 
         bool esnuevo = false;
         bool eseditar = false;
-        
+
         public FrmDetalleTarea()
         {
             InitializeComponent();
-            botonesVisible(false);
             habilitar(false);
         }
 
@@ -41,48 +40,14 @@ namespace capapresentacion
         }
 
 
-        public void setTecnico()
-        {
-            //lTecnico.Text = DLoginStatico.tecnico;
-        }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (!this.txtIdTarea.Text.Equals(""))
-            {
-               // this.eseditar = true;
-               // this.botones();
-               // setModo("EDICION");
-              //  botonesVisible(true);
-             //   visualizaBotonesCambiarFormulario(false);
-            //    rellenarComboboxes();
-            }
-            else
-            {
-                this.mensajeerror("selleccione el registro a modificar");
-            }
-        }
         public void activarEdicion(bool value)
         {
             eseditar = value;
+            rellenarComboboxes();
             botones();
         }
-        public void visualizaBotonesCambiarFormulario(bool value)
-        {
-            //btnAtras.Visible = value;
-            //btnPrimero.Visible = value;
-           // btnSiguiente.Visible = value;
-           // btnFinal.Visible = value;
-        }
 
-        private void botonesVisible(bool estado)
-        {
-            //btnGuardar.Visible = estado;
-           // btnCancelar.Visible = estado;
-
-           // btnEditar.Visible = !estado;
-           // btnNuevo.Visible = !estado;
-        }
 
         public void crearTarea()
         {
@@ -91,27 +56,10 @@ namespace capapresentacion
 
         }
 
-        internal void setBotonEliminar(bool value)
-        {
-           //dtFDeteccion btnEliminarProyecto.Visible = value;
-        }
 
-        public void visualizaDatos(string id, string proyecto, string tarea, string descripcion, 
-            string observaciones, string fecha_creacion, string estado)
-        {
-            txtIdTarea.Text = id;
-            txtTituloTarea.Text = tarea;
-            comboboxProyecto.SelectedIndex = comboboxProyecto.FindStringExact(proyecto);
-            txtDescripcionTarea.Text = descripcion;
-            txtResolucion.Text = observaciones;
-            //dtFechaTarea.Text = fecha_creacion;
-            comboboxEstado.SelectedIndex = comboboxEstado.FindStringExact(estado);
-           
-        }
 
         private void habilitar(bool valor)
         {
-           // this.txtIdTarea.ReadOnly = false;
             this.txtDescripcionTarea.ReadOnly = !valor;
             this.txtTituloTarea.ReadOnly = !valor;
             this.comboboxEstado.Enabled = valor;
@@ -139,79 +87,75 @@ namespace capapresentacion
             {
                 string rpta = "";
 
-                
+
+                if (esnuevo)
+                {
+                    rpta = NTarea.insertartarea(
+                        txtTituloTarea.Text,
+                        Convert.ToInt32(txtEstimado.Text),
+                        this.comboboxProyecto.SelectedItem.ToString(),
+                        comboboxPrioridad.SelectedItem.ToString(),
+                        comboboxEstado.SelectedItem.ToString(),
+                        comboboxAplicacion.SelectedItem.ToString(),
+                        txtDeteccion.Text,
+                        comboboxModulo.SelectedItem.ToString(),
+                        txtReferencia.Text,
+                        txtVSolucion.Text,
+                        txtHistoria.Text,
+                        txtDescripcionTarea.Text,
+                        txtResolucion.Text,
+                        comboboxTDeteccion.SelectedItem.ToString(),
+                        comboboxSolucion.SelectedItem.ToString(),
+                        comboboxTVerificacion.SelectedItem.ToString(),
+                         Convert.ToDateTime(dtFDeteccion.Value),
+                         Convert.ToDateTime(dtFSolucion.Value),
+                         Convert.ToDateTime(dtFVerificacion.Value)
+                        );
+                }
+                else
+                {
+                    rpta = NTarea.editarTarea(
+                        this.txtIdTarea.Text,
+                        txtTituloTarea.Text,
+                        Convert.ToInt32(txtEstimado.Text),
+                        this.comboboxProyecto.SelectedItem.ToString(),
+                        comboboxPrioridad.SelectedItem.ToString(),
+                        comboboxEstado.SelectedItem.ToString(),
+                        comboboxAplicacion.SelectedItem.ToString(),
+                        txtDeteccion.Text,
+                        comboboxModulo.SelectedItem.ToString(),
+                        txtReferencia.Text,
+                        txtVSolucion.Text,
+                        txtHistoria.Text,
+                        txtDescripcionTarea.Text,
+                        txtResolucion.Text,
+                        comboboxTDeteccion.SelectedItem.ToString(),
+                        comboboxSolucion.SelectedItem.ToString(),
+                        comboboxTVerificacion.SelectedItem.ToString(),
+                         Convert.ToDateTime(dtFDeteccion.Value),
+                         Convert.ToDateTime(dtFSolucion.Value),
+                         Convert.ToDateTime(dtFVerificacion.Value));
+                }
+
+                if (rpta.Equals("OK"))
+                {
                     if (esnuevo)
                     {
-                        rpta = NTarea.insertartarea(
-                            txtTituloTarea.Text,
-                            Convert.ToInt32(txtEstimado.Text),
-                            this.comboboxProyecto.SelectedItem.ToString(),
-                            comboboxPrioridad.SelectedItem.ToString(),
-                            comboboxEstado.SelectedItem.ToString(),
-                            comboboxAplicacion.SelectedItem.ToString(),
-                            txtDeteccion.Text,
-                            comboboxModulo.SelectedItem.ToString(),
-                            txtReferencia.Text,
-                            txtVSolucion.Text,
-                            txtHistoria.Text,
-                            txtDescripcionTarea.Text,
-                            txtResolucion.Text,
-                            comboboxTDeteccion.SelectedItem.ToString(),
-                            comboboxSolucion.SelectedItem.ToString(),
-                            comboboxTVerificacion.SelectedItem.ToString(),
-                             Convert.ToDateTime(dtFDeteccion.Value),
-                             Convert.ToDateTime(dtFSolucion.Value),
-                             Convert.ToDateTime(dtFVerificacion.Value)
-                            );
+                        this.mensajeok("Se ha creado la tarea satisfactoriamente");
                     }
                     else
                     {
-                        //TODO falta por acabar, salta error
-                        rpta = NTarea.editarTarea(
-                            this.txtIdTarea.Text,
-                            txtTituloTarea.Text,
-                            Convert.ToInt32(txtEstimado.Text),
-                            this.comboboxProyecto.SelectedItem.ToString(),
-                            comboboxPrioridad.SelectedItem.ToString(),
-                            comboboxEstado.SelectedItem.ToString(),
-                            comboboxAplicacion.SelectedItem.ToString(),
-                            txtDeteccion.Text,
-                            comboboxModulo.SelectedItem.ToString(),
-                            txtReferencia.Text,
-                            txtVSolucion.Text,
-                            txtHistoria.Text,
-                            txtDescripcionTarea.Text,
-                            txtResolucion.Text,
-                            comboboxTDeteccion.SelectedItem.ToString(),
-                            comboboxSolucion.SelectedItem.ToString(),
-                            comboboxTVerificacion.SelectedItem.ToString(),
-                             Convert.ToDateTime(dtFDeteccion.Value),
-                             Convert.ToDateTime(dtFSolucion.Value),
-                             Convert.ToDateTime(dtFVerificacion.Value));
+                        this.mensajeok("Se ha editado la tarea satisfactoriamente");
                     }
+                }
+                else
+                {
+                    this.mensajeerror(rpta);
+                }
+                botones();
+                FrmTarea tarea = new FrmTarea();
+                FrmParent.frmparent.lanzarNuevoElemento(tarea);
 
-                    if (rpta.Equals("OK"))
-                    {
-                        if (esnuevo)
-                        {
-                            this.mensajeok("Se ha creado la tarea satisfactoriamente");
-                        }
-                        else
-                        {
-                            this.mensajeok("Se ha editado la tarea satisfactoriamente");
-                        }
-                    }
-                    else
-                    {
-                        this.mensajeerror(rpta);
-                    }
-                    botonesVisible(false);
-                    botones();
-
-                    //this.limpiar();
-                    FrmTarea tarea = new FrmTarea();
-                   FrmParent.frmparent.lanzarNuevoElemento(tarea);
-                
             }
 
             catch (Exception ex)
@@ -224,16 +168,6 @@ namespace capapresentacion
         private void FrmDetalleTarea_Load(object sender, EventArgs e)
         {
 
-        }
-        public void prueballamada()
-        {
-            Console.WriteLine("prueba de llamada");
-        }
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            crearNuevo();
-            rellenarComboboxes();
- 
         }
 
         public void rellenarComboboxes()
@@ -313,9 +247,9 @@ namespace capapresentacion
             comboboxModulo.SelectedIndex = 0;
         }
 
-        public void crearNuevo() {
+        public void crearNuevo()
+        {
             esnuevo = true;
-            botonesVisible(true);
             setModo("CREACIÓN");
             botones();
             limpiar();
@@ -336,18 +270,10 @@ namespace capapresentacion
             if (esnuevo || this.eseditar)
             {
                 habilitar(true);
-              //  --btnNuevo.Enabled = false;
-              //  btnGuardar.Enabled = true;
-                //--btnEditar.Enabled = false;
-               // btnCancelar.Enabled = true;
             }
             else
             {
                 habilitar(false);
-               // --btnNuevo.Enabled = true;
-                //btnGuardar.Enabled = false;
-              // -- btnEditar.Enabled = true;
-              //  btnCancelar.Enabled = false;
             }
         }
 
@@ -357,7 +283,6 @@ namespace capapresentacion
             txtReferencia.Text = string.Empty;
             txtIdTarea.Text = string.Empty;
             comboboxProyecto.Items.Clear();
-            //txtEstimado.Text = string.Empty;
             comboboxPrioridad.Items.Clear();
             comboboxEstado.Items.Clear();
             comboboxAplicacion.Items.Clear();
@@ -390,11 +315,7 @@ namespace capapresentacion
             esnuevo = false;
             this.eseditar = false;
             botones();
-            botonesVisible(false);
-            //limpiar();
-            //this.Hide();
             setModo("LECTURA");
-            //llamaVisualizaDatos();
         }
 
         internal void mostrarDetalleTareas(DDetalleTareas tarea)
@@ -449,12 +370,9 @@ namespace capapresentacion
             comboboxTVerificacion.Items.Add(tarea.TVerificacion);
             comboboxTVerificacion.SelectedIndex = 0;
 
-            //dtFDeteccion.Value = Convert.ToDateTime(tarea.FDeteccion);
-            dtFDeteccion.Value = DateTime.Today.AddDays(1); 
-            //dtFDeteccion.Text  = tarea.FSolucion; 
-            Console.WriteLine(tarea.FSolucion + " FECHA DE DETECCION");
-            dtFSolucion.Value = Convert.ToDateTime(tarea.FSolucion);
-            dtFVerificacion.Value = Convert.ToDateTime(tarea.FVerificacion);
+            dtFDeteccion.Text = tarea.FDeteccion;
+            dtFSolucion.Text = tarea.FSolucion;
+            dtFVerificacion.Text = tarea.FVerificacion;
 
 
 
@@ -464,7 +382,7 @@ namespace capapresentacion
 
         public DDetalleTareas getDetalleTareas(string codigo_tarea)
         {
-           return NTarea.getDetalleTareas(codigo_tarea);
+            return NTarea.getDetalleTareas(codigo_tarea);
         }
 
         private void mensajeok(string mensaje)
@@ -478,24 +396,7 @@ namespace capapresentacion
             MessageBox.Show(mensaje, "Detalle de Tarea", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
 
-
-        }
-        
-
-        private void btnEliminarProyecto_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnFinal_Click(object sender, EventArgs e)
-        {
-            DInformacionTarea.finalIndex();
-            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index-1].Cells["codigo_tarea"].Value)));
-
-            
-        }
 
         public void siguiente()
         {
@@ -522,27 +423,7 @@ namespace capapresentacion
             mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
 
         }
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-           
-            DInformacionTarea.sumaIndex();
-            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
 
-        }
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnPrimero_Click(object sender, EventArgs e)
-        {
-
-            DInformacionTarea.primerIndex();
-            
-            mostrarDetalleTareas(getDetalleTareas(Convert.ToString(DInformacionTarea.dataListTareas.Rows[DInformacionTarea.index].Cells["codigo_tarea"].Value)));
-
-        }
 
         public void volver()
         {

@@ -48,14 +48,13 @@ namespace capapresentacion
             this.dataListTareas.DataSource = NTarea.mostrartareas();
             this.ocultarcolumnas();
             this.lblTotal.Text = "Número de tareas: " + Convert.ToString(dataListTareas.Rows.Count);
-            //this.cbEliminar.Checked = false;
         }
 
         public void nuevaTarea()
         {
                 FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
+            guardaDataList(detalleTarea);
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
-                detalleTarea.visualizaBotonesCambiarFormulario(false);
                 detalleTarea.crearTarea();
         }
 
@@ -66,10 +65,7 @@ namespace capapresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmParent.frmparent.lanzarNuevoElemento(detalleTareas);
-            detalleTareas.visualizaBotonesCambiarFormulario(false);
             detalleTareas.crearNuevo();
-            detalleTareas.setTecnico();
-            detalleTareas.setBotonEliminar(false);
             detalleTareas.rellenarComboboxes();
         }
 
@@ -113,7 +109,6 @@ namespace capapresentacion
 
                 }
             }
-           // this.ocultarcolumnas();
         }
 
 
@@ -122,18 +117,19 @@ namespace capapresentacion
         {
 
         }
-
+        private void guardaDataList(FrmDetalleTarea detalleTarea)
+        {
+            DInformacionTarea.dataListTareas = dataListTareas;
+            DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
+            DInformacionTarea.detalleTarea = detalleTarea;
+        }
 
         private void dataListTareas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
-
-                DInformacionTarea.dataListTareas = dataListTareas;
-                DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
-                DInformacionTarea.detalleTarea = detalleTarea;
-
+                guardaDataList(detalleTarea);
 
                 FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
                  detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
@@ -158,20 +154,14 @@ namespace capapresentacion
                     {
                         FrmDetalleTarea detalleTarea = new FrmDetalleTarea();
 
-                        DInformacionTarea.dataListTareas = dataListTareas;
-                        DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
-                        DInformacionTarea.detalleTarea = detalleTarea;
+                        guardaDataList(detalleTarea);
 
                         FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
                         detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
                         StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
                         StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
 
-                        // this.eseditar = true;
-                        //this.botones();
                         detalleTarea.setModo("EDICION");
-                        // botonesVisible(true);
-                        //visualizaBotonesCambiarFormulario(false);
                         detalleTarea.rellenarComboboxes();
                         detalleTarea.activarEdicion(true);
                     }
@@ -201,10 +191,7 @@ namespace capapresentacion
             this.dataListDetalleTiempos.Columns[0].Visible = false;
             dataListDetalleTiempos.DataSource= NTarea.mostrarDetalleTiempos(codigo_tarea);
        }
-        private void btnEliminarTarea_Click(object sender, EventArgs e)
-        {
-           
-        }
+
 
         public void botonEliminarTarea()
         {
@@ -242,11 +229,6 @@ namespace capapresentacion
                     }
                     this.mostrartareas();
                 }
-                /*else
-                {
-                    this.btnEliminarTarea.Enabled = false;
-                    this.cbEliminar.Checked = false;
-                }*/
             }
             catch (Exception ex)
             {

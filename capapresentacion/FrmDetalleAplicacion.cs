@@ -90,6 +90,7 @@ namespace capapresentacion
         {
             desbloquear(false);
             llamaVisualizaDatos();
+            setModo("LECTURA");
         }
 
         public void nuevaAplicacion()

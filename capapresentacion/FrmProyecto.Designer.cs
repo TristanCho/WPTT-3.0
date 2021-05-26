@@ -126,7 +126,7 @@ namespace capapresentacion
             // 
             // Eliminar
             // 
-            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.HeaderText = "Proyecto";
             this.Eliminar.MinimumWidth = 2;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;

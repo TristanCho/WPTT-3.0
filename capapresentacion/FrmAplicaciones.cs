@@ -77,24 +77,6 @@ namespace capapresentacion
             //this.cbEliminar.Checked = false;
         }
 
-        public void nuevoProyecto()
-        {
-            FrmDetalleProyecto detalleproyecto = new FrmDetalleProyecto();
-            FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
-            detalleproyecto.visualizaBotonesCambiarFormulario(false);
-            detalleproyecto.crearProyecto();
-            //  detalleproyecto.setBotonEliminar(false);
-        }
-
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            FrmDetalleProyecto detalleproyecto = new FrmDetalleProyecto();
-            FrmParent.frmparent.lanzarNuevoElemento(detalleproyecto);
-            detalleproyecto.visualizaBotonesCambiarFormulario(false);
-            detalleproyecto.crearProyecto();
-            //  detalleproyecto.setBotonEliminar(false);
-        }
 
         private void quitarBordes()
         {
@@ -135,12 +117,21 @@ namespace capapresentacion
         }
      
 
-
+        private void guardaDataList(FrmDetalleAplicacion detalleAplicacion)
+        {
+            DInformacionAplicacion.datalistAplicaciones = dataListAplicaciones;
+            DInformacionAplicacion.index = this.dataListAplicaciones.CurrentRow.Index;
+            DInformacionAplicacion.detalleAplicacion = detalleAplicacion;
+        }
         public void nuevaAplicacion()
         {
             FrmDetalleAplicacion detalleAplicacion = new FrmDetalleAplicacion();
+            guardaDataList(detalleAplicacion);
+
+
             detalleAplicacion.crearNuevo();
             detalleAplicacion.desbloquear(true);
+            detalleAplicacion.setModo("CREACIÓN");
             FrmParent.frmparent.lanzarNuevoElemento(detalleAplicacion);
            // detalleAplicacion.visualizaBotonesCambiarFormulario(false);
            // detalleAplicacion.crearPersonal();

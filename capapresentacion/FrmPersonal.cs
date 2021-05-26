@@ -219,6 +219,7 @@ namespace capapresentacion
         public void nuevaPersonal()
         {
             FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
+
             FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
             detallePersonal.visualizaBotonesCambiarFormulario(false);
             detallePersonal.crearPersonal();
