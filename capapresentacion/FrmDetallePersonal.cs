@@ -444,7 +444,7 @@ namespace capapresentacion
                 Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["idTareaDestino"].Value),
                 Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["descripcion"].Value),
                 Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["ObsTiempos"].Value)
-);
+); 
         }
 
         ////////////////////////////CRISTHIAN/////////////////////////////////////////////
