@@ -193,67 +193,67 @@ namespace capapresentacion
             rellenarComboboxes();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string rpta = "";               
+        //private void btnGuardar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string rpta = "";               
               
-                    if (esnuevo)
-                    {
-                    /*
-                        rpta = NPersonal.insertarPersonal(
-                            this.cbProyecto.Text.Trim(),
-                            this.cbTareaProyecto.Text.Trim(),
-                            this.txtDescripcion.Text.Trim(),
-                            Convert.ToDateTime(this.dtcreacion.Value));
-                    */
-                    }
-                    else
-                    {
-                    /*
-                        rpta = NPersonal.editarPersonal(
-                            Convert.ToInt32(this.txtIdPersonal.Text),
-                           // this.txtTituloPersonal.Text.Trim(),
-                           //this.txtcodigoProyecto.Text.Trim(),
-                            this.txtDescripcion.Text.Trim(),
-                            Convert.ToDateTime(this.dtcreacion.Value));
-                    */
-                    }
+        //            if (esnuevo)
+        //            {
+        //            /*
+        //                rpta = NPersonal.insertarPersonal(
+        //                    this.cbProyecto.Text.Trim(),
+        //                    this.cbTareaProyecto.Text.Trim(),
+        //                    this.txtDescripcion.Text.Trim(),
+        //                    Convert.ToDateTime(this.dtcreacion.Value));
+        //            */
+        //            }
+        //            else
+        //            {
+        //            /*
+        //                rpta = NPersonal.editarPersonal(
+        //                    Convert.ToInt32(this.txtIdPersonal.Text),
+        //                   // this.txtTituloPersonal.Text.Trim(),
+        //                   //this.txtcodigoProyecto.Text.Trim(),
+        //                    this.txtDescripcion.Text.Trim(),
+        //                    Convert.ToDateTime(this.dtcreacion.Value));
+        //            */
+        //            }
 
-                    if (rpta.Equals("OK"))
-                    {
-                        if (esnuevo)
-                        {
-                            this.mensajeok("Se ha creado el proyecto satisfactoriamente");
-                            limpiar();
+        //            if (rpta.Equals("OK"))
+        //            {
+        //                if (esnuevo)
+        //                {
+        //                    this.mensajeok("Se ha creado el proyecto satisfactoriamente");
+        //                    limpiar();
 
-                        }
-                        else
-                        {
-                            this.mensajeok("Se ha editado el proyecto satisfactoriamente");
-                            limpiar();
-                        }
+        //                }
+        //                else
+        //                {
+        //                    this.mensajeok("Se ha editado el proyecto satisfactoriamente");
+        //                    limpiar();
+        //                }
 
-                    }
-                    else
-                    {
-                        this.mensajeerror(rpta);
-                    }
+        //            }
+        //            else
+        //            {
+        //                this.mensajeerror(rpta);
+        //            }
 
-                    botonesVisible(false);
-                    botones();
-                    this.Hide();
-                    FrmProyecto proyecto = new FrmProyecto();
-                    FrmParent.frmparent.lanzarNuevoElemento(proyecto);
+        //            botonesVisible(false);
+        //            botones();
+        //            this.Hide();
+        //            FrmProyecto proyecto = new FrmProyecto();
+        //            FrmParent.frmparent.lanzarNuevoElemento(proyecto);
                 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message, ex.StackTrace);
-            }
-        }
+        //        MessageBox.Show(ex.Message, ex.StackTrace);
+        //    }
+        //}
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -272,7 +272,6 @@ namespace capapresentacion
                 this.mensajeerror("seleccione el registro a modificar");
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             esnuevo = false;

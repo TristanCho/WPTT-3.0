@@ -41,7 +41,6 @@ namespace capapresentacion
             this.cbProyecto = new System.Windows.Forms.ComboBox();
             this.cbTareaProyecto = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtObservacionesTiempos = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -187,19 +186,6 @@ namespace capapresentacion
             this.label2.TabIndex = 48;
             this.label2.Text = "Tarea/Proy:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtObservacionesTiempos
-            // 
-            this.txtObservacionesTiempos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservacionesTiempos.Enabled = false;
-            this.txtObservacionesTiempos.Location = new System.Drawing.Point(12, 364);
-            this.txtObservacionesTiempos.Name = "txtObservacionesTiempos";
-            this.txtObservacionesTiempos.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtObservacionesTiempos.Size = new System.Drawing.Size(726, 77);
-            this.txtObservacionesTiempos.TabIndex = 51;
-            this.txtObservacionesTiempos.Text = "";
             // 
             // label4
             // 
@@ -372,9 +358,8 @@ namespace capapresentacion
             this.lblEstadoTituloTarea.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoTituloTarea.Location = new System.Drawing.Point(234, 173);
             this.lblEstadoTituloTarea.Name = "lblEstadoTituloTarea";
-            this.lblEstadoTituloTarea.Size = new System.Drawing.Size(136, 18);
+            this.lblEstadoTituloTarea.Size = new System.Drawing.Size(0, 18);
             this.lblEstadoTituloTarea.TabIndex = 71;
-            this.lblEstadoTituloTarea.Text = "Estado + Titulo";
             this.lblEstadoTituloTarea.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnIrGrupo
@@ -441,6 +426,7 @@ namespace capapresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(766, 498);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.cbPrioridad);
             this.Controls.Add(this.btnIrOrigen);
             this.Controls.Add(this.btnIrDestino);
@@ -473,7 +459,6 @@ namespace capapresentacion
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtcreacion);
             this.Controls.Add(this.txtIdPersonal);
-            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblObservaciones);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_idPersonal);
@@ -498,7 +483,6 @@ namespace capapresentacion
         private System.Windows.Forms.ComboBox cbProyecto;
         private System.Windows.Forms.ComboBox cbTareaProyecto;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox txtObservacionesTiempos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
