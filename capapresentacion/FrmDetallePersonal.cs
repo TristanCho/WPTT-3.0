@@ -518,7 +518,39 @@ namespace capapresentacion
         }
 
         ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+        public void botonEliminarPersonal()
+        {
+            if (!lEdicion.Text.Equals(""))
+            {
+                try
+                {
+                    DialogResult opcion;
+                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea Personal", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (opcion == DialogResult.OK)
+                    {
 
+                        string rpta = "";
+
+                        rpta = NPersonal.eliminarPersonal(txtIdPersonal.Text);
+
+                        if (rpta.Equals("OK"))
+                        {
+                            this.mensajeok("Tarea personal eliminada");
+                            FrmParent.frmparent.AbrirFormulario(new FrmPersonal());
+                        }
+                        else
+                        {
+                            this.mensajeerror("¡Ups!, Algo ha salido mal...");
+                            this.mensajeerror(rpta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
+        }
 
     }
 }

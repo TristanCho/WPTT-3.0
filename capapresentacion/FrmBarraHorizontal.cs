@@ -161,7 +161,6 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
-
                             detallePersonal.guardar();
                             visualizaBotonGuardar(false);
                             visualizaBotonesCambiarFormulario(false);
@@ -267,6 +266,8 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            visualizaBotonesCambiarFormulario(true);
+                            visualizaBotonGuardar(false);
                             break;
                         case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
                             FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
@@ -314,6 +315,7 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.botonEliminarPersonal();
                             break;
                         case "capapresentacion.FrmAplicaciones, Text: ":
                             FrmAplicaciones aplicaciones = (FrmAplicaciones)FrmParent.frmparent.getFormularioActual();

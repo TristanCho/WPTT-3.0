@@ -536,7 +536,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speliminar_tarea";
+                SqlCmd.CommandText = "speliminar_personal";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -554,6 +554,7 @@ namespace capadatos
             catch (Exception ex)
             {
                 rpta = ex.Message;
+                MessageBox.Show(rpta);
             }
             finally
             {
@@ -785,7 +786,7 @@ namespace capadatos
 
                 //id_proyecto
                 SqlParameter ParIdProyecto = new SqlParameter();
-                ParIdProyecto.ParameterName = "@idProyecto";
+                ParIdProyecto.ParameterName = "@idProyecto";                
                 ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
                 ParIdProyecto.Size = 1024;
 
