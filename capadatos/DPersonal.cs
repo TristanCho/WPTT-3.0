@@ -190,7 +190,8 @@ namespace capadatos
 
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@empleado";
-                ParIdTarea.SqlDbType = SqlDbType.Int;
+                ParIdTarea.SqlDbType = SqlDbType.VarChar;
+                ParIdTarea.Size = 1024;
                 ParIdTarea.Value = idTarea;
                 SqlCmd.Parameters.Add(ParIdTarea);
 
@@ -199,7 +200,7 @@ namespace capadatos
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex+"excepcion");
+                Console.WriteLine(ex.Message);
                 dtresultado = null;
             }
             finally
@@ -250,7 +251,7 @@ namespace capadatos
                 SqlParameter ParIdEmpleado = new SqlParameter();
                 ParIdEmpleado.ParameterName = "@id_empleado";
                 ParIdEmpleado.SqlDbType = SqlDbType.NVarChar;
-                ParIdEmpleado.Size = 1024;
+                //ParIdEmpleado.Size = 1024;
                 ParIdEmpleado.Value = personal.Id_empleado;
                 SqlCmd.Parameters.Add(ParIdEmpleado);
 
@@ -258,7 +259,7 @@ namespace capadatos
                 SqlParameter ParDescripcion = new SqlParameter();
                 ParDescripcion.ParameterName = "@descripcion";
                 ParDescripcion.SqlDbType = SqlDbType.NVarChar;
-                ParDescripcion.Size = 1024;
+                //ParDescripcion.Size = 1024;
                 ParDescripcion.Value = personal.Descripcion;
                 SqlCmd.Parameters.Add(ParDescripcion);
 
@@ -272,7 +273,8 @@ namespace capadatos
                 //Prioridad
                 SqlParameter ParPrioridad = new SqlParameter();
                 ParPrioridad.ParameterName = "@prioridad";
-                ParPrioridad.SqlDbType = SqlDbType.Int;
+                ParPrioridad.SqlDbType = SqlDbType.NVarChar;
+                //ParPrioridad.Size = 1024;
                 ParPrioridad.Value = personal.Prioridad;
                 SqlCmd.Parameters.Add(ParPrioridad);
 
@@ -280,7 +282,7 @@ namespace capadatos
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
                 ParEstado.SqlDbType = SqlDbType.NVarChar;
-                ParEstado.Size = 1024;
+                //ParEstado.Size = 1024;
                 ParEstado.Value = personal.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 
@@ -294,7 +296,8 @@ namespace capadatos
                 //IdTareaGrupo
                 SqlParameter ParIdTareaGrupo = new SqlParameter();
                 ParIdTareaGrupo.ParameterName = "@idTareaGrupo";
-                ParIdTareaGrupo.SqlDbType = SqlDbType.Int;
+                ParIdTareaGrupo.SqlDbType = SqlDbType.NVarChar;
+                //ParIdTareaGrupo.Size = 1024;
                 ParIdTareaGrupo.Value = personal.IdTareaGrupo;
                 SqlCmd.Parameters.Add(ParIdTareaGrupo);
 
@@ -302,7 +305,8 @@ namespace capadatos
                 //IdTareaDestino
                 SqlParameter ParIdTareaDestino = new SqlParameter();
                 ParIdTareaDestino.ParameterName = "@idTareaDestino";
-                ParIdTareaDestino.SqlDbType = SqlDbType.Int;
+                ParIdTareaDestino.SqlDbType = SqlDbType.NVarChar;
+                //ParEstado.Size = 1024;
                 ParIdTareaDestino.Value = personal.IdTareaDestino;
                 SqlCmd.Parameters.Add(ParIdTareaDestino);
 
@@ -310,7 +314,8 @@ namespace capadatos
                 //IdTareaOrigen
                 SqlParameter ParIdTareaOrigen = new SqlParameter();
                 ParIdTareaOrigen.ParameterName = "@idTareaOrigen";
-                ParIdTareaOrigen.SqlDbType = SqlDbType.Int;
+                ParIdTareaOrigen.SqlDbType = SqlDbType.NVarChar;
+                //ParIdTareaOrigen.Size = 1024;
                 ParIdTareaOrigen.Value = personal.IdTareaOrigen;
                 SqlCmd.Parameters.Add(ParIdTareaOrigen);
 
@@ -318,8 +323,8 @@ namespace capadatos
                 SqlParameter ParIdTareaProyecto = new SqlParameter();
                 ParIdTareaProyecto.ParameterName = "@idTareaProyecto";
                 ParIdTareaProyecto.SqlDbType = SqlDbType.NVarChar;
-                ParIdTareaProyecto.Size = 1024;
-                ParIdTareaProyecto.Value = personal.IdTareaOrigen;
+                //ParIdTareaProyecto.Size = 1024;
+                ParIdTareaProyecto.Value = personal.IdTareaProyecto;
                 SqlCmd.Parameters.Add(ParIdTareaProyecto);
 
 
@@ -327,7 +332,7 @@ namespace capadatos
                 SqlParameter ParIdProyecto = new SqlParameter();
                 ParIdProyecto.ParameterName = "@idProyecto";
                 ParIdProyecto.SqlDbType = SqlDbType.NVarChar;
-                ParIdProyecto.Size = int.MaxValue;
+                //ParIdProyecto.Size = 1024;
                 ParIdProyecto.Value = personal.IdProyecto;
                 SqlCmd.Parameters.Add(ParIdProyecto);
 
@@ -335,7 +340,7 @@ namespace capadatos
                 SqlParameter ParIdEmpleadoInsert = new SqlParameter();
                 ParIdEmpleadoInsert.ParameterName = "@id_empleadoInsert";
                 ParIdEmpleadoInsert.SqlDbType = SqlDbType.NVarChar;
-                ParIdEmpleadoInsert.Size = 1024;
+                //ParIdEmpleadoInsert.Size = 1024;
                 ParIdEmpleadoInsert.Value = personal.Id_empleado;
                 SqlCmd.Parameters.Add(ParIdEmpleadoInsert);
 
@@ -344,7 +349,7 @@ namespace capadatos
                 SqlParameter ParId_empleadoReAsign = new SqlParameter();
                 ParId_empleadoReAsign.ParameterName = "@id_empleadoReAsign";
                 ParId_empleadoReAsign.SqlDbType = SqlDbType.NVarChar;
-                ParId_empleadoReAsign.Size = 1024;
+                //ParId_empleadoReAsign.Size = 1024;
                 ParId_empleadoReAsign.Value = personal.Id_empleadoReAsign;
                 SqlCmd.Parameters.Add(ParId_empleadoReAsign);
 
@@ -440,7 +445,8 @@ namespace capadatos
                 //estado
                 SqlParameter ParEstado = new SqlParameter();
                 ParEstado.ParameterName = "@estado";
-                ParEstado.SqlDbType = SqlDbType.Int;
+                ParEstado.SqlDbType = SqlDbType.NVarChar;
+                ParEstado.Size = 1024;
                 ParEstado.Value = personal.Estado;
                 SqlCmd.Parameters.Add(ParEstado);
 

@@ -494,8 +494,8 @@ namespace capapresentacion
             else
             {
                 rpta = NPersonal.editartarPersonal(
-                   txtIdPersonal.ToString(),cbEmpleadoAsign.SelectedItem.ToString(), txtDescripcion.ToString(), dtcreacion.Value.ToString(), cbPrioridad.SelectedItem.ToString(), cbEstado.SelectedItem.ToString(), dtCierre.Value.ToString(),
-                   txtTareaGrupo.ToString(), txtTareaDestino.ToString(), txtTareaOrigen.ToString(), cbTareaProyecto.SelectedItem.ToString(), cbProyecto.SelectedItem.ToString(), DLoginStatico.usuario, cbEmpleadoReAsign.SelectedItem.ToString()
+                   txtIdPersonal.ToString(),cbEmpleadoAsign.SelectedItem.ToString(), txtDescripcion.ToString(), dtcreacion.Value.ToString(),cbPrioridad.SelectedItem.ToString(), cbEstado.SelectedItem.ToString(), dtCierre.Value.ToString(),
+                   txtTareaGrupo.ToString(),txtTareaDestino.ToString(), txtTareaOrigen.ToString(), cbTareaProyecto.SelectedItem.ToString(), cbProyecto.SelectedItem.ToString(), DLoginStatico.usuario, cbEmpleadoReAsign.SelectedItem.ToString()
                    );
             }
 
