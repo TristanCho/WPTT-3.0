@@ -71,13 +71,7 @@ namespace capapresentacion
             detallepersonal.setBotonEliminar(false);
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            FrmDetallePersonal frmPersonal = new FrmDetallePersonal();
-            frmPersonal.desbloqueaBotones();
-            frmPersonal.botonNuevoClicado();
-            FrmParent.frmparent.lanzarNuevoElemento(frmPersonal);
-        }
+      
 
         private void ocultarcolumnas()
         {
@@ -112,12 +106,12 @@ namespace capapresentacion
             }
         }
         private void dataListPersonales_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {/*
             if (e.ColumnIndex == dataListPersonal.Columns["Eliminar"].Index)
             {
                 DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListPersonal.Rows[e.RowIndex].Cells["Eliminar"];
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }
+            }*/
         }
 
         //private void btnEliminarTarea_Click(object sender, EventArgs e)
@@ -230,16 +224,20 @@ namespace capapresentacion
         {
 
         }
-
+        private void cargaDataList(FrmDetallePersonal detallePersonal)
+        {
+            InformacionPersonal.dataListPersonal = dataListPersonal;
+            InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
+            InformacionPersonal.detallePersonal = detallePersonal;
+        }
         private void dataListPersonal_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
 
-                InformacionPersonal.dataListPersonal = dataListPersonal;
-                InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
-                InformacionPersonal.detallePersonal = detallePersonal;
+                cargaDataList(detallePersonal);
+
                 detallePersonal.visualizaDatos(
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["prioridad"].Value),
@@ -260,7 +258,8 @@ namespace capapresentacion
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["ObsTiempos"].Value)
                 );
                 FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
-                          detallePersonal.setModo("LECTURA");
+                detallePersonal.desbloqueaBotones(false);
+                detallePersonal.setModo("LECTURA");
             }
             catch (Exception ex)
             {

@@ -266,6 +266,7 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.cancelar();
                             visualizaBotonesCambiarFormulario(true);
                             visualizaBotonGuardar(false);
                             break;

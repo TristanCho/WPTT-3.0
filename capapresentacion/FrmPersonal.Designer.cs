@@ -41,7 +41,6 @@ namespace capapresentacion
             this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
             this.dataListPersonal = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtBuscarPersonal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -131,8 +130,6 @@ namespace capapresentacion
             this.dataListPersonal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataListPersonal.ColumnHeadersHeight = 34;
             this.dataListPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataListPersonal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Eliminar});
             this.dataListPersonal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataListPersonal.EnableHeadersVisualStyles = false;
             this.dataListPersonal.GridColor = System.Drawing.Color.DimGray;
@@ -159,15 +156,6 @@ namespace capapresentacion
             this.dataListPersonal.TabIndex = 4;
             this.dataListPersonal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonales_CellContentClick);
             this.dataListPersonal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonal_CellDoubleClick_1);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.MinimumWidth = 2;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // btnNuevo
             // 
@@ -296,7 +284,6 @@ namespace capapresentacion
         private System.Windows.Forms.TextBox txtBuscarPersonal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataListPersonal;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
         private System.Windows.Forms.DataGridView dataPersonalTiempos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiempos;
     }

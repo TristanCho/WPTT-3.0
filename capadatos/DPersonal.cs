@@ -145,7 +145,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_personales";
+                SqlCmd.CommandText = "sp1";
                 //SqlCmd.CommandText = "spVisualizarDetallePersonal";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 

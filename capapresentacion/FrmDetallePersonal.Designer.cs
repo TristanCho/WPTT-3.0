@@ -31,12 +31,13 @@ namespace capapresentacion
         {
             this.label3 = new System.Windows.Forms.Label();
             this.lEdicion = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.dtcreacion = new System.Windows.Forms.DateTimePicker();
             this.txtIdPersonal = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_idPersonal = new System.Windows.Forms.Label();
-            this.btnEliminarProyecto = new System.Windows.Forms.Button();
             this.cbProyecto = new System.Windows.Forms.ComboBox();
             this.cbTareaProyecto = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@ namespace capapresentacion
             this.btnIrOrigen = new FontAwesome.Sharp.IconButton();
             this.cbPrioridad = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.RichTextBox();
-            this.txtObservacionesTiempos = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label3
@@ -86,6 +86,30 @@ namespace capapresentacion
             this.lEdicion.Size = new System.Drawing.Size(101, 14);
             this.lEdicion.TabIndex = 43;
             this.lEdicion.Text = "[MODO LECTURA]";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Location = new System.Drawing.Point(648, 460);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 26);
+            this.btnGuardar.TabIndex = 40;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Location = new System.Drawing.Point(32, 460);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 26);
+            this.btnNuevo.TabIndex = 39;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dtcreacion
             // 
@@ -133,23 +157,6 @@ namespace capapresentacion
             this.lbl_idPersonal.TabIndex = 31;
             this.lbl_idPersonal.Text = "Id:";
             this.lbl_idPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnEliminarProyecto
-            // 
-            this.btnEliminarProyecto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminarProyecto.BackColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarProyecto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarProyecto.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarProyecto.FlatAppearance.BorderSize = 0;
-            this.btnEliminarProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(-222, 207);
-            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarProyecto.Name = "btnEliminarProyecto";
-            this.btnEliminarProyecto.Size = new System.Drawing.Size(32, 26);
-            this.btnEliminarProyecto.TabIndex = 44;
-            this.btnEliminarProyecto.UseVisualStyleBackColor = false;
-            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
             // 
             // cbProyecto
             // 
@@ -414,19 +421,6 @@ namespace capapresentacion
             this.txtDescripcion.TabIndex = 35;
             this.txtDescripcion.Text = "";
             // 
-            // txtObservacionesTiempos
-            // 
-            this.txtObservacionesTiempos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservacionesTiempos.Enabled = false;
-            this.txtObservacionesTiempos.Location = new System.Drawing.Point(12, 364);
-            this.txtObservacionesTiempos.Name = "txtObservacionesTiempos";
-            this.txtObservacionesTiempos.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtObservacionesTiempos.Size = new System.Drawing.Size(726, 77);
-            this.txtObservacionesTiempos.TabIndex = 51;
-            this.txtObservacionesTiempos.Text = "";
-            // 
             // FrmDetallePersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,12 +455,13 @@ namespace capapresentacion
             this.Controls.Add(this.cbProyecto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lEdicion);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtcreacion);
             this.Controls.Add(this.txtIdPersonal);
             this.Controls.Add(this.lblObservaciones);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_idPersonal);
-            this.Controls.Add(this.btnEliminarProyecto);
             this.Name = "FrmDetallePersonal";
             this.Text = "FrmDetallePersonal";
             this.ResumeLayout(false);
@@ -478,12 +473,13 @@ namespace capapresentacion
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lEdicion;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DateTimePicker dtcreacion;
         private System.Windows.Forms.TextBox txtIdPersonal;
         private System.Windows.Forms.Label lblObservaciones;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_idPersonal;
-        private System.Windows.Forms.Button btnEliminarProyecto;
         private System.Windows.Forms.ComboBox cbProyecto;
         private System.Windows.Forms.ComboBox cbTareaProyecto;
         private System.Windows.Forms.Label label2;
@@ -510,6 +506,5 @@ namespace capapresentacion
         private FontAwesome.Sharp.IconButton btnIrOrigen;
         private System.Windows.Forms.ComboBox cbPrioridad;
         private System.Windows.Forms.RichTextBox txtDescripcion;
-        private System.Windows.Forms.RichTextBox txtObservacionesTiempos;
     }
 }
