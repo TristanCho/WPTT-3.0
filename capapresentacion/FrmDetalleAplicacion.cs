@@ -89,6 +89,7 @@ namespace capapresentacion
         public void cancelar()
         {
             desbloquear(false);
+            llamaVisualizaDatos();
         }
 
         public void nuevaAplicacion()
@@ -105,7 +106,10 @@ namespace capapresentacion
         public void botonEditar()
         {
             this.esnuevo = false;
+            desbloquear(true);
             setModo("EDICIÓN");
+            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
         }
         public void llamaVisualizaDatos()
         {
@@ -182,6 +186,12 @@ namespace capapresentacion
 
 
            
+        }
+
+        public void volver()
+        {
+            this.Close();
+            FrmParent.frmparent.AbrirFormulario(new FrmAplicaciones());
         }
     }
 }

@@ -328,6 +328,7 @@ namespace capapresentacion
             checkImputado.Enabled = false;
             checkImputable.Enabled = false;
             txtObservaciones.ReadOnly = true;
+            llamaVisualizaDatos();
         }
 
         public void mostrarTareaPersonalCombobox(string usuario, string tarea)

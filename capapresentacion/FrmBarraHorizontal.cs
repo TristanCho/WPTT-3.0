@@ -200,7 +200,6 @@ namespace capapresentacion
                             tarea.editarTarea();
                             visualizaBotonesCambiarFormulario(false);
                             visualizaBotonGuardar(true);
-
                             break;
                         case "capapresentacion.FrmDetalleTarea, Text: Tarea":
                             FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
@@ -223,7 +222,6 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmPersonal, Text: Personal":
                             FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
@@ -464,10 +462,12 @@ namespace capapresentacion
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             detallePersonal.volver();
                             break;
-
+                        case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
+                            FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
+                            detalleAplicacion.volver();
+                            break;
                     }
                     break;
-
             }
         }
 

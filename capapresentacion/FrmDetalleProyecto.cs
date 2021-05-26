@@ -200,6 +200,7 @@ namespace capapresentacion
             txtObservacionesProyecto.Enabled = false;
             txtTituloProyecto.ReadOnly = true;
             dtFechaProyecto.Enabled = false;
+            llamaVisualizaDatos();
         }
         public void crearProyecto() {
             esnuevo = true;
@@ -281,6 +282,7 @@ namespace capapresentacion
             if (!this.txtIdProyecto.Text.Equals(""))
             {
                 this.eseditar = true;
+                esnuevo = false;
              //   this.botones();
                 setModo("EDICIÓN");
                 // txtObservacionesProyecto.Enabled = true;
