@@ -18,7 +18,6 @@ namespace capapresentacion
         public FrmDetallePersonal()
         {
             InitializeComponent();
-            habilitar(false);
             botonesVisible(false);
         }
 
@@ -141,26 +140,11 @@ namespace capapresentacion
             cbEstado.SelectedIndex = 0;
         }
 
-        private void habilitar(bool valor)
-        {
-            this.txtIdPersonal.ReadOnly = true;
-            this.cbProyecto.Enabled = true;
-            this.cbTareaProyecto.Enabled = valor;
-            this.dtcreacion.Enabled = !valor;            
-            this.dtCierre.Enabled = valor;
-            //this.txtTareaGrupo.ReadOnly = true;
-            //this.txtTareaOrigen.ReadOnly = true;
-           // this.txtTareaDestino.ReadOnly = true;
-           //TODO Revisar el bloqueo de estos campos
-            this.txtDescripcion.ReadOnly = false;
-            this.txtObservacionesTiempos.ReadOnly = valor;
-        }
+
 
         private void botonesVisible(bool estado)
         {
             btnGuardar.Visible = estado;
-            btnCancelar.Visible = estado;
-            btnEditar.Visible = !estado;
             btnNuevo.Visible = !estado;
             txtDescripcion.Enabled = true;    //Todo Revisar este txt aislado       
         }
@@ -169,26 +153,16 @@ namespace capapresentacion
         {
             if (esnuevo || eseditar)
             {
-                habilitar(true);
                 btnNuevo.Enabled = false;
                 btnGuardar.Enabled = true;
-                btnEditar.Enabled = false;
-                btnCancelar.Enabled = true;
             }
             else
             {
-                habilitar(false);
                 btnNuevo.Enabled = true;
                 btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnCancelar.Enabled = false;
             }
         }
 
-        internal void setBotonEliminar(bool value)
-        {
-            btnEliminarProyecto.Visible = value;
-        }
 
         private void cerrarX(object sender, EventArgs e)
         {
@@ -206,7 +180,6 @@ namespace capapresentacion
         {
             MessageBox.Show("btnNuevo_Click FrmDetPersonal L210");
             crearNuevo();
-            btnEliminarProyecto.Visible = false;
         }
 
         public void crearPersonal()
@@ -216,8 +189,6 @@ namespace capapresentacion
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
-            limpiar();
-
             crearNuevo();
             rellenarComboboxes();
         }
@@ -398,11 +369,14 @@ namespace capapresentacion
 
         public void crearNuevo()
         {
+            limpiar();
+            desbloqueaBotones(true);
+            rellenarComboboxes();
             esnuevo = true;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
-            limpiar();
+            
         }
 
         private void cbTareaProyecto_SelectedIndexChanged(object sender, EventArgs e)
@@ -443,16 +417,60 @@ namespace capapresentacion
 
             FrmParent.frmparent.AbrirFormulario(new FrmPersonal());
         }
+
+        public void cancelar()
+        {
+            llamavisualizadatos();
+            desbloqueaBotones(false);
+        }
+
+        private void llamavisualizadatos()
+        {
+            visualizaDatos(
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["idTarea"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["prioridad"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["idProyecto"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["id_aplicacion"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["idTareaProyecto"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["EstadoTProy"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["titulo"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["id_empleado"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["id_empleadoReAsign"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["estado"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["fcreacion"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["fcierre"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["idTareaGrupo"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["idTareaOrigen"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["idTareaDestino"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["descripcion"].Value),
+                Convert.ToString(InformacionPersonal.dataListPersonal.Rows[InformacionPersonal.index].Cells["ObsTiempos"].Value)
+);
+        }
+
         ////////////////////////////CRISTHIAN/////////////////////////////////////////////
-        public void desbloqueaBotones()
+        public void desbloqueaBotones(bool valor)
         {
             esnuevo = true;
+            this.txtIdPersonal.ReadOnly = !valor;
+            this.cbProyecto.Enabled = valor;
+            this.cbTareaProyecto.Enabled = valor;
+            this.cbPrioridad.Enabled = valor;
+            cbEmpleadoAsign.Enabled = valor;
+            cbEmpleadoReAsign.Enabled = valor;
+            cbEstado.Enabled = valor;
+            this.dtcreacion.Enabled = valor;
+            this.dtCierre.Enabled = valor;
+            this.txtTareaGrupo.ReadOnly = !valor;
+            this.txtTareaOrigen.ReadOnly = !valor;
+            this.txtTareaDestino.ReadOnly = !valor;
+            this.txtDescripcion.ReadOnly = !valor;
+            this.txtObservacionesTiempos.ReadOnly = !valor;/*
             txtDescripcion.Enabled = true;
             txtObservacionesTiempos.Enabled = true;
             botonesVisible(true);
             setModo("CREACIÓN");
             botones();
-            limpiar();
+            limpiar();*/
         }
 
         public void botonNuevoClicado()
