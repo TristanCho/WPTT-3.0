@@ -147,7 +147,7 @@ namespace capapresentacion
             this.cbProyecto.Enabled = true;
             this.cbTareaProyecto.Enabled = valor;
             this.dtcreacion.Enabled = !valor;            
-            this.dtCierre.Enabled = valor;
+            //this.dtCierre.Enabled = valor;
             //this.txtTareaGrupo.ReadOnly = true;
             //this.txtTareaOrigen.ReadOnly = true;
            // this.txtTareaDestino.ReadOnly = true;
@@ -158,10 +158,10 @@ namespace capapresentacion
 
         private void botonesVisible(bool estado)
         {
-            btnGuardar.Visible = estado;
-            btnCancelar.Visible = estado;
-            btnEditar.Visible = !estado;
-            btnNuevo.Visible = !estado;
+            //btnGuardar.Visible = estado;
+           // btnCancelar.Visible = estado;
+            //btnEditar.Visible = !estado;
+            //btnNuevo.Visible = !estado;
             txtDescripcion.Enabled = true;    //Todo Revisar este txt aislado       
         }
 
@@ -170,18 +170,18 @@ namespace capapresentacion
             if (esnuevo || eseditar)
             {
                 habilitar(true);
-                btnNuevo.Enabled = false;
-                btnGuardar.Enabled = true;
-                btnEditar.Enabled = false;
-                btnCancelar.Enabled = true;
+                //btnNuevo.Enabled = false;
+                //btnGuardar.Enabled = true;
+                //btnEditar.Enabled = false;
+               // btnCancelar.Enabled = true;
             }
             else
             {
                 habilitar(false);
-                btnNuevo.Enabled = true;
-                btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnCancelar.Enabled = false;
+               // btnNuevo.Enabled = true;
+               // btnGuardar.Enabled = false;
+                //btnEditar.Enabled = true;
+               // btnCancelar.Enabled = false;
             }
         }
 
@@ -202,12 +202,12 @@ namespace capapresentacion
             lEdicion.Text = "[MODO " + modo + "]";
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("btnNuevo_Click FrmDetPersonal L210");
-            crearNuevo();
-            btnEliminarProyecto.Visible = false;
-        }
+        //private void btnNuevo_Click(object sender, EventArgs e)
+        //{
+        //    MessageBox.Show("btnNuevo_Click FrmDetPersonal L210");
+        //    crearNuevo();
+        //    btnEliminarProyecto.Visible = false;
+        //}
 
         public void crearPersonal()
         {
@@ -222,67 +222,67 @@ namespace capapresentacion
             rellenarComboboxes();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string rpta = "";               
+        //private void btnGuardar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        string rpta = "";               
               
-                    if (esnuevo)
-                    {
-                    /*
-                        rpta = NPersonal.insertarPersonal(
-                            this.cbProyecto.Text.Trim(),
-                            this.cbTareaProyecto.Text.Trim(),
-                            this.txtDescripcion.Text.Trim(),
-                            Convert.ToDateTime(this.dtcreacion.Value));
-                    */
-                    }
-                    else
-                    {
-                    /*
-                        rpta = NPersonal.editarPersonal(
-                            Convert.ToInt32(this.txtIdPersonal.Text),
-                           // this.txtTituloPersonal.Text.Trim(),
-                           //this.txtcodigoProyecto.Text.Trim(),
-                            this.txtDescripcion.Text.Trim(),
-                            Convert.ToDateTime(this.dtcreacion.Value));
-                    */
-                    }
+        //            if (esnuevo)
+        //            {
+        //            /*
+        //                rpta = NPersonal.insertarPersonal(
+        //                    this.cbProyecto.Text.Trim(),
+        //                    this.cbTareaProyecto.Text.Trim(),
+        //                    this.txtDescripcion.Text.Trim(),
+        //                    Convert.ToDateTime(this.dtcreacion.Value));
+        //            */
+        //            }
+        //            else
+        //            {
+        //            /*
+        //                rpta = NPersonal.editarPersonal(
+        //                    Convert.ToInt32(this.txtIdPersonal.Text),
+        //                   // this.txtTituloPersonal.Text.Trim(),
+        //                   //this.txtcodigoProyecto.Text.Trim(),
+        //                    this.txtDescripcion.Text.Trim(),
+        //                    Convert.ToDateTime(this.dtcreacion.Value));
+        //            */
+        //            }
 
-                    if (rpta.Equals("OK"))
-                    {
-                        if (esnuevo)
-                        {
-                            this.mensajeok("Se ha creado el proyecto satisfactoriamente");
-                            limpiar();
+        //            if (rpta.Equals("OK"))
+        //            {
+        //                if (esnuevo)
+        //                {
+        //                    this.mensajeok("Se ha creado el proyecto satisfactoriamente");
+        //                    limpiar();
 
-                        }
-                        else
-                        {
-                            this.mensajeok("Se ha editado el proyecto satisfactoriamente");
-                            limpiar();
-                        }
+        //                }
+        //                else
+        //                {
+        //                    this.mensajeok("Se ha editado el proyecto satisfactoriamente");
+        //                    limpiar();
+        //                }
 
-                    }
-                    else
-                    {
-                        this.mensajeerror(rpta);
-                    }
+        //            }
+        //            else
+        //            {
+        //                this.mensajeerror(rpta);
+        //            }
 
-                    botonesVisible(false);
-                    botones();
-                    this.Hide();
-                    FrmProyecto proyecto = new FrmProyecto();
-                    FrmParent.frmparent.lanzarNuevoElemento(proyecto);
+        //            botonesVisible(false);
+        //            botones();
+        //            this.Hide();
+        //            FrmProyecto proyecto = new FrmProyecto();
+        //            FrmParent.frmparent.lanzarNuevoElemento(proyecto);
                 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message, ex.StackTrace);
-            }
-        }
+        //        MessageBox.Show(ex.Message, ex.StackTrace);
+        //    }
+        //}
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -301,7 +301,6 @@ namespace capapresentacion
                 this.mensajeerror("seleccione el registro a modificar");
             }
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             esnuevo = false;

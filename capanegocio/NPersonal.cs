@@ -92,8 +92,6 @@ namespace capanegocio
             objeto.Textobuscar = textobuscar;
             return objeto.anteriorInforme(objeto);
         }
-
-
        
         public static string[] mostrarPrioridad()
         {

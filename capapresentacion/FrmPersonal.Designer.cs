@@ -87,6 +87,7 @@ namespace capapresentacion
             this.cbEliminar.TabIndex = 30;
             this.cbEliminar.Text = "Eliminar";
             this.cbEliminar.UseVisualStyleBackColor = true;
+            this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
             // 
             // label_añadir
             // 

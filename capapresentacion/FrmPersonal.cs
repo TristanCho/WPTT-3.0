@@ -21,7 +21,7 @@ namespace capapresentacion
         {
             InitializeComponent();
             mostrartareas();
-            //ocultarcolumnas();
+            ocultarcolumnas();
             quitabordes();
             //tamañoColumnas();
         }
@@ -47,8 +47,8 @@ namespace capapresentacion
         public void mostrartareas()
         {
             this.dataListPersonal.DataSource = NPersonal.mostrarpersonales();
-            //this.ocultarcolumnas();
-            // this.btnEliminarProyecto.Visible = true;
+            this.ocultarcolumnas();
+            this.btnEliminarTarea.Visible = true;
             this.lblTotal.Text = "Número de TPersonales: " + Convert.ToString(dataListPersonal.Rows.Count);
             this.cbEliminar.Checked = false;
         }
@@ -59,7 +59,7 @@ namespace capapresentacion
             FrmParent.frmparent.lanzarNuevoElemento(detallepersonal);
             detallepersonal.visualizaBotonesCambiarFormulario(false);
             detallepersonal.crearPersonal();
-            //  detalleproyecto.setBotonEliminar(false);
+            detallepersonal.setBotonEliminar(false);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
