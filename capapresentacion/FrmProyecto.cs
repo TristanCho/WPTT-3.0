@@ -104,7 +104,8 @@ namespace capapresentacion
         private void guardaDataList(FrmDetalleProyecto detalleProyecto)
         {
             DInformacionProyecto.dataListProyectos = dataListProyectos;
-            DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
+            if (DInformacionProyecto.dataListProyectos.RowCount != 0)
+                DInformacionProyecto.index = this.dataListProyectos.CurrentRow.Index;
             DInformacionProyecto.detalleProyecto = detalleProyecto;
         }
         private void dataListProyectos_CellDoubleClick(object sender, EventArgs e)
@@ -156,9 +157,9 @@ namespace capapresentacion
                          );
 
 
-                    FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto);
-                    StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
-                    StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
+                    FrmParent.frmparent.lanzarNuevoElemento(detalleProyecto); 
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
                     detalleProyecto.setModo("EDICIÓN");
                     detalleProyecto.habilitar(true);
                     break;

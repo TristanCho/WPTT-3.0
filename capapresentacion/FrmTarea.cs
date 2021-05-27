@@ -120,7 +120,8 @@ namespace capapresentacion
         private void guardaDataList(FrmDetalleTarea detalleTarea)
         {
             DInformacionTarea.dataListTareas = dataListTareas;
-            DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
+            if (DInformacionTarea.dataListTareas.RowCount != 0)
+                DInformacionTarea.index = this.dataListTareas.CurrentRow.Index;
             DInformacionTarea.detalleTarea = detalleTarea;
         }
 
@@ -158,8 +159,8 @@ namespace capapresentacion
 
                         FrmParent.frmparent.lanzarNuevoElemento(detalleTarea);
                         detalleTarea.mostrarDetalleTareas(detalleTarea.getDetalleTareas(Convert.ToString(this.dataListTareas.CurrentRow.Cells["codigo_tarea"].Value)));
-                        StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
-                        StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
+                        StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+                        StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
 
                         detalleTarea.setModo("EDICION");
                         detalleTarea.rellenarComboboxes();

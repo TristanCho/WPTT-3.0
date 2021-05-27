@@ -114,12 +114,13 @@ namespace capapresentacion
         }
         public void llamaVisualizaDatos()
         {
-
-            visualizaDatos(
+            if (DInformacionAplicacion.datalistAplicaciones.RowCount != 0)
+            {
+                visualizaDatos(
                 Convert.ToString(DInformacionAplicacion.datalistAplicaciones.Rows[DInformacionAplicacion.index].Cells["id"].Value),
                 Convert.ToString(DInformacionAplicacion.datalistAplicaciones.Rows[DInformacionAplicacion.index].Cells["titulo"].Value),
                 Convert.ToString(DInformacionAplicacion.datalistAplicaciones.Rows[DInformacionAplicacion.index].Cells["descripcion"].Value));
-
+            }
         }
         public void botonPrimero()
         {

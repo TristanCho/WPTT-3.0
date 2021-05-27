@@ -43,6 +43,8 @@ namespace capapresentacion
 
         public void activarEdicion(bool value)
         {
+            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
             eseditar = value;
             rellenarComboboxes();
             botones();

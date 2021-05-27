@@ -409,14 +409,6 @@ namespace capadatos
                 ParIdTarea.Value = personal.IdTarea;
                 SqlCmd.Parameters.Add(ParIdTarea);
 
-                //id_empleado
-                SqlParameter ParIdEmpleado = new SqlParameter();
-                ParIdEmpleado.ParameterName = "@id_empleado";
-                ParIdEmpleado.SqlDbType = SqlDbType.NText;
-                ParIdEmpleado.Size = 1024;
-                ParIdEmpleado.Value = personal.Id_empleado;
-                SqlCmd.Parameters.Add(ParIdEmpleado);
-
 
                 //descripcion
                 SqlParameter ParDescripcion = new SqlParameter();
@@ -526,7 +518,7 @@ namespace capadatos
             return rpta;
         }
 
-        public string eliminarPersonal(DPersonal personal)
+        public string eliminarPersonal(int id)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -536,7 +528,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "speliminar_tarea";
+                SqlCmd.CommandText = "speliminar_personal";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -544,7 +536,7 @@ namespace capadatos
                 SqlParameter ParIdTarea = new SqlParameter();
                 ParIdTarea.ParameterName = "@idTarea";
                 ParIdTarea.SqlDbType = SqlDbType.NVarChar;
-                ParIdTarea.Value = personal.IdTarea;
+                ParIdTarea.Value = id;
                 SqlCmd.Parameters.Add(ParIdTarea);
 
                 rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No es posible eliminar TareaPersonal";

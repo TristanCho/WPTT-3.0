@@ -48,13 +48,12 @@ namespace capanegocio
         }
 
 
-        public static string editartarPersonal(string idTarea,string id_empleado, string descripcion, string fcreacion, string prioridad, string estado, string fcierre,
+        public static string editarPersonal(string idTarea, string descripcion, string fcreacion, string prioridad, string estado, string fcierre,
             string idTareaGrupo, string idTareaDestino, string idTareaOrigen, string idTareaProyecto, string idProyecto, string id_empleadoInsert, string id_empleadoReAsign)
         {
             DPersonal objeto = new DPersonal();
 
             objeto.IdTarea = idTarea;
-            objeto.Id_empleado = id_empleado;
             objeto.Descripcion = descripcion;
             objeto.Fcreacion = fcreacion;
             objeto.Prioridad = prioridad;
@@ -71,12 +70,11 @@ namespace capanegocio
             return objeto.editarPersonal(objeto);
         }
 
-        public static string eliminarPersonal(string idTarea)
+        public static string eliminarPersonal(int idTarea)
         {
-            DPersonal objeto = new DPersonal();
-            objeto.IdTarea = idTarea;
+            DPersonal objeto = new DPersonal(); 
 
-            return objeto.eliminarPersonal(objeto);         
+            return objeto.eliminarPersonal(idTarea);         
         }
            
         public static DProyectoDatos siguienteInforme(String textobuscar)

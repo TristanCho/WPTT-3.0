@@ -31,8 +31,6 @@ namespace capapresentacion
         {
             this.label3 = new System.Windows.Forms.Label();
             this.lEdicion = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.dtcreacion = new System.Windows.Forms.DateTimePicker();
             this.txtIdPersonal = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
@@ -86,30 +84,6 @@ namespace capapresentacion
             this.lEdicion.Size = new System.Drawing.Size(101, 14);
             this.lEdicion.TabIndex = 43;
             this.lEdicion.Text = "[MODO LECTURA]";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(648, 460);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 26);
-            this.btnGuardar.TabIndex = 40;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(32, 460);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 26);
-            this.btnNuevo.TabIndex = 39;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dtcreacion
             // 
@@ -241,7 +215,7 @@ namespace capapresentacion
             // dtCierre
             // 
             this.dtCierre.CustomFormat = " ";
-            this.dtCierre.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtCierre.Location = new System.Drawing.Point(263, 136);
             this.dtCierre.Name = "dtCierre";
             this.dtCierre.Size = new System.Drawing.Size(98, 20);
@@ -448,15 +422,12 @@ namespace capapresentacion
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtObservacionesTiempos);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbTareaProyecto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbProyecto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lEdicion);
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtcreacion);
             this.Controls.Add(this.txtIdPersonal);
             this.Controls.Add(this.lblObservaciones);
@@ -473,8 +444,6 @@ namespace capapresentacion
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lEdicion;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DateTimePicker dtcreacion;
         private System.Windows.Forms.TextBox txtIdPersonal;
         private System.Windows.Forms.Label lblObservaciones;

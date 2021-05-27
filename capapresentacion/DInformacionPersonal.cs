@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace capapresentacion
 {
 
-    class InformacionPersonal
+    class DInformacionPersonal
     {
         public static DataGridView dataListPersonal;
         public static int index;
@@ -17,10 +17,9 @@ namespace capapresentacion
 
         public static void sumaIndex()
         {
-            if (!(dataListPersonal.Rows.Count <= InformacionPersonal.index + 1))
+            if (!(dataListPersonal.Rows.Count <= DInformacionPersonal.index + 1))
             {
                 index += 1;
-                MessageBox.Show(Convert.ToString(index));
             }
             else
             {
@@ -31,7 +30,7 @@ namespace capapresentacion
 
         public static void restaIndex()
         {
-            if (!(0 > InformacionPersonal.index - 1))
+            if (!(0 > DInformacionPersonal.index - 1))
             {
                 index -= 1;
             }

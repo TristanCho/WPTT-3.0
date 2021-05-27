@@ -36,12 +36,8 @@ namespace capapresentacion
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.btnEliminarTarea = new System.Windows.Forms.Button();
-            this.cbEliminar = new System.Windows.Forms.CheckBox();
-            this.label_añadir = new System.Windows.Forms.Label();
             this.panelRecuadro = new System.Windows.Forms.Panel();
             this.dataListPersonal = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.txtBuscarPersonal = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataPersonalTiempos = new System.Windows.Forms.DataGridView();
@@ -61,41 +57,6 @@ namespace capapresentacion
             this.lblTotal.Size = new System.Drawing.Size(124, 13);
             this.lblTotal.TabIndex = 32;
             this.lblTotal.Text = "Número de TPersonales:";
-            // 
-            // btnEliminarTarea
-            // 
-            this.btnEliminarTarea.BackColor = System.Drawing.Color.White;
-            this.btnEliminarTarea.BackgroundImage = global::capapresentacion.Properties.Resources.DeleteButton;
-            this.btnEliminarTarea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarTarea.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEliminarTarea.FlatAppearance.BorderSize = 0;
-            this.btnEliminarTarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarTarea.Location = new System.Drawing.Point(77, 35);
-            this.btnEliminarTarea.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminarTarea.Name = "btnEliminarTarea";
-            this.btnEliminarTarea.Size = new System.Drawing.Size(32, 28);
-            this.btnEliminarTarea.TabIndex = 31;
-            this.btnEliminarTarea.UseVisualStyleBackColor = false;
-            // 
-            // cbEliminar
-            // 
-            this.cbEliminar.AutoSize = true;
-            this.cbEliminar.Location = new System.Drawing.Point(12, 43);
-            this.cbEliminar.Name = "cbEliminar";
-            this.cbEliminar.Size = new System.Drawing.Size(62, 17);
-            this.cbEliminar.TabIndex = 30;
-            this.cbEliminar.Text = "Eliminar";
-            this.cbEliminar.UseVisualStyleBackColor = true;
-            this.cbEliminar.CheckedChanged += new System.EventHandler(this.cbEliminar_CheckedChanged);
-            // 
-            // label_añadir
-            // 
-            this.label_añadir.AutoSize = true;
-            this.label_añadir.Location = new System.Drawing.Point(123, 43);
-            this.label_añadir.Name = "label_añadir";
-            this.label_añadir.Size = new System.Drawing.Size(37, 13);
-            this.label_añadir.TabIndex = 29;
-            this.label_añadir.Text = "Añadir";
             // 
             // panelRecuadro
             // 
@@ -156,20 +117,6 @@ namespace capapresentacion
             this.dataListPersonal.TabIndex = 4;
             this.dataListPersonal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonales_CellContentClick);
             this.dataListPersonal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataListPersonal_CellDoubleClick_1);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackgroundImage = global::capapresentacion.Properties.Resources.addNew;
-            this.btnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(163, 35);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(26, 28);
-            this.btnNuevo.TabIndex = 27;
-            this.btnNuevo.UseVisualStyleBackColor = true;
             // 
             // txtBuscarPersonal
             // 
@@ -255,11 +202,7 @@ namespace capapresentacion
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.btnEliminarTarea);
-            this.Controls.Add(this.cbEliminar);
-            this.Controls.Add(this.label_añadir);
             this.Controls.Add(this.panelRecuadro);
-            this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.txtBuscarPersonal);
             this.Name = "FrmPersonal";
             this.Text = "Personal";
@@ -276,11 +219,7 @@ namespace capapresentacion
         #endregion
 
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button btnEliminarTarea;
-        private System.Windows.Forms.CheckBox cbEliminar;
-        private System.Windows.Forms.Label label_añadir;
         private System.Windows.Forms.Panel panelRecuadro;
-        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtBuscarPersonal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataListPersonal;

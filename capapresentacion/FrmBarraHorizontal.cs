@@ -184,47 +184,37 @@ namespace capapresentacion
                         case "capapresentacion.FrmProyecto, Text: ":
                             FrmProyecto proyecto = (FrmProyecto)FrmParent.frmparent.getFormularioActual();
                             proyecto.editarProyecto();
-                            visualizaBotonesCambiarFormulario(false);
-                            visualizaBotonGuardar(true);
                             // proyecto.botonEliminarProyectoPrincipal();
 
                             break;
                         case "capapresentacion.FrmDetalleProyecto, Text: Proyecto":
                             FrmDetalleProyecto detalleProyecto = (FrmDetalleProyecto)FrmParent.frmparent.getFormularioActual();
                             detalleProyecto.editarProyecto();
-                            visualizaBotonesCambiarFormulario(false);
-                            visualizaBotonGuardar(true);
                             break;
                         case "capapresentacion.FrmTarea, Text: FrmTarea":
                             FrmTarea tarea = (FrmTarea)FrmParent.frmparent.getFormularioActual();
                             tarea.editarTarea();
-                            visualizaBotonesCambiarFormulario(false);
-                            visualizaBotonGuardar(true);
                             break;
                         case "capapresentacion.FrmDetalleTarea, Text: Tarea":
                             FrmDetalleTarea detalleTarea = (FrmDetalleTarea)FrmParent.frmparent.getFormularioActual();
                             detalleTarea.activarEdicion(true);
                             //detalleTarea.cancelar();
-                            visualizaBotonesCambiarFormulario(false);
-                            visualizaBotonGuardar(true);
                             break;
                         case "capapresentacion.FrmTiempos, Text: ":
                             FrmTiempos tiempos = (FrmTiempos)FrmParent.frmparent.getFormularioActual();
                             tiempos.editarTiempo();
-                            visualizaBotonesCambiarFormulario(false);
-                            visualizaBotonGuardar(true);
                             break;                        
                         case "capapresentacion.FrmDetalleTiempos, Text: FrmDetalleTiempos":
                             FrmDetalleTiempos detalleTiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
                             detalleTiempos.botonEditar();
-                            visualizaBotonesCambiarFormulario(false);
-                            visualizaBotonGuardar(true);
                             break;
                         case "capapresentacion.FrmPersonal, Text: Personal":
                             FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
+                            personal.botonEditar();
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.botonEditar();
                             break;
                         case "capapresentacion.FrmAplicaciones, Text: ":
                             FrmAplicaciones aplicaciones = (FrmAplicaciones)FrmParent.frmparent.getFormularioActual();
@@ -259,12 +249,7 @@ namespace capapresentacion
                             visualizaBotonGuardar(false);
                             detalleTiempos.cancelar();
                             break;
-                        case "capapresentacion.FrmPersonal, Text: Personal":
-                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-                            visualizaBotonesCambiarFormulario(true);
-                            visualizaBotonGuardar(false);
-                            //personal.cancelar();
-                            break;
+
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
                             detallePersonal.cancelar();
@@ -313,10 +298,13 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmPersonal, Text: Personal":
                             FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
-
+                            personal.eliminar();
+                            visualizaBotonGuardar(false);
+                            visualizaBotonesCambiarFormulario(false);
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.eliminar();
                             break;
                         case "capapresentacion.FrmAplicaciones, Text: ":
                             FrmAplicaciones aplicaciones = (FrmAplicaciones)FrmParent.frmparent.getFormularioActual();
@@ -346,12 +334,10 @@ namespace capapresentacion
                             FrmDetalleTiempos detalleTiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
                             detalleTiempos.botonPrimero();
                             break;
-                        case "capapresentacion.FrmPersonal, Text: Personal":
-                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
 
-                            break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.botonPrimero();
                             break;
                         case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
                             FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
@@ -375,12 +361,10 @@ namespace capapresentacion
                             FrmDetalleTiempos detalleTiempos = (FrmDetalleTiempos)FrmParent.frmparent.getFormularioActual();
                             detalleTiempos.botonAtras();
                             break;
-                        case "capapresentacion.FrmPersonal, Text: Personal":
-                            FrmPersonal personal = (FrmPersonal)FrmParent.frmparent.getFormularioActual();
 
-                            break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.botonAtras();
                             break;
                         case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
                             FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
@@ -410,6 +394,7 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.botonSiguiente();
                             break;
                         case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
                             FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();
@@ -439,6 +424,7 @@ namespace capapresentacion
                             break;
                         case "capapresentacion.FrmDetallePersonal, Text: FrmDetallePersonal":
                             FrmDetallePersonal detallePersonal = (FrmDetallePersonal)FrmParent.frmparent.getFormularioActual();
+                            detallePersonal.botonFinal();
                             break;
                         case "capapresentacion.FrmDetalleAplicacion, Text: FrmDetalleAplicacion":
                             FrmDetalleAplicacion detalleAplicacion = (FrmDetalleAplicacion)FrmParent.frmparent.getFormularioActual();

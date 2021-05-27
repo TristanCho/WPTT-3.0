@@ -98,7 +98,8 @@ namespace capapresentacion
         private void guardaDataList(FrmDetalleTiempos detalleTiempos)
         {
             DInformacionTiempo.dataLisTiempos = dataListTiempos;
-            DInformacionTiempo.index = this.dataListTiempos.CurrentRow.Index;
+            if (DInformacionTiempo.dataLisTiempos.RowCount != 0)
+                DInformacionTiempo.index = this.dataListTiempos.CurrentRow.Index;
             DInformacionTiempo.detalleTiempos = detalleTiempos;
         }
         public void nuevoTiempo()
@@ -234,7 +235,8 @@ namespace capapresentacion
                     Convert.ToString(this.dataListTiempos.CurrentRow.Cells["imputado"].Value)
                     );
                     detalleTiempos.botonEditar();
-
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
                     break;
                 }
             }

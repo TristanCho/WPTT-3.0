@@ -142,67 +142,7 @@ namespace capapresentacion
              }
             return comboboxTareaPersonal.SelectedValue.ToString();
         }
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            
-            try
-            {
 
-                /* if (this.comboboxTarea.Text==string.Empty)
-                 {
-                     mensajeerror("Formulario incompleto");
-                     this.iconoerror.SetError(this.comboboxTarea, "Ingresar Tarea");
-                 }
-                 else
-                 {*/
-                string rpta = "";
-                if (esnuevo)
-                    {
-                        //Console.WriteLine(comboboxTareaPersonal.SelectedItem.ToString()+"console");
-                        rpta = NTiempo.insertartiempo(
-                       dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
-                       txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
-                       getTareaPersonal(),
-                       DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
-                    }
-                    else
-                    {
-                        rpta = NTiempo.editartiempo(txtId.Text,
-                       dtFecha.Value.ToString(), dtFechaInicio.Value.ToString(), dtFechaFin.Value.ToString(),
-                       txtObservaciones.Text, comboboxAccion.SelectedItem.ToString(), comboboxTarea.SelectedItem.ToString(),
-                       getTareaPersonal(),
-                       DLoginStatico.usuario, booleanToInt(checkImputable.Checked), booleanToInt(checkImputado.Checked));
-                    }
-
-                    if (rpta.Equals("OK"))
-                    {
-                        if (esnuevo)
-                        {
-                            this.mensajeok("Se ha creado el Registro de tiempo satisfactoriamente");
-                        }
-                        else
-                        {
-                            this.mensajeok("Se ha editado el Registro de tiempo satisfactoriamente");
-                        }
-
-                    }
-                    else
-                    {
-                        this.mensajeerror(rpta);
-                    }
-
-                    botonesVisible(false);
-                    botones();
-                    this.Hide();
-                    FrmTiempos tiempos = new FrmTiempos();
-                    FrmParent.frmparent.lanzarNuevoElemento(tiempos);
-               // }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.StackTrace);
-            }
-        }
 
         public void guardar()
         {
@@ -249,6 +189,8 @@ namespace capapresentacion
             this.botones();
             setModo("EDICIÓN");
             botonesVisible(true);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+            StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
             mostrarTareaCombobox();
         }
 
@@ -422,7 +364,9 @@ namespace capapresentacion
 
         public void llamaVisualizaDatos()
         {
-            visualizaDatos(
+            if (DInformacionTiempo.dataLisTiempos.RowCount != 0)
+            {
+                visualizaDatos(
                 Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["fecha"].Value),
                 Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["fechaInicio"].Value),
                 Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["fechaFin"].Value),
@@ -434,7 +378,7 @@ namespace capapresentacion
                 Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["codigo_tarea"].Value),
                 Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["imputable"].Value),
                 Convert.ToString(DInformacionTiempo.dataLisTiempos.Rows[DInformacionTiempo.index].Cells["imputado"].Value));
-                
+            }
 
         }
 

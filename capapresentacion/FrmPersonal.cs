@@ -21,7 +21,6 @@ namespace capapresentacion
         {
             InitializeComponent();
             mostrartareas();
-            ocultarcolumnas();
             quitabordes();
             tamañoColumnas();
         }
@@ -56,30 +55,11 @@ namespace capapresentacion
         public void mostrartareas()
         {
             this.dataListPersonal.DataSource = NPersonal.mostrarpersonales();
-            this.ocultarcolumnas();
-            this.btnEliminarTarea.Visible = true;
             this.lblTotal.Text = "Número de TPersonales: " + Convert.ToString(dataListPersonal.Rows.Count);
-            this.cbEliminar.Checked = false;
         }
 
-        public void nuevoProyecto()
-        {
-            FrmDetallePersonal detallepersonal = new FrmDetallePersonal();
-            FrmParent.frmparent.lanzarNuevoElemento(detallepersonal);
-            detallepersonal.visualizaBotonesCambiarFormulario(false);
-            detallepersonal.crearPersonal();
-            detallepersonal.setBotonEliminar(false);
-        }
 
-      
 
-        private void ocultarcolumnas()
-        {
-            btnEliminarTarea.Visible = false;
-            this.dataListPersonal.Columns[0].Visible = false;
-            //this.dataListPersonal.Columns[2].Visible = false;
-            //this.dataListPersonal.Columns[3].Visible = false;
-        }
 
         private void txtBuscarPersonal_TextChanged(object sender, EventArgs e)
         {
@@ -89,22 +69,9 @@ namespace capapresentacion
         private void buscarPersonales(string texto)
         {
             this.dataListPersonal.DataSource = NPersonal.buscarpersonales(texto);
-            this.ocultarcolumnas();
         }             
 
-        private void cbEliminar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.cbEliminar.Checked)
-            {
-                this.dataListPersonal.Columns[0].Visible = true;
-                this.btnEliminarTarea.Visible = true;
-            }
-            else
-            {
-                this.dataListPersonal.Columns[0].Visible = false;
-                this.btnEliminarTarea.Visible = false;
-            }
-        }
+
         private void dataListPersonales_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {/*
             if (e.ColumnIndex == dataListPersonal.Columns["Eliminar"].Index)
@@ -153,8 +120,6 @@ namespace capapresentacion
                 }
                 else
                 {
-                    this.btnEliminarTarea.Enabled = false;
-                    this.cbEliminar.Checked = false;
                 }
             }
             catch (Exception ex)
@@ -177,11 +142,12 @@ namespace capapresentacion
         {
 
         }
-        private void cargaDataList(FrmDetallePersonal detallePersonal)
+        private void guardaDataList(FrmDetallePersonal detallePersonal)
         {
-            InformacionPersonal.dataListPersonal = dataListPersonal;
-            InformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
-            InformacionPersonal.detallePersonal = detallePersonal;
+            DInformacionPersonal.dataListPersonal = dataListPersonal;
+            if (DInformacionPersonal.dataListPersonal.RowCount != 0)
+                DInformacionPersonal.index = this.dataListPersonal.CurrentRow.Index;
+            DInformacionPersonal.detallePersonal = detallePersonal;
         }
         private void dataListPersonal_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -189,7 +155,7 @@ namespace capapresentacion
             {
                 FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
 
-                cargaDataList(detallePersonal);
+                guardaDataList(detallePersonal);
 
                 detallePersonal.visualizaDatos(
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
@@ -211,6 +177,8 @@ namespace capapresentacion
                 Convert.ToString(this.dataListPersonal.CurrentRow.Cells["ObsTiempos"].Value)
                 );
                 FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(true);
+                StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(false);
                 detallePersonal.desbloqueaBotones(false);
                 detallePersonal.setModo("LECTURA");
             }
@@ -224,20 +192,94 @@ namespace capapresentacion
 
 
 
-        ////////////////////////////CRISTHIAN/////////////////////////////////////////////     
 
         public void nuevaPersonal()
         {
             FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
-
+            guardaDataList(detallePersonal);
             FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
-            detallePersonal.visualizaBotonesCambiarFormulario(false);
             detallePersonal.crearPersonal();
         }
+        public void botonEditar()
+        {
+
+            foreach (DataGridViewRow row in dataListPersonal.Rows)
+            {
+                if (Convert.ToBoolean(row.Selected))
+                {
+                    FrmDetallePersonal detallePersonal = new FrmDetallePersonal();
+
+                    guardaDataList(detallePersonal);
+
+                    FrmParent.frmparent.lanzarNuevoElemento(detallePersonal);
+                    detallePersonal.setModo("LECTURA");
+                    detallePersonal.rellenarComboboxes();
+                    detallePersonal.visualizaDatos(
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTarea"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["prioridad"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idProyecto"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_aplicacion"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaProyecto"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["EstadoTProy"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["titulo"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleado"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["id_empleadoReAsign"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["estado"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcreacion"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["fcierre"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaGrupo"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaOrigen"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["idTareaDestino"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["descripcion"].Value),
+                    Convert.ToString(this.dataListPersonal.CurrentRow.Cells["ObsTiempos"].Value)
+                    );
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonesCambiarFormulario(false);
+                    StaticBarraHorizontal.horizontalParent.visualizaBotonGuardar(true);
+                    break;
+                }
 
 
+            }
+        }
 
-
-        ////////////////////////////CRISTHIAN/////////////////////////////////////////////
+        public void eliminar()
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tiempo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
+                    int aux = 0;
+                    string rpta = "";
+                    foreach (DataGridViewRow row in dataListPersonal.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Selected))
+                        {
+                            aux = 1;
+                            rpta = NPersonal.eliminarPersonal(Convert.ToInt32(row.Cells[0].Value));
+                        }
+                    }
+                    if (rpta.Equals("OK"))
+                    {
+                        this.mensajeok("Registro eliminado");
+                    }
+                    else
+                    {
+                        this.mensajeerror("¡Ups!, No se ha podido eliminar el Tiempo");
+                        this.mensajeerror(rpta);
+                    }
+                    if (aux < 1)
+                    {
+                        MessageBox.Show("No haz seleccionado ningún Tiempo", "Eliminar Tiempo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    }
+                    this.mostrartareas();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
     }
 }
