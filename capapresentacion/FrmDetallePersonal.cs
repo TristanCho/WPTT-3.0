@@ -456,6 +456,28 @@ namespace capapresentacion
         }
 
 
+                        string rpta = "";
+
+                        rpta = NPersonal.eliminarPersonal(txtIdPersonal.Text);
+
+                        if (rpta.Equals("OK"))
+                        {
+                            this.mensajeok("Tarea personal eliminada");
+                            FrmParent.frmparent.AbrirFormulario(new FrmPersonal());
+                        }
+                        else
+                        {
+                            this.mensajeerror("¡Ups!, Algo ha salido mal...");
+                            this.mensajeerror(rpta);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+            }
+        }
 
     }
 }

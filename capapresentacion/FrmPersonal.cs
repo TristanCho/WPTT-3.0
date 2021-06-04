@@ -52,7 +52,7 @@ namespace capapresentacion
             
         }
 
-        public void mostrartareas()
+        public void mostrarpersonales()
         {
             this.dataListPersonal.DataSource = NPersonal.mostrarpersonales();
             this.lblTotal.Text = "Número de TPersonales: " + Convert.ToString(dataListPersonal.Rows.Count);
@@ -80,37 +80,88 @@ namespace capapresentacion
                 chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
             }*/
         }
-             
-        private void btnEliminarTarea_Click(object sender, EventArgs e)
+
+        //private void btnEliminarTarea_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        DialogResult opcion;
+        //        opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+        //        if (opcion == DialogResult.OK)
+        //        {
+        //            int aux = 0;
+        //            int id;
+        //            string rpta = "";
+        //            foreach (DataGridViewRow row in dataListPersonal.Rows)
+        //            {
+        //                if (Convert.ToBoolean(row.Cells[0].Value))
+        //                {
+        //                    aux = 1;
+
+        //                    id = Convert.ToInt32(row.Cells[1].Value);
+        //                    //rpta = NTarea.eliminarTarea(Convert.ToInt32(id));
+
+        //                    if (rpta.Equals("OK"))
+        //                    {
+        //                        this.mensajeok("Registro eliminado");
+        //                    }
+        //                    else
+        //                    {
+        //                        this.mensajeerror("¡Ups!, No se ha podido eliminar la tarea");
+        //                        this.mensajeerror(rpta);
+        //                    }
+        //                }
+        //            }
+        //            if (aux < 1)
+        //            {
+        //                MessageBox.Show("No haz seleccionado ningúna Tarea", "Eliminar Tarea", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+        //            }
+        //            this.mostrartareas();
+        //        }
+        //        else
+        //        {
+        //            this.btnEliminarTarea.Enabled = false;
+        //            this.cbEliminar.Checked = false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message + ex.StackTrace);
+        //    }
+        //}
+
+        public void botonEliminarPersonal()
         {
             try
             {
                 DialogResult opcion;
-                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Tarea Personal", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (opcion == DialogResult.OK)
                 {
                     int aux = 0;
-                    int id;
+                    string id;
                     string rpta = "";
                     foreach (DataGridViewRow row in dataListPersonal.Rows)
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        if (Convert.ToBoolean(row.Selected))
                         {
                             aux = 1;
 
-                            id = Convert.ToInt32(row.Cells[1].Value);
-                            //rpta = NTarea.eliminarTarea(Convert.ToInt32(id));
+                            id = Convert.ToString(row.Cells[1].Value);
+                            //rpta = NProyecto.eliminarproyecto(id);
+                            rpta = NPersonal.eliminarPersonal(id);
 
-                            if (rpta.Equals("OK"))
-                            {
-                                this.mensajeok("Registro eliminado");
-                            }
-                            else
-                            {
-                                this.mensajeerror("¡Ups!, No se ha podido eliminar la tarea");
-                                this.mensajeerror(rpta);
-                            }
+
                         }
+                    }
+                    if (rpta.Equals("OK"))
+                    {
+                        this.mensajeok("Registro eliminado");
+                    }
+                    else
+                    {
+                        this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                        this.mensajeerror(rpta);
                     }
                     if (aux < 1)
                     {
@@ -126,6 +177,7 @@ namespace capapresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+
         }
 
         private void mensajeok(string mensaje)
